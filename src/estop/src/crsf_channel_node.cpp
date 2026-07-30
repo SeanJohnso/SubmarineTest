@@ -38,10 +38,11 @@ public:
     serial_port_ = this->declare_parameter<std::string>("serial_port", "/dev/ttyAMA0");
     poll_rate_hz_ = this->declare_parameter<double>("poll_rate_hz", 50.0);
 
-    // Threshold-check config. threshold_channel_index is 0-based and
-    // defaults to -1 (disabled) until you know which channel is your
-    // toggle — find that with crsf_test.py first, then set it here.
-    threshold_channel_index_ = this->declare_parameter<int>("threshold_channel_index", -1);
+    // Threshold-check config. threshold_channel_index is 0-based.
+    // Default here = 4, i.e. "channel 5" as counted on the transmitter.
+    // Verify with crsf_test.py that index 4 is really the channel that
+    // moves when you flip your toggle — adjust via the ROS parameter if not.
+    threshold_channel_index_ = this->declare_parameter<int>("threshold_channel_index", 4);
     threshold_value_ = this->declare_parameter<int>("threshold_value", 1500);
     threshold_above_triggers_ = this->declare_parameter<bool>("threshold_above_triggers", true);
 
