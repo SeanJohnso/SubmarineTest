@@ -12,15 +12,10 @@
 // CRSF" and "touch hardware GPIO" as two independent, individually
 // testable nodes.
 //
-// NOTE ON THE xcrsf API: GitHub blocks automated fetching of this repo's
-// actual header, so this was written against the usage shown in the
-// README only (open_port(), is_paired(), get_channels(), get_link_state()).
-// get_channels() is assumed to return a fixed-size, indexable container of
-// uint16_t (matching CRSF's 16-channel RC_CHANNELS_PACKED frame). If this
-// doesn't match the real header, the compiler will tell you exactly where
-// — check include/xcrsf/crossfire.h on the Pi for the real return type of
-// get_channels() and adjust the two spots marked below.
+// Verified against the real installed header (/usr/local/include/xcrsf/crossfire.h):
+// open_port(), is_paired(), get_channel_state() -> std::array<uint16_t, 16>, get_link_state().
 
+#include <array>
 #include <chrono>
 #include <memory>
 #include <string>
@@ -92,10 +87,8 @@ private:
       return;
     }
 
-    // ADJUST HERE if get_channels() doesn't return something with
-    // .begin()/.end()/.size()/operator[] (e.g. if it's a raw C array,
-    // switch to a fixed loop over a known-size std::array instead).
-    const auto channels = crossfire_->get_channels();
+    // Confirmed against the real header: returns std::array<uint16_t, 16>.
+    const std::array<uint16_t, 16> channels = crossfire_->get_channel_state();
 
     std_msgs::msg::UInt16MultiArray channels_msg;
     channels_msg.data.assign(channels.begin(), channels.end());
