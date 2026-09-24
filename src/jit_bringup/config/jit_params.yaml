@@ -99,9 +99,9 @@ led_driver_node:
     gpio_pin: 13
     pwm_channel: 1
     dma_channel: 10
-    led_count: 8
+    led_count: 256
     freq_hz: 800000
-    brightness: 255
+    brightness: 64
     invert: false
     # Wire colour order. WS2812B is almost always GRB; change if the panel
     # shows the wrong colour for a known pattern.
