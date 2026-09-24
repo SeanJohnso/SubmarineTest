@@ -7,7 +7,7 @@ Packages:
 | `jit_msgs` | `Health`, `Mode`, `ModeRequest`, `LedCommand`, `EstopStatus` |
 | `jit_safety` | `crsf_channel_node`, `gpio_estop_node`, `system_monitor_node` |
 | `jit_control` | `vehicle_interface_node`, `manual_control_node`, `local_guided_node`, `global_guided_node` |
-| `jit_ui` | `led_driver_node` (stub) |
+| `jit_ui` | `led_driver_node` |
 | `jit_bringup` | launch files and config only, no source |
 
 This builds on the **companion Pi**, not on a dev machine — `jit_safety` needs
@@ -91,6 +91,33 @@ dpkg -L libgpiod-dev | grep libgpiod
 > LOW. The node warns at startup when this happens. If you cannot upgrade,
 > fit an external ~100k pull-down on that pin.
 
+### rpi_ws281x — LED indicator panel
+
+Used only by `jit_ui/led_driver_node`. Drives the addressable panel over one
+GPIO pin via PWM + DMA.
+
+<https://github.com/jgarff/rpi_ws281x>
+
+```bash
+git clone https://github.com/jgarff/rpi_ws281x.git
+cd rpi_ws281x
+mkdir build && cd build
+cmake -D BUILD_SHARED=ON ..
+make
+sudo make install
+sudo ldconfig
+```
+
+Check:
+
+```bash
+ldconfig -p | grep ws2811
+```
+
+Needs root (or the right capabilities) to access the PWM/DMA hardware, and
+only one process may hold a given DMA channel at a time — do not run
+`led_driver_node` alongside another process that also drives the panel.
+
 ### yaml-cpp — mission file parsing
 
 Used by `jit_control/local_guided_node`, which parses `waypoints.yaml`
@@ -162,3 +189,4 @@ MAVLink layer and then silently ignored.
 | relay coil drive | BCM23 / header 16 | output | HIGH = coil energized = motor rail live |
 | relay feedback | BCM18 / header 12 | input | 3.3 V LDO on the switched rail. HIGH = rail live |
 | CRSF receiver | `/dev/ttyAMA0` | RX only | one-way: the Pi's UART TX is not wired to the Rx |
+| LED panel data | BCM13 / header 33 | output | PWM channel 1. Single-wire addressable panel (rpi_ws281x) |

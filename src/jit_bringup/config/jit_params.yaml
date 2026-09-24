@@ -86,6 +86,28 @@ system_monitor_node:
     link_loss_action: DISARM
 
 # ===========================================================================
+# jit_ui
+# ===========================================================================
+
+led_driver_node:
+  ros__parameters:
+    # Single-wire (WS281x-style) addressable panel. BCM13 = PWM channel 1,
+    # header pin 33 - deliberately NOT BCM18, which gpio_estop_node already
+    # owns as the relay feedback input. pwm_channel must match whichever
+    # hardware PWM channel gpio_pin belongs to (0: BCM12/BCM18, 1: BCM13/
+    # BCM19). Unmeasured defaults - verify against the actual wiring.
+    gpio_pin: 13
+    pwm_channel: 1
+    dma_channel: 10
+    led_count: 8
+    freq_hz: 800000
+    brightness: 255
+    invert: false
+    # Wire colour order. WS2812B is almost always GRB; change if the panel
+    # shows the wrong colour for a known pattern.
+    strip_type: GRB
+
+# ===========================================================================
 # jit_control
 # ===========================================================================
 

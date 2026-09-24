@@ -3,8 +3,8 @@
 <package format="3">
   <name>jit_ui</name>
   <version>0.1.0</version>
-  <description>Operator-facing indication for the JIT submarine. Currently a
-    stub driver for the LED indicator panel.</description>
+  <description>Operator-facing indication for the JIT submarine: drives the
+    ESTOP/MANUAL/AUTO LED indicator panel.</description>
   <maintainer email="johns175@my.erau.edu">seam</maintainer>
   <license>TODO: License declaration</license>
 
