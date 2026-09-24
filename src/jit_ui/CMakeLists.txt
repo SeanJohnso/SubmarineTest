@@ -19,7 +19,8 @@ find_package(Threads REQUIRED)
 # own build (not a ROS package / not colcon-built), so located manually - see
 # README.MD for build instructions. Same pattern jit_safety uses for xcrsf.
 find_library(WS2811_LIBRARY ws2811 REQUIRED)
-find_path(WS2811_INCLUDE_DIR ws2811.h REQUIRED)
+# make install puts the headers under include/ws2811/, not include/ directly.
+find_path(WS2811_INCLUDE_DIR ws2811.h PATH_SUFFIXES ws2811 REQUIRED)
 
 add_executable(led_driver_node src/led_driver_node.cpp)
 target_include_directories(led_driver_node PRIVATE ${WS2811_INCLUDE_DIR})
