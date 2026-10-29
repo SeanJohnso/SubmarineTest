@@ -1,0 +1,42 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ping360_sonar_msgs/msg/SonarEcho.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module ping360_sonar_msgs {
+  module msg {
+    struct SonarEcho {
+      @verbatim (language="comment", text=
+        "header info")
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "the measurement angle")
+      @unit (value="rad")
+      float angle;
+
+      @verbatim (language="comment", text=
+        "Sonar Gain")
+      uint8 gain;
+
+      uint16 number_of_samples;
+
+      @unit (value="kHz")
+      uint16 transmit_frequency;
+
+      @unit (value="m/s")
+      uint16 speed_of_sound;
+
+      @verbatim (language="comment", text=
+        "range value")
+      @unit (value="m")
+      uint8 range;
+
+      @verbatim (language="comment", text=
+        "intensity data.  This is the actual data received from the sonar")
+      @unit (value="0-255")
+      sequence<uint8> intensities;
+    };
+  };
+};

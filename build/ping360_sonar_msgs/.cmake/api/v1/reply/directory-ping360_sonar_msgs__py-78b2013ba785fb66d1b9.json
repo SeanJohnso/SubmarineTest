@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "ping360_sonar_msgs__py",
+		"source" : "/home/sarkars1/SubmarineTest/build/ping360_sonar_msgs/ping360_sonar_msgs__py"
+	}
+}

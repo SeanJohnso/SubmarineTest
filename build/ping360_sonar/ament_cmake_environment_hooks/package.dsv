@@ -1,0 +1,4 @@
+source;share/ping360_sonar/local_setup.bash
+source;share/ping360_sonar/local_setup.dsv
+source;share/ping360_sonar/local_setup.sh
+source;share/ping360_sonar/local_setup.zsh

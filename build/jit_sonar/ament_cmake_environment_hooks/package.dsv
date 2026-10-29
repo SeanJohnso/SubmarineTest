@@ -1,0 +1,4 @@
+source;share/jit_sonar/local_setup.bash
+source;share/jit_sonar/local_setup.dsv
+source;share/jit_sonar/local_setup.sh
+source;share/jit_sonar/local_setup.zsh

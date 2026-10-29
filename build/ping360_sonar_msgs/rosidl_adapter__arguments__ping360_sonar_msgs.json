@@ -1,0 +1,6 @@
+{
+  "package_name": "ping360_sonar_msgs",
+  "non_idl_tuples": [
+    "/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar_msgs:msg/SonarEcho.msg"
+  ]
+}

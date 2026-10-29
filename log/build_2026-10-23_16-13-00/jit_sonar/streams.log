@@ -1,0 +1,25 @@
+[0.070s] Invoking command in '/home/sarkars1/SubmarineTest/build/jit_sonar': AMENT_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble LD_LIBRARY_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/sarkars1/SubmarineTest/build/jit_sonar -- -j8 -l8
+[0.360s] [ 50%] Building CXX object CMakeFiles/sonar_zone_node.dir/src/sonar_zone_node.cpp.o
+[45.772s] [100%] Linking CXX executable sonar_zone_node
+[48.033s] [100%] Built target sonar_zone_node
+[48.086s] Invoked command in '/home/sarkars1/SubmarineTest/build/jit_sonar' returned '0': AMENT_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble LD_LIBRARY_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/sarkars1/SubmarineTest/build/jit_sonar -- -j8 -l8
+[48.131s] Invoking command in '/home/sarkars1/SubmarineTest/build/jit_sonar': AMENT_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble LD_LIBRARY_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/sarkars1/SubmarineTest/build/jit_sonar
+[48.168s] -- Install configuration: ""
+[48.169s] -- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/lib/jit_sonar/sonar_zone_node
+[48.205s] -- Set runtime path of "/home/sarkars1/SubmarineTest/install/jit_sonar/lib/jit_sonar/sonar_zone_node" to ""
+[48.207s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/ament_index/resource_index/package_run_dependencies/jit_sonar
+[48.208s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/ament_index/resource_index/parent_prefix_path/jit_sonar
+[48.209s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/environment/ament_prefix_path.sh
+[48.209s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/environment/ament_prefix_path.dsv
+[48.210s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/environment/path.sh
+[48.211s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/environment/path.dsv
+[48.211s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/local_setup.bash
+[48.212s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/local_setup.sh
+[48.213s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/local_setup.zsh
+[48.215s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/local_setup.dsv
+[48.217s] -- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/package.dsv
+[48.219s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/ament_index/resource_index/packages/jit_sonar
+[48.221s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/cmake/jit_sonarConfig.cmake
+[48.222s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/cmake/jit_sonarConfig-version.cmake
+[48.224s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/package.xml
+[48.227s] Invoked command in '/home/sarkars1/SubmarineTest/build/jit_sonar' returned '0': AMENT_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble LD_LIBRARY_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/sarkars1/SubmarineTest/build/jit_sonar

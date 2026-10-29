@@ -1,0 +1,424 @@
+[0.000000] (-) TimerEvent: {}
+[0.000361] (-) JobUnselected: {'identifier': 'jit_bringup'}
+[0.000665] (-) JobUnselected: {'identifier': 'jit_comunication'}
+[0.001096] (-) JobUnselected: {'identifier': 'jit_control'}
+[0.001202] (-) JobUnselected: {'identifier': 'jit_msgs'}
+[0.001289] (-) JobUnselected: {'identifier': 'jit_safety'}
+[0.001373] (-) JobUnselected: {'identifier': 'jit_ui'}
+[0.001455] (-) JobUnselected: {'identifier': 'ping360_sonar'}
+[0.001785] (-) JobUnselected: {'identifier': 'ping360_sonar_msgs'}
+[0.001943] (jit_sonar) JobQueued: {'identifier': 'jit_sonar', 'dependencies': OrderedDict([('ping360_sonar_msgs', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs')])}
+[0.002142] (jit_sonar) JobStarted: {'identifier': 'jit_sonar'}
+[0.050758] (jit_sonar) JobProgress: {'identifier': 'jit_sonar', 'progress': 'cmake'}
+[0.053750] (jit_sonar) JobProgress: {'identifier': 'jit_sonar', 'progress': 'build'}
+[0.056870] (jit_sonar) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/sarkars1/SubmarineTest/build/jit_sonar', '--', '-j8', '-l8'], 'cwd': '/home/sarkars1/SubmarineTest/build/jit_sonar', 'env': OrderedDict([('GZ_SIM_SYSTEM_PLUGIN_PATH', '/home/sarkars1/vrx_ws/install/lib'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/sarkars1/SubmarineTest'), ('VSCODE_ESM_ENTRYPOINT', 'vs/workbench/api/node/extensionHostProcess'), ('GZ_SIM_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share/wamv_description/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/models/tmp:/home/sarkars1/vrx_ws/install/share/vrx_gz/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds/2023_practice:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds:/home/sarkars1/vrx_ws/install/share/vrx_gazebo/models:/home/sarkars1/vrx_ws/install/share/:/home/sarkars1/minion_ws/install/share/gazebo_models/models:/home/sarkars1/minion_ws/install/share'), ('no_proxy', 'localhost,127.0.0.0/8,::1'), ('AI_AGENT', 'claude-code_2-1-309_agent'), ('LANGUAGE', 'C.UTF-8'), ('USER', 'sarkars1'), ('SNAP_COMMON', '/var/snap/code/common'), ('CLAUDE_CODE_ENTRYPOINT', 'claude-vscode'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"c","resolvedLanguage":"en","defaultMessagesFile":"/snap/code/262/usr/share/code/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('FONTCONFIG_PATH', '/etc/fonts'), ('GIT_EDITOR', 'true'), ('GIO_MODULE_DIR', '/home/sarkars1/snap/code/common/.cache/gio-modules'), ('VSCODE_HANDLES_UNCAUGHT_ERRORS', 'true'), ('XDG_SESSION_TYPE', 'wayland'), ('CLAUDE_AGENT_SDK_VERSION', '0.3.309'), ('CLAUDE_CODE_SESSION_ATTENDED', '1'), ('SNAP_UID', '1000'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:/home/sarkars1/vrx_ws/install/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('CLAUDE_CODE_MESSAGING_TOKEN', '93b145ab6c20d480fcd2931445ae5e88'), ('HOME', '/home/sarkars1'), ('CHROME_DESKTOP', 'code.desktop'), ('SNAP_LIBRARY_PATH', '/var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32'), ('OLDPWD', '/home/sarkars1/SubmarineTest/src/jit_sonar'), ('DESKTOP_SESSION', 'ubuntu'), ('SNAP_USER_DATA', '/home/sarkars1/snap/code/262'), ('GTK_PATH', '/snap/code/262/usr/lib/x86_64-linux-gnu/gtk-3.0'), ('NO_PROXY', 'localhost,127.0.0.0/8,::1'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-908b0799-1.13-main.sock'), ('GTK_IM_MODULE_FILE', '/home/sarkars1/snap/code/common/.cache/immodules/immodules.cache'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('CLAUDE_CODE_CHILD_SESSION', '1'), ('COPILOT_OTEL_FILE_EXPORTER_PATH', '/dev/null'), ('SYSTEMD_EXEC_PID', '1567'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('SNAP_REVISION', '262'), ('COLORTERM', 'truecolor'), ('VSCODE_CRASH_REPORTER_PROCESS_TYPE', 'extensionHost'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install'), ('APPLICATION_INSIGHTS_NO_STATSBEAT', 'true'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'sarkars1'), ('SNAP_CONTEXT', 'JFZUiEBqdLS-hcCZbejjAa_5TyB_pAeEKWdEgpyoX_7im2TumisG'), ('CLAUDE_CODE_EMIT_STARTUP_TIMING', '1'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLAUDE_CODE_QUESTION_PREVIEW_FORMAT', 'markdown'), ('XDG_SESSION_CLASS', 'user'), ('SNAP_VERSION', '88e44fa0'), ('XDG_DATA_DIRS_VSCODE_SNAP_ORIG', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('USERNAME', 'sarkars1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('SNAP_INSTANCE_NAME', 'code'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('MCP_CONNECTION_NONBLOCKING', 'true'), ('PATH', '/home/sarkars1/vrx_ws/install/../src/vrx-erau/vrx_gz/launch:/home/sarkars1/minion_ws/install/share/gazebo_models/launch:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/mciscolin:@/tmp/.ICE-unix/1540,unix/mciscolin:/tmp/.ICE-unix/1540'), ('GTK_EXE_PREFIX', '/snap/code/262/usr'), ('COREPACK_ENABLE_AUTO_PIN', '0'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/ed3032b4_2357_42c7_885c_c5ba8042ebb4'), ('GNOME_SETUP_DISPLAY', ':1'), ('SNAP_DATA', '/var/snap/code/262'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('CLAUDE_EFFORT', 'medium'), ('DISPLAY', ':0'), ('LOCPATH', '/snap/code/262/usr/lib/locale'), ('CLAUDE_PID', '3545'), ('NoDefaultCurrentDirectoryInExePath', '1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XDG_DATA_HOME', '/home/sarkars1/snap/code/262/.local/share'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.00XRX3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.94'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SNAP_USER_COMMON', '/home/sarkars1/snap/code/common'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/home/sarkars1/snap/code/262/.local/share/glib-2.0/schemas'), ('SNAP_ARCH', 'amd64'), ('AMENT_PREFIX_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('SNAP_COOKIE', 'JFZUiEBqdLS-hcCZbejjAa_5TyB_pAeEKWdEgpyoX_7im2TumisG'), ('SHELL', '/bin/bash'), ('GDK_PIXBUF_MODULEDIR', '/snap/code/262/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders'), ('MXC_BIN_DIR', '/snap/code/262/usr/share/code/resources/app/node_modules.asar.unpacked/@microsoft/mxc-sdk/bin'), ('QT_ACCESSIBILITY', '1'), ('ELECTRON_RUN_AS_NODE', '1'), ('GDMSESSION', 'ubuntu'), ('CLAUDE_CODE_ENABLE_SDK_FILE_CHECKPOINTING', 'true'), ('CLAUDE_CODE_SESSION_ID', '932122c2-684c-4256-8c87-4eddbe34bc54'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share'), ('SNAP_NAME', 'code'), ('FONTCONFIG_FILE', '/etc/fonts/fonts.conf'), ('CLAUDECODE', '1'), ('GDK_PIXBUF_MODULE_FILE', '/home/sarkars1/snap/code/common/.cache/gdk-pixbuf-loaders.cache'), ('GZ_VERSION', 'garden'), ('SNAP_LAUNCHER_ARCH_TRIPLET', 'x86_64-linux-gnu'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/sarkars1/SubmarineTest/build/jit_sonar'), ('VSCODE_CLI', '1'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('SNAP_REAL_HOME', '/home/sarkars1'), ('VSCODE_CODE_CACHE_PATH', '/home/sarkars1/.config/Code/CachedData/88e44fa0e00b08f7758b4f6d05632e4fd5e4df6f'), ('XDG_DATA_DIRS', '/home/sarkars1/snap/code/262/.local/share:/home/sarkars1/snap/code/262:/snap/code/262/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('CLAUDE_CODE_EXECPATH', '/home/sarkars1/.vscode/extensions/anthropic.claude-code-2.1.309-linux-x64/resources/native-binary/claude'), ('SNAP_EUID', '1000'), ('PYTHONPATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:/home/sarkars1/vrx_ws/install/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('SNAP', '/snap/code/262'), ('CLAUDE_CODE_ENABLE_TASKS', '0'), ('COLCON', '1'), ('COPILOT_CLI_ENABLED_FEATURE_FLAGS', 'SHELL_SPAWN_BACKEND'), ('VTE_VERSION', '6800'), ('ELECTRON_NO_ATTACH_CONSOLE', '1'), ('CLAUDE_CODE_MESSAGING_SOCKET', '/run/user/1000/cc-socks/3545.sock'), ('CMAKE_PREFIX_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('VSCODE_PID', '2611')]), 'shell': False}
+[0.095915] (-) TimerEvent: {}
+[0.189849] (jit_sonar) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.196154] (-) TimerEvent: {}
+[0.296682] (-) TimerEvent: {}
+[0.397194] (-) TimerEvent: {}
+[0.497691] (-) TimerEvent: {}
+[0.598147] (-) TimerEvent: {}
+[0.698639] (-) TimerEvent: {}
+[0.797121] (jit_sonar) StdoutLine: {'line': b'-- Found rclcpp: 16.0.19 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.798794] (-) TimerEvent: {}
+[0.899188] (-) TimerEvent: {}
+[0.938060] (jit_sonar) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.9 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.950456] (jit_sonar) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.9 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.991119] (jit_sonar) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.9 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.999409] (-) TimerEvent: {}
+[1.037042] (jit_sonar) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.099670] (-) TimerEvent: {}
+[1.100987] (jit_sonar) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.200000] (-) TimerEvent: {}
+[1.263829] (jit_sonar) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.3 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[1.271291] (jit_sonar) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.300154] (-) TimerEvent: {}
+[1.400656] (-) TimerEvent: {}
+[1.501062] (-) TimerEvent: {}
+[1.601459] (-) TimerEvent: {}
+[1.701889] (-) TimerEvent: {}
+[1.764038] (jit_sonar) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.802102] (-) TimerEvent: {}
+[1.902624] (-) TimerEvent: {}
+[2.003099] (-) TimerEvent: {}
+[2.014647] (jit_sonar) StdoutLine: {'line': b'-- Found sensor_msgs: 4.9.2 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[2.103260] (-) TimerEvent: {}
+[2.148719] (jit_sonar) StdoutLine: {'line': b'-- Found ping360_sonar_msgs: 1.0.0 (/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake)\n'}
+[2.203452] (-) TimerEvent: {}
+[2.213142] (jit_sonar) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[2.303617] (-) TimerEvent: {}
+[2.403995] (-) TimerEvent: {}
+[2.504355] (-) TimerEvent: {}
+[2.550739] (jit_sonar) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[2.551734] (jit_sonar) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[2.552212] (jit_sonar) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[2.553890] (jit_sonar) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[2.557206] (jit_sonar) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[2.557736] (jit_sonar) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[2.559143] (jit_sonar) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[2.562959] (jit_sonar) StdoutLine: {'line': b'-- Configuring done\n'}
+[2.604541] (-) TimerEvent: {}
+[2.606832] (jit_sonar) StdoutLine: {'line': b'-- Generating done\n'}
+[2.625719] (jit_sonar) StdoutLine: {'line': b'-- Build files have been written to: /home/sarkars1/SubmarineTest/build/jit_sonar\n'}
+[2.704695] (-) TimerEvent: {}
+[2.751921] (jit_sonar) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target sonar_zone_node\n'}
+[2.804872] (-) TimerEvent: {}
+[2.808431] (jit_sonar) StdoutLine: {'line': b'[ 50%] Building CXX object CMakeFiles/sonar_zone_node.dir/src/sonar_zone_node.cpp.o\n'}
+[2.905039] (-) TimerEvent: {}
+[3.005414] (-) TimerEvent: {}
+[3.105746] (-) TimerEvent: {}
+[3.206137] (-) TimerEvent: {}
+[3.306566] (-) TimerEvent: {}
+[3.406875] (-) TimerEvent: {}
+[3.507184] (-) TimerEvent: {}
+[3.607506] (-) TimerEvent: {}
+[3.707844] (-) TimerEvent: {}
+[3.808209] (-) TimerEvent: {}
+[3.908510] (-) TimerEvent: {}
+[4.008809] (-) TimerEvent: {}
+[4.109122] (-) TimerEvent: {}
+[4.209481] (-) TimerEvent: {}
+[4.309904] (-) TimerEvent: {}
+[4.410309] (-) TimerEvent: {}
+[4.510727] (-) TimerEvent: {}
+[4.611124] (-) TimerEvent: {}
+[4.711494] (-) TimerEvent: {}
+[4.811920] (-) TimerEvent: {}
+[4.912401] (-) TimerEvent: {}
+[5.012919] (-) TimerEvent: {}
+[5.113321] (-) TimerEvent: {}
+[5.213646] (-) TimerEvent: {}
+[5.313986] (-) TimerEvent: {}
+[5.414403] (-) TimerEvent: {}
+[5.514816] (-) TimerEvent: {}
+[5.615299] (-) TimerEvent: {}
+[5.715757] (-) TimerEvent: {}
+[5.816175] (-) TimerEvent: {}
+[5.916611] (-) TimerEvent: {}
+[6.017106] (-) TimerEvent: {}
+[6.117605] (-) TimerEvent: {}
+[6.218069] (-) TimerEvent: {}
+[6.318625] (-) TimerEvent: {}
+[6.419145] (-) TimerEvent: {}
+[6.519683] (-) TimerEvent: {}
+[6.620116] (-) TimerEvent: {}
+[6.720526] (-) TimerEvent: {}
+[6.820945] (-) TimerEvent: {}
+[6.921405] (-) TimerEvent: {}
+[7.021869] (-) TimerEvent: {}
+[7.122329] (-) TimerEvent: {}
+[7.222783] (-) TimerEvent: {}
+[7.323262] (-) TimerEvent: {}
+[7.423790] (-) TimerEvent: {}
+[7.524198] (-) TimerEvent: {}
+[7.624511] (-) TimerEvent: {}
+[7.724808] (-) TimerEvent: {}
+[7.825125] (-) TimerEvent: {}
+[7.925446] (-) TimerEvent: {}
+[8.025781] (-) TimerEvent: {}
+[8.126124] (-) TimerEvent: {}
+[8.226462] (-) TimerEvent: {}
+[8.326784] (-) TimerEvent: {}
+[8.427158] (-) TimerEvent: {}
+[8.527513] (-) TimerEvent: {}
+[8.627871] (-) TimerEvent: {}
+[8.728226] (-) TimerEvent: {}
+[8.828594] (-) TimerEvent: {}
+[8.928913] (-) TimerEvent: {}
+[9.029217] (-) TimerEvent: {}
+[9.129530] (-) TimerEvent: {}
+[9.229902] (-) TimerEvent: {}
+[9.330271] (-) TimerEvent: {}
+[9.430605] (-) TimerEvent: {}
+[9.530975] (-) TimerEvent: {}
+[9.631334] (-) TimerEvent: {}
+[9.731641] (-) TimerEvent: {}
+[9.831952] (-) TimerEvent: {}
+[9.932251] (-) TimerEvent: {}
+[10.032565] (-) TimerEvent: {}
+[10.132889] (-) TimerEvent: {}
+[10.233202] (-) TimerEvent: {}
+[10.333513] (-) TimerEvent: {}
+[10.433820] (-) TimerEvent: {}
+[10.534264] (-) TimerEvent: {}
+[10.634675] (-) TimerEvent: {}
+[10.735057] (-) TimerEvent: {}
+[10.835388] (-) TimerEvent: {}
+[10.935709] (-) TimerEvent: {}
+[11.036051] (-) TimerEvent: {}
+[11.136467] (-) TimerEvent: {}
+[11.236872] (-) TimerEvent: {}
+[11.337325] (-) TimerEvent: {}
+[11.437828] (-) TimerEvent: {}
+[11.538286] (-) TimerEvent: {}
+[11.638730] (-) TimerEvent: {}
+[11.739189] (-) TimerEvent: {}
+[11.839595] (-) TimerEvent: {}
+[11.939944] (-) TimerEvent: {}
+[12.040253] (-) TimerEvent: {}
+[12.140554] (-) TimerEvent: {}
+[12.240866] (-) TimerEvent: {}
+[12.341212] (-) TimerEvent: {}
+[12.441509] (-) TimerEvent: {}
+[12.541804] (-) TimerEvent: {}
+[12.642105] (-) TimerEvent: {}
+[12.742471] (-) TimerEvent: {}
+[12.842800] (-) TimerEvent: {}
+[12.943157] (-) TimerEvent: {}
+[13.043476] (-) TimerEvent: {}
+[13.143793] (-) TimerEvent: {}
+[13.244101] (-) TimerEvent: {}
+[13.344401] (-) TimerEvent: {}
+[13.444721] (-) TimerEvent: {}
+[13.545041] (-) TimerEvent: {}
+[13.645343] (-) TimerEvent: {}
+[13.745669] (-) TimerEvent: {}
+[13.845988] (-) TimerEvent: {}
+[13.946296] (-) TimerEvent: {}
+[14.046593] (-) TimerEvent: {}
+[14.146904] (-) TimerEvent: {}
+[14.247220] (-) TimerEvent: {}
+[14.347552] (-) TimerEvent: {}
+[14.447883] (-) TimerEvent: {}
+[14.548259] (-) TimerEvent: {}
+[14.648633] (-) TimerEvent: {}
+[14.748978] (-) TimerEvent: {}
+[14.849320] (-) TimerEvent: {}
+[14.949647] (-) TimerEvent: {}
+[15.049970] (-) TimerEvent: {}
+[15.150308] (-) TimerEvent: {}
+[15.250644] (-) TimerEvent: {}
+[15.350974] (-) TimerEvent: {}
+[15.451299] (-) TimerEvent: {}
+[15.551629] (-) TimerEvent: {}
+[15.651943] (-) TimerEvent: {}
+[15.752312] (-) TimerEvent: {}
+[15.852709] (-) TimerEvent: {}
+[15.953024] (-) TimerEvent: {}
+[16.053327] (-) TimerEvent: {}
+[16.153648] (-) TimerEvent: {}
+[16.253965] (-) TimerEvent: {}
+[16.354283] (-) TimerEvent: {}
+[16.454610] (-) TimerEvent: {}
+[16.554937] (-) TimerEvent: {}
+[16.655291] (-) TimerEvent: {}
+[16.755594] (-) TimerEvent: {}
+[16.855871] (-) TimerEvent: {}
+[16.956167] (-) TimerEvent: {}
+[17.056477] (-) TimerEvent: {}
+[17.156793] (-) TimerEvent: {}
+[17.257168] (-) TimerEvent: {}
+[17.357702] (-) TimerEvent: {}
+[17.458148] (-) TimerEvent: {}
+[17.558633] (-) TimerEvent: {}
+[17.659055] (-) TimerEvent: {}
+[17.759557] (-) TimerEvent: {}
+[17.860131] (-) TimerEvent: {}
+[17.960637] (-) TimerEvent: {}
+[18.061053] (-) TimerEvent: {}
+[18.161480] (-) TimerEvent: {}
+[18.262014] (-) TimerEvent: {}
+[18.362524] (-) TimerEvent: {}
+[18.462967] (-) TimerEvent: {}
+[18.563445] (-) TimerEvent: {}
+[18.663872] (-) TimerEvent: {}
+[18.764204] (-) TimerEvent: {}
+[18.864496] (-) TimerEvent: {}
+[18.964770] (-) TimerEvent: {}
+[19.065044] (-) TimerEvent: {}
+[19.165380] (-) TimerEvent: {}
+[19.265761] (-) TimerEvent: {}
+[19.366122] (-) TimerEvent: {}
+[19.466512] (-) TimerEvent: {}
+[19.566918] (-) TimerEvent: {}
+[19.667328] (-) TimerEvent: {}
+[19.767716] (-) TimerEvent: {}
+[19.868112] (-) TimerEvent: {}
+[19.968439] (-) TimerEvent: {}
+[20.068757] (-) TimerEvent: {}
+[20.169097] (-) TimerEvent: {}
+[20.269455] (-) TimerEvent: {}
+[20.369864] (-) TimerEvent: {}
+[20.470276] (-) TimerEvent: {}
+[20.570610] (-) TimerEvent: {}
+[20.670956] (-) TimerEvent: {}
+[20.771329] (-) TimerEvent: {}
+[20.871740] (-) TimerEvent: {}
+[20.972165] (-) TimerEvent: {}
+[21.072565] (-) TimerEvent: {}
+[21.172968] (-) TimerEvent: {}
+[21.273360] (-) TimerEvent: {}
+[21.373750] (-) TimerEvent: {}
+[21.474202] (-) TimerEvent: {}
+[21.574618] (-) TimerEvent: {}
+[21.675020] (-) TimerEvent: {}
+[21.775479] (-) TimerEvent: {}
+[21.875998] (-) TimerEvent: {}
+[21.976600] (-) TimerEvent: {}
+[22.077099] (-) TimerEvent: {}
+[22.177460] (-) TimerEvent: {}
+[22.277856] (-) TimerEvent: {}
+[22.378279] (-) TimerEvent: {}
+[22.478682] (-) TimerEvent: {}
+[22.579183] (-) TimerEvent: {}
+[22.679844] (-) TimerEvent: {}
+[22.780373] (-) TimerEvent: {}
+[22.880910] (-) TimerEvent: {}
+[22.981416] (-) TimerEvent: {}
+[23.081732] (-) TimerEvent: {}
+[23.182033] (-) TimerEvent: {}
+[23.282361] (-) TimerEvent: {}
+[23.382668] (-) TimerEvent: {}
+[23.482974] (-) TimerEvent: {}
+[23.583270] (-) TimerEvent: {}
+[23.683554] (-) TimerEvent: {}
+[23.783840] (-) TimerEvent: {}
+[23.884125] (-) TimerEvent: {}
+[23.984421] (-) TimerEvent: {}
+[24.084704] (-) TimerEvent: {}
+[24.185018] (-) TimerEvent: {}
+[24.285334] (-) TimerEvent: {}
+[24.385663] (-) TimerEvent: {}
+[24.485993] (-) TimerEvent: {}
+[24.586348] (-) TimerEvent: {}
+[24.686696] (-) TimerEvent: {}
+[24.787033] (-) TimerEvent: {}
+[24.887410] (-) TimerEvent: {}
+[24.987843] (-) TimerEvent: {}
+[25.088238] (-) TimerEvent: {}
+[25.188546] (-) TimerEvent: {}
+[25.288845] (-) TimerEvent: {}
+[25.389137] (-) TimerEvent: {}
+[25.489424] (-) TimerEvent: {}
+[25.589711] (-) TimerEvent: {}
+[25.690035] (-) TimerEvent: {}
+[25.790405] (-) TimerEvent: {}
+[25.890745] (-) TimerEvent: {}
+[25.991068] (-) TimerEvent: {}
+[26.091396] (-) TimerEvent: {}
+[26.191773] (-) TimerEvent: {}
+[26.292269] (-) TimerEvent: {}
+[26.392744] (-) TimerEvent: {}
+[26.493132] (-) TimerEvent: {}
+[26.593520] (-) TimerEvent: {}
+[26.693841] (-) TimerEvent: {}
+[26.794181] (-) TimerEvent: {}
+[26.894490] (-) TimerEvent: {}
+[26.994803] (-) TimerEvent: {}
+[27.095147] (-) TimerEvent: {}
+[27.195492] (-) TimerEvent: {}
+[27.295827] (-) TimerEvent: {}
+[27.396152] (-) TimerEvent: {}
+[27.496488] (-) TimerEvent: {}
+[27.596824] (-) TimerEvent: {}
+[27.697173] (-) TimerEvent: {}
+[27.797540] (-) TimerEvent: {}
+[27.897843] (-) TimerEvent: {}
+[27.998128] (-) TimerEvent: {}
+[28.098424] (-) TimerEvent: {}
+[28.198689] (-) TimerEvent: {}
+[28.298961] (-) TimerEvent: {}
+[28.399260] (-) TimerEvent: {}
+[28.499557] (-) TimerEvent: {}
+[28.599859] (-) TimerEvent: {}
+[28.700148] (-) TimerEvent: {}
+[28.800439] (-) TimerEvent: {}
+[28.900734] (-) TimerEvent: {}
+[29.001012] (-) TimerEvent: {}
+[29.101284] (-) TimerEvent: {}
+[29.201574] (-) TimerEvent: {}
+[29.301899] (-) TimerEvent: {}
+[29.402242] (-) TimerEvent: {}
+[29.502558] (-) TimerEvent: {}
+[29.602895] (-) TimerEvent: {}
+[29.703230] (-) TimerEvent: {}
+[29.803568] (-) TimerEvent: {}
+[29.903918] (-) TimerEvent: {}
+[30.004293] (-) TimerEvent: {}
+[30.104669] (-) TimerEvent: {}
+[30.205021] (-) TimerEvent: {}
+[30.305362] (-) TimerEvent: {}
+[30.405703] (-) TimerEvent: {}
+[30.506053] (-) TimerEvent: {}
+[30.606409] (-) TimerEvent: {}
+[30.706745] (-) TimerEvent: {}
+[30.807074] (-) TimerEvent: {}
+[30.907402] (-) TimerEvent: {}
+[31.007726] (-) TimerEvent: {}
+[31.108057] (-) TimerEvent: {}
+[31.208401] (-) TimerEvent: {}
+[31.308734] (-) TimerEvent: {}
+[31.409067] (-) TimerEvent: {}
+[31.509412] (-) TimerEvent: {}
+[31.609744] (-) TimerEvent: {}
+[31.710098] (-) TimerEvent: {}
+[31.810395] (-) TimerEvent: {}
+[31.910672] (-) TimerEvent: {}
+[32.010972] (-) TimerEvent: {}
+[32.111288] (-) TimerEvent: {}
+[32.211556] (-) TimerEvent: {}
+[32.311853] (-) TimerEvent: {}
+[32.412222] (-) TimerEvent: {}
+[32.512603] (-) TimerEvent: {}
+[32.613012] (-) TimerEvent: {}
+[32.713399] (-) TimerEvent: {}
+[32.813724] (-) TimerEvent: {}
+[32.914022] (-) TimerEvent: {}
+[33.014335] (-) TimerEvent: {}
+[33.114658] (-) TimerEvent: {}
+[33.215077] (-) TimerEvent: {}
+[33.315607] (-) TimerEvent: {}
+[33.416032] (-) TimerEvent: {}
+[33.516348] (-) TimerEvent: {}
+[33.616722] (-) TimerEvent: {}
+[33.717099] (-) TimerEvent: {}
+[33.817443] (-) TimerEvent: {}
+[33.917761] (-) TimerEvent: {}
+[33.924152] (jit_sonar) StdoutLine: {'line': b'[100%] Linking CXX executable sonar_zone_node\n'}
+[34.017908] (-) TimerEvent: {}
+[34.118242] (-) TimerEvent: {}
+[34.218550] (-) TimerEvent: {}
+[34.318876] (-) TimerEvent: {}
+[34.419334] (-) TimerEvent: {}
+[34.519894] (-) TimerEvent: {}
+[34.620500] (-) TimerEvent: {}
+[34.721046] (-) TimerEvent: {}
+[34.821489] (-) TimerEvent: {}
+[34.921887] (-) TimerEvent: {}
+[35.022332] (-) TimerEvent: {}
+[35.122815] (-) TimerEvent: {}
+[35.223267] (-) TimerEvent: {}
+[35.323712] (-) TimerEvent: {}
+[35.424251] (-) TimerEvent: {}
+[35.524800] (-) TimerEvent: {}
+[35.625285] (-) TimerEvent: {}
+[35.725722] (-) TimerEvent: {}
+[35.826247] (-) TimerEvent: {}
+[35.832067] (jit_sonar) StdoutLine: {'line': b'[100%] Built target sonar_zone_node\n'}
+[35.882078] (jit_sonar) CommandEnded: {'returncode': 0}
+[35.885348] (jit_sonar) JobProgress: {'identifier': 'jit_sonar', 'progress': 'install'}
+[35.923282] (jit_sonar) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/sarkars1/SubmarineTest/build/jit_sonar'], 'cwd': '/home/sarkars1/SubmarineTest/build/jit_sonar', 'env': OrderedDict([('GZ_SIM_SYSTEM_PLUGIN_PATH', '/home/sarkars1/vrx_ws/install/lib'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/sarkars1/SubmarineTest'), ('VSCODE_ESM_ENTRYPOINT', 'vs/workbench/api/node/extensionHostProcess'), ('GZ_SIM_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share/wamv_description/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/models/tmp:/home/sarkars1/vrx_ws/install/share/vrx_gz/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds/2023_practice:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds:/home/sarkars1/vrx_ws/install/share/vrx_gazebo/models:/home/sarkars1/vrx_ws/install/share/:/home/sarkars1/minion_ws/install/share/gazebo_models/models:/home/sarkars1/minion_ws/install/share'), ('no_proxy', 'localhost,127.0.0.0/8,::1'), ('AI_AGENT', 'claude-code_2-1-309_agent'), ('LANGUAGE', 'C.UTF-8'), ('USER', 'sarkars1'), ('SNAP_COMMON', '/var/snap/code/common'), ('CLAUDE_CODE_ENTRYPOINT', 'claude-vscode'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"c","resolvedLanguage":"en","defaultMessagesFile":"/snap/code/262/usr/share/code/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('FONTCONFIG_PATH', '/etc/fonts'), ('GIT_EDITOR', 'true'), ('GIO_MODULE_DIR', '/home/sarkars1/snap/code/common/.cache/gio-modules'), ('VSCODE_HANDLES_UNCAUGHT_ERRORS', 'true'), ('XDG_SESSION_TYPE', 'wayland'), ('CLAUDE_AGENT_SDK_VERSION', '0.3.309'), ('CLAUDE_CODE_SESSION_ATTENDED', '1'), ('SNAP_UID', '1000'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:/home/sarkars1/vrx_ws/install/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('CLAUDE_CODE_MESSAGING_TOKEN', '93b145ab6c20d480fcd2931445ae5e88'), ('HOME', '/home/sarkars1'), ('CHROME_DESKTOP', 'code.desktop'), ('SNAP_LIBRARY_PATH', '/var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32'), ('OLDPWD', '/home/sarkars1/SubmarineTest/src/jit_sonar'), ('DESKTOP_SESSION', 'ubuntu'), ('SNAP_USER_DATA', '/home/sarkars1/snap/code/262'), ('GTK_PATH', '/snap/code/262/usr/lib/x86_64-linux-gnu/gtk-3.0'), ('NO_PROXY', 'localhost,127.0.0.0/8,::1'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-908b0799-1.13-main.sock'), ('GTK_IM_MODULE_FILE', '/home/sarkars1/snap/code/common/.cache/immodules/immodules.cache'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('CLAUDE_CODE_CHILD_SESSION', '1'), ('COPILOT_OTEL_FILE_EXPORTER_PATH', '/dev/null'), ('SYSTEMD_EXEC_PID', '1567'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('SNAP_REVISION', '262'), ('COLORTERM', 'truecolor'), ('VSCODE_CRASH_REPORTER_PROCESS_TYPE', 'extensionHost'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install'), ('APPLICATION_INSIGHTS_NO_STATSBEAT', 'true'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'sarkars1'), ('SNAP_CONTEXT', 'JFZUiEBqdLS-hcCZbejjAa_5TyB_pAeEKWdEgpyoX_7im2TumisG'), ('CLAUDE_CODE_EMIT_STARTUP_TIMING', '1'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLAUDE_CODE_QUESTION_PREVIEW_FORMAT', 'markdown'), ('XDG_SESSION_CLASS', 'user'), ('SNAP_VERSION', '88e44fa0'), ('XDG_DATA_DIRS_VSCODE_SNAP_ORIG', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('USERNAME', 'sarkars1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('SNAP_INSTANCE_NAME', 'code'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('MCP_CONNECTION_NONBLOCKING', 'true'), ('PATH', '/home/sarkars1/vrx_ws/install/../src/vrx-erau/vrx_gz/launch:/home/sarkars1/minion_ws/install/share/gazebo_models/launch:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/mciscolin:@/tmp/.ICE-unix/1540,unix/mciscolin:/tmp/.ICE-unix/1540'), ('GTK_EXE_PREFIX', '/snap/code/262/usr'), ('COREPACK_ENABLE_AUTO_PIN', '0'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/ed3032b4_2357_42c7_885c_c5ba8042ebb4'), ('GNOME_SETUP_DISPLAY', ':1'), ('SNAP_DATA', '/var/snap/code/262'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('CLAUDE_EFFORT', 'medium'), ('DISPLAY', ':0'), ('LOCPATH', '/snap/code/262/usr/lib/locale'), ('CLAUDE_PID', '3545'), ('NoDefaultCurrentDirectoryInExePath', '1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XDG_DATA_HOME', '/home/sarkars1/snap/code/262/.local/share'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.00XRX3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.94'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SNAP_USER_COMMON', '/home/sarkars1/snap/code/common'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/home/sarkars1/snap/code/262/.local/share/glib-2.0/schemas'), ('SNAP_ARCH', 'amd64'), ('AMENT_PREFIX_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('SNAP_COOKIE', 'JFZUiEBqdLS-hcCZbejjAa_5TyB_pAeEKWdEgpyoX_7im2TumisG'), ('SHELL', '/bin/bash'), ('GDK_PIXBUF_MODULEDIR', '/snap/code/262/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders'), ('MXC_BIN_DIR', '/snap/code/262/usr/share/code/resources/app/node_modules.asar.unpacked/@microsoft/mxc-sdk/bin'), ('QT_ACCESSIBILITY', '1'), ('ELECTRON_RUN_AS_NODE', '1'), ('GDMSESSION', 'ubuntu'), ('CLAUDE_CODE_ENABLE_SDK_FILE_CHECKPOINTING', 'true'), ('CLAUDE_CODE_SESSION_ID', '932122c2-684c-4256-8c87-4eddbe34bc54'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share'), ('SNAP_NAME', 'code'), ('FONTCONFIG_FILE', '/etc/fonts/fonts.conf'), ('CLAUDECODE', '1'), ('GDK_PIXBUF_MODULE_FILE', '/home/sarkars1/snap/code/common/.cache/gdk-pixbuf-loaders.cache'), ('GZ_VERSION', 'garden'), ('SNAP_LAUNCHER_ARCH_TRIPLET', 'x86_64-linux-gnu'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/sarkars1/SubmarineTest/build/jit_sonar'), ('VSCODE_CLI', '1'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('SNAP_REAL_HOME', '/home/sarkars1'), ('VSCODE_CODE_CACHE_PATH', '/home/sarkars1/.config/Code/CachedData/88e44fa0e00b08f7758b4f6d05632e4fd5e4df6f'), ('XDG_DATA_DIRS', '/home/sarkars1/snap/code/262/.local/share:/home/sarkars1/snap/code/262:/snap/code/262/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('CLAUDE_CODE_EXECPATH', '/home/sarkars1/.vscode/extensions/anthropic.claude-code-2.1.309-linux-x64/resources/native-binary/claude'), ('SNAP_EUID', '1000'), ('PYTHONPATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:/home/sarkars1/vrx_ws/install/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('SNAP', '/snap/code/262'), ('CLAUDE_CODE_ENABLE_TASKS', '0'), ('COLCON', '1'), ('COPILOT_CLI_ENABLED_FEATURE_FLAGS', 'SHELL_SPAWN_BACKEND'), ('VTE_VERSION', '6800'), ('ELECTRON_NO_ATTACH_CONSOLE', '1'), ('CLAUDE_CODE_MESSAGING_SOCKET', '/run/user/1000/cc-socks/3545.sock'), ('CMAKE_PREFIX_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('VSCODE_PID', '2611')]), 'shell': False}
+[35.928587] (-) TimerEvent: {}
+[35.958748] (jit_sonar) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[35.960508] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/lib/jit_sonar/sonar_zone_node\n'}
+[35.986010] (jit_sonar) StdoutLine: {'line': b'-- Set runtime path of "/home/sarkars1/SubmarineTest/install/jit_sonar/lib/jit_sonar/sonar_zone_node" to ""\n'}
+[35.987923] (jit_sonar) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/ament_index/resource_index/package_run_dependencies/jit_sonar\n'}
+[35.990308] (jit_sonar) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/ament_index/resource_index/parent_prefix_path/jit_sonar\n'}
+[35.991963] (jit_sonar) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/environment/ament_prefix_path.sh\n'}
+[35.994087] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/environment/ament_prefix_path.dsv\n'}
+[35.994848] (jit_sonar) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/environment/path.sh\n'}
+[35.995466] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/environment/path.dsv\n'}
+[35.996062] (jit_sonar) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/local_setup.bash\n'}
+[35.996692] (jit_sonar) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/local_setup.sh\n'}
+[35.997316] (jit_sonar) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/local_setup.zsh\n'}
+[35.997946] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/local_setup.dsv\n'}
+[35.998611] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/package.dsv\n'}
+[35.999273] (jit_sonar) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/ament_index/resource_index/packages/jit_sonar\n'}
+[35.999900] (jit_sonar) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/cmake/jit_sonarConfig.cmake\n'}
+[36.001747] (jit_sonar) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/cmake/jit_sonarConfig-version.cmake\n'}
+[36.003893] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/package.xml\n'}
+[36.006072] (jit_sonar) CommandEnded: {'returncode': 0}
+[36.028820] (-) TimerEvent: {}
+[36.086593] (jit_sonar) JobEnded: {'identifier': 'jit_sonar', 'rc': 0}
+[36.089857] (-) EventReactorShutdown: {}

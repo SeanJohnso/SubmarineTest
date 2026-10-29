@@ -1,0 +1,8 @@
+source;share/jit_sonar/hook/cmake_prefix_path.ps1
+source;share/jit_sonar/hook/cmake_prefix_path.dsv
+source;share/jit_sonar/hook/cmake_prefix_path.sh
+source;share/jit_sonar/local_setup.bash
+source;share/jit_sonar/local_setup.dsv
+source;share/jit_sonar/local_setup.ps1
+source;share/jit_sonar/local_setup.sh
+source;share/jit_sonar/local_setup.zsh

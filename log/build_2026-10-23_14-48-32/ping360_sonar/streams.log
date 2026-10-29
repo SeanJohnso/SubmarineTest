@@ -1,0 +1,46 @@
+[0.054s] Invoking command in '/home/sarkars1/SubmarineTest/build/ping360_sonar': AMENT_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/install/my_package:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble LD_LIBRARY_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/sarkars1/SubmarineTest/build/ping360_sonar -- -j8 -l8
+[0.252s] [35m[1mConsolidate compiler generated dependencies of target ping-cpp[0m
+[0.283s] [  0%] Built target ament_cmake_python_copy_ping360_sonar
+[0.541s] [ 58%] Built target ping-cpp
+[0.609s] [35m[1mConsolidate compiler generated dependencies of target ping360_node[0m
+[0.852s] [100%] Built target ping360_node
+[1.403s] running egg_info
+[1.406s] writing ping360_sonar.egg-info/PKG-INFO
+[1.407s] writing dependency_links to ping360_sonar.egg-info/dependency_links.txt
+[1.408s] writing top-level names to ping360_sonar.egg-info/top_level.txt
+[1.418s] reading manifest file 'ping360_sonar.egg-info/SOURCES.txt'
+[1.420s] writing manifest file 'ping360_sonar.egg-info/SOURCES.txt'
+[1.557s] [100%] Built target ament_cmake_python_build_ping360_sonar_egg
+[1.607s] Invoked command in '/home/sarkars1/SubmarineTest/build/ping360_sonar' returned '0': AMENT_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/install/my_package:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble LD_LIBRARY_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/sarkars1/SubmarineTest/build/ping360_sonar -- -j8 -l8
+[1.648s] Invoking command in '/home/sarkars1/SubmarineTest/build/ping360_sonar': AMENT_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/install/my_package:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble LD_LIBRARY_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/sarkars1/SubmarineTest/build/ping360_sonar
+[1.680s] -- Install configuration: ""
+[1.683s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/lib/ping360_sonar/ping360_node
+[1.686s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/lib/libping-cpp.so
+[1.687s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/environment/pythonpath.sh
+[1.687s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/environment/pythonpath.dsv
+[1.688s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar-2.0.1-py3.10.egg-info
+[1.688s] -- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar-2.0.1-py3.10.egg-info/PKG-INFO
+[1.689s] -- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar-2.0.1-py3.10.egg-info/SOURCES.txt
+[1.689s] -- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar-2.0.1-py3.10.egg-info/top_level.txt
+[1.689s] -- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar-2.0.1-py3.10.egg-info/dependency_links.txt
+[1.690s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar
+[1.691s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar/__init__.py
+[1.691s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar/sonar_interface.py
+[1.808s] Listing '/home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar'...
+[1.822s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/lib/ping360_sonar/ping360.py
+[1.823s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ament_index/resource_index/package_run_dependencies/ping360_sonar
+[1.824s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ament_index/resource_index/parent_prefix_path/ping360_sonar
+[1.824s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/environment/ament_prefix_path.sh
+[1.825s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/environment/ament_prefix_path.dsv
+[1.825s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/environment/path.sh
+[1.825s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/environment/path.dsv
+[1.826s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/local_setup.bash
+[1.826s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/local_setup.sh
+[1.827s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/local_setup.zsh
+[1.827s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/local_setup.dsv
+[1.827s] -- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/package.dsv
+[1.828s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ament_index/resource_index/packages/ping360_sonar
+[1.828s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/cmake/ping360_sonarConfig.cmake
+[1.828s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/cmake/ping360_sonarConfig-version.cmake
+[1.828s] -- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/package.xml
+[1.836s] Invoked command in '/home/sarkars1/SubmarineTest/build/ping360_sonar' returned '0': AMENT_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/install/my_package:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble LD_LIBRARY_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/sarkars1/SubmarineTest/build/ping360_sonar

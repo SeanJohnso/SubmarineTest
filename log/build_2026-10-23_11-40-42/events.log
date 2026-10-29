@@ -1,0 +1,1551 @@
+[0.000000] (-) TimerEvent: {}
+[0.001274] (-) JobUnselected: {'identifier': 'jit_bringup'}
+[0.002956] (-) JobUnselected: {'identifier': 'jit_comunication'}
+[0.003105] (-) JobUnselected: {'identifier': 'jit_control'}
+[0.003298] (-) JobUnselected: {'identifier': 'jit_msgs'}
+[0.003485] (-) JobUnselected: {'identifier': 'jit_safety'}
+[0.003612] (-) JobUnselected: {'identifier': 'jit_ui'}
+[0.003756] (ping360_sonar_msgs) JobQueued: {'identifier': 'ping360_sonar_msgs', 'dependencies': OrderedDict()}
+[0.003889] (ping360_sonar) JobQueued: {'identifier': 'ping360_sonar', 'dependencies': OrderedDict([('ping360_sonar_msgs', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs')])}
+[0.004323] (ping360_sonar_msgs) JobStarted: {'identifier': 'ping360_sonar_msgs'}
+[0.034656] (ping360_sonar_msgs) JobProgress: {'identifier': 'ping360_sonar_msgs', 'progress': 'cmake'}
+[0.037520] (ping360_sonar_msgs) Command: {'cmd': ['/usr/bin/cmake', '/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar_msgs', '-DCMAKE_INSTALL_PREFIX=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs'], 'cwd': '/home/sarkars1/SubmarineTest/build/ping360_sonar_msgs', 'env': OrderedDict([('GZ_SIM_SYSTEM_PLUGIN_PATH', '/home/sarkars1/vrx_ws/install/lib'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('GZ_SIM_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share/wamv_description/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/models/tmp:/home/sarkars1/vrx_ws/install/share/vrx_gz/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds/2023_practice:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds:/home/sarkars1/vrx_ws/install/share/vrx_gazebo/models:/home/sarkars1/vrx_ws/install/share/:/home/sarkars1/minion_ws/install/share/gazebo_models/models:/home/sarkars1/minion_ws/install/share'), ('no_proxy', 'localhost,127.0.0.0/8,::1'), ('LANGUAGE', 'C.UTF-8'), ('USER', 'sarkars1'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sarkars1/vrx_ws/install/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/sarkars1'), ('OLDPWD', '/home/sarkars1/SubmarineTest'), ('DESKTOP_SESSION', 'ubuntu'), ('NO_PROXY', 'localhost,127.0.0.0/8,::1'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '1559'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'sarkars1'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'sarkars1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/sarkars1/vrx_ws/install/../src/vrx-erau/vrx_gz/launch:/home/sarkars1/minion_ws/install/share/gazebo_models/launch:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/mciscolin:@/tmp/.ICE-unix/1533,unix/mciscolin:/tmp/.ICE-unix/1533'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/13a81341_a5ca_4cfe_a30d_232c25365277'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.XSFTX3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.108'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share'), ('GZ_VERSION', 'garden'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/sarkars1/SubmarineTest/build/ping360_sonar_msgs'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/sarkars1/vrx_ws/install/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble')]), 'shell': False}
+[0.098589] (-) TimerEvent: {}
+[0.199231] (-) TimerEvent: {}
+[0.299805] (-) TimerEvent: {}
+[0.332978] (ping360_sonar_msgs) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.400017] (-) TimerEvent: {}
+[0.500849] (-) TimerEvent: {}
+[0.601647] (-) TimerEvent: {}
+[0.629576] (ping360_sonar_msgs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.682791] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.701890] (-) TimerEvent: {}
+[0.802823] (-) TimerEvent: {}
+[0.903659] (-) TimerEvent: {}
+[1.004365] (-) TimerEvent: {}
+[1.012681] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.056639] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[1.058519] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.061446] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.078358] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[1.104645] (-) TimerEvent: {}
+[1.205564] (-) TimerEvent: {}
+[1.306272] (-) TimerEvent: {}
+[1.407217] (-) TimerEvent: {}
+[1.430081] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.470808] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[1.472937] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.476734] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.498032] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[1.507359] (-) TimerEvent: {}
+[1.608067] (-) TimerEvent: {}
+[1.708916] (-) TimerEvent: {}
+[1.809507] (-) TimerEvent: {}
+[1.910233] (-) TimerEvent: {}
+[2.011066] (-) TimerEvent: {}
+[2.111834] (-) TimerEvent: {}
+[2.212640] (-) TimerEvent: {}
+[2.276111] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[2.312835] (-) TimerEvent: {}
+[2.413683] (-) TimerEvent: {}
+[2.514496] (-) TimerEvent: {}
+[2.615645] (-) TimerEvent: {}
+[2.716298] (-) TimerEvent: {}
+[2.767376] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Found std_msgs: 4.9.2 (/opt/ros/humble/share/std_msgs/cmake)\n'}
+[2.816571] (-) TimerEvent: {}
+[2.917422] (-) TimerEvent: {}
+[2.966087] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.9 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[2.995385] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.9 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[3.017601] (-) TimerEvent: {}
+[3.042094] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.9 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[3.109915] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[3.117749] (-) TimerEvent: {}
+[3.198368] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.217913] (-) TimerEvent: {}
+[3.318553] (-) TimerEvent: {}
+[3.338391] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.1 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[3.418790] (-) TimerEvent: {}
+[3.519439] (-) TimerEvent: {}
+[3.620066] (-) TimerEvent: {}
+[3.720746] (-) TimerEvent: {}
+[3.821406] (-) TimerEvent: {}
+[3.922124] (-) TimerEvent: {}
+[4.022903] (-) TimerEvent: {}
+[4.123662] (-) TimerEvent: {}
+[4.224410] (-) TimerEvent: {}
+[4.325232] (-) TimerEvent: {}
+[4.425983] (-) TimerEvent: {}
+[4.526687] (-) TimerEvent: {}
+[4.627350] (-) TimerEvent: {}
+[4.637494] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[4.727564] (-) TimerEvent: {}
+[4.828341] (-) TimerEvent: {}
+[4.929177] (-) TimerEvent: {}
+[5.029978] (-) TimerEvent: {}
+[5.130743] (-) TimerEvent: {}
+[5.231442] (-) TimerEvent: {}
+[5.332118] (-) TimerEvent: {}
+[5.432934] (-) TimerEvent: {}
+[5.533816] (-) TimerEvent: {}
+[5.634661] (-) TimerEvent: {}
+[5.735443] (-) TimerEvent: {}
+[5.836328] (-) TimerEvent: {}
+[5.937106] (-) TimerEvent: {}
+[6.037827] (-) TimerEvent: {}
+[6.138574] (-) TimerEvent: {}
+[6.239338] (-) TimerEvent: {}
+[6.340215] (-) TimerEvent: {}
+[6.390100] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[6.440446] (-) TimerEvent: {}
+[6.541223] (-) TimerEvent: {}
+[6.642048] (-) TimerEvent: {}
+[6.742757] (-) TimerEvent: {}
+[6.843484] (-) TimerEvent: {}
+[6.944337] (-) TimerEvent: {}
+[7.045042] (-) TimerEvent: {}
+[7.092650] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[7.145235] (-) TimerEvent: {}
+[7.203672] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") \n'}
+[7.215311] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[7.245445] (-) TimerEvent: {}
+[7.346217] (-) TimerEvent: {}
+[7.361151] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") \n'}
+[7.362304] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[7.362839] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[7.363219] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[7.446411] (-) TimerEvent: {}
+[7.467975] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[7.546588] (-) TimerEvent: {}
+[7.647231] (-) TimerEvent: {}
+[7.747935] (-) TimerEvent: {}
+[7.848634] (-) TimerEvent: {}
+[7.949354] (-) TimerEvent: {}
+[8.050017] (-) TimerEvent: {}
+[8.088407] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Configuring done\n'}
+[8.150219] (-) TimerEvent: {}
+[8.250879] (-) TimerEvent: {}
+[8.262039] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Generating done\n'}
+[8.317126] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Build files have been written to: /home/sarkars1/SubmarineTest/build/ping360_sonar_msgs\n'}
+[8.346615] (ping360_sonar_msgs) CommandEnded: {'returncode': 0}
+[8.349405] (ping360_sonar_msgs) JobProgress: {'identifier': 'ping360_sonar_msgs', 'progress': 'build'}
+[8.354740] (ping360_sonar_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/sarkars1/SubmarineTest/build/ping360_sonar_msgs', '--', '-j8', '-l8'], 'cwd': '/home/sarkars1/SubmarineTest/build/ping360_sonar_msgs', 'env': OrderedDict([('GZ_SIM_SYSTEM_PLUGIN_PATH', '/home/sarkars1/vrx_ws/install/lib'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('GZ_SIM_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share/wamv_description/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/models/tmp:/home/sarkars1/vrx_ws/install/share/vrx_gz/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds/2023_practice:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds:/home/sarkars1/vrx_ws/install/share/vrx_gazebo/models:/home/sarkars1/vrx_ws/install/share/:/home/sarkars1/minion_ws/install/share/gazebo_models/models:/home/sarkars1/minion_ws/install/share'), ('no_proxy', 'localhost,127.0.0.0/8,::1'), ('LANGUAGE', 'C.UTF-8'), ('USER', 'sarkars1'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sarkars1/vrx_ws/install/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/sarkars1'), ('OLDPWD', '/home/sarkars1/SubmarineTest'), ('DESKTOP_SESSION', 'ubuntu'), ('NO_PROXY', 'localhost,127.0.0.0/8,::1'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '1559'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'sarkars1'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'sarkars1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/sarkars1/vrx_ws/install/../src/vrx-erau/vrx_gz/launch:/home/sarkars1/minion_ws/install/share/gazebo_models/launch:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/mciscolin:@/tmp/.ICE-unix/1533,unix/mciscolin:/tmp/.ICE-unix/1533'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/13a81341_a5ca_4cfe_a30d_232c25365277'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.XSFTX3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.108'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share'), ('GZ_VERSION', 'garden'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/sarkars1/SubmarineTest/build/ping360_sonar_msgs'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/sarkars1/vrx_ws/install/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble')]), 'shell': False}
+[8.356688] (-) TimerEvent: {}
+[8.457442] (-) TimerEvent: {}
+[8.558424] (-) TimerEvent: {}
+[8.564653] (ping360_sonar_msgs) StdoutLine: {'line': b'[  3%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[8.628889] (ping360_sonar_msgs) StdoutLine: {'line': b'[  6%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[8.631312] (ping360_sonar_msgs) StdoutLine: {'line': b'[  9%] \x1b[34m\x1b[1mGenerating Rust code for ROS interfaces\x1b[0m\n'}
+[8.662695] (-) TimerEvent: {}
+[8.690475] (ping360_sonar_msgs) StdoutLine: {'line': b'[  9%] Built target ament_cmake_python_copy_ping360_sonar_msgs\n'}
+[8.762935] (-) TimerEvent: {}
+[8.863956] (-) TimerEvent: {}
+[8.964974] (-) TimerEvent: {}
+[9.065702] (-) TimerEvent: {}
+[9.166650] (-) TimerEvent: {}
+[9.267469] (-) TimerEvent: {}
+[9.368273] (-) TimerEvent: {}
+[9.469126] (-) TimerEvent: {}
+[9.569997] (-) TimerEvent: {}
+[9.670801] (-) TimerEvent: {}
+[9.771609] (-) TimerEvent: {}
+[9.872433] (-) TimerEvent: {}
+[9.973347] (-) TimerEvent: {}
+[10.074208] (-) TimerEvent: {}
+[10.154266] (ping360_sonar_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[10.157470] (ping360_sonar_msgs) StdoutLine: {'line': b'creating ping360_sonar_msgs.egg-info\n'}
+[10.158287] (ping360_sonar_msgs) StdoutLine: {'line': b'writing ping360_sonar_msgs.egg-info/PKG-INFO\n'}
+[10.159044] (ping360_sonar_msgs) StdoutLine: {'line': b'writing dependency_links to ping360_sonar_msgs.egg-info/dependency_links.txt\n'}
+[10.159790] (ping360_sonar_msgs) StdoutLine: {'line': b'writing top-level names to ping360_sonar_msgs.egg-info/top_level.txt\n'}
+[10.160624] (ping360_sonar_msgs) StdoutLine: {'line': b"writing manifest file 'ping360_sonar_msgs.egg-info/SOURCES.txt'\n"}
+[10.169674] (ping360_sonar_msgs) StdoutLine: {'line': b"reading manifest file 'ping360_sonar_msgs.egg-info/SOURCES.txt'\n"}
+[10.172082] (ping360_sonar_msgs) StdoutLine: {'line': b"writing manifest file 'ping360_sonar_msgs.egg-info/SOURCES.txt'\n"}
+[10.174364] (-) TimerEvent: {}
+[10.275213] (-) TimerEvent: {}
+[10.307837] (ping360_sonar_msgs) StdoutLine: {'line': b'[  9%] Built target ament_cmake_python_build_ping360_sonar_msgs_egg\n'}
+[10.375477] (-) TimerEvent: {}
+[10.423982] (ping360_sonar_msgs) StdoutLine: {'line': b'[  9%] Built target ping360_sonar_msgs__rs\n'}
+[10.475668] (-) TimerEvent: {}
+[10.512245] (ping360_sonar_msgs) StdoutLine: {'line': b'[  9%] Built target ping360_sonar_msgs__cpp\n'}
+[10.560935] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 12%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[10.573806] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 15%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[10.575830] (-) TimerEvent: {}
+[10.576755] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 18%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[10.676064] (-) TimerEvent: {}
+[10.777042] (-) TimerEvent: {}
+[10.878024] (-) TimerEvent: {}
+[10.969852] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding C object CMakeFiles/ping360_sonar_msgs__rosidl_generator_c.dir/rosidl_generator_c/ping360_sonar_msgs/msg/detail/sonar_echo__functions.c.o\x1b[0m\n'}
+[10.978246] (-) TimerEvent: {}
+[11.079134] (-) TimerEvent: {}
+[11.179932] (-) TimerEvent: {}
+[11.226343] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 25%] \x1b[32m\x1b[1mLinking C shared library libping360_sonar_msgs__rosidl_generator_c.so\x1b[0m\n'}
+[11.280166] (-) TimerEvent: {}
+[11.380959] (-) TimerEvent: {}
+[11.422233] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 25%] Built target ping360_sonar_msgs__rosidl_generator_c\n'}
+[11.473657] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 28%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[11.480333] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 31%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[11.481118] (-) TimerEvent: {}
+[11.485115] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 34%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[11.581327] (-) TimerEvent: {}
+[11.682503] (-) TimerEvent: {}
+[11.783387] (-) TimerEvent: {}
+[11.884186] (-) TimerEvent: {}
+[11.985113] (-) TimerEvent: {}
+[12.085906] (-) TimerEvent: {}
+[12.186687] (-) TimerEvent: {}
+[12.296186] (-) TimerEvent: {}
+[12.397603] (-) TimerEvent: {}
+[12.508662] (-) TimerEvent: {}
+[12.614252] (-) TimerEvent: {}
+[12.641803] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/ping360_sonar_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ping360_sonar_msgs/msg/sonar_echo__type_support.cpp.o\x1b[0m\n'}
+[12.701900] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/ping360_sonar_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ping360_sonar_msgs/msg/detail/sonar_echo__type_support.cpp.o\x1b[0m\n'}
+[12.714438] (-) TimerEvent: {}
+[12.815650] (-) TimerEvent: {}
+[12.916821] (-) TimerEvent: {}
+[13.017687] (-) TimerEvent: {}
+[13.118487] (-) TimerEvent: {}
+[13.219546] (-) TimerEvent: {}
+[13.320538] (-) TimerEvent: {}
+[13.395983] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 43%] \x1b[32mBuilding CXX object CMakeFiles/ping360_sonar_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ping360_sonar_msgs/msg/detail/dds_fastrtps/sonar_echo__type_support.cpp.o\x1b[0m\n'}
+[13.420741] (-) TimerEvent: {}
+[13.522163] (-) TimerEvent: {}
+[13.581722] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding CXX object CMakeFiles/ping360_sonar_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/ping360_sonar_msgs/msg/sonar_echo__type_support.cpp.o\x1b[0m\n'}
+[13.622407] (-) TimerEvent: {}
+[13.723879] (-) TimerEvent: {}
+[13.764712] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/ping360_sonar_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ping360_sonar_msgs/msg/detail/sonar_echo__type_support_c.cpp.o\x1b[0m\n'}
+[13.813545] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 53%] \x1b[32m\x1b[1mLinking CXX shared library libping360_sonar_msgs__rosidl_typesupport_c.so\x1b[0m\n'}
+[13.824134] (-) TimerEvent: {}
+[13.925864] (-) TimerEvent: {}
+[14.027356] (-) TimerEvent: {}
+[14.054988] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 53%] Built target ping360_sonar_msgs__rosidl_typesupport_c\n'}
+[14.127635] (-) TimerEvent: {}
+[14.149556] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 56%] \x1b[32mBuilding C object CMakeFiles/ping360_sonar_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ping360_sonar_msgs/msg/detail/sonar_echo__type_support.c.o\x1b[0m\n'}
+[14.227868] (-) TimerEvent: {}
+[14.329077] (-) TimerEvent: {}
+[14.348134] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 59%] \x1b[32m\x1b[1mLinking C shared library libping360_sonar_msgs__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[14.431601] (-) TimerEvent: {}
+[14.536644] (-) TimerEvent: {}
+[14.612639] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 59%] Built target ping360_sonar_msgs__rosidl_typesupport_introspection_c\n'}
+[14.640639] (-) TimerEvent: {}
+[14.744644] (-) TimerEvent: {}
+[14.848637] (-) TimerEvent: {}
+[14.949445] (-) TimerEvent: {}
+[14.965897] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 62%] \x1b[32m\x1b[1mLinking CXX shared library libping360_sonar_msgs__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[15.049702] (-) TimerEvent: {}
+[15.151138] (-) TimerEvent: {}
+[15.252689] (-) TimerEvent: {}
+[15.273738] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 62%] Built target ping360_sonar_msgs__rosidl_typesupport_cpp\n'}
+[15.352911] (-) TimerEvent: {}
+[15.453832] (-) TimerEvent: {}
+[15.554756] (-) TimerEvent: {}
+[15.655530] (-) TimerEvent: {}
+[15.756333] (-) TimerEvent: {}
+[15.857211] (-) TimerEvent: {}
+[15.872952] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 65%] \x1b[32m\x1b[1mLinking CXX shared library libping360_sonar_msgs__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[15.957436] (-) TimerEvent: {}
+[16.058369] (-) TimerEvent: {}
+[16.159442] (-) TimerEvent: {}
+[16.260527] (-) TimerEvent: {}
+[16.286932] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 65%] Built target ping360_sonar_msgs__rosidl_typesupport_introspection_cpp\n'}
+[16.298943] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 68%] \x1b[32m\x1b[1mLinking CXX shared library libping360_sonar_msgs__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[16.360688] (-) TimerEvent: {}
+[16.461612] (-) TimerEvent: {}
+[16.528368] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 71%] \x1b[32m\x1b[1mLinking CXX shared library libping360_sonar_msgs__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[16.561917] (-) TimerEvent: {}
+[16.663096] (-) TimerEvent: {}
+[16.736300] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 71%] Built target ping360_sonar_msgs__rosidl_typesupport_fastrtps_c\n'}
+[16.763329] (-) TimerEvent: {}
+[16.864220] (-) TimerEvent: {}
+[16.965225] (-) TimerEvent: {}
+[16.966125] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 71%] Built target ping360_sonar_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[17.063850] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 71%] Built target ping360_sonar_msgs\n'}
+[17.065391] (-) TimerEvent: {}
+[17.162333] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 75%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[17.165608] (-) TimerEvent: {}
+[17.266565] (-) TimerEvent: {}
+[17.367238] (-) TimerEvent: {}
+[17.467999] (-) TimerEvent: {}
+[17.568731] (-) TimerEvent: {}
+[17.669369] (-) TimerEvent: {}
+[17.770004] (-) TimerEvent: {}
+[17.870640] (-) TimerEvent: {}
+[17.971283] (-) TimerEvent: {}
+[18.071968] (-) TimerEvent: {}
+[18.172634] (-) TimerEvent: {}
+[18.273287] (-) TimerEvent: {}
+[18.373982] (-) TimerEvent: {}
+[18.474626] (-) TimerEvent: {}
+[18.575289] (-) TimerEvent: {}
+[18.676066] (-) TimerEvent: {}
+[18.776737] (-) TimerEvent: {}
+[18.877384] (-) TimerEvent: {}
+[18.978084] (-) TimerEvent: {}
+[19.078756] (-) TimerEvent: {}
+[19.179587] (-) TimerEvent: {}
+[19.280410] (-) TimerEvent: {}
+[19.381314] (-) TimerEvent: {}
+[19.482266] (-) TimerEvent: {}
+[19.487670] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 75%] Built target ping360_sonar_msgs__py\n'}
+[19.582516] (-) TimerEvent: {}
+[19.583292] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 78%] \x1b[32mBuilding C object CMakeFiles/ping360_sonar_msgs__rosidl_generator_py.dir/rosidl_generator_py/ping360_sonar_msgs/msg/_sonar_echo_s.c.o\x1b[0m\n'}
+[19.682748] (-) TimerEvent: {}
+[19.783576] (-) TimerEvent: {}
+[19.884285] (-) TimerEvent: {}
+[19.985223] (-) TimerEvent: {}
+[20.086128] (-) TimerEvent: {}
+[20.174573] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 81%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/ping360_sonar_msgs/libping360_sonar_msgs__rosidl_generator_py.so\x1b[0m\n'}
+[20.186308] (-) TimerEvent: {}
+[20.287129] (-) TimerEvent: {}
+[20.377661] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 81%] Built target ping360_sonar_msgs__rosidl_generator_py\n'}
+[20.387356] (-) TimerEvent: {}
+[20.473822] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 84%] \x1b[32mBuilding C object CMakeFiles/ping360_sonar_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/ping360_sonar_msgs/_ping360_sonar_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[20.475884] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/ping360_sonar_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/ping360_sonar_msgs/_ping360_sonar_msgs_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[20.478135] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/ping360_sonar_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/ping360_sonar_msgs/_ping360_sonar_msgs_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[20.487612] (-) TimerEvent: {}
+[20.588679] (-) TimerEvent: {}
+[20.689645] (-) TimerEvent: {}
+[20.790490] (-) TimerEvent: {}
+[20.891367] (-) TimerEvent: {}
+[20.953130] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 96%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[20.954107] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 96%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[20.955343] (ping360_sonar_msgs) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[20.991550] (-) TimerEvent: {}
+[21.092288] (-) TimerEvent: {}
+[21.134513] (ping360_sonar_msgs) StdoutLine: {'line': b'[100%] Built target ping360_sonar_msgs__rosidl_typesupport_c__pyext\n'}
+[21.135509] (ping360_sonar_msgs) StdoutLine: {'line': b'[100%] Built target ping360_sonar_msgs__rosidl_typesupport_introspection_c__pyext\n'}
+[21.143049] (ping360_sonar_msgs) StdoutLine: {'line': b'[100%] Built target ping360_sonar_msgs__rosidl_typesupport_fastrtps_c__pyext\n'}
+[21.192599] (-) TimerEvent: {}
+[21.201061] (ping360_sonar_msgs) CommandEnded: {'returncode': 0}
+[21.204553] (ping360_sonar_msgs) JobProgress: {'identifier': 'ping360_sonar_msgs', 'progress': 'install'}
+[21.247517] (ping360_sonar_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/sarkars1/SubmarineTest/build/ping360_sonar_msgs'], 'cwd': '/home/sarkars1/SubmarineTest/build/ping360_sonar_msgs', 'env': OrderedDict([('GZ_SIM_SYSTEM_PLUGIN_PATH', '/home/sarkars1/vrx_ws/install/lib'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('GZ_SIM_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share/wamv_description/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/models/tmp:/home/sarkars1/vrx_ws/install/share/vrx_gz/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds/2023_practice:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds:/home/sarkars1/vrx_ws/install/share/vrx_gazebo/models:/home/sarkars1/vrx_ws/install/share/:/home/sarkars1/minion_ws/install/share/gazebo_models/models:/home/sarkars1/minion_ws/install/share'), ('no_proxy', 'localhost,127.0.0.0/8,::1'), ('LANGUAGE', 'C.UTF-8'), ('USER', 'sarkars1'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sarkars1/vrx_ws/install/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/sarkars1'), ('OLDPWD', '/home/sarkars1/SubmarineTest'), ('DESKTOP_SESSION', 'ubuntu'), ('NO_PROXY', 'localhost,127.0.0.0/8,::1'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '1559'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'sarkars1'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'sarkars1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/sarkars1/vrx_ws/install/../src/vrx-erau/vrx_gz/launch:/home/sarkars1/minion_ws/install/share/gazebo_models/launch:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/mciscolin:@/tmp/.ICE-unix/1533,unix/mciscolin:/tmp/.ICE-unix/1533'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/13a81341_a5ca_4cfe_a30d_232c25365277'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.XSFTX3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.108'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share'), ('GZ_VERSION', 'garden'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/sarkars1/SubmarineTest/build/ping360_sonar_msgs'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/sarkars1/vrx_ws/install/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble')]), 'shell': False}
+[21.287889] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[21.288918] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ament_index/resource_index/rosidl_interfaces/ping360_sonar_msgs\n'}
+[21.289705] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs\n'}
+[21.290561] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg\n'}
+[21.291457] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/rosidl_generator_c__visibility_control.h\n'}
+[21.292124] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/sonar_echo.h\n'}
+[21.292682] (-) TimerEvent: {}
+[21.293096] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail\n'}
+[21.293518] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__type_support.h\n'}
+[21.293898] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__struct.h\n'}
+[21.294525] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__functions.c\n'}
+[21.295084] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__functions.h\n'}
+[21.295430] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/library_path.sh\n'}
+[21.295867] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/library_path.dsv\n'}
+[21.296774] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_generator_c.so\n'}
+[21.299173] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_generator_c.so" to ""\n'}
+[21.300018] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs\n'}
+[21.300791] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg\n'}
+[21.301288] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[21.301668] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail\n'}
+[21.302014] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__rosidl_typesupport_fastrtps_c.h\n'}
+[21.302353] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[21.303976] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[21.304798] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs\n'}
+[21.305549] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg\n'}
+[21.306297] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/sonar_echo.hpp\n'}
+[21.306720] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[21.307409] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail\n'}
+[21.307960] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__type_support.hpp\n'}
+[21.308453] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__traits.hpp\n'}
+[21.309081] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__builder.hpp\n'}
+[21.309641] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__struct.hpp\n'}
+[21.310206] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs\n'}
+[21.310729] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg\n'}
+[21.311064] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[21.311651] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail\n'}
+[21.311993] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/dds_fastrtps\n'}
+[21.312322] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[21.312738] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[21.313725] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[21.314360] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs\n'}
+[21.315110] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg\n'}
+[21.315481] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[21.316214] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail\n'}
+[21.316931] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__type_support.c\n'}
+[21.317796] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__rosidl_typesupport_introspection_c.h\n'}
+[21.318184] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_introspection_c.so\n'}
+[21.318937] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_introspection_c.so" to ""\n'}
+[21.320069] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_c.so\n'}
+[21.322243] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_c.so" to ""\n'}
+[21.323402] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs\n'}
+[21.324182] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg\n'}
+[21.324672] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail\n'}
+[21.325451] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__type_support.cpp\n'}
+[21.325849] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__rosidl_typesupport_introspection_cpp.hpp\n'}
+[21.326488] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[21.329641] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[21.330305] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_cpp.so\n'}
+[21.333387] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_cpp.so" to ""\n'}
+[21.334223] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/pythonpath.sh\n'}
+[21.335090] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/pythonpath.dsv\n'}
+[21.335911] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs-1.0.0-py3.10.egg-info\n'}
+[21.336631] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs-1.0.0-py3.10.egg-info/PKG-INFO\n'}
+[21.337462] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs-1.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[21.338072] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs-1.0.0-py3.10.egg-info/top_level.txt\n'}
+[21.338586] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs-1.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[21.339306] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs\n'}
+[21.339851] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/_ping360_sonar_msgs_s.ep.rosidl_typesupport_c.c\n'}
+[21.340769] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/_ping360_sonar_msgs_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[21.341326] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/__init__.py\n'}
+[21.341693] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/_ping360_sonar_msgs_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[21.342108] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[21.342680] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/libping360_sonar_msgs__rosidl_generator_py.so\n'}
+[21.343519] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/msg\n'}
+[21.344036] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/msg/__init__.py\n'}
+[21.344390] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/msg/_sonar_echo.py\n'}
+[21.344858] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/msg/_sonar_echo_s.c\n'}
+[21.345423] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[21.345785] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[21.392872] (-) TimerEvent: {}
+[21.493507] (-) TimerEvent: {}
+[21.509318] (ping360_sonar_msgs) StdoutLine: {'line': b"Listing '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs'...\n"}
+[21.509855] (ping360_sonar_msgs) StdoutLine: {'line': b"Compiling '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/__init__.py'...\n"}
+[21.510231] (ping360_sonar_msgs) StdoutLine: {'line': b"Listing '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/msg'...\n"}
+[21.510529] (ping360_sonar_msgs) StdoutLine: {'line': b"Compiling '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/msg/__init__.py'...\n"}
+[21.510818] (ping360_sonar_msgs) StdoutLine: {'line': b"Compiling '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/msg/_sonar_echo.py'...\n"}
+[21.530241] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[21.532367] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[21.533586] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[21.535567] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[21.536751] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[21.538688] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[21.539647] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_generator_py.so\n'}
+[21.541295] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_generator_py.so" to ""\n'}
+[21.542132] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ament_index/resource_index/rust_packages/ping360_sonar_msgs\n'}
+[21.542913] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/rust\n'}
+[21.543486] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/rust/Cargo.toml\n'}
+[21.544232] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/rust/src\n'}
+[21.544924] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/rust/src/msg\n'}
+[21.545959] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/rust/src/msg/rmw.rs\n'}
+[21.546595] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/rust/src/lib.rs\n'}
+[21.547616] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/rust/src/msg.rs\n'}
+[21.548215] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/rust/build.rs\n'}
+[21.549051] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/msg/SonarEcho.idl\n'}
+[21.549837] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/msg/SonarEcho.msg\n'}
+[21.550325] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ament_index/resource_index/package_run_dependencies/ping360_sonar_msgs\n'}
+[21.550722] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ament_index/resource_index/parent_prefix_path/ping360_sonar_msgs\n'}
+[21.551292] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/ament_prefix_path.sh\n'}
+[21.551758] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/ament_prefix_path.dsv\n'}
+[21.552082] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/path.sh\n'}
+[21.552558] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/path.dsv\n'}
+[21.553005] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/local_setup.bash\n'}
+[21.553755] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/local_setup.sh\n'}
+[21.554559] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/local_setup.zsh\n'}
+[21.555326] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/local_setup.dsv\n'}
+[21.556072] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/package.dsv\n'}
+[21.556687] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ament_index/resource_index/packages/ping360_sonar_msgs\n'}
+[21.557530] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_generator_cExport.cmake\n'}
+[21.558278] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_generator_cExport-noconfig.cmake\n'}
+[21.559029] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[21.559771] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[21.560630] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_generator_cppExport.cmake\n'}
+[21.561280] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[21.561948] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[21.562735] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[21.563567] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[21.564508] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_cExport.cmake\n'}
+[21.565369] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[21.566164] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[21.566984] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[21.567561] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[21.568084] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[21.568692] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_generator_pyExport.cmake\n'}
+[21.569415] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_generator_pyExport-noconfig.cmake\n'}
+[21.570106] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/rosidl_cmake-extras.cmake\n'}
+[21.570824] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[21.571598] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[21.572410] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[21.573278] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[21.574049] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[21.574836] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[21.575493] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/rosidl_cmake_aggregate_target-extras.cmake\n'}
+[21.575939] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgsConfig.cmake\n'}
+[21.576384] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgsConfig-version.cmake\n'}
+[21.576885] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/package.xml\n'}
+[21.586892] (ping360_sonar_msgs) CommandEnded: {'returncode': 0}
+[21.593873] (-) TimerEvent: {}
+[21.694910] (-) TimerEvent: {}
+[21.734549] (ping360_sonar_msgs) JobEnded: {'identifier': 'ping360_sonar_msgs', 'rc': 0}
+[21.740769] (ping360_sonar) JobStarted: {'identifier': 'ping360_sonar'}
+[21.785022] (ping360_sonar) JobProgress: {'identifier': 'ping360_sonar', 'progress': 'cmake'}
+[21.789486] (ping360_sonar) Command: {'cmd': ['/usr/bin/cmake', '/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar', '-DCOMPILE_CPP=ON', '-DCMAKE_INSTALL_PREFIX=/home/sarkars1/SubmarineTest/install/ping360_sonar'], 'cwd': '/home/sarkars1/SubmarineTest/build/ping360_sonar', 'env': OrderedDict([('GZ_SIM_SYSTEM_PLUGIN_PATH', '/home/sarkars1/vrx_ws/install/lib'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('GZ_SIM_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share/wamv_description/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/models/tmp:/home/sarkars1/vrx_ws/install/share/vrx_gz/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds/2023_practice:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds:/home/sarkars1/vrx_ws/install/share/vrx_gazebo/models:/home/sarkars1/vrx_ws/install/share/:/home/sarkars1/minion_ws/install/share/gazebo_models/models:/home/sarkars1/minion_ws/install/share'), ('no_proxy', 'localhost,127.0.0.0/8,::1'), ('LANGUAGE', 'C.UTF-8'), ('USER', 'sarkars1'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:/home/sarkars1/vrx_ws/install/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/sarkars1'), ('OLDPWD', '/home/sarkars1/SubmarineTest'), ('DESKTOP_SESSION', 'ubuntu'), ('NO_PROXY', 'localhost,127.0.0.0/8,::1'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '1559'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'sarkars1'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'sarkars1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/sarkars1/vrx_ws/install/../src/vrx-erau/vrx_gz/launch:/home/sarkars1/minion_ws/install/share/gazebo_models/launch:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/mciscolin:@/tmp/.ICE-unix/1533,unix/mciscolin:/tmp/.ICE-unix/1533'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/13a81341_a5ca_4cfe_a30d_232c25365277'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.XSFTX3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.108'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share'), ('GZ_VERSION', 'garden'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/sarkars1/SubmarineTest/build/ping360_sonar'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:/home/sarkars1/vrx_ws/install/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble')]), 'shell': False}
+[21.795036] (-) TimerEvent: {}
+[21.895689] (-) TimerEvent: {}
+[21.996584] (-) TimerEvent: {}
+[22.081306] (ping360_sonar) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[22.096840] (-) TimerEvent: {}
+[22.197950] (-) TimerEvent: {}
+[22.298755] (-) TimerEvent: {}
+[22.399560] (-) TimerEvent: {}
+[22.413288] (ping360_sonar) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[22.465412] (ping360_sonar) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[22.499819] (-) TimerEvent: {}
+[22.600862] (-) TimerEvent: {}
+[22.701984] (-) TimerEvent: {}
+[22.802940] (-) TimerEvent: {}
+[22.821065] (ping360_sonar) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[22.861818] (ping360_sonar) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[22.863939] (ping360_sonar) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[22.866617] (ping360_sonar) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[22.883937] (ping360_sonar) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[22.903167] (-) TimerEvent: {}
+[23.003968] (-) TimerEvent: {}
+[23.104764] (-) TimerEvent: {}
+[23.205447] (-) TimerEvent: {}
+[23.304926] (ping360_sonar) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[23.305688] (-) TimerEvent: {}
+[23.371036] (ping360_sonar) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[23.372844] (ping360_sonar) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[23.375850] (ping360_sonar) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[23.391375] (ping360_sonar) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[23.405923] (-) TimerEvent: {}
+[23.506792] (-) TimerEvent: {}
+[23.607609] (-) TimerEvent: {}
+[23.708393] (-) TimerEvent: {}
+[23.809237] (-) TimerEvent: {}
+[23.910013] (-) TimerEvent: {}
+[24.010689] (-) TimerEvent: {}
+[24.111368] (-) TimerEvent: {}
+[24.212111] (-) TimerEvent: {}
+[24.310708] (ping360_sonar) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[24.312257] (-) TimerEvent: {}
+[24.412950] (-) TimerEvent: {}
+[24.513740] (-) TimerEvent: {}
+[24.614596] (-) TimerEvent: {}
+[24.715822] (-) TimerEvent: {}
+[24.772177] (ping360_sonar) StdoutLine: {'line': b'-- Found rclcpp: 16.0.19 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[24.816003] (-) TimerEvent: {}
+[24.916747] (-) TimerEvent: {}
+[24.999756] (ping360_sonar) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.9 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[25.016908] (-) TimerEvent: {}
+[25.036900] (ping360_sonar) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.9 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[25.089969] (ping360_sonar) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.9 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[25.117145] (-) TimerEvent: {}
+[25.155087] (ping360_sonar) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[25.217380] (-) TimerEvent: {}
+[25.249007] (ping360_sonar) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[25.317575] (-) TimerEvent: {}
+[25.418282] (-) TimerEvent: {}
+[25.502832] (ping360_sonar) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.3 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[25.517792] (ping360_sonar) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[25.518285] (-) TimerEvent: {}
+[25.618910] (-) TimerEvent: {}
+[25.719593] (-) TimerEvent: {}
+[25.820319] (-) TimerEvent: {}
+[25.921157] (-) TimerEvent: {}
+[25.986231] (ping360_sonar) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[26.021338] (-) TimerEvent: {}
+[26.118725] (ping360_sonar) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[26.121487] (-) TimerEvent: {}
+[26.222081] (-) TimerEvent: {}
+[26.316776] (ping360_sonar) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[26.322233] (-) TimerEvent: {}
+[26.366500] (ping360_sonar) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[26.422493] (-) TimerEvent: {}
+[26.523250] (-) TimerEvent: {}
+[26.623936] (-) TimerEvent: {}
+[26.706873] (ping360_sonar) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[26.708179] (ping360_sonar) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[26.724130] (-) TimerEvent: {}
+[26.825017] (-) TimerEvent: {}
+[26.925928] (-) TimerEvent: {}
+[27.026841] (-) TimerEvent: {}
+[27.063563] (ping360_sonar) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[27.069495] (ping360_sonar) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[27.127054] (-) TimerEvent: {}
+[27.227828] (-) TimerEvent: {}
+[27.328519] (-) TimerEvent: {}
+[27.382239] (ping360_sonar) StdoutLine: {'line': b'-- Found sensor_msgs: 4.9.2 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[27.428695] (-) TimerEvent: {}
+[27.529414] (-) TimerEvent: {}
+[27.549519] (ping360_sonar) StdoutLine: {'line': b'-- Found ping360_sonar_msgs: 1.0.0 (/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake)\n'}
+[27.625200] (ping360_sonar) StdoutLine: {'line': b'-- Found image_transport: 3.1.13 (/opt/ros/humble/share/image_transport/cmake)\n'}
+[27.629580] (-) TimerEvent: {}
+[27.730313] (-) TimerEvent: {}
+[27.831088] (-) TimerEvent: {}
+[27.915944] (ping360_sonar) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found suitable version "1.74.0", minimum required is "1.67") found components: atomic program_options system thread \n'}
+[27.931279] (-) TimerEvent: {}
+[28.031978] (-) TimerEvent: {}
+[28.132817] (-) TimerEvent: {}
+[28.233606] (-) TimerEvent: {}
+[28.334274] (-) TimerEvent: {}
+[28.434969] (-) TimerEvent: {}
+[28.535809] (-) TimerEvent: {}
+[28.636615] (-) TimerEvent: {}
+[28.679014] (ping360_sonar) StdoutLine: {'line': b'-- Configuring done\n'}
+[28.736814] (-) TimerEvent: {}
+[28.768861] (ping360_sonar) StdoutLine: {'line': b'-- Generating done\n'}
+[28.795011] (ping360_sonar) StdoutLine: {'line': b'-- Build files have been written to: /home/sarkars1/SubmarineTest/build/ping360_sonar\n'}
+[28.837087] (-) TimerEvent: {}
+[28.840950] (ping360_sonar) CommandEnded: {'returncode': 0}
+[28.843532] (ping360_sonar) JobProgress: {'identifier': 'ping360_sonar', 'progress': 'build'}
+[28.846982] (ping360_sonar) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/sarkars1/SubmarineTest/build/ping360_sonar', '--', '-j8', '-l8'], 'cwd': '/home/sarkars1/SubmarineTest/build/ping360_sonar', 'env': OrderedDict([('GZ_SIM_SYSTEM_PLUGIN_PATH', '/home/sarkars1/vrx_ws/install/lib'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('GZ_SIM_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share/wamv_description/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/models/tmp:/home/sarkars1/vrx_ws/install/share/vrx_gz/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds/2023_practice:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds:/home/sarkars1/vrx_ws/install/share/vrx_gazebo/models:/home/sarkars1/vrx_ws/install/share/:/home/sarkars1/minion_ws/install/share/gazebo_models/models:/home/sarkars1/minion_ws/install/share'), ('no_proxy', 'localhost,127.0.0.0/8,::1'), ('LANGUAGE', 'C.UTF-8'), ('USER', 'sarkars1'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:/home/sarkars1/vrx_ws/install/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/sarkars1'), ('OLDPWD', '/home/sarkars1/SubmarineTest'), ('DESKTOP_SESSION', 'ubuntu'), ('NO_PROXY', 'localhost,127.0.0.0/8,::1'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '1559'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'sarkars1'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'sarkars1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/sarkars1/vrx_ws/install/../src/vrx-erau/vrx_gz/launch:/home/sarkars1/minion_ws/install/share/gazebo_models/launch:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/mciscolin:@/tmp/.ICE-unix/1533,unix/mciscolin:/tmp/.ICE-unix/1533'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/13a81341_a5ca_4cfe_a30d_232c25365277'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.XSFTX3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.108'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share'), ('GZ_VERSION', 'garden'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/sarkars1/SubmarineTest/build/ping360_sonar'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:/home/sarkars1/vrx_ws/install/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble')]), 'shell': False}
+[28.937347] (-) TimerEvent: {}
+[29.038133] (-) TimerEvent: {}
+[29.117759] (ping360_sonar) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding CXX object src/CMakeFiles/ping-cpp.dir/ping-cpp/src/hal/link/desktop/serial-link.cpp.o\x1b[0m\n'}
+[29.122264] (ping360_sonar) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding CXX object src/CMakeFiles/ping-cpp.dir/ping-cpp/src/hal/link/desktop/abstract-link.cpp.o\x1b[0m\n'}
+[29.127165] (ping360_sonar) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object src/CMakeFiles/ping-cpp.dir/ping-cpp/src/hal/link/desktop/udp-link.cpp.o\x1b[0m\n'}
+[29.129103] (ping360_sonar) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object src/CMakeFiles/ping-cpp.dir/ping-cpp/src/hal/time/desktop/ping-time.cpp.o\x1b[0m\n'}
+[29.138395] (-) TimerEvent: {}
+[29.162563] (ping360_sonar) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding CXX object src/CMakeFiles/ping-cpp.dir/ping-cpp/src/device/ping-device.cpp.o\x1b[0m\n'}
+[29.181901] (ping360_sonar) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object src/CMakeFiles/ping-cpp.dir/ping-cpp/src/device/ping-device-ping360.cpp.o\x1b[0m\n'}
+[29.200842] (ping360_sonar) StdoutLine: {'line': b'[ 50%] Built target ament_cmake_python_copy_ping360_sonar\n'}
+[29.238619] (-) TimerEvent: {}
+[29.339511] (-) TimerEvent: {}
+[29.415249] (ping360_sonar) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/device/ping-device.h:5\x1b[m\x1b[K,\n'}
+[29.416070] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/device/ping-device.cpp:1\x1b[m\x1b[K:\n'}
+[29.416880] (ping360_sonar) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/message/ping-parser.h:73:20:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kconst char* PINGPARSER_STATE_TO_STRING(PingParser::State)\x1b[m\x1b[K\xe2\x80\x99 defined but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-function\x07-Wunused-function\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[29.417448] (ping360_sonar) StderrLine: {'line': b'   73 | static const char* \x1b[01;35m\x1b[KPINGPARSER_STATE_TO_STRING\x1b[m\x1b[K(PingParser::State state) {\n'}
+[29.417946] (ping360_sonar) StderrLine: {'line': b'      |                    \x1b[01;35m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[29.439712] (-) TimerEvent: {}
+[29.520592] (ping360_sonar) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/device/ping-device.h:5\x1b[m\x1b[K,\n'}
+[29.521452] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/device/ping-device-ping360.h:13\x1b[m\x1b[K,\n'}
+[29.522063] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/device/ping-device-ping360.cpp:3\x1b[m\x1b[K:\n'}
+[29.522547] (ping360_sonar) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/message/ping-parser.h:73:20:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kconst char* PINGPARSER_STATE_TO_STRING(PingParser::State)\x1b[m\x1b[K\xe2\x80\x99 defined but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-function\x07-Wunused-function\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[29.523064] (ping360_sonar) StderrLine: {'line': b'   73 | static const char* \x1b[01;35m\x1b[KPINGPARSER_STATE_TO_STRING\x1b[m\x1b[K(PingParser::State state) {\n'}
+[29.523561] (ping360_sonar) StderrLine: {'line': b'      |                    \x1b[01;35m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[29.539946] (-) TimerEvent: {}
+[29.557415] (ping360_sonar) StderrLine: {'line': b'\x1b[01m\x1b[Kcc1plus:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kunrecognized command-line option \xe2\x80\x98\x1b[01m\x1b[K-Wno-unused-variable -Wno-unused-function -Wno-error\x1b[m\x1b[K\xe2\x80\x99 may have been intended to silence earlier diagnostics\n'}
+[29.640171] (-) TimerEvent: {}
+[29.741578] (-) TimerEvent: {}
+[29.745436] (ping360_sonar) StderrLine: {'line': b'\x1b[01m\x1b[Kcc1plus:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kunrecognized command-line option \xe2\x80\x98\x1b[01m\x1b[K-Wno-unused-variable -Wno-unused-function -Wno-error\x1b[m\x1b[K\xe2\x80\x99 may have been intended to silence earlier diagnostics\n'}
+[29.841797] (-) TimerEvent: {}
+[29.942650] (-) TimerEvent: {}
+[30.043455] (-) TimerEvent: {}
+[30.144279] (-) TimerEvent: {}
+[30.245137] (-) TimerEvent: {}
+[30.345801] (-) TimerEvent: {}
+[30.446466] (-) TimerEvent: {}
+[30.547186] (-) TimerEvent: {}
+[30.647866] (-) TimerEvent: {}
+[30.748568] (-) TimerEvent: {}
+[30.849286] (-) TimerEvent: {}
+[30.950126] (-) TimerEvent: {}
+[31.051079] (-) TimerEvent: {}
+[31.148404] (ping360_sonar) StdoutLine: {'line': b'running egg_info\n'}
+[31.151278] (-) TimerEvent: {}
+[31.152869] (ping360_sonar) StdoutLine: {'line': b'creating ping360_sonar.egg-info\n'}
+[31.154156] (ping360_sonar) StdoutLine: {'line': b'writing ping360_sonar.egg-info/PKG-INFO\n'}
+[31.155247] (ping360_sonar) StdoutLine: {'line': b'writing dependency_links to ping360_sonar.egg-info/dependency_links.txt\n'}
+[31.156552] (ping360_sonar) StdoutLine: {'line': b'writing top-level names to ping360_sonar.egg-info/top_level.txt\n'}
+[31.157929] (ping360_sonar) StdoutLine: {'line': b"writing manifest file 'ping360_sonar.egg-info/SOURCES.txt'\n"}
+[31.168100] (ping360_sonar) StdoutLine: {'line': b"reading manifest file 'ping360_sonar.egg-info/SOURCES.txt'\n"}
+[31.171251] (ping360_sonar) StdoutLine: {'line': b"writing manifest file 'ping360_sonar.egg-info/SOURCES.txt'\n"}
+[31.251538] (-) TimerEvent: {}
+[31.312749] (ping360_sonar) StdoutLine: {'line': b'[ 50%] Built target ament_cmake_python_build_ping360_sonar_egg\n'}
+[31.351779] (-) TimerEvent: {}
+[31.452806] (-) TimerEvent: {}
+[31.553740] (-) TimerEvent: {}
+[31.654615] (-) TimerEvent: {}
+[31.755615] (-) TimerEvent: {}
+[31.856650] (-) TimerEvent: {}
+[31.957505] (-) TimerEvent: {}
+[32.058395] (-) TimerEvent: {}
+[32.159300] (-) TimerEvent: {}
+[32.260295] (-) TimerEvent: {}
+[32.361403] (-) TimerEvent: {}
+[32.462396] (-) TimerEvent: {}
+[32.563373] (-) TimerEvent: {}
+[32.664377] (-) TimerEvent: {}
+[32.765454] (-) TimerEvent: {}
+[32.866446] (-) TimerEvent: {}
+[32.967398] (-) TimerEvent: {}
+[33.068440] (-) TimerEvent: {}
+[33.169276] (-) TimerEvent: {}
+[33.270052] (-) TimerEvent: {}
+[33.370871] (-) TimerEvent: {}
+[33.471767] (-) TimerEvent: {}
+[33.572656] (-) TimerEvent: {}
+[33.673775] (-) TimerEvent: {}
+[33.774917] (-) TimerEvent: {}
+[33.876081] (-) TimerEvent: {}
+[33.977091] (-) TimerEvent: {}
+[34.077915] (-) TimerEvent: {}
+[34.178602] (-) TimerEvent: {}
+[34.279485] (-) TimerEvent: {}
+[34.380400] (-) TimerEvent: {}
+[34.481474] (-) TimerEvent: {}
+[34.582522] (-) TimerEvent: {}
+[34.683494] (-) TimerEvent: {}
+[34.784426] (-) TimerEvent: {}
+[34.885571] (-) TimerEvent: {}
+[34.986652] (-) TimerEvent: {}
+[35.087713] (-) TimerEvent: {}
+[35.188797] (-) TimerEvent: {}
+[35.289929] (-) TimerEvent: {}
+[35.390956] (-) TimerEvent: {}
+[35.492042] (-) TimerEvent: {}
+[35.593109] (-) TimerEvent: {}
+[35.693985] (-) TimerEvent: {}
+[35.794807] (-) TimerEvent: {}
+[35.895685] (-) TimerEvent: {}
+[35.938911] (ping360_sonar) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/abstract-link.cpp:37:2:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K#warning is a GCC extension\n'}
+[35.939700] (ping360_sonar) StderrLine: {'line': b'   37 | #\x1b[01;35m\x1b[Kwarning\x1b[m\x1b[K "Move match strings to string_view and concatenate it with regex string inside the named regex match"\n'}
+[35.940132] (ping360_sonar) StderrLine: {'line': b'      |  \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[35.940591] (ping360_sonar) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/abstract-link.cpp:37:2:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K#warning "Move match strings to string_view and concatenate it with regex string inside the named regex match" [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wcpp\x07-Wcpp\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[35.995898] (-) TimerEvent: {}
+[36.096755] (-) TimerEvent: {}
+[36.197570] (-) TimerEvent: {}
+[36.298405] (-) TimerEvent: {}
+[36.399247] (-) TimerEvent: {}
+[36.500260] (-) TimerEvent: {}
+[36.600987] (-) TimerEvent: {}
+[36.701666] (-) TimerEvent: {}
+[36.802371] (-) TimerEvent: {}
+[36.903185] (-) TimerEvent: {}
+[37.004221] (-) TimerEvent: {}
+[37.105307] (-) TimerEvent: {}
+[37.206278] (-) TimerEvent: {}
+[37.307302] (-) TimerEvent: {}
+[37.408345] (-) TimerEvent: {}
+[37.509390] (-) TimerEvent: {}
+[37.610281] (-) TimerEvent: {}
+[37.711212] (-) TimerEvent: {}
+[37.812239] (-) TimerEvent: {}
+[37.913305] (-) TimerEvent: {}
+[38.014341] (-) TimerEvent: {}
+[38.115416] (-) TimerEvent: {}
+[38.216432] (-) TimerEvent: {}
+[38.317537] (-) TimerEvent: {}
+[38.418567] (-) TimerEvent: {}
+[38.519557] (-) TimerEvent: {}
+[38.620674] (-) TimerEvent: {}
+[38.721732] (-) TimerEvent: {}
+[38.822728] (-) TimerEvent: {}
+[38.923754] (-) TimerEvent: {}
+[39.024797] (-) TimerEvent: {}
+[39.047297] (ping360_sonar) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:22\x1b[m\x1b[K,\n'}
+[39.048259] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/yield_k.hpp:23\x1b[m\x1b[K,\n'}
+[39.049083] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:14\x1b[m\x1b[K,\n'}
+[39.049763] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/spinlock.hpp:42\x1b[m\x1b[K,\n'}
+[39.050420] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:25\x1b[m\x1b[K,\n'}
+[39.051060] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/shared_ptr.hpp:29\x1b[m\x1b[K,\n'}
+[39.051694] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/shared_ptr.hpp:17\x1b[m\x1b[K,\n'}
+[39.052308] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/date_time/time_clock.hpp:17\x1b[m\x1b[K,\n'}
+[39.053002] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/date_time/posix_time/posix_time_types.hpp:10\x1b[m\x1b[K,\n'}
+[39.053644] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/time_traits.hpp:23\x1b[m\x1b[K,\n'}
+[39.054299] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/detail/timer_queue_ptime.hpp:22\x1b[m\x1b[K,\n'}
+[39.054954] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/detail/deadline_timer_service.hpp:29\x1b[m\x1b[K,\n'}
+[39.055606] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/basic_deadline_timer.hpp:25\x1b[m\x1b[K,\n'}
+[39.056343] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio.hpp:25\x1b[m\x1b[K,\n'}
+[39.057063] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/udp-link.h:6\x1b[m\x1b[K,\n'}
+[39.057739] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/udp-link.cpp:6\x1b[m\x1b[K:\n'}
+[39.058373] (ping360_sonar) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/boost/bind.hpp:36:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[K#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.\x1b[m\x1b[K\xe2\x80\x99\n'}
+[39.059087] (ping360_sonar) StderrLine: {'line': b'   36 | \x1b[01;36m\x1b[KBOOST_PRAGMA_MESSAGE\x1b[m\x1b[K(\n'}
+[39.059714] (ping360_sonar) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[39.066513] (ping360_sonar) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:22\x1b[m\x1b[K,\n'}
+[39.067595] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/yield_k.hpp:23\x1b[m\x1b[K,\n'}
+[39.068322] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:14\x1b[m\x1b[K,\n'}
+[39.069084] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/spinlock.hpp:42\x1b[m\x1b[K,\n'}
+[39.069753] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:25\x1b[m\x1b[K,\n'}
+[39.070416] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/shared_ptr.hpp:29\x1b[m\x1b[K,\n'}
+[39.071062] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/shared_ptr.hpp:17\x1b[m\x1b[K,\n'}
+[39.071779] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/date_time/time_clock.hpp:17\x1b[m\x1b[K,\n'}
+[39.072423] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/date_time/posix_time/posix_time_types.hpp:10\x1b[m\x1b[K,\n'}
+[39.073139] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/time_traits.hpp:23\x1b[m\x1b[K,\n'}
+[39.073820] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/detail/timer_queue_ptime.hpp:22\x1b[m\x1b[K,\n'}
+[39.074462] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/detail/deadline_timer_service.hpp:29\x1b[m\x1b[K,\n'}
+[39.075090] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/basic_deadline_timer.hpp:25\x1b[m\x1b[K,\n'}
+[39.075725] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio.hpp:25\x1b[m\x1b[K,\n'}
+[39.076355] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/serial-link.h:10\x1b[m\x1b[K,\n'}
+[39.077068] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/serial-link.cpp:7\x1b[m\x1b[K:\n'}
+[39.077692] (ping360_sonar) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/boost/bind.hpp:36:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[K#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.\x1b[m\x1b[K\xe2\x80\x99\n'}
+[39.078736] (ping360_sonar) StderrLine: {'line': b'   36 | \x1b[01;36m\x1b[KBOOST_PRAGMA_MESSAGE\x1b[m\x1b[K(\n'}
+[39.079462] (ping360_sonar) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[39.125064] (-) TimerEvent: {}
+[39.226113] (-) TimerEvent: {}
+[39.327150] (-) TimerEvent: {}
+[39.428283] (-) TimerEvent: {}
+[39.529491] (-) TimerEvent: {}
+[39.630743] (-) TimerEvent: {}
+[39.731880] (-) TimerEvent: {}
+[39.833044] (-) TimerEvent: {}
+[39.934150] (-) TimerEvent: {}
+[40.035328] (-) TimerEvent: {}
+[40.136439] (-) TimerEvent: {}
+[40.237602] (-) TimerEvent: {}
+[40.338748] (-) TimerEvent: {}
+[40.439881] (-) TimerEvent: {}
+[40.541050] (-) TimerEvent: {}
+[40.642078] (-) TimerEvent: {}
+[40.743107] (-) TimerEvent: {}
+[40.844217] (-) TimerEvent: {}
+[40.945282] (-) TimerEvent: {}
+[41.046318] (-) TimerEvent: {}
+[41.147336] (-) TimerEvent: {}
+[41.248419] (-) TimerEvent: {}
+[41.349530] (-) TimerEvent: {}
+[41.450633] (-) TimerEvent: {}
+[41.551662] (-) TimerEvent: {}
+[41.652689] (-) TimerEvent: {}
+[41.753765] (-) TimerEvent: {}
+[41.854889] (-) TimerEvent: {}
+[41.955727] (-) TimerEvent: {}
+[42.056588] (-) TimerEvent: {}
+[42.157375] (-) TimerEvent: {}
+[42.258162] (-) TimerEvent: {}
+[42.358963] (-) TimerEvent: {}
+[42.459898] (-) TimerEvent: {}
+[42.560731] (-) TimerEvent: {}
+[42.661544] (-) TimerEvent: {}
+[42.762349] (-) TimerEvent: {}
+[42.863397] (-) TimerEvent: {}
+[42.964355] (-) TimerEvent: {}
+[43.065260] (-) TimerEvent: {}
+[43.166126] (-) TimerEvent: {}
+[43.267062] (-) TimerEvent: {}
+[43.367948] (-) TimerEvent: {}
+[43.469193] (-) TimerEvent: {}
+[43.570277] (-) TimerEvent: {}
+[43.671293] (-) TimerEvent: {}
+[43.772085] (-) TimerEvent: {}
+[43.825548] (ping360_sonar) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:22\x1b[m\x1b[K,\n'}
+[43.826294] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/yield_k.hpp:23\x1b[m\x1b[K,\n'}
+[43.826718] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:14\x1b[m\x1b[K,\n'}
+[43.827162] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/spinlock.hpp:42\x1b[m\x1b[K,\n'}
+[43.827546] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:25\x1b[m\x1b[K,\n'}
+[43.828250] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/shared_ptr.hpp:29\x1b[m\x1b[K,\n'}
+[43.829149] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/shared_ptr.hpp:17\x1b[m\x1b[K,\n'}
+[43.830320] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/signals2/deconstruct.hpp:28\x1b[m\x1b[K,\n'}
+[43.831056] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/signals2.hpp:15\x1b[m\x1b[K,\n'}
+[43.831722] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/abstract-link.h:6\x1b[m\x1b[K,\n'}
+[43.832384] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/abstract-link.cpp:1\x1b[m\x1b[K:\n'}
+[43.832910] (ping360_sonar) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/boost/bind.hpp:36:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[K#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.\x1b[m\x1b[K\xe2\x80\x99\n'}
+[43.833375] (ping360_sonar) StderrLine: {'line': b'   36 | \x1b[01;36m\x1b[KBOOST_PRAGMA_MESSAGE\x1b[m\x1b[K(\n'}
+[43.833748] (ping360_sonar) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[43.872312] (-) TimerEvent: {}
+[43.973274] (-) TimerEvent: {}
+[44.074342] (-) TimerEvent: {}
+[44.175357] (-) TimerEvent: {}
+[44.276414] (-) TimerEvent: {}
+[44.377513] (-) TimerEvent: {}
+[44.478573] (-) TimerEvent: {}
+[44.579651] (-) TimerEvent: {}
+[44.680488] (-) TimerEvent: {}
+[44.781303] (-) TimerEvent: {}
+[44.882124] (-) TimerEvent: {}
+[44.983019] (-) TimerEvent: {}
+[45.083953] (-) TimerEvent: {}
+[45.184911] (-) TimerEvent: {}
+[45.285971] (-) TimerEvent: {}
+[45.386817] (-) TimerEvent: {}
+[45.487787] (-) TimerEvent: {}
+[45.588958] (-) TimerEvent: {}
+[45.689819] (-) TimerEvent: {}
+[45.790895] (-) TimerEvent: {}
+[45.891792] (-) TimerEvent: {}
+[45.992697] (-) TimerEvent: {}
+[46.093631] (-) TimerEvent: {}
+[46.194441] (-) TimerEvent: {}
+[46.295203] (-) TimerEvent: {}
+[46.396014] (-) TimerEvent: {}
+[46.496900] (-) TimerEvent: {}
+[46.597900] (-) TimerEvent: {}
+[46.698716] (-) TimerEvent: {}
+[46.799716] (-) TimerEvent: {}
+[46.900621] (-) TimerEvent: {}
+[47.001642] (-) TimerEvent: {}
+[47.102540] (-) TimerEvent: {}
+[47.203549] (-) TimerEvent: {}
+[47.304575] (-) TimerEvent: {}
+[47.405560] (-) TimerEvent: {}
+[47.506518] (-) TimerEvent: {}
+[47.607426] (-) TimerEvent: {}
+[47.708430] (-) TimerEvent: {}
+[47.809484] (-) TimerEvent: {}
+[47.910465] (-) TimerEvent: {}
+[48.011474] (-) TimerEvent: {}
+[48.112543] (-) TimerEvent: {}
+[48.213514] (-) TimerEvent: {}
+[48.314431] (-) TimerEvent: {}
+[48.415407] (-) TimerEvent: {}
+[48.516415] (-) TimerEvent: {}
+[48.617458] (-) TimerEvent: {}
+[48.718474] (-) TimerEvent: {}
+[48.819521] (-) TimerEvent: {}
+[48.920645] (-) TimerEvent: {}
+[49.021633] (-) TimerEvent: {}
+[49.122451] (-) TimerEvent: {}
+[49.223370] (-) TimerEvent: {}
+[49.324147] (-) TimerEvent: {}
+[49.424965] (-) TimerEvent: {}
+[49.525729] (-) TimerEvent: {}
+[49.626478] (-) TimerEvent: {}
+[49.727173] (-) TimerEvent: {}
+[49.827956] (-) TimerEvent: {}
+[49.928910] (-) TimerEvent: {}
+[50.029943] (-) TimerEvent: {}
+[50.130945] (-) TimerEvent: {}
+[50.231912] (-) TimerEvent: {}
+[50.332924] (-) TimerEvent: {}
+[50.433917] (-) TimerEvent: {}
+[50.534919] (-) TimerEvent: {}
+[50.635951] (-) TimerEvent: {}
+[50.736932] (-) TimerEvent: {}
+[50.837826] (-) TimerEvent: {}
+[50.938815] (-) TimerEvent: {}
+[51.039848] (-) TimerEvent: {}
+[51.140951] (-) TimerEvent: {}
+[51.242040] (-) TimerEvent: {}
+[51.343206] (-) TimerEvent: {}
+[51.444306] (-) TimerEvent: {}
+[51.545449] (-) TimerEvent: {}
+[51.646636] (-) TimerEvent: {}
+[51.747757] (-) TimerEvent: {}
+[51.849185] (-) TimerEvent: {}
+[51.950007] (-) TimerEvent: {}
+[52.050810] (-) TimerEvent: {}
+[52.151573] (-) TimerEvent: {}
+[52.252337] (-) TimerEvent: {}
+[52.353160] (-) TimerEvent: {}
+[52.454192] (-) TimerEvent: {}
+[52.555437] (-) TimerEvent: {}
+[52.656608] (-) TimerEvent: {}
+[52.757762] (-) TimerEvent: {}
+[52.858880] (-) TimerEvent: {}
+[52.959873] (-) TimerEvent: {}
+[53.060678] (-) TimerEvent: {}
+[53.161436] (-) TimerEvent: {}
+[53.262195] (-) TimerEvent: {}
+[53.362966] (-) TimerEvent: {}
+[53.463788] (-) TimerEvent: {}
+[53.564641] (-) TimerEvent: {}
+[53.665467] (-) TimerEvent: {}
+[53.766271] (-) TimerEvent: {}
+[53.867121] (-) TimerEvent: {}
+[53.968063] (-) TimerEvent: {}
+[54.069015] (-) TimerEvent: {}
+[54.169717] (-) TimerEvent: {}
+[54.270402] (-) TimerEvent: {}
+[54.371078] (-) TimerEvent: {}
+[54.471752] (-) TimerEvent: {}
+[54.572420] (-) TimerEvent: {}
+[54.673122] (-) TimerEvent: {}
+[54.773792] (-) TimerEvent: {}
+[54.874465] (-) TimerEvent: {}
+[54.975141] (-) TimerEvent: {}
+[55.075815] (-) TimerEvent: {}
+[55.176520] (-) TimerEvent: {}
+[55.277193] (-) TimerEvent: {}
+[55.377874] (-) TimerEvent: {}
+[55.478549] (-) TimerEvent: {}
+[55.579228] (-) TimerEvent: {}
+[55.679897] (-) TimerEvent: {}
+[55.780597] (-) TimerEvent: {}
+[55.881260] (-) TimerEvent: {}
+[55.982001] (-) TimerEvent: {}
+[56.082789] (-) TimerEvent: {}
+[56.183467] (-) TimerEvent: {}
+[56.284136] (-) TimerEvent: {}
+[56.384856] (-) TimerEvent: {}
+[56.485545] (-) TimerEvent: {}
+[56.586218] (-) TimerEvent: {}
+[56.686898] (-) TimerEvent: {}
+[56.787570] (-) TimerEvent: {}
+[56.888243] (-) TimerEvent: {}
+[56.988947] (-) TimerEvent: {}
+[57.089621] (-) TimerEvent: {}
+[57.190358] (-) TimerEvent: {}
+[57.291307] (-) TimerEvent: {}
+[57.392158] (-) TimerEvent: {}
+[57.493051] (-) TimerEvent: {}
+[57.593905] (-) TimerEvent: {}
+[57.694771] (-) TimerEvent: {}
+[57.795626] (-) TimerEvent: {}
+[57.896510] (-) TimerEvent: {}
+[57.997374] (-) TimerEvent: {}
+[58.098235] (-) TimerEvent: {}
+[58.198891] (-) TimerEvent: {}
+[58.299543] (-) TimerEvent: {}
+[58.400197] (-) TimerEvent: {}
+[58.500889] (-) TimerEvent: {}
+[58.601558] (-) TimerEvent: {}
+[58.702224] (-) TimerEvent: {}
+[58.802879] (-) TimerEvent: {}
+[58.903539] (-) TimerEvent: {}
+[59.004212] (-) TimerEvent: {}
+[59.104904] (-) TimerEvent: {}
+[59.205565] (-) TimerEvent: {}
+[59.306271] (-) TimerEvent: {}
+[59.406939] (-) TimerEvent: {}
+[59.507603] (-) TimerEvent: {}
+[59.608265] (-) TimerEvent: {}
+[59.708952] (-) TimerEvent: {}
+[59.809618] (-) TimerEvent: {}
+[59.910286] (-) TimerEvent: {}
+[60.010952] (-) TimerEvent: {}
+[60.111615] (-) TimerEvent: {}
+[60.212273] (-) TimerEvent: {}
+[60.312992] (-) TimerEvent: {}
+[60.413656] (-) TimerEvent: {}
+[60.514315] (-) TimerEvent: {}
+[60.614976] (-) TimerEvent: {}
+[60.715640] (-) TimerEvent: {}
+[60.816300] (-) TimerEvent: {}
+[60.916981] (-) TimerEvent: {}
+[61.017647] (-) TimerEvent: {}
+[61.118316] (-) TimerEvent: {}
+[61.218976] (-) TimerEvent: {}
+[61.319640] (-) TimerEvent: {}
+[61.420304] (-) TimerEvent: {}
+[61.521000] (-) TimerEvent: {}
+[61.554740] (ping360_sonar) StderrLine: {'line': b'\x1b[01m\x1b[Kcc1plus:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kunrecognized command-line option \xe2\x80\x98\x1b[01m\x1b[K-Wno-unused-variable -Wno-unused-function -Wno-error\x1b[m\x1b[K\xe2\x80\x99 may have been intended to silence earlier diagnostics\n'}
+[61.621229] (-) TimerEvent: {}
+[61.722029] (-) TimerEvent: {}
+[61.822836] (-) TimerEvent: {}
+[61.923501] (-) TimerEvent: {}
+[62.024166] (-) TimerEvent: {}
+[62.124862] (-) TimerEvent: {}
+[62.225537] (-) TimerEvent: {}
+[62.326207] (-) TimerEvent: {}
+[62.426874] (-) TimerEvent: {}
+[62.527625] (-) TimerEvent: {}
+[62.628685] (-) TimerEvent: {}
+[62.729567] (-) TimerEvent: {}
+[62.830403] (-) TimerEvent: {}
+[62.931382] (-) TimerEvent: {}
+[63.032205] (-) TimerEvent: {}
+[63.083589] (ping360_sonar) StdoutLine: {'line': b'[ 58%] \x1b[32m\x1b[1mLinking CXX shared library libping-cpp.so\x1b[0m\n'}
+[63.132423] (-) TimerEvent: {}
+[63.233254] (-) TimerEvent: {}
+[63.334103] (-) TimerEvent: {}
+[63.434892] (-) TimerEvent: {}
+[63.535697] (-) TimerEvent: {}
+[63.636769] (-) TimerEvent: {}
+[63.737547] (-) TimerEvent: {}
+[63.838324] (-) TimerEvent: {}
+[63.939133] (-) TimerEvent: {}
+[64.040032] (-) TimerEvent: {}
+[64.140940] (-) TimerEvent: {}
+[64.241613] (-) TimerEvent: {}
+[64.342371] (-) TimerEvent: {}
+[64.443320] (-) TimerEvent: {}
+[64.544389] (-) TimerEvent: {}
+[64.645773] (-) TimerEvent: {}
+[64.746692] (-) TimerEvent: {}
+[64.801712] (ping360_sonar) StdoutLine: {'line': b'[ 58%] Built target ping-cpp\n'}
+[64.846873] (-) TimerEvent: {}
+[64.910865] (ping360_sonar) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/ping360_node.dir/src/ping360_node.cpp.o\x1b[0m\n'}
+[64.914865] (ping360_sonar) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/ping360_node.dir/src/ping360.cpp.o\x1b[0m\n'}
+[64.915909] (ping360_sonar) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding CXX object CMakeFiles/ping360_node.dir/src/sonar_interface.cpp.o\x1b[0m\n'}
+[64.922312] (ping360_sonar) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding CXX object CMakeFiles/ping360_node.dir/src/sector.cpp.o\x1b[0m\n'}
+[64.947105] (-) TimerEvent: {}
+[65.048045] (-) TimerEvent: {}
+[65.149503] (-) TimerEvent: {}
+[65.250498] (-) TimerEvent: {}
+[65.351529] (-) TimerEvent: {}
+[65.452608] (-) TimerEvent: {}
+[65.553590] (-) TimerEvent: {}
+[65.654411] (-) TimerEvent: {}
+[65.755288] (-) TimerEvent: {}
+[65.856224] (-) TimerEvent: {}
+[65.957188] (-) TimerEvent: {}
+[66.058081] (-) TimerEvent: {}
+[66.158947] (-) TimerEvent: {}
+[66.259807] (-) TimerEvent: {}
+[66.360673] (-) TimerEvent: {}
+[66.461582] (-) TimerEvent: {}
+[66.562475] (-) TimerEvent: {}
+[66.663348] (-) TimerEvent: {}
+[66.764224] (-) TimerEvent: {}
+[66.865145] (-) TimerEvent: {}
+[66.966026] (-) TimerEvent: {}
+[67.066931] (-) TimerEvent: {}
+[67.167994] (-) TimerEvent: {}
+[67.268921] (-) TimerEvent: {}
+[67.372670] (-) TimerEvent: {}
+[67.476714] (-) TimerEvent: {}
+[67.577661] (-) TimerEvent: {}
+[67.679084] (-) TimerEvent: {}
+[67.780212] (-) TimerEvent: {}
+[67.881058] (-) TimerEvent: {}
+[67.981870] (-) TimerEvent: {}
+[68.082901] (-) TimerEvent: {}
+[68.183810] (-) TimerEvent: {}
+[68.284678] (-) TimerEvent: {}
+[68.385640] (-) TimerEvent: {}
+[68.486664] (-) TimerEvent: {}
+[68.587643] (-) TimerEvent: {}
+[68.688656] (-) TimerEvent: {}
+[68.789659] (-) TimerEvent: {}
+[68.890695] (-) TimerEvent: {}
+[68.991682] (-) TimerEvent: {}
+[69.092743] (-) TimerEvent: {}
+[69.193945] (-) TimerEvent: {}
+[69.295075] (-) TimerEvent: {}
+[69.396201] (-) TimerEvent: {}
+[69.497339] (-) TimerEvent: {}
+[69.598396] (-) TimerEvent: {}
+[69.699512] (-) TimerEvent: {}
+[69.800635] (-) TimerEvent: {}
+[69.901535] (-) TimerEvent: {}
+[70.002504] (-) TimerEvent: {}
+[70.103384] (-) TimerEvent: {}
+[70.204373] (-) TimerEvent: {}
+[70.305100] (-) TimerEvent: {}
+[70.405828] (-) TimerEvent: {}
+[70.506784] (-) TimerEvent: {}
+[70.607702] (-) TimerEvent: {}
+[70.708568] (-) TimerEvent: {}
+[70.809384] (-) TimerEvent: {}
+[70.910211] (-) TimerEvent: {}
+[71.011071] (-) TimerEvent: {}
+[71.112044] (-) TimerEvent: {}
+[71.213178] (-) TimerEvent: {}
+[71.314103] (-) TimerEvent: {}
+[71.414927] (-) TimerEvent: {}
+[71.515886] (-) TimerEvent: {}
+[71.616874] (-) TimerEvent: {}
+[71.717813] (-) TimerEvent: {}
+[71.818653] (-) TimerEvent: {}
+[71.919486] (-) TimerEvent: {}
+[72.020442] (-) TimerEvent: {}
+[72.121627] (-) TimerEvent: {}
+[72.222732] (-) TimerEvent: {}
+[72.323697] (-) TimerEvent: {}
+[72.424644] (-) TimerEvent: {}
+[72.525425] (-) TimerEvent: {}
+[72.626200] (-) TimerEvent: {}
+[72.726973] (-) TimerEvent: {}
+[72.827785] (-) TimerEvent: {}
+[72.928570] (-) TimerEvent: {}
+[73.029228] (-) TimerEvent: {}
+[73.129916] (-) TimerEvent: {}
+[73.230677] (-) TimerEvent: {}
+[73.331442] (-) TimerEvent: {}
+[73.432272] (-) TimerEvent: {}
+[73.533123] (-) TimerEvent: {}
+[73.633904] (-) TimerEvent: {}
+[73.734748] (-) TimerEvent: {}
+[73.835511] (-) TimerEvent: {}
+[73.936285] (-) TimerEvent: {}
+[74.037127] (-) TimerEvent: {}
+[74.137906] (-) TimerEvent: {}
+[74.238685] (-) TimerEvent: {}
+[74.339462] (-) TimerEvent: {}
+[74.440241] (-) TimerEvent: {}
+[74.541062] (-) TimerEvent: {}
+[74.641848] (-) TimerEvent: {}
+[74.742728] (-) TimerEvent: {}
+[74.843539] (-) TimerEvent: {}
+[74.944358] (-) TimerEvent: {}
+[75.045316] (-) TimerEvent: {}
+[75.146345] (-) TimerEvent: {}
+[75.247137] (-) TimerEvent: {}
+[75.347923] (-) TimerEvent: {}
+[75.448811] (-) TimerEvent: {}
+[75.549570] (-) TimerEvent: {}
+[75.650348] (-) TimerEvent: {}
+[75.751133] (-) TimerEvent: {}
+[75.851927] (-) TimerEvent: {}
+[75.952727] (-) TimerEvent: {}
+[76.053518] (-) TimerEvent: {}
+[76.154330] (-) TimerEvent: {}
+[76.255139] (-) TimerEvent: {}
+[76.355913] (-) TimerEvent: {}
+[76.456700] (-) TimerEvent: {}
+[76.557495] (-) TimerEvent: {}
+[76.658289] (-) TimerEvent: {}
+[76.759154] (-) TimerEvent: {}
+[76.860005] (-) TimerEvent: {}
+[76.960896] (-) TimerEvent: {}
+[77.061741] (-) TimerEvent: {}
+[77.162578] (-) TimerEvent: {}
+[77.263418] (-) TimerEvent: {}
+[77.358860] (ping360_sonar) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:22\x1b[m\x1b[K,\n'}
+[77.359547] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/yield_k.hpp:23\x1b[m\x1b[K,\n'}
+[77.359946] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:14\x1b[m\x1b[K,\n'}
+[77.360319] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/spinlock.hpp:42\x1b[m\x1b[K,\n'}
+[77.360740] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:25\x1b[m\x1b[K,\n'}
+[77.361098] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/shared_ptr.hpp:29\x1b[m\x1b[K,\n'}
+[77.361500] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/shared_ptr.hpp:17\x1b[m\x1b[K,\n'}
+[77.361855] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/date_time/time_clock.hpp:17\x1b[m\x1b[K,\n'}
+[77.362193] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/date_time/posix_time/posix_time_types.hpp:10\x1b[m\x1b[K,\n'}
+[77.362534] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/time_traits.hpp:23\x1b[m\x1b[K,\n'}
+[77.362837] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/detail/timer_queue_ptime.hpp:22\x1b[m\x1b[K,\n'}
+[77.363138] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/detail/deadline_timer_service.hpp:29\x1b[m\x1b[K,\n'}
+[77.363455] (-) TimerEvent: {}
+[77.363935] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/basic_deadline_timer.hpp:25\x1b[m\x1b[K,\n'}
+[77.364358] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio.hpp:25\x1b[m\x1b[K,\n'}
+[77.364840] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/serial-link.h:10\x1b[m\x1b[K,\n'}
+[77.365213] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/include/ping360_sonar/sonar_interface.h:4\x1b[m\x1b[K,\n'}
+[77.365574] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/sonar_interface.cpp:1\x1b[m\x1b[K:\n'}
+[77.365891] (ping360_sonar) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/boost/bind.hpp:36:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[K#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.\x1b[m\x1b[K\xe2\x80\x99\n'}
+[77.366277] (ping360_sonar) StderrLine: {'line': b'   36 | \x1b[01;36m\x1b[KBOOST_PRAGMA_MESSAGE\x1b[m\x1b[K(\n'}
+[77.366596] (ping360_sonar) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[77.463727] (-) TimerEvent: {}
+[77.564611] (-) TimerEvent: {}
+[77.665499] (-) TimerEvent: {}
+[77.766341] (-) TimerEvent: {}
+[77.867226] (-) TimerEvent: {}
+[77.968167] (-) TimerEvent: {}
+[78.068991] (-) TimerEvent: {}
+[78.169832] (-) TimerEvent: {}
+[78.270683] (-) TimerEvent: {}
+[78.371638] (-) TimerEvent: {}
+[78.472591] (-) TimerEvent: {}
+[78.573396] (-) TimerEvent: {}
+[78.674197] (-) TimerEvent: {}
+[78.774994] (-) TimerEvent: {}
+[78.875770] (-) TimerEvent: {}
+[78.976599] (-) TimerEvent: {}
+[79.077432] (-) TimerEvent: {}
+[79.178273] (-) TimerEvent: {}
+[79.279088] (-) TimerEvent: {}
+[79.379887] (-) TimerEvent: {}
+[79.480682] (-) TimerEvent: {}
+[79.581467] (-) TimerEvent: {}
+[79.682254] (-) TimerEvent: {}
+[79.783050] (-) TimerEvent: {}
+[79.883838] (-) TimerEvent: {}
+[79.984613] (-) TimerEvent: {}
+[80.085323] (-) TimerEvent: {}
+[80.186116] (-) TimerEvent: {}
+[80.286912] (-) TimerEvent: {}
+[80.387741] (-) TimerEvent: {}
+[80.488602] (-) TimerEvent: {}
+[80.589414] (-) TimerEvent: {}
+[80.690263] (-) TimerEvent: {}
+[80.791057] (-) TimerEvent: {}
+[80.891836] (-) TimerEvent: {}
+[80.992643] (-) TimerEvent: {}
+[81.093471] (-) TimerEvent: {}
+[81.194408] (-) TimerEvent: {}
+[81.295343] (-) TimerEvent: {}
+[81.396190] (-) TimerEvent: {}
+[81.497061] (-) TimerEvent: {}
+[81.597833] (-) TimerEvent: {}
+[81.698614] (-) TimerEvent: {}
+[81.799371] (-) TimerEvent: {}
+[81.900150] (-) TimerEvent: {}
+[82.001089] (-) TimerEvent: {}
+[82.101915] (-) TimerEvent: {}
+[82.202935] (-) TimerEvent: {}
+[82.303930] (-) TimerEvent: {}
+[82.404950] (-) TimerEvent: {}
+[82.505905] (-) TimerEvent: {}
+[82.606915] (-) TimerEvent: {}
+[82.707931] (-) TimerEvent: {}
+[82.808785] (-) TimerEvent: {}
+[82.909552] (-) TimerEvent: {}
+[83.010376] (-) TimerEvent: {}
+[83.111222] (-) TimerEvent: {}
+[83.212030] (-) TimerEvent: {}
+[83.312886] (-) TimerEvent: {}
+[83.413650] (-) TimerEvent: {}
+[83.514416] (-) TimerEvent: {}
+[83.615183] (-) TimerEvent: {}
+[83.715959] (-) TimerEvent: {}
+[83.816797] (-) TimerEvent: {}
+[83.917574] (-) TimerEvent: {}
+[84.018373] (-) TimerEvent: {}
+[84.119203] (-) TimerEvent: {}
+[84.219983] (-) TimerEvent: {}
+[84.320826] (-) TimerEvent: {}
+[84.421579] (-) TimerEvent: {}
+[84.522258] (-) TimerEvent: {}
+[84.622975] (-) TimerEvent: {}
+[84.723765] (-) TimerEvent: {}
+[84.824634] (-) TimerEvent: {}
+[84.925403] (-) TimerEvent: {}
+[85.026282] (-) TimerEvent: {}
+[85.127121] (-) TimerEvent: {}
+[85.227949] (-) TimerEvent: {}
+[85.328779] (-) TimerEvent: {}
+[85.429559] (-) TimerEvent: {}
+[85.530361] (-) TimerEvent: {}
+[85.631154] (-) TimerEvent: {}
+[85.731794] (-) TimerEvent: {}
+[85.832411] (-) TimerEvent: {}
+[85.933125] (-) TimerEvent: {}
+[86.033739] (-) TimerEvent: {}
+[86.134394] (-) TimerEvent: {}
+[86.235057] (-) TimerEvent: {}
+[86.335694] (-) TimerEvent: {}
+[86.436310] (-) TimerEvent: {}
+[86.537010] (-) TimerEvent: {}
+[86.637683] (-) TimerEvent: {}
+[86.738346] (-) TimerEvent: {}
+[86.839011] (-) TimerEvent: {}
+[86.843039] (ping360_sonar) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:22\x1b[m\x1b[K,\n'}
+[86.843545] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/yield_k.hpp:23\x1b[m\x1b[K,\n'}
+[86.843850] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:14\x1b[m\x1b[K,\n'}
+[86.844134] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/spinlock.hpp:42\x1b[m\x1b[K,\n'}
+[86.844570] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:25\x1b[m\x1b[K,\n'}
+[86.844889] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/shared_ptr.hpp:29\x1b[m\x1b[K,\n'}
+[86.845162] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/shared_ptr.hpp:17\x1b[m\x1b[K,\n'}
+[86.845424] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/date_time/time_clock.hpp:17\x1b[m\x1b[K,\n'}
+[86.845689] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/date_time/posix_time/posix_time_types.hpp:10\x1b[m\x1b[K,\n'}
+[86.845951] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/time_traits.hpp:23\x1b[m\x1b[K,\n'}
+[86.846206] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/detail/timer_queue_ptime.hpp:22\x1b[m\x1b[K,\n'}
+[86.846460] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/detail/deadline_timer_service.hpp:29\x1b[m\x1b[K,\n'}
+[86.846716] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/basic_deadline_timer.hpp:25\x1b[m\x1b[K,\n'}
+[86.846969] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio.hpp:25\x1b[m\x1b[K,\n'}
+[86.847221] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/serial-link.h:10\x1b[m\x1b[K,\n'}
+[86.847480] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/include/ping360_sonar/sonar_interface.h:4\x1b[m\x1b[K,\n'}
+[86.847738] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/include/ping360_sonar/ping360_node.h:12\x1b[m\x1b[K,\n'}
+[86.848027] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping360.cpp:1\x1b[m\x1b[K:\n'}
+[86.848310] (ping360_sonar) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/boost/bind.hpp:36:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[K#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.\x1b[m\x1b[K\xe2\x80\x99\n'}
+[86.848653] (ping360_sonar) StderrLine: {'line': b'   36 | \x1b[01;36m\x1b[KBOOST_PRAGMA_MESSAGE\x1b[m\x1b[K(\n'}
+[86.848925] (ping360_sonar) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[86.939207] (-) TimerEvent: {}
+[87.039876] (-) TimerEvent: {}
+[87.140561] (-) TimerEvent: {}
+[87.241225] (-) TimerEvent: {}
+[87.271067] (ping360_sonar) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:22\x1b[m\x1b[K,\n'}
+[87.271625] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/yield_k.hpp:23\x1b[m\x1b[K,\n'}
+[87.271941] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:14\x1b[m\x1b[K,\n'}
+[87.272234] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/spinlock.hpp:42\x1b[m\x1b[K,\n'}
+[87.272602] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:25\x1b[m\x1b[K,\n'}
+[87.272916] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/smart_ptr/shared_ptr.hpp:29\x1b[m\x1b[K,\n'}
+[87.273241] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/shared_ptr.hpp:17\x1b[m\x1b[K,\n'}
+[87.273511] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/date_time/time_clock.hpp:17\x1b[m\x1b[K,\n'}
+[87.273778] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/date_time/posix_time/posix_time_types.hpp:10\x1b[m\x1b[K,\n'}
+[87.274043] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/time_traits.hpp:23\x1b[m\x1b[K,\n'}
+[87.274308] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/detail/timer_queue_ptime.hpp:22\x1b[m\x1b[K,\n'}
+[87.274569] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/detail/deadline_timer_service.hpp:29\x1b[m\x1b[K,\n'}
+[87.274830] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio/basic_deadline_timer.hpp:25\x1b[m\x1b[K,\n'}
+[87.275090] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/boost/asio.hpp:25\x1b[m\x1b[K,\n'}
+[87.275470] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/serial-link.h:10\x1b[m\x1b[K,\n'}
+[87.276195] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/include/ping360_sonar/sonar_interface.h:4\x1b[m\x1b[K,\n'}
+[87.277003] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/include/ping360_sonar/ping360_node.h:12\x1b[m\x1b[K,\n'}
+[87.277740] (ping360_sonar) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping360_node.cpp:2\x1b[m\x1b[K:\n'}
+[87.278252] (ping360_sonar) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/boost/bind.hpp:36:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[K#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.\x1b[m\x1b[K\xe2\x80\x99\n'}
+[87.278571] (ping360_sonar) StderrLine: {'line': b'   36 | \x1b[01;36m\x1b[KBOOST_PRAGMA_MESSAGE\x1b[m\x1b[K(\n'}
+[87.278843] (ping360_sonar) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[87.341426] (-) TimerEvent: {}
+[87.442116] (-) TimerEvent: {}
+[87.542855] (-) TimerEvent: {}
+[87.643839] (-) TimerEvent: {}
+[87.744756] (-) TimerEvent: {}
+[87.845624] (-) TimerEvent: {}
+[87.946529] (-) TimerEvent: {}
+[88.047581] (-) TimerEvent: {}
+[88.148593] (-) TimerEvent: {}
+[88.249861] (-) TimerEvent: {}
+[88.350963] (-) TimerEvent: {}
+[88.452002] (-) TimerEvent: {}
+[88.553098] (-) TimerEvent: {}
+[88.653966] (-) TimerEvent: {}
+[88.754822] (-) TimerEvent: {}
+[88.855714] (-) TimerEvent: {}
+[88.956569] (-) TimerEvent: {}
+[89.057304] (-) TimerEvent: {}
+[89.158002] (-) TimerEvent: {}
+[89.258771] (-) TimerEvent: {}
+[89.359622] (-) TimerEvent: {}
+[89.460362] (-) TimerEvent: {}
+[89.561164] (-) TimerEvent: {}
+[89.661896] (-) TimerEvent: {}
+[89.762562] (-) TimerEvent: {}
+[89.863251] (-) TimerEvent: {}
+[89.964012] (-) TimerEvent: {}
+[90.064825] (-) TimerEvent: {}
+[90.165589] (-) TimerEvent: {}
+[90.266344] (-) TimerEvent: {}
+[90.367114] (-) TimerEvent: {}
+[90.467852] (-) TimerEvent: {}
+[90.568538] (-) TimerEvent: {}
+[90.669224] (-) TimerEvent: {}
+[90.769983] (-) TimerEvent: {}
+[90.870740] (-) TimerEvent: {}
+[90.971503] (-) TimerEvent: {}
+[91.072276] (-) TimerEvent: {}
+[91.173122] (-) TimerEvent: {}
+[91.273920] (-) TimerEvent: {}
+[91.374730] (-) TimerEvent: {}
+[91.475498] (-) TimerEvent: {}
+[91.576268] (-) TimerEvent: {}
+[91.677078] (-) TimerEvent: {}
+[91.777887] (-) TimerEvent: {}
+[91.878651] (-) TimerEvent: {}
+[91.979417] (-) TimerEvent: {}
+[92.080222] (-) TimerEvent: {}
+[92.181214] (-) TimerEvent: {}
+[92.282041] (-) TimerEvent: {}
+[92.382899] (-) TimerEvent: {}
+[92.483842] (-) TimerEvent: {}
+[92.584881] (-) TimerEvent: {}
+[92.685756] (-) TimerEvent: {}
+[92.786510] (-) TimerEvent: {}
+[92.887234] (-) TimerEvent: {}
+[92.987994] (-) TimerEvent: {}
+[93.088789] (-) TimerEvent: {}
+[93.189549] (-) TimerEvent: {}
+[93.290294] (-) TimerEvent: {}
+[93.391016] (-) TimerEvent: {}
+[93.491700] (-) TimerEvent: {}
+[93.592548] (-) TimerEvent: {}
+[93.693522] (-) TimerEvent: {}
+[93.794335] (-) TimerEvent: {}
+[93.895119] (-) TimerEvent: {}
+[93.995868] (-) TimerEvent: {}
+[94.096626] (-) TimerEvent: {}
+[94.197378] (-) TimerEvent: {}
+[94.298186] (-) TimerEvent: {}
+[94.398948] (-) TimerEvent: {}
+[94.499711] (-) TimerEvent: {}
+[94.600529] (-) TimerEvent: {}
+[94.701288] (-) TimerEvent: {}
+[94.802045] (-) TimerEvent: {}
+[94.902799] (-) TimerEvent: {}
+[95.003531] (-) TimerEvent: {}
+[95.104226] (-) TimerEvent: {}
+[95.204994] (-) TimerEvent: {}
+[95.305681] (-) TimerEvent: {}
+[95.406428] (-) TimerEvent: {}
+[95.507227] (-) TimerEvent: {}
+[95.608096] (-) TimerEvent: {}
+[95.708872] (-) TimerEvent: {}
+[95.809593] (-) TimerEvent: {}
+[95.910245] (-) TimerEvent: {}
+[96.010903] (-) TimerEvent: {}
+[96.111562] (-) TimerEvent: {}
+[96.212319] (-) TimerEvent: {}
+[96.313274] (-) TimerEvent: {}
+[96.414156] (-) TimerEvent: {}
+[96.514948] (-) TimerEvent: {}
+[96.615726] (-) TimerEvent: {}
+[96.716592] (-) TimerEvent: {}
+[96.817512] (-) TimerEvent: {}
+[96.918365] (-) TimerEvent: {}
+[97.019026] (-) TimerEvent: {}
+[97.119677] (-) TimerEvent: {}
+[97.220323] (-) TimerEvent: {}
+[97.321003] (-) TimerEvent: {}
+[97.421656] (-) TimerEvent: {}
+[97.522309] (-) TimerEvent: {}
+[97.622976] (-) TimerEvent: {}
+[97.723623] (-) TimerEvent: {}
+[97.824261] (-) TimerEvent: {}
+[97.924938] (-) TimerEvent: {}
+[98.025587] (-) TimerEvent: {}
+[98.126235] (-) TimerEvent: {}
+[98.226883] (-) TimerEvent: {}
+[98.327562] (-) TimerEvent: {}
+[98.428260] (-) TimerEvent: {}
+[98.528964] (-) TimerEvent: {}
+[98.629639] (-) TimerEvent: {}
+[98.730445] (-) TimerEvent: {}
+[98.831086] (-) TimerEvent: {}
+[98.931731] (-) TimerEvent: {}
+[99.032374] (-) TimerEvent: {}
+[99.133047] (-) TimerEvent: {}
+[99.233704] (-) TimerEvent: {}
+[99.334349] (-) TimerEvent: {}
+[99.435005] (-) TimerEvent: {}
+[99.535667] (-) TimerEvent: {}
+[99.636318] (-) TimerEvent: {}
+[99.737002] (-) TimerEvent: {}
+[99.837653] (-) TimerEvent: {}
+[99.938306] (-) TimerEvent: {}
+[100.038956] (-) TimerEvent: {}
+[100.139612] (-) TimerEvent: {}
+[100.240282] (-) TimerEvent: {}
+[100.340966] (-) TimerEvent: {}
+[100.441617] (-) TimerEvent: {}
+[100.542272] (-) TimerEvent: {}
+[100.642932] (-) TimerEvent: {}
+[100.743591] (-) TimerEvent: {}
+[100.844241] (-) TimerEvent: {}
+[100.944915] (-) TimerEvent: {}
+[101.045572] (-) TimerEvent: {}
+[101.146287] (-) TimerEvent: {}
+[101.246980] (-) TimerEvent: {}
+[101.347623] (-) TimerEvent: {}
+[101.448275] (-) TimerEvent: {}
+[101.548968] (-) TimerEvent: {}
+[101.649621] (-) TimerEvent: {}
+[101.750274] (-) TimerEvent: {}
+[101.850930] (-) TimerEvent: {}
+[101.951576] (-) TimerEvent: {}
+[102.052225] (-) TimerEvent: {}
+[102.152894] (-) TimerEvent: {}
+[102.253547] (-) TimerEvent: {}
+[102.354199] (-) TimerEvent: {}
+[102.454841] (-) TimerEvent: {}
+[102.555490] (-) TimerEvent: {}
+[102.656142] (-) TimerEvent: {}
+[102.756828] (-) TimerEvent: {}
+[102.857479] (-) TimerEvent: {}
+[102.958122] (-) TimerEvent: {}
+[103.058769] (-) TimerEvent: {}
+[103.159422] (-) TimerEvent: {}
+[103.260072] (-) TimerEvent: {}
+[103.360792] (-) TimerEvent: {}
+[103.461563] (-) TimerEvent: {}
+[103.562365] (-) TimerEvent: {}
+[103.663387] (-) TimerEvent: {}
+[103.764370] (-) TimerEvent: {}
+[103.865230] (-) TimerEvent: {}
+[103.966060] (-) TimerEvent: {}
+[104.066863] (-) TimerEvent: {}
+[104.167735] (-) TimerEvent: {}
+[104.268783] (-) TimerEvent: {}
+[104.369698] (-) TimerEvent: {}
+[104.470714] (-) TimerEvent: {}
+[104.571783] (-) TimerEvent: {}
+[104.614233] (ping360_sonar) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable ping360_node\x1b[0m\n'}
+[104.672000] (-) TimerEvent: {}
+[104.772847] (-) TimerEvent: {}
+[104.873926] (-) TimerEvent: {}
+[104.974973] (-) TimerEvent: {}
+[105.075995] (-) TimerEvent: {}
+[105.177123] (-) TimerEvent: {}
+[105.278173] (-) TimerEvent: {}
+[105.379314] (-) TimerEvent: {}
+[105.480448] (-) TimerEvent: {}
+[105.581459] (-) TimerEvent: {}
+[105.682620] (-) TimerEvent: {}
+[105.783757] (-) TimerEvent: {}
+[105.884810] (-) TimerEvent: {}
+[105.985655] (-) TimerEvent: {}
+[106.086578] (-) TimerEvent: {}
+[106.187635] (-) TimerEvent: {}
+[106.288522] (-) TimerEvent: {}
+[106.389229] (-) TimerEvent: {}
+[106.435141] (ping360_sonar) StdoutLine: {'line': b'[100%] Built target ping360_node\n'}
+[106.489562] (-) TimerEvent: {}
+[106.491908] (ping360_sonar) CommandEnded: {'returncode': 0}
+[106.495280] (ping360_sonar) JobProgress: {'identifier': 'ping360_sonar', 'progress': 'install'}
+[106.498376] (ping360_sonar) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/sarkars1/SubmarineTest/build/ping360_sonar'], 'cwd': '/home/sarkars1/SubmarineTest/build/ping360_sonar', 'env': OrderedDict([('GZ_SIM_SYSTEM_PLUGIN_PATH', '/home/sarkars1/vrx_ws/install/lib'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('GZ_SIM_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share/wamv_description/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/models/tmp:/home/sarkars1/vrx_ws/install/share/vrx_gz/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds/2023_practice:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds:/home/sarkars1/vrx_ws/install/share/vrx_gazebo/models:/home/sarkars1/vrx_ws/install/share/:/home/sarkars1/minion_ws/install/share/gazebo_models/models:/home/sarkars1/minion_ws/install/share'), ('no_proxy', 'localhost,127.0.0.0/8,::1'), ('LANGUAGE', 'C.UTF-8'), ('USER', 'sarkars1'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:/home/sarkars1/vrx_ws/install/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/sarkars1'), ('OLDPWD', '/home/sarkars1/SubmarineTest'), ('DESKTOP_SESSION', 'ubuntu'), ('NO_PROXY', 'localhost,127.0.0.0/8,::1'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '1559'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'sarkars1'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'sarkars1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/sarkars1/vrx_ws/install/../src/vrx-erau/vrx_gz/launch:/home/sarkars1/minion_ws/install/share/gazebo_models/launch:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/mciscolin:@/tmp/.ICE-unix/1533,unix/mciscolin:/tmp/.ICE-unix/1533'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/13a81341_a5ca_4cfe_a30d_232c25365277'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.XSFTX3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.108'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share'), ('GZ_VERSION', 'garden'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/sarkars1/SubmarineTest/build/ping360_sonar'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:/home/sarkars1/vrx_ws/install/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble')]), 'shell': False}
+[106.532530] (ping360_sonar) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[106.533658] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/lib/ping360_sonar/ping360_node\n'}
+[106.543249] (ping360_sonar) StdoutLine: {'line': b'-- Set runtime path of "/home/sarkars1/SubmarineTest/install/ping360_sonar/lib/ping360_sonar/ping360_node" to ""\n'}
+[106.543966] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/lib/libping-cpp.so\n'}
+[106.568751] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/environment/pythonpath.sh\n'}
+[106.569704] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/environment/pythonpath.dsv\n'}
+[106.570553] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar-2.0.1-py3.10.egg-info\n'}
+[106.571291] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar-2.0.1-py3.10.egg-info/PKG-INFO\n'}
+[106.572057] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar-2.0.1-py3.10.egg-info/SOURCES.txt\n'}
+[106.572844] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar-2.0.1-py3.10.egg-info/top_level.txt\n'}
+[106.573538] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar-2.0.1-py3.10.egg-info/dependency_links.txt\n'}
+[106.574220] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar\n'}
+[106.574880] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar/__init__.py\n'}
+[106.575529] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar/sonar_interface.py\n'}
+[106.589748] (-) TimerEvent: {}
+[106.690492] (-) TimerEvent: {}
+[106.761758] (ping360_sonar) StdoutLine: {'line': b"Listing '/home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar'...\n"}
+[106.762448] (ping360_sonar) StdoutLine: {'line': b"Compiling '/home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar/__init__.py'...\n"}
+[106.762926] (ping360_sonar) StdoutLine: {'line': b"Compiling '/home/sarkars1/SubmarineTest/install/ping360_sonar/local/lib/python3.10/dist-packages/ping360_sonar/sonar_interface.py'...\n"}
+[106.788167] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/lib/ping360_sonar/ping360.py\n'}
+[106.789815] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ament_index/resource_index/package_run_dependencies/ping360_sonar\n'}
+[106.790529] (-) TimerEvent: {}
+[106.791586] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ament_index/resource_index/parent_prefix_path/ping360_sonar\n'}
+[106.793065] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/environment/ament_prefix_path.sh\n'}
+[106.794056] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/environment/ament_prefix_path.dsv\n'}
+[106.795124] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/environment/path.sh\n'}
+[106.796083] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/environment/path.dsv\n'}
+[106.797757] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/local_setup.bash\n'}
+[106.798779] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/local_setup.sh\n'}
+[106.800039] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/local_setup.zsh\n'}
+[106.801229] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/local_setup.dsv\n'}
+[106.802050] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/package.dsv\n'}
+[106.804162] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ament_index/resource_index/packages/ping360_sonar\n'}
+[106.806539] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/cmake/ping360_sonarConfig.cmake\n'}
+[106.807973] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/cmake/ping360_sonarConfig-version.cmake\n'}
+[106.809032] (ping360_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/package.xml\n'}
+[106.822074] (ping360_sonar) CommandEnded: {'returncode': 0}
+[106.890955] (-) TimerEvent: {}
+[106.958051] (ping360_sonar) JobEnded: {'identifier': 'ping360_sonar', 'rc': 0}
+[106.963931] (-) EventReactorShutdown: {}

@@ -1,0 +1,244 @@
+[0.610s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'ping360_sonar']
+[0.610s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['ping360_sonar'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7fddab055930>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7fddab055240>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7fddab055240>>, mixin_verb=('build',))
+[1.476s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.480s] INFO:colcon.colcon_metadata.package_discovery.colcon_meta:Using configuration from '/home/sarkars1/SubmarineTest/colcon.meta'
+[1.480s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.480s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.481s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.481s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[1.481s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.481s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/sarkars1/SubmarineTest'
+[1.482s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.482s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[1.482s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[1.483s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[1.483s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[1.483s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[1.483s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[1.483s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[1.483s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[1.544s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[1.544s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[1.545s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[1.545s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[1.545s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[1.546s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.547s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[1.547s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[1.548s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.548s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[1.549s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[1.549s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.550s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[1.550s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[1.550s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[1.551s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[1.551s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[1.551s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[1.552s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[1.552s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[1.552s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[1.552s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[1.553s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[1.553s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[1.554s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[1.554s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[1.554s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[1.555s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[1.555s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_bringup) by extensions ['ignore', 'ignore_ament_install']
+[1.556s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_bringup) by extension 'ignore'
+[1.556s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_bringup) by extension 'ignore_ament_install'
+[1.556s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_bringup) by extensions ['colcon_pkg']
+[1.557s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_bringup) by extension 'colcon_pkg'
+[1.557s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_bringup) by extensions ['colcon_meta']
+[1.557s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_bringup) by extension 'colcon_meta'
+[1.557s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_bringup) by extensions ['ros']
+[1.558s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_bringup) by extension 'ros'
+[1.574s] DEBUG:colcon.colcon_core.package_identification:Package 'src/jit_bringup' with type 'ros.ament_cmake' and name 'jit_bringup'
+[1.574s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_comunication) by extensions ['ignore', 'ignore_ament_install']
+[1.575s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_comunication) by extension 'ignore'
+[1.575s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_comunication) by extension 'ignore_ament_install'
+[1.576s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_comunication) by extensions ['colcon_pkg']
+[1.576s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_comunication) by extension 'colcon_pkg'
+[1.576s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_comunication) by extensions ['colcon_meta']
+[1.576s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_comunication) by extension 'colcon_meta'
+[1.577s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_comunication) by extensions ['ros']
+[1.577s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_comunication) by extension 'ros'
+[1.585s] DEBUG:colcon.colcon_core.package_identification:Package 'src/jit_comunication' with type 'ros.ament_cmake' and name 'jit_comunication'
+[1.585s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_control) by extensions ['ignore', 'ignore_ament_install']
+[1.586s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_control) by extension 'ignore'
+[1.586s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_control) by extension 'ignore_ament_install'
+[1.587s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_control) by extensions ['colcon_pkg']
+[1.587s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_control) by extension 'colcon_pkg'
+[1.587s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_control) by extensions ['colcon_meta']
+[1.588s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_control) by extension 'colcon_meta'
+[1.588s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_control) by extensions ['ros']
+[1.588s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_control) by extension 'ros'
+[1.595s] DEBUG:colcon.colcon_core.package_identification:Package 'src/jit_control' with type 'ros.ament_cmake' and name 'jit_control'
+[1.595s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_msgs) by extensions ['ignore', 'ignore_ament_install']
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_msgs) by extension 'ignore'
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_msgs) by extension 'ignore_ament_install'
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_msgs) by extensions ['colcon_pkg']
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_msgs) by extension 'colcon_pkg'
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_msgs) by extensions ['colcon_meta']
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_msgs) by extension 'colcon_meta'
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_msgs) by extensions ['ros']
+[1.598s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_msgs) by extension 'ros'
+[1.602s] DEBUG:colcon.colcon_core.package_identification:Package 'src/jit_msgs' with type 'ros.ament_cmake' and name 'jit_msgs'
+[1.603s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_safety) by extensions ['ignore', 'ignore_ament_install']
+[1.603s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_safety) by extension 'ignore'
+[1.604s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_safety) by extension 'ignore_ament_install'
+[1.604s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_safety) by extensions ['colcon_pkg']
+[1.604s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_safety) by extension 'colcon_pkg'
+[1.605s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_safety) by extensions ['colcon_meta']
+[1.605s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_safety) by extension 'colcon_meta'
+[1.605s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_safety) by extensions ['ros']
+[1.605s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_safety) by extension 'ros'
+[1.611s] DEBUG:colcon.colcon_core.package_identification:Package 'src/jit_safety' with type 'ros.ament_cmake' and name 'jit_safety'
+[1.611s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_ui) by extensions ['ignore', 'ignore_ament_install']
+[1.612s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_ui) by extension 'ignore'
+[1.612s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_ui) by extension 'ignore_ament_install'
+[1.612s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_ui) by extensions ['colcon_pkg']
+[1.613s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_ui) by extension 'colcon_pkg'
+[1.613s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_ui) by extensions ['colcon_meta']
+[1.613s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_ui) by extension 'colcon_meta'
+[1.613s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_ui) by extensions ['ros']
+[1.613s] Level 1:colcon.colcon_core.package_identification:_identify(src/jit_ui) by extension 'ros'
+[1.618s] DEBUG:colcon.colcon_core.package_identification:Package 'src/jit_ui' with type 'ros.ament_cmake' and name 'jit_ui'
+[1.618s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar) by extensions ['ignore', 'ignore_ament_install']
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar) by extension 'ignore'
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar) by extension 'ignore_ament_install'
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar) by extensions ['colcon_pkg']
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar) by extension 'colcon_pkg'
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar) by extensions ['colcon_meta']
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar) by extension 'colcon_meta'
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar) by extensions ['ros']
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar) by extension 'ros'
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar) by extensions ['cmake', 'python']
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar) by extension 'cmake'
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar) by extension 'python'
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar) by extensions ['python_setup_py']
+[1.622s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar) by extension 'python_setup_py'
+[1.622s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar/ping360_sonar) by extensions ['ignore', 'ignore_ament_install']
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar/ping360_sonar) by extension 'ignore'
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar/ping360_sonar) by extension 'ignore_ament_install'
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar/ping360_sonar) by extensions ['colcon_pkg']
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar/ping360_sonar) by extension 'colcon_pkg'
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar/ping360_sonar) by extensions ['colcon_meta']
+[1.624s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar/ping360_sonar) by extension 'colcon_meta'
+[1.624s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar/ping360_sonar) by extensions ['ros']
+[1.624s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar/ping360_sonar) by extension 'ros'
+[1.631s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ping360_sonar/ping360_sonar' with type 'ros.ament_cmake' and name 'ping360_sonar'
+[1.631s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar/ping360_sonar_msgs) by extensions ['ignore', 'ignore_ament_install']
+[1.632s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar/ping360_sonar_msgs) by extension 'ignore'
+[1.632s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar/ping360_sonar_msgs) by extension 'ignore_ament_install'
+[1.632s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar/ping360_sonar_msgs) by extensions ['colcon_pkg']
+[1.632s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar/ping360_sonar_msgs) by extension 'colcon_pkg'
+[1.633s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar/ping360_sonar_msgs) by extensions ['colcon_meta']
+[1.633s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar/ping360_sonar_msgs) by extension 'colcon_meta'
+[1.633s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar/ping360_sonar_msgs) by extensions ['ros']
+[1.633s] Level 1:colcon.colcon_core.package_identification:_identify(src/ping360_sonar/ping360_sonar_msgs) by extension 'ros'
+[1.637s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ping360_sonar/ping360_sonar_msgs' with type 'ros.ament_cmake' and name 'ping360_sonar_msgs'
+[1.637s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.637s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[1.638s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[1.638s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.638s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.817s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jit_msgs' in 'src/jit_msgs'
+[1.817s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'ping360_sonar_msgs' in 'src/ping360_sonar/ping360_sonar_msgs'
+[1.817s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jit_comunication' in 'src/jit_comunication'
+[1.817s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jit_control' in 'src/jit_control'
+[1.817s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jit_safety' in 'src/jit_safety'
+[1.817s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jit_ui' in 'src/jit_ui'
+[1.818s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jit_bringup' in 'src/jit_bringup'
+[1.819s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[1.820s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[1.828s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/sarkars1/install
+[1.832s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 18 installed packages in /home/sarkars1/vrx_ws/install
+[1.834s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 2 installed packages in /home/sarkars1/minion_ws/install
+[1.842s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 288 installed packages in /opt/ros/humble
+[1.852s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[2.120s] Level 5:colcon.colcon_core.verb:set package 'ping360_sonar' build argument 'cmake_args' from command line to 'None'
+[2.121s] Level 5:colcon.colcon_core.verb:overwrite package 'ping360_sonar' build argument 'cmake_args' from package metadata with '['-DCOMPILE_CPP=ON']' (before: 'None')
+[2.121s] Level 5:colcon.colcon_core.verb:set package 'ping360_sonar' build argument 'cmake_target' from command line to 'None'
+[2.121s] Level 5:colcon.colcon_core.verb:set package 'ping360_sonar' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.121s] Level 5:colcon.colcon_core.verb:set package 'ping360_sonar' build argument 'cmake_clean_cache' from command line to 'False'
+[2.121s] Level 5:colcon.colcon_core.verb:set package 'ping360_sonar' build argument 'cmake_clean_first' from command line to 'False'
+[2.121s] Level 5:colcon.colcon_core.verb:set package 'ping360_sonar' build argument 'cmake_force_configure' from command line to 'False'
+[2.121s] Level 5:colcon.colcon_core.verb:set package 'ping360_sonar' build argument 'ament_cmake_args' from command line to 'None'
+[2.122s] Level 5:colcon.colcon_core.verb:set package 'ping360_sonar' build argument 'catkin_cmake_args' from command line to 'None'
+[2.122s] Level 5:colcon.colcon_core.verb:set package 'ping360_sonar' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.122s] DEBUG:colcon.colcon_core.verb:Building package 'ping360_sonar' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sarkars1/SubmarineTest/build/ping360_sonar', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': ['-DCOMPILE_CPP=ON'], 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sarkars1/SubmarineTest/install/ping360_sonar', 'merge_install': False, 'path': '/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar', 'symlink_install': False, 'test_result_base': None}
+[2.123s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[2.126s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[2.127s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar' with build type 'ament_cmake'
+[2.127s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar'
+[2.137s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[2.137s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.138s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.184s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sarkars1/SubmarineTest/build/ping360_sonar': AMENT_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/install/my_package:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble LD_LIBRARY_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/sarkars1/SubmarineTest/build/ping360_sonar -- -j8 -l8
+[3.737s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sarkars1/SubmarineTest/build/ping360_sonar' returned '0': AMENT_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/install/my_package:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble LD_LIBRARY_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/sarkars1/SubmarineTest/build/ping360_sonar -- -j8 -l8
+[3.778s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sarkars1/SubmarineTest/build/ping360_sonar': AMENT_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/install/my_package:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble LD_LIBRARY_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/sarkars1/SubmarineTest/build/ping360_sonar
+[3.963s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ping360_sonar)
+[3.966s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sarkars1/SubmarineTest/build/ping360_sonar' returned '0': AMENT_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/install/my_package:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble LD_LIBRARY_PATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/sarkars1/SubmarineTest/build/ping360_sonar
+[3.980s] Level 1:colcon.colcon_core.environment:checking '/home/sarkars1/SubmarineTest/install/ping360_sonar' for CMake module files
+[3.983s] Level 1:colcon.colcon_core.environment:checking '/home/sarkars1/SubmarineTest/install/ping360_sonar' for CMake config files
+[3.985s] Level 1:colcon.colcon_core.shell:create_environment_hook('ping360_sonar', 'cmake_prefix_path')
+[3.986s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/hook/cmake_prefix_path.ps1'
+[3.989s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/hook/cmake_prefix_path.dsv'
+[3.991s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/hook/cmake_prefix_path.sh'
+[3.995s] Level 1:colcon.colcon_core.environment:checking '/home/sarkars1/SubmarineTest/install/ping360_sonar/lib'
+[3.996s] Level 1:colcon.colcon_core.shell:create_environment_hook('ping360_sonar', 'ld_library_path_lib')
+[3.997s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/hook/ld_library_path_lib.ps1'
+[3.999s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/hook/ld_library_path_lib.dsv'
+[4.000s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/hook/ld_library_path_lib.sh'
+[4.002s] Level 1:colcon.colcon_core.environment:checking '/home/sarkars1/SubmarineTest/install/ping360_sonar/bin'
+[4.002s] Level 1:colcon.colcon_core.environment:checking '/home/sarkars1/SubmarineTest/install/ping360_sonar/lib/pkgconfig/ping360_sonar.pc'
+[4.003s] Level 1:colcon.colcon_core.environment:checking '/home/sarkars1/SubmarineTest/install/ping360_sonar/lib/python3.10/site-packages'
+[4.005s] Level 1:colcon.colcon_core.environment:checking '/home/sarkars1/SubmarineTest/install/ping360_sonar/bin'
+[4.006s] INFO:colcon.colcon_core.shell:Creating package script '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/package.ps1'
+[4.011s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/package.dsv'
+[4.013s] INFO:colcon.colcon_core.shell:Creating package script '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/package.sh'
+[4.016s] INFO:colcon.colcon_core.shell:Creating package script '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/package.bash'
+[4.020s] INFO:colcon.colcon_core.shell:Creating package script '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/package.zsh'
+[4.022s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sarkars1/SubmarineTest/install/ping360_sonar/share/colcon-core/packages/ping360_sonar)
+[4.024s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ping360_sonar)
+[4.025s] Level 1:colcon.colcon_core.environment:checking '/home/sarkars1/SubmarineTest/install/ping360_sonar' for CMake module files
+[4.027s] Level 1:colcon.colcon_core.environment:checking '/home/sarkars1/SubmarineTest/install/ping360_sonar' for CMake config files
+[4.028s] Level 1:colcon.colcon_core.shell:create_environment_hook('ping360_sonar', 'cmake_prefix_path')
+[4.028s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/hook/cmake_prefix_path.ps1'
+[4.030s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/hook/cmake_prefix_path.dsv'
+[4.031s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/hook/cmake_prefix_path.sh'
+[4.033s] Level 1:colcon.colcon_core.environment:checking '/home/sarkars1/SubmarineTest/install/ping360_sonar/lib'
+[4.034s] Level 1:colcon.colcon_core.shell:create_environment_hook('ping360_sonar', 'ld_library_path_lib')
+[4.034s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/hook/ld_library_path_lib.ps1'
+[4.036s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/hook/ld_library_path_lib.dsv'
+[4.037s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/hook/ld_library_path_lib.sh'
+[4.039s] Level 1:colcon.colcon_core.environment:checking '/home/sarkars1/SubmarineTest/install/ping360_sonar/bin'
+[4.039s] Level 1:colcon.colcon_core.environment:checking '/home/sarkars1/SubmarineTest/install/ping360_sonar/lib/pkgconfig/ping360_sonar.pc'
+[4.040s] Level 1:colcon.colcon_core.environment:checking '/home/sarkars1/SubmarineTest/install/ping360_sonar/lib/python3.10/site-packages'
+[4.041s] Level 1:colcon.colcon_core.environment:checking '/home/sarkars1/SubmarineTest/install/ping360_sonar/bin'
+[4.042s] INFO:colcon.colcon_core.shell:Creating package script '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/package.ps1'
+[4.045s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/package.dsv'
+[4.046s] INFO:colcon.colcon_core.shell:Creating package script '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/package.sh'
+[4.048s] INFO:colcon.colcon_core.shell:Creating package script '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/package.bash'
+[4.050s] INFO:colcon.colcon_core.shell:Creating package script '/home/sarkars1/SubmarineTest/install/ping360_sonar/share/ping360_sonar/package.zsh'
+[4.051s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sarkars1/SubmarineTest/install/ping360_sonar/share/colcon-core/packages/ping360_sonar)
+[4.052s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[4.053s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[4.053s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[4.054s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[4.072s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[4.072s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[4.073s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[4.134s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[4.135s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/sarkars1/SubmarineTest/install/local_setup.ps1'
+[4.140s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/sarkars1/SubmarineTest/install/_local_setup_util_ps1.py'
+[4.146s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/sarkars1/SubmarineTest/install/setup.ps1'
+[4.153s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/sarkars1/SubmarineTest/install/local_setup.sh'
+[4.156s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/sarkars1/SubmarineTest/install/_local_setup_util_sh.py'
+[4.159s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/sarkars1/SubmarineTest/install/setup.sh'
+[4.164s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/sarkars1/SubmarineTest/install/local_setup.bash'
+[4.167s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/sarkars1/SubmarineTest/install/setup.bash'
+[4.173s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/sarkars1/SubmarineTest/install/local_setup.zsh'
+[4.176s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/sarkars1/SubmarineTest/install/setup.zsh'

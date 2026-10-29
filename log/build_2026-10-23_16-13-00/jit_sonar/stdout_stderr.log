@@ -1,0 +1,21 @@
+[ 50%] Building CXX object CMakeFiles/sonar_zone_node.dir/src/sonar_zone_node.cpp.o
+[100%] Linking CXX executable sonar_zone_node
+[100%] Built target sonar_zone_node
+-- Install configuration: ""
+-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/lib/jit_sonar/sonar_zone_node
+-- Set runtime path of "/home/sarkars1/SubmarineTest/install/jit_sonar/lib/jit_sonar/sonar_zone_node" to ""
+-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/ament_index/resource_index/package_run_dependencies/jit_sonar
+-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/ament_index/resource_index/parent_prefix_path/jit_sonar
+-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/environment/ament_prefix_path.sh
+-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/environment/path.sh
+-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/environment/path.dsv
+-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/local_setup.bash
+-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/local_setup.sh
+-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/local_setup.zsh
+-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/local_setup.dsv
+-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/package.dsv
+-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/ament_index/resource_index/packages/jit_sonar
+-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/cmake/jit_sonarConfig.cmake
+-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/cmake/jit_sonarConfig-version.cmake
+-- Up-to-date: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/package.xml

@@ -1,0 +1,132 @@
+In file included from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/device/ping-device.h:5[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/device/ping-device.cpp:1[m[K:
+[01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/message/ping-parser.h:73:20:[m[K [01;35m[Kwarning: [m[K‘[01m[Kconst char* PINGPARSER_STATE_TO_STRING(PingParser::State)[m[K’ defined but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-function-Wunused-function]8;;[m[K]
+   73 | static const char* [01;35m[KPINGPARSER_STATE_TO_STRING[m[K(PingParser::State state) {
+      |                    [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/device/ping-device.h:5[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/device/ping-device-ping360.h:13[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/device/ping-device-ping360.cpp:3[m[K:
+[01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/message/ping-parser.h:73:20:[m[K [01;35m[Kwarning: [m[K‘[01m[Kconst char* PINGPARSER_STATE_TO_STRING(PingParser::State)[m[K’ defined but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-function-Wunused-function]8;;[m[K]
+   73 | static const char* [01;35m[KPINGPARSER_STATE_TO_STRING[m[K(PingParser::State state) {
+      |                    [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[Kcc1plus:[m[K [01;36m[Knote: [m[Kunrecognized command-line option ‘[01m[K-Wno-unused-variable -Wno-unused-function -Wno-error[m[K’ may have been intended to silence earlier diagnostics
+[01m[Kcc1plus:[m[K [01;36m[Knote: [m[Kunrecognized command-line option ‘[01m[K-Wno-unused-variable -Wno-unused-function -Wno-error[m[K’ may have been intended to silence earlier diagnostics
+[01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/abstract-link.cpp:37:2:[m[K [01;35m[Kwarning: [m[K#warning is a GCC extension
+   37 | #[01;35m[Kwarning[m[K "Move match strings to string_view and concatenate it with regex string inside the named regex match"
+      |  [01;35m[K^~~~~~~[m[K
+[01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/abstract-link.cpp:37:2:[m[K [01;35m[Kwarning: [m[K#warning "Move match strings to string_view and concatenate it with regex string inside the named regex match" [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wcpp-Wcpp]8;;[m[K]
+In file included from [01m[K/usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:22[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/yield_k.hpp:23[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:14[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/spinlock.hpp:42[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:25[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/shared_ptr.hpp:29[m[K,
+                 from [01m[K/usr/include/boost/shared_ptr.hpp:17[m[K,
+                 from [01m[K/usr/include/boost/date_time/time_clock.hpp:17[m[K,
+                 from [01m[K/usr/include/boost/date_time/posix_time/posix_time_types.hpp:10[m[K,
+                 from [01m[K/usr/include/boost/asio/time_traits.hpp:23[m[K,
+                 from [01m[K/usr/include/boost/asio/detail/timer_queue_ptime.hpp:22[m[K,
+                 from [01m[K/usr/include/boost/asio/detail/deadline_timer_service.hpp:29[m[K,
+                 from [01m[K/usr/include/boost/asio/basic_deadline_timer.hpp:25[m[K,
+                 from [01m[K/usr/include/boost/asio.hpp:25[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/udp-link.h:6[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/udp-link.cpp:6[m[K:
+[01m[K/usr/include/boost/bind.hpp:36:1:[m[K [01;36m[Knote: [m[K‘[01m[K#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.[m[K’
+   36 | [01;36m[KBOOST_PRAGMA_MESSAGE[m[K(
+      | [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:22[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/yield_k.hpp:23[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:14[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/spinlock.hpp:42[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:25[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/shared_ptr.hpp:29[m[K,
+                 from [01m[K/usr/include/boost/shared_ptr.hpp:17[m[K,
+                 from [01m[K/usr/include/boost/date_time/time_clock.hpp:17[m[K,
+                 from [01m[K/usr/include/boost/date_time/posix_time/posix_time_types.hpp:10[m[K,
+                 from [01m[K/usr/include/boost/asio/time_traits.hpp:23[m[K,
+                 from [01m[K/usr/include/boost/asio/detail/timer_queue_ptime.hpp:22[m[K,
+                 from [01m[K/usr/include/boost/asio/detail/deadline_timer_service.hpp:29[m[K,
+                 from [01m[K/usr/include/boost/asio/basic_deadline_timer.hpp:25[m[K,
+                 from [01m[K/usr/include/boost/asio.hpp:25[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/serial-link.h:10[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/serial-link.cpp:7[m[K:
+[01m[K/usr/include/boost/bind.hpp:36:1:[m[K [01;36m[Knote: [m[K‘[01m[K#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.[m[K’
+   36 | [01;36m[KBOOST_PRAGMA_MESSAGE[m[K(
+      | [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:22[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/yield_k.hpp:23[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:14[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/spinlock.hpp:42[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:25[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/shared_ptr.hpp:29[m[K,
+                 from [01m[K/usr/include/boost/shared_ptr.hpp:17[m[K,
+                 from [01m[K/usr/include/boost/signals2/deconstruct.hpp:28[m[K,
+                 from [01m[K/usr/include/boost/signals2.hpp:15[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/abstract-link.h:6[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/abstract-link.cpp:1[m[K:
+[01m[K/usr/include/boost/bind.hpp:36:1:[m[K [01;36m[Knote: [m[K‘[01m[K#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.[m[K’
+   36 | [01;36m[KBOOST_PRAGMA_MESSAGE[m[K(
+      | [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[Kcc1plus:[m[K [01;36m[Knote: [m[Kunrecognized command-line option ‘[01m[K-Wno-unused-variable -Wno-unused-function -Wno-error[m[K’ may have been intended to silence earlier diagnostics
+In file included from [01m[K/usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:22[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/yield_k.hpp:23[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:14[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/spinlock.hpp:42[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:25[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/shared_ptr.hpp:29[m[K,
+                 from [01m[K/usr/include/boost/shared_ptr.hpp:17[m[K,
+                 from [01m[K/usr/include/boost/date_time/time_clock.hpp:17[m[K,
+                 from [01m[K/usr/include/boost/date_time/posix_time/posix_time_types.hpp:10[m[K,
+                 from [01m[K/usr/include/boost/asio/time_traits.hpp:23[m[K,
+                 from [01m[K/usr/include/boost/asio/detail/timer_queue_ptime.hpp:22[m[K,
+                 from [01m[K/usr/include/boost/asio/detail/deadline_timer_service.hpp:29[m[K,
+                 from [01m[K/usr/include/boost/asio/basic_deadline_timer.hpp:25[m[K,
+                 from [01m[K/usr/include/boost/asio.hpp:25[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/serial-link.h:10[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/include/ping360_sonar/sonar_interface.h:4[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/sonar_interface.cpp:1[m[K:
+[01m[K/usr/include/boost/bind.hpp:36:1:[m[K [01;36m[Knote: [m[K‘[01m[K#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.[m[K’
+   36 | [01;36m[KBOOST_PRAGMA_MESSAGE[m[K(
+      | [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:22[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/yield_k.hpp:23[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:14[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/spinlock.hpp:42[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:25[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/shared_ptr.hpp:29[m[K,
+                 from [01m[K/usr/include/boost/shared_ptr.hpp:17[m[K,
+                 from [01m[K/usr/include/boost/date_time/time_clock.hpp:17[m[K,
+                 from [01m[K/usr/include/boost/date_time/posix_time/posix_time_types.hpp:10[m[K,
+                 from [01m[K/usr/include/boost/asio/time_traits.hpp:23[m[K,
+                 from [01m[K/usr/include/boost/asio/detail/timer_queue_ptime.hpp:22[m[K,
+                 from [01m[K/usr/include/boost/asio/detail/deadline_timer_service.hpp:29[m[K,
+                 from [01m[K/usr/include/boost/asio/basic_deadline_timer.hpp:25[m[K,
+                 from [01m[K/usr/include/boost/asio.hpp:25[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/serial-link.h:10[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/include/ping360_sonar/sonar_interface.h:4[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/include/ping360_sonar/ping360_node.h:12[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping360.cpp:1[m[K:
+[01m[K/usr/include/boost/bind.hpp:36:1:[m[K [01;36m[Knote: [m[K‘[01m[K#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.[m[K’
+   36 | [01;36m[KBOOST_PRAGMA_MESSAGE[m[K(
+      | [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:22[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/yield_k.hpp:23[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:14[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/spinlock.hpp:42[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:25[m[K,
+                 from [01m[K/usr/include/boost/smart_ptr/shared_ptr.hpp:29[m[K,
+                 from [01m[K/usr/include/boost/shared_ptr.hpp:17[m[K,
+                 from [01m[K/usr/include/boost/date_time/time_clock.hpp:17[m[K,
+                 from [01m[K/usr/include/boost/date_time/posix_time/posix_time_types.hpp:10[m[K,
+                 from [01m[K/usr/include/boost/asio/time_traits.hpp:23[m[K,
+                 from [01m[K/usr/include/boost/asio/detail/timer_queue_ptime.hpp:22[m[K,
+                 from [01m[K/usr/include/boost/asio/detail/deadline_timer_service.hpp:29[m[K,
+                 from [01m[K/usr/include/boost/asio/basic_deadline_timer.hpp:25[m[K,
+                 from [01m[K/usr/include/boost/asio.hpp:25[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping-cpp/src/hal/link/desktop/serial-link.h:10[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/include/ping360_sonar/sonar_interface.h:4[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/include/ping360_sonar/ping360_node.h:12[m[K,
+                 from [01m[K/home/sarkars1/SubmarineTest/src/ping360_sonar/ping360_sonar/src/ping360_node.cpp:2[m[K:
+[01m[K/usr/include/boost/bind.hpp:36:1:[m[K [01;36m[Knote: [m[K‘[01m[K#pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.[m[K’
+   36 | [01;36m[KBOOST_PRAGMA_MESSAGE[m[K(
+      | [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K

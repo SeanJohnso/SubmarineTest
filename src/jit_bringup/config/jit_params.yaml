@@ -133,11 +133,16 @@ led_driver_node:
     gain: 0                     # 0 = low, 1 = normal, 2 = high
     frequency: 740              # kHz [650..850]
     speed_of_sound: 1500        # m/s [1450..1550]; ~1480 fresh water
-    # Integer metres [1..50]. Longer range = slower sweep. Unmeasured default -
-    # set it from the pool.
-    range_max: 10
+    # Integer metres [1..50]. Longer range = slower sweep. 2 is the smallest
+    # whole metre that covers the 1.5 m view jit_sonar's sonar_zone_node crops to.
+    range_max: 2
     angle_sector: 360           # degrees; below 360 the head oscillates
-    angle_step: 1               # degrees [1..20]
+    # Degrees [1..20], but the driver works in gradians and only takes steps
+    # that divide 200: 2 -> exactly 2 gradians = 1.8 deg (200 angles a turn,
+    # about 20 s a sweep; 4 -> 3.6 deg is twice as fast, 1 -> 0.9 deg twice as
+    # slow). Other values get nudged, e.g. 3 becomes 2. Keep in step with
+    # sonar_zone_node's angle_step_deg (1.8).
+    angle_step: 2
     # Per-ping wait for the sonar's reply. The node blocks this long when the
     # sonar stops answering, before warning "Cannot communicate with sonar".
     sonar_timeout: 8000         # ms

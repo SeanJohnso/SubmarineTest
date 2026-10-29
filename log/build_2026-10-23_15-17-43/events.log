@@ -1,0 +1,599 @@
+[0.000000] (-) TimerEvent: {}
+[0.000297] (-) JobUnselected: {'identifier': 'jit_bringup'}
+[0.000386] (-) JobUnselected: {'identifier': 'jit_comunication'}
+[0.000449] (-) JobUnselected: {'identifier': 'jit_control'}
+[0.001338] (-) JobUnselected: {'identifier': 'jit_msgs'}
+[0.001446] (-) JobUnselected: {'identifier': 'jit_safety'}
+[0.001554] (-) JobUnselected: {'identifier': 'jit_ui'}
+[0.001653] (-) JobUnselected: {'identifier': 'ping360_sonar'}
+[0.002114] (ping360_sonar_msgs) JobQueued: {'identifier': 'ping360_sonar_msgs', 'dependencies': OrderedDict()}
+[0.002606] (jit_sonar) JobQueued: {'identifier': 'jit_sonar', 'dependencies': OrderedDict([('ping360_sonar_msgs', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs')])}
+[0.003031] (ping360_sonar_msgs) JobStarted: {'identifier': 'ping360_sonar_msgs'}
+[0.029061] (ping360_sonar_msgs) JobProgress: {'identifier': 'ping360_sonar_msgs', 'progress': 'cmake'}
+[0.031542] (ping360_sonar_msgs) JobProgress: {'identifier': 'ping360_sonar_msgs', 'progress': 'build'}
+[0.034480] (ping360_sonar_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/sarkars1/SubmarineTest/build/ping360_sonar_msgs', '--', '-j8', '-l8'], 'cwd': '/home/sarkars1/SubmarineTest/build/ping360_sonar_msgs', 'env': OrderedDict([('GZ_SIM_SYSTEM_PLUGIN_PATH', '/home/sarkars1/vrx_ws/install/lib'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/sarkars1/SubmarineTest'), ('VSCODE_ESM_ENTRYPOINT', 'vs/workbench/api/node/extensionHostProcess'), ('GZ_SIM_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share/wamv_description/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/models/tmp:/home/sarkars1/vrx_ws/install/share/vrx_gz/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds/2023_practice:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds:/home/sarkars1/vrx_ws/install/share/vrx_gazebo/models:/home/sarkars1/vrx_ws/install/share/:/home/sarkars1/minion_ws/install/share/gazebo_models/models:/home/sarkars1/minion_ws/install/share'), ('no_proxy', 'localhost,127.0.0.0/8,::1'), ('AI_AGENT', 'claude-code_2-1-309_agent'), ('LANGUAGE', 'C.UTF-8'), ('USER', 'sarkars1'), ('SNAP_COMMON', '/var/snap/code/common'), ('CLAUDE_CODE_ENTRYPOINT', 'claude-vscode'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"c","resolvedLanguage":"en","defaultMessagesFile":"/snap/code/262/usr/share/code/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('FONTCONFIG_PATH', '/etc/fonts'), ('GIT_EDITOR', 'true'), ('GIO_MODULE_DIR', '/home/sarkars1/snap/code/common/.cache/gio-modules'), ('VSCODE_HANDLES_UNCAUGHT_ERRORS', 'true'), ('XDG_SESSION_TYPE', 'wayland'), ('CLAUDE_AGENT_SDK_VERSION', '0.3.309'), ('CLAUDE_CODE_SESSION_ATTENDED', '1'), ('SNAP_UID', '1000'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sarkars1/vrx_ws/install/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('CLAUDE_CODE_MESSAGING_TOKEN', '93b145ab6c20d480fcd2931445ae5e88'), ('HOME', '/home/sarkars1'), ('CHROME_DESKTOP', 'code.desktop'), ('SNAP_LIBRARY_PATH', '/var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32'), ('OLDPWD', '/home/sarkars1/SubmarineTest/src/jit_sonar'), ('DESKTOP_SESSION', 'ubuntu'), ('SNAP_USER_DATA', '/home/sarkars1/snap/code/262'), ('GTK_PATH', '/snap/code/262/usr/lib/x86_64-linux-gnu/gtk-3.0'), ('NO_PROXY', 'localhost,127.0.0.0/8,::1'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-908b0799-1.13-main.sock'), ('GTK_IM_MODULE_FILE', '/home/sarkars1/snap/code/common/.cache/immodules/immodules.cache'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('CLAUDE_CODE_CHILD_SESSION', '1'), ('COPILOT_OTEL_FILE_EXPORTER_PATH', '/dev/null'), ('SYSTEMD_EXEC_PID', '1567'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('SNAP_REVISION', '262'), ('COLORTERM', 'truecolor'), ('VSCODE_CRASH_REPORTER_PROCESS_TYPE', 'extensionHost'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install'), ('APPLICATION_INSIGHTS_NO_STATSBEAT', 'true'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'sarkars1'), ('SNAP_CONTEXT', 'JFZUiEBqdLS-hcCZbejjAa_5TyB_pAeEKWdEgpyoX_7im2TumisG'), ('CLAUDE_CODE_EMIT_STARTUP_TIMING', '1'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLAUDE_CODE_QUESTION_PREVIEW_FORMAT', 'markdown'), ('XDG_SESSION_CLASS', 'user'), ('SNAP_VERSION', '88e44fa0'), ('XDG_DATA_DIRS_VSCODE_SNAP_ORIG', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('USERNAME', 'sarkars1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('SNAP_INSTANCE_NAME', 'code'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('MCP_CONNECTION_NONBLOCKING', 'true'), ('PATH', '/home/sarkars1/vrx_ws/install/../src/vrx-erau/vrx_gz/launch:/home/sarkars1/minion_ws/install/share/gazebo_models/launch:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/mciscolin:@/tmp/.ICE-unix/1540,unix/mciscolin:/tmp/.ICE-unix/1540'), ('GTK_EXE_PREFIX', '/snap/code/262/usr'), ('COREPACK_ENABLE_AUTO_PIN', '0'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/ed3032b4_2357_42c7_885c_c5ba8042ebb4'), ('GNOME_SETUP_DISPLAY', ':1'), ('SNAP_DATA', '/var/snap/code/262'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('CLAUDE_EFFORT', 'medium'), ('DISPLAY', ':0'), ('LOCPATH', '/snap/code/262/usr/lib/locale'), ('CLAUDE_PID', '3545'), ('NoDefaultCurrentDirectoryInExePath', '1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XDG_DATA_HOME', '/home/sarkars1/snap/code/262/.local/share'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.00XRX3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.94'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SNAP_USER_COMMON', '/home/sarkars1/snap/code/common'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/home/sarkars1/snap/code/262/.local/share/glib-2.0/schemas'), ('SNAP_ARCH', 'amd64'), ('AMENT_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('SNAP_COOKIE', 'JFZUiEBqdLS-hcCZbejjAa_5TyB_pAeEKWdEgpyoX_7im2TumisG'), ('SHELL', '/bin/bash'), ('GDK_PIXBUF_MODULEDIR', '/snap/code/262/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders'), ('MXC_BIN_DIR', '/snap/code/262/usr/share/code/resources/app/node_modules.asar.unpacked/@microsoft/mxc-sdk/bin'), ('QT_ACCESSIBILITY', '1'), ('ELECTRON_RUN_AS_NODE', '1'), ('GDMSESSION', 'ubuntu'), ('CLAUDE_CODE_ENABLE_SDK_FILE_CHECKPOINTING', 'true'), ('CLAUDE_CODE_SESSION_ID', '932122c2-684c-4256-8c87-4eddbe34bc54'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share'), ('SNAP_NAME', 'code'), ('FONTCONFIG_FILE', '/etc/fonts/fonts.conf'), ('CLAUDECODE', '1'), ('GDK_PIXBUF_MODULE_FILE', '/home/sarkars1/snap/code/common/.cache/gdk-pixbuf-loaders.cache'), ('GZ_VERSION', 'garden'), ('SNAP_LAUNCHER_ARCH_TRIPLET', 'x86_64-linux-gnu'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/sarkars1/SubmarineTest/build/ping360_sonar_msgs'), ('VSCODE_CLI', '1'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('SNAP_REAL_HOME', '/home/sarkars1'), ('VSCODE_CODE_CACHE_PATH', '/home/sarkars1/.config/Code/CachedData/88e44fa0e00b08f7758b4f6d05632e4fd5e4df6f'), ('XDG_DATA_DIRS', '/home/sarkars1/snap/code/262/.local/share:/home/sarkars1/snap/code/262:/snap/code/262/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('CLAUDE_CODE_EXECPATH', '/home/sarkars1/.vscode/extensions/anthropic.claude-code-2.1.309-linux-x64/resources/native-binary/claude'), ('SNAP_EUID', '1000'), ('PYTHONPATH', '/home/sarkars1/vrx_ws/install/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('SNAP', '/snap/code/262'), ('CLAUDE_CODE_ENABLE_TASKS', '0'), ('COLCON', '1'), ('COPILOT_CLI_ENABLED_FEATURE_FLAGS', 'SHELL_SPAWN_BACKEND'), ('VTE_VERSION', '6800'), ('ELECTRON_NO_ATTACH_CONSOLE', '1'), ('CLAUDE_CODE_MESSAGING_SOCKET', '/run/user/1000/cc-socks/3545.sock'), ('CMAKE_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('VSCODE_PID', '2611')]), 'shell': False}
+[0.099329] (-) TimerEvent: {}
+[0.199658] (-) TimerEvent: {}
+[0.204105] (ping360_sonar_msgs) StdoutLine: {'line': b'[  3%] Built target ping360_sonar_msgs__rs\n'}
+[0.221750] (ping360_sonar_msgs) StdoutLine: {'line': b'[  6%] Built target ping360_sonar_msgs__cpp\n'}
+[0.222844] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 15%] Built target ping360_sonar_msgs__rosidl_generator_c\n'}
+[0.262708] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 15%] Built target ament_cmake_python_copy_ping360_sonar_msgs\n'}
+[0.299828] (-) TimerEvent: {}
+[0.313521] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 31%] Built target ping360_sonar_msgs__rosidl_typesupport_introspection_cpp\n'}
+[0.316986] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 34%] Built target ping360_sonar_msgs__rosidl_typesupport_cpp\n'}
+[0.333747] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 43%] Built target ping360_sonar_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[0.358714] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 53%] Built target ping360_sonar_msgs__rosidl_typesupport_c\n'}
+[0.360621] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 62%] Built target ping360_sonar_msgs__rosidl_typesupport_fastrtps_c\n'}
+[0.361299] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 71%] Built target ping360_sonar_msgs__rosidl_typesupport_introspection_c\n'}
+[0.399981] (-) TimerEvent: {}
+[0.419733] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 71%] Built target ping360_sonar_msgs\n'}
+[0.480666] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 75%] Built target ping360_sonar_msgs__py\n'}
+[0.500125] (-) TimerEvent: {}
+[0.548325] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 81%] Built target ping360_sonar_msgs__rosidl_generator_py\n'}
+[0.600292] (-) TimerEvent: {}
+[0.624022] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 87%] Built target ping360_sonar_msgs__rosidl_typesupport_fastrtps_c__pyext\n'}
+[0.633356] (ping360_sonar_msgs) StdoutLine: {'line': b'[ 93%] Built target ping360_sonar_msgs__rosidl_typesupport_c__pyext\n'}
+[0.637815] (ping360_sonar_msgs) StdoutLine: {'line': b'[100%] Built target ping360_sonar_msgs__rosidl_typesupport_introspection_c__pyext\n'}
+[0.700419] (-) TimerEvent: {}
+[0.800704] (-) TimerEvent: {}
+[0.900987] (-) TimerEvent: {}
+[1.001271] (-) TimerEvent: {}
+[1.067384] (ping360_sonar_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[1.070058] (ping360_sonar_msgs) StdoutLine: {'line': b'writing ping360_sonar_msgs.egg-info/PKG-INFO\n'}
+[1.070808] (ping360_sonar_msgs) StdoutLine: {'line': b'writing dependency_links to ping360_sonar_msgs.egg-info/dependency_links.txt\n'}
+[1.071461] (ping360_sonar_msgs) StdoutLine: {'line': b'writing top-level names to ping360_sonar_msgs.egg-info/top_level.txt\n'}
+[1.077796] (ping360_sonar_msgs) StdoutLine: {'line': b"reading manifest file 'ping360_sonar_msgs.egg-info/SOURCES.txt'\n"}
+[1.079798] (ping360_sonar_msgs) StdoutLine: {'line': b"writing manifest file 'ping360_sonar_msgs.egg-info/SOURCES.txt'\n"}
+[1.101413] (-) TimerEvent: {}
+[1.147489] (ping360_sonar_msgs) StdoutLine: {'line': b'[100%] Built target ament_cmake_python_build_ping360_sonar_msgs_egg\n'}
+[1.179895] (ping360_sonar_msgs) CommandEnded: {'returncode': 0}
+[1.181833] (ping360_sonar_msgs) JobProgress: {'identifier': 'ping360_sonar_msgs', 'progress': 'install'}
+[1.201547] (-) TimerEvent: {}
+[1.205297] (ping360_sonar_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/sarkars1/SubmarineTest/build/ping360_sonar_msgs'], 'cwd': '/home/sarkars1/SubmarineTest/build/ping360_sonar_msgs', 'env': OrderedDict([('GZ_SIM_SYSTEM_PLUGIN_PATH', '/home/sarkars1/vrx_ws/install/lib'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/sarkars1/SubmarineTest'), ('VSCODE_ESM_ENTRYPOINT', 'vs/workbench/api/node/extensionHostProcess'), ('GZ_SIM_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share/wamv_description/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/models/tmp:/home/sarkars1/vrx_ws/install/share/vrx_gz/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds/2023_practice:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds:/home/sarkars1/vrx_ws/install/share/vrx_gazebo/models:/home/sarkars1/vrx_ws/install/share/:/home/sarkars1/minion_ws/install/share/gazebo_models/models:/home/sarkars1/minion_ws/install/share'), ('no_proxy', 'localhost,127.0.0.0/8,::1'), ('AI_AGENT', 'claude-code_2-1-309_agent'), ('LANGUAGE', 'C.UTF-8'), ('USER', 'sarkars1'), ('SNAP_COMMON', '/var/snap/code/common'), ('CLAUDE_CODE_ENTRYPOINT', 'claude-vscode'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"c","resolvedLanguage":"en","defaultMessagesFile":"/snap/code/262/usr/share/code/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('FONTCONFIG_PATH', '/etc/fonts'), ('GIT_EDITOR', 'true'), ('GIO_MODULE_DIR', '/home/sarkars1/snap/code/common/.cache/gio-modules'), ('VSCODE_HANDLES_UNCAUGHT_ERRORS', 'true'), ('XDG_SESSION_TYPE', 'wayland'), ('CLAUDE_AGENT_SDK_VERSION', '0.3.309'), ('CLAUDE_CODE_SESSION_ATTENDED', '1'), ('SNAP_UID', '1000'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sarkars1/vrx_ws/install/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('CLAUDE_CODE_MESSAGING_TOKEN', '93b145ab6c20d480fcd2931445ae5e88'), ('HOME', '/home/sarkars1'), ('CHROME_DESKTOP', 'code.desktop'), ('SNAP_LIBRARY_PATH', '/var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32'), ('OLDPWD', '/home/sarkars1/SubmarineTest/src/jit_sonar'), ('DESKTOP_SESSION', 'ubuntu'), ('SNAP_USER_DATA', '/home/sarkars1/snap/code/262'), ('GTK_PATH', '/snap/code/262/usr/lib/x86_64-linux-gnu/gtk-3.0'), ('NO_PROXY', 'localhost,127.0.0.0/8,::1'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-908b0799-1.13-main.sock'), ('GTK_IM_MODULE_FILE', '/home/sarkars1/snap/code/common/.cache/immodules/immodules.cache'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('CLAUDE_CODE_CHILD_SESSION', '1'), ('COPILOT_OTEL_FILE_EXPORTER_PATH', '/dev/null'), ('SYSTEMD_EXEC_PID', '1567'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('SNAP_REVISION', '262'), ('COLORTERM', 'truecolor'), ('VSCODE_CRASH_REPORTER_PROCESS_TYPE', 'extensionHost'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install'), ('APPLICATION_INSIGHTS_NO_STATSBEAT', 'true'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'sarkars1'), ('SNAP_CONTEXT', 'JFZUiEBqdLS-hcCZbejjAa_5TyB_pAeEKWdEgpyoX_7im2TumisG'), ('CLAUDE_CODE_EMIT_STARTUP_TIMING', '1'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLAUDE_CODE_QUESTION_PREVIEW_FORMAT', 'markdown'), ('XDG_SESSION_CLASS', 'user'), ('SNAP_VERSION', '88e44fa0'), ('XDG_DATA_DIRS_VSCODE_SNAP_ORIG', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('USERNAME', 'sarkars1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('SNAP_INSTANCE_NAME', 'code'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('MCP_CONNECTION_NONBLOCKING', 'true'), ('PATH', '/home/sarkars1/vrx_ws/install/../src/vrx-erau/vrx_gz/launch:/home/sarkars1/minion_ws/install/share/gazebo_models/launch:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/mciscolin:@/tmp/.ICE-unix/1540,unix/mciscolin:/tmp/.ICE-unix/1540'), ('GTK_EXE_PREFIX', '/snap/code/262/usr'), ('COREPACK_ENABLE_AUTO_PIN', '0'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/ed3032b4_2357_42c7_885c_c5ba8042ebb4'), ('GNOME_SETUP_DISPLAY', ':1'), ('SNAP_DATA', '/var/snap/code/262'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('CLAUDE_EFFORT', 'medium'), ('DISPLAY', ':0'), ('LOCPATH', '/snap/code/262/usr/lib/locale'), ('CLAUDE_PID', '3545'), ('NoDefaultCurrentDirectoryInExePath', '1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XDG_DATA_HOME', '/home/sarkars1/snap/code/262/.local/share'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.00XRX3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.94'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SNAP_USER_COMMON', '/home/sarkars1/snap/code/common'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/home/sarkars1/snap/code/262/.local/share/glib-2.0/schemas'), ('SNAP_ARCH', 'amd64'), ('AMENT_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('SNAP_COOKIE', 'JFZUiEBqdLS-hcCZbejjAa_5TyB_pAeEKWdEgpyoX_7im2TumisG'), ('SHELL', '/bin/bash'), ('GDK_PIXBUF_MODULEDIR', '/snap/code/262/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders'), ('MXC_BIN_DIR', '/snap/code/262/usr/share/code/resources/app/node_modules.asar.unpacked/@microsoft/mxc-sdk/bin'), ('QT_ACCESSIBILITY', '1'), ('ELECTRON_RUN_AS_NODE', '1'), ('GDMSESSION', 'ubuntu'), ('CLAUDE_CODE_ENABLE_SDK_FILE_CHECKPOINTING', 'true'), ('CLAUDE_CODE_SESSION_ID', '932122c2-684c-4256-8c87-4eddbe34bc54'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share'), ('SNAP_NAME', 'code'), ('FONTCONFIG_FILE', '/etc/fonts/fonts.conf'), ('CLAUDECODE', '1'), ('GDK_PIXBUF_MODULE_FILE', '/home/sarkars1/snap/code/common/.cache/gdk-pixbuf-loaders.cache'), ('GZ_VERSION', 'garden'), ('SNAP_LAUNCHER_ARCH_TRIPLET', 'x86_64-linux-gnu'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/sarkars1/SubmarineTest/build/ping360_sonar_msgs'), ('VSCODE_CLI', '1'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('SNAP_REAL_HOME', '/home/sarkars1'), ('VSCODE_CODE_CACHE_PATH', '/home/sarkars1/.config/Code/CachedData/88e44fa0e00b08f7758b4f6d05632e4fd5e4df6f'), ('XDG_DATA_DIRS', '/home/sarkars1/snap/code/262/.local/share:/home/sarkars1/snap/code/262:/snap/code/262/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('CLAUDE_CODE_EXECPATH', '/home/sarkars1/.vscode/extensions/anthropic.claude-code-2.1.309-linux-x64/resources/native-binary/claude'), ('SNAP_EUID', '1000'), ('PYTHONPATH', '/home/sarkars1/vrx_ws/install/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('SNAP', '/snap/code/262'), ('CLAUDE_CODE_ENABLE_TASKS', '0'), ('COLCON', '1'), ('COPILOT_CLI_ENABLED_FEATURE_FLAGS', 'SHELL_SPAWN_BACKEND'), ('VTE_VERSION', '6800'), ('ELECTRON_NO_ATTACH_CONSOLE', '1'), ('CLAUDE_CODE_MESSAGING_SOCKET', '/run/user/1000/cc-socks/3545.sock'), ('CMAKE_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('VSCODE_PID', '2611')]), 'shell': False}
+[1.225666] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[1.227260] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ament_index/resource_index/rosidl_interfaces/ping360_sonar_msgs\n'}
+[1.227827] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs\n'}
+[1.228319] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg\n'}
+[1.228606] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/rosidl_generator_c__visibility_control.h\n'}
+[1.229794] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/sonar_echo.h\n'}
+[1.230220] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail\n'}
+[1.230810] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__type_support.h\n'}
+[1.232368] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__struct.h\n'}
+[1.233617] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__functions.c\n'}
+[1.233911] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__functions.h\n'}
+[1.234460] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/library_path.sh\n'}
+[1.235798] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/library_path.dsv\n'}
+[1.236520] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_generator_c.so\n'}
+[1.236901] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs\n'}
+[1.237258] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg\n'}
+[1.237795] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[1.238207] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail\n'}
+[1.239201] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__rosidl_typesupport_fastrtps_c.h\n'}
+[1.239549] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[1.240116] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs\n'}
+[1.240492] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg\n'}
+[1.240835] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/sonar_echo.hpp\n'}
+[1.241171] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[1.241794] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail\n'}
+[1.242967] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__type_support.hpp\n'}
+[1.243601] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__traits.hpp\n'}
+[1.244206] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__builder.hpp\n'}
+[1.244813] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__struct.hpp\n'}
+[1.246961] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs\n'}
+[1.247334] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg\n'}
+[1.247671] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[1.248004] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail\n'}
+[1.248376] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/dds_fastrtps\n'}
+[1.248719] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[1.249075] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[1.249450] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs\n'}
+[1.249799] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg\n'}
+[1.250188] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[1.250546] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail\n'}
+[1.250898] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__type_support.c\n'}
+[1.251269] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__rosidl_typesupport_introspection_c.h\n'}
+[1.251622] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_introspection_c.so\n'}
+[1.251974] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_c.so\n'}
+[1.252327] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs\n'}
+[1.252677] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg\n'}
+[1.253034] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail\n'}
+[1.253385] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__type_support.cpp\n'}
+[1.253738] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__rosidl_typesupport_introspection_cpp.hpp\n'}
+[1.254111] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[1.254493] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_cpp.so\n'}
+[1.254849] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/pythonpath.sh\n'}
+[1.255198] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/pythonpath.dsv\n'}
+[1.255561] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs-1.0.0-py3.10.egg-info\n'}
+[1.255910] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs-1.0.0-py3.10.egg-info/PKG-INFO\n'}
+[1.256267] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs-1.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[1.256619] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs-1.0.0-py3.10.egg-info/top_level.txt\n'}
+[1.256967] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs-1.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[1.257314] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs\n'}
+[1.257663] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/_ping360_sonar_msgs_s.ep.rosidl_typesupport_c.c\n'}
+[1.258053] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/_ping360_sonar_msgs_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[1.258394] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/__init__.py\n'}
+[1.258723] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/_ping360_sonar_msgs_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[1.259060] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.259402] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/libping360_sonar_msgs__rosidl_generator_py.so\n'}
+[1.259712] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/msg\n'}
+[1.260015] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/msg/__init__.py\n'}
+[1.260385] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/msg/_sonar_echo.py\n'}
+[1.260629] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/msg/_sonar_echo_s.c\n'}
+[1.260848] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.261090] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.301672] (-) TimerEvent: {}
+[1.336170] (ping360_sonar_msgs) StdoutLine: {'line': b"Listing '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs'...\n"}
+[1.336631] (ping360_sonar_msgs) StdoutLine: {'line': b"Listing '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/msg'...\n"}
+[1.347860] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.349033] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.350217] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.351448] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_generator_py.so\n'}
+[1.353739] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ament_index/resource_index/rust_packages/ping360_sonar_msgs\n'}
+[1.355424] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/rust\n'}
+[1.356242] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/rust/Cargo.toml\n'}
+[1.357292] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/rust/src\n'}
+[1.358029] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/rust/src/msg\n'}
+[1.359030] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/rust/src/msg/rmw.rs\n'}
+[1.360204] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/rust/src/lib.rs\n'}
+[1.360910] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/rust/src/msg.rs\n'}
+[1.362635] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/rust/build.rs\n'}
+[1.364145] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/msg/SonarEcho.idl\n'}
+[1.364419] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/msg/SonarEcho.msg\n'}
+[1.364746] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ament_index/resource_index/package_run_dependencies/ping360_sonar_msgs\n'}
+[1.365077] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ament_index/resource_index/parent_prefix_path/ping360_sonar_msgs\n'}
+[1.365407] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/ament_prefix_path.sh\n'}
+[1.365708] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/ament_prefix_path.dsv\n'}
+[1.366041] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/path.sh\n'}
+[1.366325] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/path.dsv\n'}
+[1.366519] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/local_setup.bash\n'}
+[1.366719] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/local_setup.sh\n'}
+[1.366908] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/local_setup.zsh\n'}
+[1.367090] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/local_setup.dsv\n'}
+[1.367274] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/package.dsv\n'}
+[1.367457] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ament_index/resource_index/packages/ping360_sonar_msgs\n'}
+[1.367639] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_generator_cExport.cmake\n'}
+[1.367827] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_generator_cExport-noconfig.cmake\n'}
+[1.368011] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[1.368195] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[1.368382] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_generator_cppExport.cmake\n'}
+[1.368564] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[1.368749] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[1.369689] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[1.371595] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[1.372107] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_cExport.cmake\n'}
+[1.372721] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[1.373194] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[1.373641] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[1.374233] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[1.375061] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[1.375700] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_generator_pyExport.cmake\n'}
+[1.376119] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_generator_pyExport-noconfig.cmake\n'}
+[1.377068] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/rosidl_cmake-extras.cmake\n'}
+[1.377772] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[1.378469] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[1.378999] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[1.379508] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[1.380160] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[1.380608] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[1.381265] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/rosidl_cmake_aggregate_target-extras.cmake\n'}
+[1.381645] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgsConfig.cmake\n'}
+[1.382447] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgsConfig-version.cmake\n'}
+[1.383496] (ping360_sonar_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/package.xml\n'}
+[1.384195] (ping360_sonar_msgs) CommandEnded: {'returncode': 0}
+[1.402872] (-) TimerEvent: {}
+[1.462500] (ping360_sonar_msgs) JobEnded: {'identifier': 'ping360_sonar_msgs', 'rc': 0}
+[1.466701] (jit_sonar) JobStarted: {'identifier': 'jit_sonar'}
+[1.496037] (jit_sonar) JobProgress: {'identifier': 'jit_sonar', 'progress': 'cmake'}
+[1.498161] (jit_sonar) Command: {'cmd': ['/usr/bin/cmake', '/home/sarkars1/SubmarineTest/src/jit_sonar', '-DCMAKE_INSTALL_PREFIX=/home/sarkars1/SubmarineTest/install/jit_sonar'], 'cwd': '/home/sarkars1/SubmarineTest/build/jit_sonar', 'env': OrderedDict([('GZ_SIM_SYSTEM_PLUGIN_PATH', '/home/sarkars1/vrx_ws/install/lib'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/sarkars1/SubmarineTest'), ('VSCODE_ESM_ENTRYPOINT', 'vs/workbench/api/node/extensionHostProcess'), ('GZ_SIM_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share/wamv_description/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/models/tmp:/home/sarkars1/vrx_ws/install/share/vrx_gz/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds/2023_practice:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds:/home/sarkars1/vrx_ws/install/share/vrx_gazebo/models:/home/sarkars1/vrx_ws/install/share/:/home/sarkars1/minion_ws/install/share/gazebo_models/models:/home/sarkars1/minion_ws/install/share'), ('no_proxy', 'localhost,127.0.0.0/8,::1'), ('AI_AGENT', 'claude-code_2-1-309_agent'), ('LANGUAGE', 'C.UTF-8'), ('USER', 'sarkars1'), ('SNAP_COMMON', '/var/snap/code/common'), ('CLAUDE_CODE_ENTRYPOINT', 'claude-vscode'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"c","resolvedLanguage":"en","defaultMessagesFile":"/snap/code/262/usr/share/code/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('FONTCONFIG_PATH', '/etc/fonts'), ('GIT_EDITOR', 'true'), ('GIO_MODULE_DIR', '/home/sarkars1/snap/code/common/.cache/gio-modules'), ('VSCODE_HANDLES_UNCAUGHT_ERRORS', 'true'), ('XDG_SESSION_TYPE', 'wayland'), ('CLAUDE_AGENT_SDK_VERSION', '0.3.309'), ('CLAUDE_CODE_SESSION_ATTENDED', '1'), ('SNAP_UID', '1000'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:/home/sarkars1/vrx_ws/install/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('CLAUDE_CODE_MESSAGING_TOKEN', '93b145ab6c20d480fcd2931445ae5e88'), ('HOME', '/home/sarkars1'), ('CHROME_DESKTOP', 'code.desktop'), ('SNAP_LIBRARY_PATH', '/var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32'), ('OLDPWD', '/home/sarkars1/SubmarineTest/src/jit_sonar'), ('DESKTOP_SESSION', 'ubuntu'), ('SNAP_USER_DATA', '/home/sarkars1/snap/code/262'), ('GTK_PATH', '/snap/code/262/usr/lib/x86_64-linux-gnu/gtk-3.0'), ('NO_PROXY', 'localhost,127.0.0.0/8,::1'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-908b0799-1.13-main.sock'), ('GTK_IM_MODULE_FILE', '/home/sarkars1/snap/code/common/.cache/immodules/immodules.cache'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('CLAUDE_CODE_CHILD_SESSION', '1'), ('COPILOT_OTEL_FILE_EXPORTER_PATH', '/dev/null'), ('SYSTEMD_EXEC_PID', '1567'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('SNAP_REVISION', '262'), ('COLORTERM', 'truecolor'), ('VSCODE_CRASH_REPORTER_PROCESS_TYPE', 'extensionHost'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install'), ('APPLICATION_INSIGHTS_NO_STATSBEAT', 'true'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'sarkars1'), ('SNAP_CONTEXT', 'JFZUiEBqdLS-hcCZbejjAa_5TyB_pAeEKWdEgpyoX_7im2TumisG'), ('CLAUDE_CODE_EMIT_STARTUP_TIMING', '1'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLAUDE_CODE_QUESTION_PREVIEW_FORMAT', 'markdown'), ('XDG_SESSION_CLASS', 'user'), ('SNAP_VERSION', '88e44fa0'), ('XDG_DATA_DIRS_VSCODE_SNAP_ORIG', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('USERNAME', 'sarkars1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('SNAP_INSTANCE_NAME', 'code'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('MCP_CONNECTION_NONBLOCKING', 'true'), ('PATH', '/home/sarkars1/vrx_ws/install/../src/vrx-erau/vrx_gz/launch:/home/sarkars1/minion_ws/install/share/gazebo_models/launch:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/mciscolin:@/tmp/.ICE-unix/1540,unix/mciscolin:/tmp/.ICE-unix/1540'), ('GTK_EXE_PREFIX', '/snap/code/262/usr'), ('COREPACK_ENABLE_AUTO_PIN', '0'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/ed3032b4_2357_42c7_885c_c5ba8042ebb4'), ('GNOME_SETUP_DISPLAY', ':1'), ('SNAP_DATA', '/var/snap/code/262'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('CLAUDE_EFFORT', 'medium'), ('DISPLAY', ':0'), ('LOCPATH', '/snap/code/262/usr/lib/locale'), ('CLAUDE_PID', '3545'), ('NoDefaultCurrentDirectoryInExePath', '1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XDG_DATA_HOME', '/home/sarkars1/snap/code/262/.local/share'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.00XRX3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.94'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SNAP_USER_COMMON', '/home/sarkars1/snap/code/common'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/home/sarkars1/snap/code/262/.local/share/glib-2.0/schemas'), ('SNAP_ARCH', 'amd64'), ('AMENT_PREFIX_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('SNAP_COOKIE', 'JFZUiEBqdLS-hcCZbejjAa_5TyB_pAeEKWdEgpyoX_7im2TumisG'), ('SHELL', '/bin/bash'), ('GDK_PIXBUF_MODULEDIR', '/snap/code/262/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders'), ('MXC_BIN_DIR', '/snap/code/262/usr/share/code/resources/app/node_modules.asar.unpacked/@microsoft/mxc-sdk/bin'), ('QT_ACCESSIBILITY', '1'), ('ELECTRON_RUN_AS_NODE', '1'), ('GDMSESSION', 'ubuntu'), ('CLAUDE_CODE_ENABLE_SDK_FILE_CHECKPOINTING', 'true'), ('CLAUDE_CODE_SESSION_ID', '932122c2-684c-4256-8c87-4eddbe34bc54'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share'), ('SNAP_NAME', 'code'), ('FONTCONFIG_FILE', '/etc/fonts/fonts.conf'), ('CLAUDECODE', '1'), ('GDK_PIXBUF_MODULE_FILE', '/home/sarkars1/snap/code/common/.cache/gdk-pixbuf-loaders.cache'), ('GZ_VERSION', 'garden'), ('SNAP_LAUNCHER_ARCH_TRIPLET', 'x86_64-linux-gnu'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/sarkars1/SubmarineTest/build/jit_sonar'), ('VSCODE_CLI', '1'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('SNAP_REAL_HOME', '/home/sarkars1'), ('VSCODE_CODE_CACHE_PATH', '/home/sarkars1/.config/Code/CachedData/88e44fa0e00b08f7758b4f6d05632e4fd5e4df6f'), ('XDG_DATA_DIRS', '/home/sarkars1/snap/code/262/.local/share:/home/sarkars1/snap/code/262:/snap/code/262/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('CLAUDE_CODE_EXECPATH', '/home/sarkars1/.vscode/extensions/anthropic.claude-code-2.1.309-linux-x64/resources/native-binary/claude'), ('SNAP_EUID', '1000'), ('PYTHONPATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:/home/sarkars1/vrx_ws/install/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('SNAP', '/snap/code/262'), ('CLAUDE_CODE_ENABLE_TASKS', '0'), ('COLCON', '1'), ('COPILOT_CLI_ENABLED_FEATURE_FLAGS', 'SHELL_SPAWN_BACKEND'), ('VTE_VERSION', '6800'), ('ELECTRON_NO_ATTACH_CONSOLE', '1'), ('CLAUDE_CODE_MESSAGING_SOCKET', '/run/user/1000/cc-socks/3545.sock'), ('CMAKE_PREFIX_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('VSCODE_PID', '2611')]), 'shell': False}
+[1.506173] (-) TimerEvent: {}
+[1.606477] (-) TimerEvent: {}
+[1.706791] (-) TimerEvent: {}
+[1.757529] (jit_sonar) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[1.806941] (-) TimerEvent: {}
+[1.907251] (-) TimerEvent: {}
+[1.969624] (jit_sonar) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[1.998626] (jit_sonar) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[2.007377] (-) TimerEvent: {}
+[2.107668] (-) TimerEvent: {}
+[2.207996] (-) TimerEvent: {}
+[2.210366] (jit_sonar) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[2.235065] (jit_sonar) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[2.236223] (jit_sonar) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[2.237828] (jit_sonar) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[2.248097] (jit_sonar) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[2.308169] (-) TimerEvent: {}
+[2.408573] (-) TimerEvent: {}
+[2.498326] (jit_sonar) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[2.508726] (-) TimerEvent: {}
+[2.526929] (jit_sonar) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[2.527960] (jit_sonar) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[2.529774] (jit_sonar) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[2.542183] (jit_sonar) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[2.608913] (-) TimerEvent: {}
+[2.709317] (-) TimerEvent: {}
+[2.809728] (-) TimerEvent: {}
+[2.910085] (-) TimerEvent: {}
+[3.010417] (-) TimerEvent: {}
+[3.110802] (-) TimerEvent: {}
+[3.115171] (jit_sonar) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[3.210993] (-) TimerEvent: {}
+[3.311331] (-) TimerEvent: {}
+[3.411697] (-) TimerEvent: {}
+[3.477046] (jit_sonar) StdoutLine: {'line': b'-- Found rclcpp: 16.0.19 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[3.511901] (-) TimerEvent: {}
+[3.612316] (-) TimerEvent: {}
+[3.677869] (jit_sonar) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.9 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[3.712500] (-) TimerEvent: {}
+[3.715355] (jit_sonar) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.9 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[3.754381] (jit_sonar) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.9 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[3.811426] (jit_sonar) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[3.812635] (-) TimerEvent: {}
+[3.895788] (jit_sonar) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.912844] (-) TimerEvent: {}
+[4.013261] (-) TimerEvent: {}
+[4.113634] (-) TimerEvent: {}
+[4.180457] (jit_sonar) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.3 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[4.203071] (jit_sonar) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[4.213873] (-) TimerEvent: {}
+[4.314439] (-) TimerEvent: {}
+[4.414884] (-) TimerEvent: {}
+[4.515334] (-) TimerEvent: {}
+[4.615792] (-) TimerEvent: {}
+[4.650013] (jit_sonar) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[4.715987] (-) TimerEvent: {}
+[4.799501] (jit_sonar) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[4.816209] (-) TimerEvent: {}
+[4.916724] (-) TimerEvent: {}
+[5.017217] (-) TimerEvent: {}
+[5.078540] (jit_sonar) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[5.117410] (-) TimerEvent: {}
+[5.148270] (jit_sonar) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[5.217615] (-) TimerEvent: {}
+[5.318089] (-) TimerEvent: {}
+[5.418555] (-) TimerEvent: {}
+[5.519112] (-) TimerEvent: {}
+[5.534154] (jit_sonar) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[5.535934] (jit_sonar) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[5.619332] (-) TimerEvent: {}
+[5.719808] (-) TimerEvent: {}
+[5.820270] (-) TimerEvent: {}
+[5.917048] (jit_sonar) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[5.920399] (-) TimerEvent: {}
+[5.923246] (jit_sonar) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[6.020607] (-) TimerEvent: {}
+[6.121069] (-) TimerEvent: {}
+[6.221510] (-) TimerEvent: {}
+[6.267991] (jit_sonar) StdoutLine: {'line': b'-- Found sensor_msgs: 4.9.2 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[6.321669] (-) TimerEvent: {}
+[6.386957] (jit_sonar) StdoutLine: {'line': b'-- Found ping360_sonar_msgs: 1.0.0 (/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake)\n'}
+[6.421820] (-) TimerEvent: {}
+[6.437038] (jit_sonar) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[6.521952] (-) TimerEvent: {}
+[6.622258] (-) TimerEvent: {}
+[6.692534] (jit_sonar) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[6.693499] (jit_sonar) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[6.693942] (jit_sonar) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[6.697208] (jit_sonar) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[6.701688] (jit_sonar) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[6.702192] (jit_sonar) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[6.704500] (jit_sonar) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[6.711580] (jit_sonar) StdoutLine: {'line': b'-- Configuring done\n'}
+[6.722485] (-) TimerEvent: {}
+[6.759907] (jit_sonar) StdoutLine: {'line': b'-- Generating done\n'}
+[6.779398] (jit_sonar) StdoutLine: {'line': b'-- Build files have been written to: /home/sarkars1/SubmarineTest/build/jit_sonar\n'}
+[6.814804] (jit_sonar) CommandEnded: {'returncode': 0}
+[6.817953] (jit_sonar) JobProgress: {'identifier': 'jit_sonar', 'progress': 'build'}
+[6.819905] (jit_sonar) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/sarkars1/SubmarineTest/build/jit_sonar', '--', '-j8', '-l8'], 'cwd': '/home/sarkars1/SubmarineTest/build/jit_sonar', 'env': OrderedDict([('GZ_SIM_SYSTEM_PLUGIN_PATH', '/home/sarkars1/vrx_ws/install/lib'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/sarkars1/SubmarineTest'), ('VSCODE_ESM_ENTRYPOINT', 'vs/workbench/api/node/extensionHostProcess'), ('GZ_SIM_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share/wamv_description/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/models/tmp:/home/sarkars1/vrx_ws/install/share/vrx_gz/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds/2023_practice:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds:/home/sarkars1/vrx_ws/install/share/vrx_gazebo/models:/home/sarkars1/vrx_ws/install/share/:/home/sarkars1/minion_ws/install/share/gazebo_models/models:/home/sarkars1/minion_ws/install/share'), ('no_proxy', 'localhost,127.0.0.0/8,::1'), ('AI_AGENT', 'claude-code_2-1-309_agent'), ('LANGUAGE', 'C.UTF-8'), ('USER', 'sarkars1'), ('SNAP_COMMON', '/var/snap/code/common'), ('CLAUDE_CODE_ENTRYPOINT', 'claude-vscode'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"c","resolvedLanguage":"en","defaultMessagesFile":"/snap/code/262/usr/share/code/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('FONTCONFIG_PATH', '/etc/fonts'), ('GIT_EDITOR', 'true'), ('GIO_MODULE_DIR', '/home/sarkars1/snap/code/common/.cache/gio-modules'), ('VSCODE_HANDLES_UNCAUGHT_ERRORS', 'true'), ('XDG_SESSION_TYPE', 'wayland'), ('CLAUDE_AGENT_SDK_VERSION', '0.3.309'), ('CLAUDE_CODE_SESSION_ATTENDED', '1'), ('SNAP_UID', '1000'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:/home/sarkars1/vrx_ws/install/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('CLAUDE_CODE_MESSAGING_TOKEN', '93b145ab6c20d480fcd2931445ae5e88'), ('HOME', '/home/sarkars1'), ('CHROME_DESKTOP', 'code.desktop'), ('SNAP_LIBRARY_PATH', '/var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32'), ('OLDPWD', '/home/sarkars1/SubmarineTest/src/jit_sonar'), ('DESKTOP_SESSION', 'ubuntu'), ('SNAP_USER_DATA', '/home/sarkars1/snap/code/262'), ('GTK_PATH', '/snap/code/262/usr/lib/x86_64-linux-gnu/gtk-3.0'), ('NO_PROXY', 'localhost,127.0.0.0/8,::1'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-908b0799-1.13-main.sock'), ('GTK_IM_MODULE_FILE', '/home/sarkars1/snap/code/common/.cache/immodules/immodules.cache'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('CLAUDE_CODE_CHILD_SESSION', '1'), ('COPILOT_OTEL_FILE_EXPORTER_PATH', '/dev/null'), ('SYSTEMD_EXEC_PID', '1567'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('SNAP_REVISION', '262'), ('COLORTERM', 'truecolor'), ('VSCODE_CRASH_REPORTER_PROCESS_TYPE', 'extensionHost'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install'), ('APPLICATION_INSIGHTS_NO_STATSBEAT', 'true'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'sarkars1'), ('SNAP_CONTEXT', 'JFZUiEBqdLS-hcCZbejjAa_5TyB_pAeEKWdEgpyoX_7im2TumisG'), ('CLAUDE_CODE_EMIT_STARTUP_TIMING', '1'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLAUDE_CODE_QUESTION_PREVIEW_FORMAT', 'markdown'), ('XDG_SESSION_CLASS', 'user'), ('SNAP_VERSION', '88e44fa0'), ('XDG_DATA_DIRS_VSCODE_SNAP_ORIG', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('USERNAME', 'sarkars1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('SNAP_INSTANCE_NAME', 'code'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('MCP_CONNECTION_NONBLOCKING', 'true'), ('PATH', '/home/sarkars1/vrx_ws/install/../src/vrx-erau/vrx_gz/launch:/home/sarkars1/minion_ws/install/share/gazebo_models/launch:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/mciscolin:@/tmp/.ICE-unix/1540,unix/mciscolin:/tmp/.ICE-unix/1540'), ('GTK_EXE_PREFIX', '/snap/code/262/usr'), ('COREPACK_ENABLE_AUTO_PIN', '0'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/ed3032b4_2357_42c7_885c_c5ba8042ebb4'), ('GNOME_SETUP_DISPLAY', ':1'), ('SNAP_DATA', '/var/snap/code/262'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('CLAUDE_EFFORT', 'medium'), ('DISPLAY', ':0'), ('LOCPATH', '/snap/code/262/usr/lib/locale'), ('CLAUDE_PID', '3545'), ('NoDefaultCurrentDirectoryInExePath', '1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XDG_DATA_HOME', '/home/sarkars1/snap/code/262/.local/share'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.00XRX3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.94'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SNAP_USER_COMMON', '/home/sarkars1/snap/code/common'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/home/sarkars1/snap/code/262/.local/share/glib-2.0/schemas'), ('SNAP_ARCH', 'amd64'), ('AMENT_PREFIX_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('SNAP_COOKIE', 'JFZUiEBqdLS-hcCZbejjAa_5TyB_pAeEKWdEgpyoX_7im2TumisG'), ('SHELL', '/bin/bash'), ('GDK_PIXBUF_MODULEDIR', '/snap/code/262/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders'), ('MXC_BIN_DIR', '/snap/code/262/usr/share/code/resources/app/node_modules.asar.unpacked/@microsoft/mxc-sdk/bin'), ('QT_ACCESSIBILITY', '1'), ('ELECTRON_RUN_AS_NODE', '1'), ('GDMSESSION', 'ubuntu'), ('CLAUDE_CODE_ENABLE_SDK_FILE_CHECKPOINTING', 'true'), ('CLAUDE_CODE_SESSION_ID', '932122c2-684c-4256-8c87-4eddbe34bc54'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share'), ('SNAP_NAME', 'code'), ('FONTCONFIG_FILE', '/etc/fonts/fonts.conf'), ('CLAUDECODE', '1'), ('GDK_PIXBUF_MODULE_FILE', '/home/sarkars1/snap/code/common/.cache/gdk-pixbuf-loaders.cache'), ('GZ_VERSION', 'garden'), ('SNAP_LAUNCHER_ARCH_TRIPLET', 'x86_64-linux-gnu'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/sarkars1/SubmarineTest/build/jit_sonar'), ('VSCODE_CLI', '1'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('SNAP_REAL_HOME', '/home/sarkars1'), ('VSCODE_CODE_CACHE_PATH', '/home/sarkars1/.config/Code/CachedData/88e44fa0e00b08f7758b4f6d05632e4fd5e4df6f'), ('XDG_DATA_DIRS', '/home/sarkars1/snap/code/262/.local/share:/home/sarkars1/snap/code/262:/snap/code/262/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('CLAUDE_CODE_EXECPATH', '/home/sarkars1/.vscode/extensions/anthropic.claude-code-2.1.309-linux-x64/resources/native-binary/claude'), ('SNAP_EUID', '1000'), ('PYTHONPATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:/home/sarkars1/vrx_ws/install/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('SNAP', '/snap/code/262'), ('CLAUDE_CODE_ENABLE_TASKS', '0'), ('COLCON', '1'), ('COPILOT_CLI_ENABLED_FEATURE_FLAGS', 'SHELL_SPAWN_BACKEND'), ('VTE_VERSION', '6800'), ('ELECTRON_NO_ATTACH_CONSOLE', '1'), ('CLAUDE_CODE_MESSAGING_SOCKET', '/run/user/1000/cc-socks/3545.sock'), ('CMAKE_PREFIX_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('VSCODE_PID', '2611')]), 'shell': False}
+[6.822753] (-) TimerEvent: {}
+[6.925214] (-) TimerEvent: {}
+[6.981798] (jit_sonar) StdoutLine: {'line': b'[ 50%] Building CXX object CMakeFiles/sonar_zone_node.dir/src/sonar_zone_node.cpp.o\n'}
+[7.025396] (-) TimerEvent: {}
+[7.125764] (-) TimerEvent: {}
+[7.226162] (-) TimerEvent: {}
+[7.326440] (-) TimerEvent: {}
+[7.426717] (-) TimerEvent: {}
+[7.527021] (-) TimerEvent: {}
+[7.627310] (-) TimerEvent: {}
+[7.727595] (-) TimerEvent: {}
+[7.827893] (-) TimerEvent: {}
+[7.928224] (-) TimerEvent: {}
+[8.028597] (-) TimerEvent: {}
+[8.128902] (-) TimerEvent: {}
+[8.229176] (-) TimerEvent: {}
+[8.329458] (-) TimerEvent: {}
+[8.429733] (-) TimerEvent: {}
+[8.530039] (-) TimerEvent: {}
+[8.630330] (-) TimerEvent: {}
+[8.730595] (-) TimerEvent: {}
+[8.830866] (-) TimerEvent: {}
+[8.931184] (-) TimerEvent: {}
+[9.031577] (-) TimerEvent: {}
+[9.131929] (-) TimerEvent: {}
+[9.232204] (-) TimerEvent: {}
+[9.332482] (-) TimerEvent: {}
+[9.432754] (-) TimerEvent: {}
+[9.533051] (-) TimerEvent: {}
+[9.633341] (-) TimerEvent: {}
+[9.733629] (-) TimerEvent: {}
+[9.833931] (-) TimerEvent: {}
+[9.934241] (-) TimerEvent: {}
+[10.034536] (-) TimerEvent: {}
+[10.134833] (-) TimerEvent: {}
+[10.235123] (-) TimerEvent: {}
+[10.335419] (-) TimerEvent: {}
+[10.435712] (-) TimerEvent: {}
+[10.536006] (-) TimerEvent: {}
+[10.636293] (-) TimerEvent: {}
+[10.736574] (-) TimerEvent: {}
+[10.836860] (-) TimerEvent: {}
+[10.937159] (-) TimerEvent: {}
+[11.037452] (-) TimerEvent: {}
+[11.137734] (-) TimerEvent: {}
+[11.238038] (-) TimerEvent: {}
+[11.338331] (-) TimerEvent: {}
+[11.438622] (-) TimerEvent: {}
+[11.538913] (-) TimerEvent: {}
+[11.639211] (-) TimerEvent: {}
+[11.739504] (-) TimerEvent: {}
+[11.839796] (-) TimerEvent: {}
+[11.940071] (-) TimerEvent: {}
+[12.040358] (-) TimerEvent: {}
+[12.140649] (-) TimerEvent: {}
+[12.240932] (-) TimerEvent: {}
+[12.341214] (-) TimerEvent: {}
+[12.441499] (-) TimerEvent: {}
+[12.541800] (-) TimerEvent: {}
+[12.642119] (-) TimerEvent: {}
+[12.742393] (-) TimerEvent: {}
+[12.842662] (-) TimerEvent: {}
+[12.942928] (-) TimerEvent: {}
+[13.043200] (-) TimerEvent: {}
+[13.143482] (-) TimerEvent: {}
+[13.243755] (-) TimerEvent: {}
+[13.344043] (-) TimerEvent: {}
+[13.444339] (-) TimerEvent: {}
+[13.544667] (-) TimerEvent: {}
+[13.644968] (-) TimerEvent: {}
+[13.745253] (-) TimerEvent: {}
+[13.845519] (-) TimerEvent: {}
+[13.945792] (-) TimerEvent: {}
+[14.046077] (-) TimerEvent: {}
+[14.146349] (-) TimerEvent: {}
+[14.246617] (-) TimerEvent: {}
+[14.346892] (-) TimerEvent: {}
+[14.447159] (-) TimerEvent: {}
+[14.547423] (-) TimerEvent: {}
+[14.647690] (-) TimerEvent: {}
+[14.747968] (-) TimerEvent: {}
+[14.848278] (-) TimerEvent: {}
+[14.948590] (-) TimerEvent: {}
+[15.048887] (-) TimerEvent: {}
+[15.149232] (-) TimerEvent: {}
+[15.249599] (-) TimerEvent: {}
+[15.349924] (-) TimerEvent: {}
+[15.450251] (-) TimerEvent: {}
+[15.550587] (-) TimerEvent: {}
+[15.650917] (-) TimerEvent: {}
+[15.751203] (-) TimerEvent: {}
+[15.851483] (-) TimerEvent: {}
+[15.951758] (-) TimerEvent: {}
+[16.052029] (-) TimerEvent: {}
+[16.152311] (-) TimerEvent: {}
+[16.252609] (-) TimerEvent: {}
+[16.352879] (-) TimerEvent: {}
+[16.453147] (-) TimerEvent: {}
+[16.553422] (-) TimerEvent: {}
+[16.653700] (-) TimerEvent: {}
+[16.754047] (-) TimerEvent: {}
+[16.854394] (-) TimerEvent: {}
+[16.954801] (-) TimerEvent: {}
+[17.055262] (-) TimerEvent: {}
+[17.155676] (-) TimerEvent: {}
+[17.256153] (-) TimerEvent: {}
+[17.356580] (-) TimerEvent: {}
+[17.456974] (-) TimerEvent: {}
+[17.557409] (-) TimerEvent: {}
+[17.657779] (-) TimerEvent: {}
+[17.758209] (-) TimerEvent: {}
+[17.858600] (-) TimerEvent: {}
+[17.959015] (-) TimerEvent: {}
+[18.059502] (-) TimerEvent: {}
+[18.159958] (-) TimerEvent: {}
+[18.260364] (-) TimerEvent: {}
+[18.360749] (-) TimerEvent: {}
+[18.461113] (-) TimerEvent: {}
+[18.561494] (-) TimerEvent: {}
+[18.661847] (-) TimerEvent: {}
+[18.762211] (-) TimerEvent: {}
+[18.862552] (-) TimerEvent: {}
+[18.962896] (-) TimerEvent: {}
+[19.063321] (-) TimerEvent: {}
+[19.163920] (-) TimerEvent: {}
+[19.264465] (-) TimerEvent: {}
+[19.364863] (-) TimerEvent: {}
+[19.465250] (-) TimerEvent: {}
+[19.565682] (-) TimerEvent: {}
+[19.666239] (-) TimerEvent: {}
+[19.766706] (-) TimerEvent: {}
+[19.867179] (-) TimerEvent: {}
+[19.967698] (-) TimerEvent: {}
+[20.068356] (-) TimerEvent: {}
+[20.168955] (-) TimerEvent: {}
+[20.269527] (-) TimerEvent: {}
+[20.370128] (-) TimerEvent: {}
+[20.470790] (-) TimerEvent: {}
+[20.571411] (-) TimerEvent: {}
+[20.671978] (-) TimerEvent: {}
+[20.772526] (-) TimerEvent: {}
+[20.873074] (-) TimerEvent: {}
+[20.973876] (-) TimerEvent: {}
+[21.074811] (-) TimerEvent: {}
+[21.175480] (-) TimerEvent: {}
+[21.276051] (-) TimerEvent: {}
+[21.376534] (-) TimerEvent: {}
+[21.476994] (-) TimerEvent: {}
+[21.577416] (-) TimerEvent: {}
+[21.677796] (-) TimerEvent: {}
+[21.778246] (-) TimerEvent: {}
+[21.878763] (-) TimerEvent: {}
+[21.979303] (-) TimerEvent: {}
+[22.079790] (-) TimerEvent: {}
+[22.180203] (-) TimerEvent: {}
+[22.280642] (-) TimerEvent: {}
+[22.380994] (-) TimerEvent: {}
+[22.481369] (-) TimerEvent: {}
+[22.581789] (-) TimerEvent: {}
+[22.682282] (-) TimerEvent: {}
+[22.782656] (-) TimerEvent: {}
+[22.882994] (-) TimerEvent: {}
+[22.983323] (-) TimerEvent: {}
+[23.083664] (-) TimerEvent: {}
+[23.183990] (-) TimerEvent: {}
+[23.284321] (-) TimerEvent: {}
+[23.384668] (-) TimerEvent: {}
+[23.485014] (-) TimerEvent: {}
+[23.585359] (-) TimerEvent: {}
+[23.685761] (-) TimerEvent: {}
+[23.786236] (-) TimerEvent: {}
+[23.886609] (-) TimerEvent: {}
+[23.986979] (-) TimerEvent: {}
+[24.087353] (-) TimerEvent: {}
+[24.187750] (-) TimerEvent: {}
+[24.288166] (-) TimerEvent: {}
+[24.388613] (-) TimerEvent: {}
+[24.489034] (-) TimerEvent: {}
+[24.589382] (-) TimerEvent: {}
+[24.689702] (-) TimerEvent: {}
+[24.790045] (-) TimerEvent: {}
+[24.890348] (-) TimerEvent: {}
+[24.990615] (-) TimerEvent: {}
+[25.090906] (-) TimerEvent: {}
+[25.191210] (-) TimerEvent: {}
+[25.291507] (-) TimerEvent: {}
+[25.391815] (-) TimerEvent: {}
+[25.492109] (-) TimerEvent: {}
+[25.592390] (-) TimerEvent: {}
+[25.692682] (-) TimerEvent: {}
+[25.792985] (-) TimerEvent: {}
+[25.893311] (-) TimerEvent: {}
+[25.993580] (-) TimerEvent: {}
+[26.093840] (-) TimerEvent: {}
+[26.194079] (-) TimerEvent: {}
+[26.294334] (-) TimerEvent: {}
+[26.394591] (-) TimerEvent: {}
+[26.494845] (-) TimerEvent: {}
+[26.595113] (-) TimerEvent: {}
+[26.695363] (-) TimerEvent: {}
+[26.795615] (-) TimerEvent: {}
+[26.895876] (-) TimerEvent: {}
+[26.996143] (-) TimerEvent: {}
+[27.096415] (-) TimerEvent: {}
+[27.196708] (-) TimerEvent: {}
+[27.297024] (-) TimerEvent: {}
+[27.397329] (-) TimerEvent: {}
+[27.497696] (-) TimerEvent: {}
+[27.598091] (-) TimerEvent: {}
+[27.698452] (-) TimerEvent: {}
+[27.798794] (-) TimerEvent: {}
+[27.899164] (-) TimerEvent: {}
+[27.999541] (-) TimerEvent: {}
+[28.099901] (-) TimerEvent: {}
+[28.200263] (-) TimerEvent: {}
+[28.300628] (-) TimerEvent: {}
+[28.400983] (-) TimerEvent: {}
+[28.501354] (-) TimerEvent: {}
+[28.601736] (-) TimerEvent: {}
+[28.702115] (-) TimerEvent: {}
+[28.802456] (-) TimerEvent: {}
+[28.902766] (-) TimerEvent: {}
+[29.003119] (-) TimerEvent: {}
+[29.103506] (-) TimerEvent: {}
+[29.203856] (-) TimerEvent: {}
+[29.304204] (-) TimerEvent: {}
+[29.404536] (-) TimerEvent: {}
+[29.504871] (-) TimerEvent: {}
+[29.605241] (-) TimerEvent: {}
+[29.705562] (-) TimerEvent: {}
+[29.805872] (-) TimerEvent: {}
+[29.906208] (-) TimerEvent: {}
+[30.006536] (-) TimerEvent: {}
+[30.106818] (-) TimerEvent: {}
+[30.207100] (-) TimerEvent: {}
+[30.307383] (-) TimerEvent: {}
+[30.407662] (-) TimerEvent: {}
+[30.507979] (-) TimerEvent: {}
+[30.608301] (-) TimerEvent: {}
+[30.708613] (-) TimerEvent: {}
+[30.808913] (-) TimerEvent: {}
+[30.909212] (-) TimerEvent: {}
+[31.009524] (-) TimerEvent: {}
+[31.109855] (-) TimerEvent: {}
+[31.210201] (-) TimerEvent: {}
+[31.310534] (-) TimerEvent: {}
+[31.410850] (-) TimerEvent: {}
+[31.511151] (-) TimerEvent: {}
+[31.611468] (-) TimerEvent: {}
+[31.711786] (-) TimerEvent: {}
+[31.812126] (-) TimerEvent: {}
+[31.912429] (-) TimerEvent: {}
+[32.012692] (-) TimerEvent: {}
+[32.112951] (-) TimerEvent: {}
+[32.213211] (-) TimerEvent: {}
+[32.313475] (-) TimerEvent: {}
+[32.413740] (-) TimerEvent: {}
+[32.514012] (-) TimerEvent: {}
+[32.614275] (-) TimerEvent: {}
+[32.714551] (-) TimerEvent: {}
+[32.814871] (-) TimerEvent: {}
+[32.915185] (-) TimerEvent: {}
+[33.015495] (-) TimerEvent: {}
+[33.115800] (-) TimerEvent: {}
+[33.216125] (-) TimerEvent: {}
+[33.316407] (-) TimerEvent: {}
+[33.416705] (-) TimerEvent: {}
+[33.516982] (-) TimerEvent: {}
+[33.617342] (-) TimerEvent: {}
+[33.717695] (-) TimerEvent: {}
+[33.818001] (-) TimerEvent: {}
+[33.918294] (-) TimerEvent: {}
+[34.018624] (-) TimerEvent: {}
+[34.092372] (jit_sonar) StdoutLine: {'line': b'[100%] Linking CXX executable sonar_zone_node\n'}
+[34.118757] (-) TimerEvent: {}
+[34.219054] (-) TimerEvent: {}
+[34.319406] (-) TimerEvent: {}
+[34.419809] (-) TimerEvent: {}
+[34.520170] (-) TimerEvent: {}
+[34.620446] (-) TimerEvent: {}
+[34.720732] (-) TimerEvent: {}
+[34.821017] (-) TimerEvent: {}
+[34.921280] (-) TimerEvent: {}
+[35.021561] (-) TimerEvent: {}
+[35.121884] (-) TimerEvent: {}
+[35.222253] (-) TimerEvent: {}
+[35.322519] (-) TimerEvent: {}
+[35.332710] (jit_sonar) StdoutLine: {'line': b'[100%] Built target sonar_zone_node\n'}
+[35.360512] (jit_sonar) CommandEnded: {'returncode': 0}
+[35.362534] (jit_sonar) JobProgress: {'identifier': 'jit_sonar', 'progress': 'install'}
+[35.364280] (jit_sonar) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/sarkars1/SubmarineTest/build/jit_sonar'], 'cwd': '/home/sarkars1/SubmarineTest/build/jit_sonar', 'env': OrderedDict([('GZ_SIM_SYSTEM_PLUGIN_PATH', '/home/sarkars1/vrx_ws/install/lib'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/sarkars1/SubmarineTest'), ('VSCODE_ESM_ENTRYPOINT', 'vs/workbench/api/node/extensionHostProcess'), ('GZ_SIM_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share/wamv_description/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/models/tmp:/home/sarkars1/vrx_ws/install/share/vrx_gz/models:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds/2023_practice:/home/sarkars1/vrx_ws/install/share/vrx_gz/worlds:/home/sarkars1/vrx_ws/install/share/vrx_gazebo/models:/home/sarkars1/vrx_ws/install/share/:/home/sarkars1/minion_ws/install/share/gazebo_models/models:/home/sarkars1/minion_ws/install/share'), ('no_proxy', 'localhost,127.0.0.0/8,::1'), ('AI_AGENT', 'claude-code_2-1-309_agent'), ('LANGUAGE', 'C.UTF-8'), ('USER', 'sarkars1'), ('SNAP_COMMON', '/var/snap/code/common'), ('CLAUDE_CODE_ENTRYPOINT', 'claude-vscode'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"c","resolvedLanguage":"en","defaultMessagesFile":"/snap/code/262/usr/share/code/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('FONTCONFIG_PATH', '/etc/fonts'), ('GIT_EDITOR', 'true'), ('GIO_MODULE_DIR', '/home/sarkars1/snap/code/common/.cache/gio-modules'), ('VSCODE_HANDLES_UNCAUGHT_ERRORS', 'true'), ('XDG_SESSION_TYPE', 'wayland'), ('CLAUDE_AGENT_SDK_VERSION', '0.3.309'), ('CLAUDE_CODE_SESSION_ATTENDED', '1'), ('SNAP_UID', '1000'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/lib:/home/sarkars1/vrx_ws/install/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('CLAUDE_CODE_MESSAGING_TOKEN', '93b145ab6c20d480fcd2931445ae5e88'), ('HOME', '/home/sarkars1'), ('CHROME_DESKTOP', 'code.desktop'), ('SNAP_LIBRARY_PATH', '/var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32'), ('OLDPWD', '/home/sarkars1/SubmarineTest/src/jit_sonar'), ('DESKTOP_SESSION', 'ubuntu'), ('SNAP_USER_DATA', '/home/sarkars1/snap/code/262'), ('GTK_PATH', '/snap/code/262/usr/lib/x86_64-linux-gnu/gtk-3.0'), ('NO_PROXY', 'localhost,127.0.0.0/8,::1'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-908b0799-1.13-main.sock'), ('GTK_IM_MODULE_FILE', '/home/sarkars1/snap/code/common/.cache/immodules/immodules.cache'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('CLAUDE_CODE_CHILD_SESSION', '1'), ('COPILOT_OTEL_FILE_EXPORTER_PATH', '/dev/null'), ('SYSTEMD_EXEC_PID', '1567'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('SNAP_REVISION', '262'), ('COLORTERM', 'truecolor'), ('VSCODE_CRASH_REPORTER_PROCESS_TYPE', 'extensionHost'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install'), ('APPLICATION_INSIGHTS_NO_STATSBEAT', 'true'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'sarkars1'), ('SNAP_CONTEXT', 'JFZUiEBqdLS-hcCZbejjAa_5TyB_pAeEKWdEgpyoX_7im2TumisG'), ('CLAUDE_CODE_EMIT_STARTUP_TIMING', '1'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLAUDE_CODE_QUESTION_PREVIEW_FORMAT', 'markdown'), ('XDG_SESSION_CLASS', 'user'), ('SNAP_VERSION', '88e44fa0'), ('XDG_DATA_DIRS_VSCODE_SNAP_ORIG', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('USERNAME', 'sarkars1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('SNAP_INSTANCE_NAME', 'code'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('MCP_CONNECTION_NONBLOCKING', 'true'), ('PATH', '/home/sarkars1/vrx_ws/install/../src/vrx-erau/vrx_gz/launch:/home/sarkars1/minion_ws/install/share/gazebo_models/launch:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/mciscolin:@/tmp/.ICE-unix/1540,unix/mciscolin:/tmp/.ICE-unix/1540'), ('GTK_EXE_PREFIX', '/snap/code/262/usr'), ('COREPACK_ENABLE_AUTO_PIN', '0'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/ed3032b4_2357_42c7_885c_c5ba8042ebb4'), ('GNOME_SETUP_DISPLAY', ':1'), ('SNAP_DATA', '/var/snap/code/262'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('CLAUDE_EFFORT', 'medium'), ('DISPLAY', ':0'), ('LOCPATH', '/snap/code/262/usr/lib/locale'), ('CLAUDE_PID', '3545'), ('NoDefaultCurrentDirectoryInExePath', '1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XDG_DATA_HOME', '/home/sarkars1/snap/code/262/.local/share'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.00XRX3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.94'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SNAP_USER_COMMON', '/home/sarkars1/snap/code/common'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/home/sarkars1/snap/code/262/.local/share/glib-2.0/schemas'), ('SNAP_ARCH', 'amd64'), ('AMENT_PREFIX_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('SNAP_COOKIE', 'JFZUiEBqdLS-hcCZbejjAa_5TyB_pAeEKWdEgpyoX_7im2TumisG'), ('SHELL', '/bin/bash'), ('GDK_PIXBUF_MODULEDIR', '/snap/code/262/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders'), ('MXC_BIN_DIR', '/snap/code/262/usr/share/code/resources/app/node_modules.asar.unpacked/@microsoft/mxc-sdk/bin'), ('QT_ACCESSIBILITY', '1'), ('ELECTRON_RUN_AS_NODE', '1'), ('GDMSESSION', 'ubuntu'), ('CLAUDE_CODE_ENABLE_SDK_FILE_CHECKPOINTING', 'true'), ('CLAUDE_CODE_SESSION_ID', '932122c2-684c-4256-8c87-4eddbe34bc54'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', '/home/sarkars1/vrx_ws/install/share'), ('SNAP_NAME', 'code'), ('FONTCONFIG_FILE', '/etc/fonts/fonts.conf'), ('CLAUDECODE', '1'), ('GDK_PIXBUF_MODULE_FILE', '/home/sarkars1/snap/code/common/.cache/gdk-pixbuf-loaders.cache'), ('GZ_VERSION', 'garden'), ('SNAP_LAUNCHER_ARCH_TRIPLET', 'x86_64-linux-gnu'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/sarkars1/SubmarineTest/build/jit_sonar'), ('VSCODE_CLI', '1'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('SNAP_REAL_HOME', '/home/sarkars1'), ('VSCODE_CODE_CACHE_PATH', '/home/sarkars1/.config/Code/CachedData/88e44fa0e00b08f7758b4f6d05632e4fd5e4df6f'), ('XDG_DATA_DIRS', '/home/sarkars1/snap/code/262/.local/share:/home/sarkars1/snap/code/262:/snap/code/262/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('CLAUDE_CODE_EXECPATH', '/home/sarkars1/.vscode/extensions/anthropic.claude-code-2.1.309-linux-x64/resources/native-binary/claude'), ('SNAP_EUID', '1000'), ('PYTHONPATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages:/home/sarkars1/vrx_ws/install/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('SNAP', '/snap/code/262'), ('CLAUDE_CODE_ENABLE_TASKS', '0'), ('COLCON', '1'), ('COPILOT_CLI_ENABLED_FEATURE_FLAGS', 'SHELL_SPAWN_BACKEND'), ('VTE_VERSION', '6800'), ('ELECTRON_NO_ATTACH_CONSOLE', '1'), ('CLAUDE_CODE_MESSAGING_SOCKET', '/run/user/1000/cc-socks/3545.sock'), ('CMAKE_PREFIX_PATH', '/home/sarkars1/SubmarineTest/install/ping360_sonar_msgs:/home/sarkars1/vrx_ws/install:/home/sarkars1/minion_ws/install:/opt/ros/humble'), ('VSCODE_PID', '2611')]), 'shell': False}
+[35.383240] (jit_sonar) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[35.384211] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/lib/jit_sonar/sonar_zone_node\n'}
+[35.399584] (jit_sonar) StdoutLine: {'line': b'-- Set runtime path of "/home/sarkars1/SubmarineTest/install/jit_sonar/lib/jit_sonar/sonar_zone_node" to ""\n'}
+[35.400562] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/ament_index/resource_index/package_run_dependencies/jit_sonar\n'}
+[35.401382] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/ament_index/resource_index/parent_prefix_path/jit_sonar\n'}
+[35.402239] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/environment/ament_prefix_path.sh\n'}
+[35.403039] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/environment/ament_prefix_path.dsv\n'}
+[35.403749] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/environment/path.sh\n'}
+[35.404459] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/environment/path.dsv\n'}
+[35.405276] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/local_setup.bash\n'}
+[35.406281] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/local_setup.sh\n'}
+[35.407763] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/local_setup.zsh\n'}
+[35.408450] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/local_setup.dsv\n'}
+[35.409057] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/package.dsv\n'}
+[35.409567] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/ament_index/resource_index/packages/jit_sonar\n'}
+[35.410774] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/cmake/jit_sonarConfig.cmake\n'}
+[35.411580] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/cmake/jit_sonarConfig-version.cmake\n'}
+[35.412018] (jit_sonar) StdoutLine: {'line': b'-- Installing: /home/sarkars1/SubmarineTest/install/jit_sonar/share/jit_sonar/package.xml\n'}
+[35.416605] (jit_sonar) CommandEnded: {'returncode': 0}
+[35.424898] (-) TimerEvent: {}
+[35.481997] (jit_sonar) JobEnded: {'identifier': 'jit_sonar', 'rc': 0}
+[35.484246] (-) EventReactorShutdown: {}

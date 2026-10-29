@@ -1,0 +1,11 @@
+source;share/ping360_sonar/hook/cmake_prefix_path.ps1
+source;share/ping360_sonar/hook/cmake_prefix_path.dsv
+source;share/ping360_sonar/hook/cmake_prefix_path.sh
+source;share/ping360_sonar/hook/ld_library_path_lib.ps1
+source;share/ping360_sonar/hook/ld_library_path_lib.dsv
+source;share/ping360_sonar/hook/ld_library_path_lib.sh
+source;share/ping360_sonar/local_setup.bash
+source;share/ping360_sonar/local_setup.dsv
+source;share/ping360_sonar/local_setup.ps1
+source;share/ping360_sonar/local_setup.sh
+source;share/ping360_sonar/local_setup.zsh
