@@ -1,10 +1,9 @@
 // led_driver_node.cpp
 //
 // Drives the indicator panel: a single-wire, WS281x-style addressable LED
-// panel wired to one GPIO pin, driven with rpi_ws281x (PWM + DMA). Every
-// pixel on the panel is set to the same solid colour - to the operator this
-// is one three-colour light, not a display, matching LedCommand's three
-// patterns.
+// panel wired to SPI0 MOSI, driven with rpi_ws281x in SPI mode. Every pixel
+// on the panel is set to the same solid colour - to the operator this is one
+// three-colour light, not a display, matching LedCommand's three patterns.
 //
 // THIS NODE HOLDS NO SAFETY POLICY. That is unchanged from the stub this
 // replaces. system_monitor_node is the single arbiter of what the panel
@@ -26,20 +25,19 @@
 // ---------------------------------------------------------------------------
 // HARDWARE
 // ---------------------------------------------------------------------------
-// rpi_ws281x drives the PWM/PCM + DMA hardware directly: this process needs
-// root (or the right capabilities), and only one process on the Pi may hold
-// a given DMA channel at a time.
+// The panel data line is BCM10 / SPI0 MOSI / header pin 19. rpi_ws281x enters
+// SPI mode because strip channel 0 is set to BCM10, and transfers through
+// /dev/spidev0.0. This mode uses no PWM or DMA hardware. Nothing else may be
+// connected to SPI0 (see the rpi_ws281x README).
 //
 //   library: https://github.com/jgarff/rpi_ws281x - see README.MD for build
 //   instructions. Not a ROS package / not colcon-built, so CMakeLists.txt
 //   locates it manually, the same way jit_safety locates xcrsf and libgpiod.
 //
-// gpio_pin defaults to BCM13 (PWM channel 1, header pin 33) - deliberately
-// NOT BCM18, which gpio_estop_node already owns as the relay feedback input.
-// pwm_channel must match whichever hardware PWM channel gpio_pin belongs to
-// (0: BCM12/BCM18, 1: BCM13/BCM19 - see the rpi_ws281x README). Both are
-// parameters; the values here are reasonable, not measured, and must be
-// checked against the real wiring before flying.
+// On a Pi 4, /boot/firmware/config.txt needs dtparam=spi=on, core_freq=500 and
+// core_freq_min=500. Without the fixed core clock, CPU scaling changes the SPI
+// frequency and breaks the WS281x timing. This process needs root, or a user
+// in the gpio group with access to /dev/spidev0.0.
 //
 // The exact field names in ws2811.h vary a little between forks/versions of
 // this library and could not be checked against an installed header in this
@@ -80,6 +78,10 @@ int parse_strip_type(const std::string & s)
   return WS2811_STRIP_GRB;  // WS2812B's usual wire order
 }
 
+// rpi_ws281x selects SPI mode from this pin, and SPI always uses channel 0.
+constexpr int SPI_MOSI_GPIO = 10;
+constexpr int SPI_STRIP_CHANNEL = 0;
+
 constexpr uint32_t COLOUR_RED = 0xFF0000;
 constexpr uint32_t COLOUR_YELLOW = 0xFFFF00;
 constexpr uint32_t COLOUR_GREEN = 0x00FF00;
@@ -92,19 +94,13 @@ public:
   LedDriverNode()
   : Node("led_driver_node")
   {
-    const int gpio_pin = this->declare_parameter<int>("gpio_pin", 13);
-    const int pwm_channel = this->declare_parameter<int>("pwm_channel", 1);
-    const int dma_channel = this->declare_parameter<int>("dma_channel", 10);
-    const int led_count = this->declare_parameter<int>("led_count", 256);
+    const int led_count = this->declare_parameter<int>("led_count", 64);
     const int freq_hz = this->declare_parameter<int>("freq_hz", 800000);
     const int brightness = this->declare_parameter<int>("brightness", 64);
     const bool invert = this->declare_parameter<bool>("invert", false);
     const std::string strip_type_str =
       this->declare_parameter<std::string>("strip_type", "GRB");
 
-    if (pwm_channel != 0 && pwm_channel != 1) {
-      throw std::runtime_error("pwm_channel must be 0 or 1");
-    }
     if (led_count <= 0) {
       throw std::runtime_error("led_count must be positive");
     }
@@ -114,23 +110,21 @@ public:
 
     strip_ = ws2811_t{};
     strip_.freq = static_cast<uint32_t>(freq_hz);
-    strip_.dmanum = dma_channel;
-    strip_.channel[pwm_channel].gpionum = gpio_pin;
-    strip_.channel[pwm_channel].invert = invert ? 1 : 0;
-    strip_.channel[pwm_channel].count = led_count;
-    strip_.channel[pwm_channel].brightness = static_cast<uint8_t>(brightness);
-    strip_.channel[pwm_channel].strip_type = parse_strip_type(strip_type_str);
-    active_channel_ = pwm_channel;
+    strip_.channel[SPI_STRIP_CHANNEL].gpionum = SPI_MOSI_GPIO;
+    strip_.channel[SPI_STRIP_CHANNEL].invert = invert ? 1 : 0;
+    strip_.channel[SPI_STRIP_CHANNEL].count = led_count;
+    strip_.channel[SPI_STRIP_CHANNEL].brightness = static_cast<uint8_t>(brightness);
+    strip_.channel[SPI_STRIP_CHANNEL].strip_type = parse_strip_type(strip_type_str);
     led_count_ = led_count;
 
     const ws2811_return_t init_ret = ws2811_init(&strip_);
     if (init_ret != WS2811_SUCCESS) {
       RCLCPP_FATAL(
         this->get_logger(),
-        "ws2811_init failed on GPIO%d (DMA %d, PWM ch %d): %s. Panel will not light - "
-        "check that nothing else holds this DMA channel and that this process has the "
-        "permissions rpi_ws281x needs (root, or the right capabilities).",
-        gpio_pin, dma_channel, pwm_channel, ws2811_get_return_t_str(init_ret));
+        "ws2811_init failed on GPIO%d (SPI0 MOSI): %s. Panel will not light - "
+        "check that SPI is enabled (dtparam=spi=on), that /dev/spidev0.0 exists, and that "
+        "this process has the permissions rpi_ws281x needs (root, or the gpio group).",
+        SPI_MOSI_GPIO, ws2811_get_return_t_str(init_ret));
       throw std::runtime_error("ws2811_init failed");
     }
     initialized_ = true;
@@ -148,8 +142,8 @@ public:
 
     RCLCPP_INFO(
       this->get_logger(),
-      "led_driver_node up: %d-pixel panel on GPIO%d (PWM ch %d, DMA %d, %s order).",
-      led_count, gpio_pin, pwm_channel, dma_channel, strip_type_str.c_str());
+      "led_driver_node up: %d-pixel panel on GPIO%d (SPI0 MOSI, %s order).",
+      led_count, SPI_MOSI_GPIO, strip_type_str.c_str());
   }
 
   ~LedDriverNode() override
@@ -189,7 +183,7 @@ private:
 
   void set_all(uint32_t colour)
   {
-    ws2811_led_t * const leds = strip_.channel[active_channel_].leds;
+    ws2811_led_t * const leds = strip_.channel[SPI_STRIP_CHANNEL].leds;
     for (int i = 0; i < led_count_; ++i) {
       leds[i] = colour;
     }
@@ -207,7 +201,6 @@ private:
   }
 
   ws2811_t strip_{};
-  int active_channel_ {0};
   int led_count_ {0};
   bool initialized_ {false};
   std::string pattern_;

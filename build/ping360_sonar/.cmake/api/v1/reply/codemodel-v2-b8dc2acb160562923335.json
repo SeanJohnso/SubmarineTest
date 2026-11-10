@@ -1,0 +1,139 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-e2cc61f95a7970cdef1f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						3,
+						4,
+						5
+					]
+				},
+				{
+					"build" : "src",
+					"jsonFile" : "directory-src-b6cf2213fc5053b67c22.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "ping360_sonar",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						3,
+						4,
+						5
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "ping-cpp",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_ping360_sonar_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_ping360_sonar_egg-2b5d602e3f3b74e08375.json",
+					"name" : "ament_cmake_python_build_ping360_sonar_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_symlink_ping360_sonar::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_symlink_ping360_sonar-1c2ea076706544c24b30.json",
+					"name" : "ament_cmake_python_symlink_ping360_sonar",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ping-cpp::@145eef247bfb46b6828c",
+					"jsonFile" : "target-ping-cpp-cd20002a7d150265f4f0.json",
+					"name" : "ping-cpp",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ping360_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ping360_node-f0972e15047a223f16f0.json",
+					"name" : "ping360_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ping360_sonar_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ping360_sonar_uninstall-84092663391b4261be07.json",
+					"name" : "ping360_sonar_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-546365dc41d33c6a78f9.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/seam/SubmarineTest/build/ping360_sonar",
+		"source" : "/home/seam/SubmarineTest/src/ping360_sonar/ping360_sonar"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

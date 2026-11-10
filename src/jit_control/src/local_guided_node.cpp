@@ -386,13 +386,6 @@ private:
   // that arrives mid-mission can change the mission being flown.
   void mission_cb(const MissionXY::SharedPtr m)
   {
-    if (m->header.frame_id != local_frame_) {
-      RCLCPP_ERROR(
-        this->get_logger(),
-        "Ignoring mission in frame '%s' - expected '%s'. Keeping the previous one.",
-        m->header.frame_id.c_str(), local_frame_.c_str());
-      return;
-    }
     cached_mission_.clear();
     for (const auto & w : m->waypoints) {
       Waypoint wp;

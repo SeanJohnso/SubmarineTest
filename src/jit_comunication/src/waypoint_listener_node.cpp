@@ -194,22 +194,13 @@ private:
         std::to_string(max_waypoints_));
       return;
     }
-    bool had_z = false;
+    // A NaN would pass the geofence (NaN > limit is false), so check first.
     for (size_t i = 0; i < path->poses.size(); ++i) {
-      const auto & ps = path->poses[i];
-      // A per-pose frame_id is optional in a Path; when present it must agree.
-      if (!ps.header.frame_id.empty() && ps.header.frame_id != input_frame_) {
-        reject(
-          "waypoint " + std::to_string(i) + " in frame '" + ps.header.frame_id +
-          "', expected '" + input_frame_ + "'");
-        return;
-      }
-      const auto & p = ps.pose.position;
+      const auto & p = path->poses[i].pose.position;
       if (!std::isfinite(p.x) || !std::isfinite(p.y)) {
         reject("waypoint " + std::to_string(i) + " has a non-finite x or y");
         return;
       }
-      had_z = had_z || (std::isfinite(p.z) && std::fabs(p.z) > 1e-6);
     }
 
     // ---- Transform ----
@@ -259,12 +250,6 @@ private:
       w.x = out.x();
       w.y = out.y();
       mission.waypoints.push_back(w);
-    }
-
-    if (had_z) {
-      RCLCPP_WARN(
-        this->get_logger(),
-        "Incoming list carried z values. Discarded - topic missions hold the entry depth.");
     }
 
     mission_pub_->publish(mission);

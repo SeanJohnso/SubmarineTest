@@ -1,0 +1,202 @@
+[0.015s] Invoking command in '/home/seam/SubmarineTest/build/ping360_sonar_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/seam/SubmarineTest/src/ping360_sonar/ping360_sonar_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/seam/SubmarineTest/install/ping360_sonar_msgs
+[0.148s] -- The C compiler identification is GNU 11.4.0
+[0.255s] -- The CXX compiler identification is GNU 11.4.0
+[0.268s] -- Detecting C compiler ABI info
+[0.375s] -- Detecting C compiler ABI info - done
+[0.382s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.383s] -- Detecting C compile features
+[0.384s] -- Detecting C compile features - done
+[0.388s] -- Detecting CXX compiler ABI info
+[0.499s] -- Detecting CXX compiler ABI info - done
+[0.507s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.508s] -- Detecting CXX compile features
+[0.508s] -- Detecting CXX compile features - done
+[0.521s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.736s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.845s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.912s] -- Found std_msgs: 4.9.2 (/opt/ros/humble/share/std_msgs/cmake)
+[0.984s] -- Found rosidl_generator_c: 3.1.9 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.994s] -- Found rosidl_adapter: 3.1.9 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.010s] -- Found rosidl_generator_cpp: 3.1.9 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.035s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.063s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.106s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[1.454s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[1.894s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.060s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.086s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[2.091s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[2.124s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[2.124s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.124s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[2.124s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[2.150s] -- Found PythonExtra: .so  
+[2.226s] -- Configuring done
+[2.277s] -- Generating done
+[2.292s] -- Build files have been written to: /home/seam/SubmarineTest/build/ping360_sonar_msgs
+[2.304s] Invoked command in '/home/seam/SubmarineTest/build/ping360_sonar_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/seam/SubmarineTest/src/ping360_sonar/ping360_sonar_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/seam/SubmarineTest/install/ping360_sonar_msgs
+[2.307s] Invoking command in '/home/seam/SubmarineTest/build/ping360_sonar_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/seam/SubmarineTest/build/ping360_sonar_msgs -- -j12 -l12
+[2.365s] [  3%] [34m[1mGenerating C code for ROS interfaces[0m
+[2.380s] [  6%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[2.394s] [  6%] Built target ament_cmake_python_symlink_ping360_sonar_msgs
+[2.727s] running egg_info
+[2.727s] creating ping360_sonar_msgs.egg-info
+[2.728s] writing ping360_sonar_msgs.egg-info/PKG-INFO
+[2.728s] writing dependency_links to ping360_sonar_msgs.egg-info/dependency_links.txt
+[2.729s] writing top-level names to ping360_sonar_msgs.egg-info/top_level.txt
+[2.729s] writing manifest file 'ping360_sonar_msgs.egg-info/SOURCES.txt'
+[2.733s] reading manifest file 'ping360_sonar_msgs.egg-info/SOURCES.txt'
+[2.733s] writing manifest file 'ping360_sonar_msgs.egg-info/SOURCES.txt'
+[2.771s] [  6%] Built target ping360_sonar_msgs__cpp
+[2.780s] [  6%] Built target ament_cmake_python_build_ping360_sonar_msgs_egg
+[2.782s] [  9%] [32mBuilding C object CMakeFiles/ping360_sonar_msgs__rosidl_generator_c.dir/rosidl_generator_c/ping360_sonar_msgs/msg/detail/sonar_echo__functions.c.o[0m
+[2.783s] [ 12%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[2.783s] [ 16%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[2.784s] [ 19%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[2.863s] [ 22%] [32m[1mLinking C shared library libping360_sonar_msgs__rosidl_generator_c.so[0m
+[2.914s] [ 22%] Built target ping360_sonar_msgs__rosidl_generator_c
+[2.927s] [ 32%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[2.927s] [ 32%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[2.928s] [ 32%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[3.116s] [ 35%] [32mBuilding CXX object CMakeFiles/ping360_sonar_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ping360_sonar_msgs/msg/sonar_echo__type_support.cpp.o[0m
+[3.143s] [ 38%] [32mBuilding CXX object CMakeFiles/ping360_sonar_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ping360_sonar_msgs/msg/detail/sonar_echo__type_support.cpp.o[0m
+[3.156s] [ 41%] [32mBuilding CXX object CMakeFiles/ping360_sonar_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ping360_sonar_msgs/msg/detail/dds_fastrtps/sonar_echo__type_support.cpp.o[0m
+[3.267s] [ 45%] [32mBuilding CXX object CMakeFiles/ping360_sonar_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/ping360_sonar_msgs/msg/sonar_echo__type_support.cpp.o[0m
+[3.309s] [ 48%] [32m[1mLinking CXX shared library libping360_sonar_msgs__rosidl_typesupport_c.so[0m
+[3.320s] [ 51%] [32mBuilding CXX object CMakeFiles/ping360_sonar_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ping360_sonar_msgs/msg/detail/sonar_echo__type_support_c.cpp.o[0m
+[3.336s] [ 54%] [32mBuilding C object CMakeFiles/ping360_sonar_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ping360_sonar_msgs/msg/detail/sonar_echo__type_support.c.o[0m
+[3.366s] [ 54%] Built target ping360_sonar_msgs__rosidl_typesupport_c
+[3.388s] [ 58%] [32m[1mLinking C shared library libping360_sonar_msgs__rosidl_typesupport_introspection_c.so[0m
+[3.433s] [ 58%] Built target ping360_sonar_msgs__rosidl_typesupport_introspection_c
+[3.472s] [ 61%] [32m[1mLinking CXX shared library libping360_sonar_msgs__rosidl_typesupport_cpp.so[0m
+[3.526s] [ 61%] Built target ping360_sonar_msgs__rosidl_typesupport_cpp
+[3.677s] [ 64%] [32m[1mLinking CXX shared library libping360_sonar_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[3.689s] [ 67%] [32m[1mLinking CXX shared library libping360_sonar_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[3.710s] [ 70%] [32m[1mLinking CXX shared library libping360_sonar_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[3.785s] [ 70%] Built target ping360_sonar_msgs__rosidl_typesupport_introspection_cpp
+[3.805s] [ 70%] Built target ping360_sonar_msgs__rosidl_typesupport_fastrtps_cpp
+[3.820s] [ 70%] Built target ping360_sonar_msgs__rosidl_typesupport_fastrtps_c
+[3.847s] [ 70%] Built target ping360_sonar_msgs
+[3.873s] [ 74%] [34m[1mGenerating Python code for ROS interfaces[0m
+[4.401s] [ 74%] Built target ping360_sonar_msgs__py
+[4.428s] [ 77%] [32mBuilding C object CMakeFiles/ping360_sonar_msgs__rosidl_generator_py.dir/rosidl_generator_py/ping360_sonar_msgs/msg/_sonar_echo_s.c.o[0m
+[4.614s] [ 80%] [32m[1mLinking C shared library rosidl_generator_py/ping360_sonar_msgs/libping360_sonar_msgs__rosidl_generator_py.so[0m
+[4.668s] [ 80%] Built target ping360_sonar_msgs__rosidl_generator_py
+[4.695s] [ 87%] [32mBuilding C object CMakeFiles/ping360_sonar_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/ping360_sonar_msgs/_ping360_sonar_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[4.695s] [ 87%] [32mBuilding C object CMakeFiles/ping360_sonar_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/ping360_sonar_msgs/_ping360_sonar_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[4.695s] [ 90%] [32mBuilding C object CMakeFiles/ping360_sonar_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/ping360_sonar_msgs/_ping360_sonar_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[4.816s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[4.816s] [100%] [32m[1mLinking C shared library rosidl_generator_py/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[4.816s] [100%] [32m[1mLinking C shared library rosidl_generator_py/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[4.867s] [100%] Built target ping360_sonar_msgs__rosidl_typesupport_fastrtps_c__pyext
+[4.867s] [100%] Built target ping360_sonar_msgs__rosidl_typesupport_c__pyext
+[4.867s] [100%] Built target ping360_sonar_msgs__rosidl_typesupport_introspection_c__pyext
+[4.883s] Invoked command in '/home/seam/SubmarineTest/build/ping360_sonar_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/seam/SubmarineTest/build/ping360_sonar_msgs -- -j12 -l12
+[4.897s] Invoking command in '/home/seam/SubmarineTest/build/ping360_sonar_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/seam/SubmarineTest/build/ping360_sonar_msgs
+[4.907s] -- Install configuration: ""
+[4.907s] -- Execute custom install script
+[4.908s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ament_index/resource_index/rosidl_interfaces/ping360_sonar_msgs
+[4.921s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__functions.h
+[4.935s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__struct.h
+[4.947s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__type_support.h
+[4.959s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/rosidl_generator_c__visibility_control.h
+[4.970s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/sonar_echo.h
+[4.981s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/library_path.sh
+[4.993s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/library_path.dsv
+[5.005s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__rosidl_typesupport_fastrtps_c.h
+[5.016s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[5.028s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__builder.hpp
+[5.039s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__struct.hpp
+[5.050s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__traits.hpp
+[5.061s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__type_support.hpp
+[5.071s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[5.082s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/sonar_echo.hpp
+[5.093s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__rosidl_typesupport_fastrtps_cpp.hpp
+[5.104s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[5.116s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__rosidl_typesupport_introspection_c.h
+[5.128s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[5.140s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/include/ping360_sonar_msgs/ping360_sonar_msgs/msg/detail/sonar_echo__rosidl_typesupport_introspection_cpp.hpp
+[5.151s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/pythonpath.sh
+[5.164s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/pythonpath.dsv
+[5.176s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs-1.0.0-py3.10.egg-info/PKG-INFO
+[5.190s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs-1.0.0-py3.10.egg-info/SOURCES.txt
+[5.202s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs-1.0.0-py3.10.egg-info/dependency_links.txt
+[5.214s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs-1.0.0-py3.10.egg-info/top_level.txt
+[5.227s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/__init__.py
+[5.240s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/_ping360_sonar_msgs_s.ep.rosidl_typesupport_c.c
+[5.252s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/_ping360_sonar_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[5.263s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/_ping360_sonar_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[5.275s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/libping360_sonar_msgs__rosidl_generator_py.so
+[5.287s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/msg/__init__.py
+[5.301s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/msg/_sonar_echo.py
+[5.313s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/msg/_sonar_echo_s.c
+[5.324s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[5.335s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[5.347s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[5.358s] -- Up-to-date symlink: /home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[5.358s] -- Up-to-date symlink: /home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[5.358s] -- Up-to-date symlink: /home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/ping360_sonar_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[5.359s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/msg/SonarEcho.idl
+[5.372s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/msg/SonarEcho.msg
+[5.383s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ament_index/resource_index/package_run_dependencies/ping360_sonar_msgs
+[5.398s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ament_index/resource_index/parent_prefix_path/ping360_sonar_msgs
+[5.411s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/ament_prefix_path.sh
+[5.422s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/ament_prefix_path.dsv
+[5.434s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/path.sh
+[5.446s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/environment/path.dsv
+[5.459s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/local_setup.bash
+[5.471s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/local_setup.sh
+[5.483s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/local_setup.zsh
+[5.495s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/local_setup.dsv
+[5.507s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/package.dsv
+[5.519s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ament_index/resource_index/packages/ping360_sonar_msgs
+[5.531s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/rosidl_cmake-extras.cmake
+[5.543s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[5.555s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[5.567s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[5.579s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[5.590s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[5.603s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[5.614s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/rosidl_cmake_aggregate_target-extras.cmake
+[5.625s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgsConfig.cmake
+[5.636s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgsConfig-version.cmake
+[5.647s] -- Symlinking: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/package.xml
+[5.660s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_generator_c.so
+[5.660s] -- Set runtime path of "/home/seam/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_generator_c.so" to ""
+[5.660s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_fastrtps_c.so
+[5.661s] -- Set runtime path of "/home/seam/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[5.661s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_fastrtps_cpp.so
+[5.662s] -- Set runtime path of "/home/seam/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[5.662s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_introspection_c.so
+[5.663s] -- Set runtime path of "/home/seam/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_introspection_c.so" to ""
+[5.663s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_c.so
+[5.664s] -- Set runtime path of "/home/seam/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_c.so" to ""
+[5.664s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_introspection_cpp.so
+[5.664s] -- Set runtime path of "/home/seam/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[5.665s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_cpp.so
+[5.665s] -- Set runtime path of "/home/seam/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_typesupport_cpp.so" to ""
+[5.705s] Listing '/home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs'...
+[5.705s] Compiling '/home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/__init__.py'...
+[5.705s] Listing '/home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/msg'...
+[5.705s] Compiling '/home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/msg/__init__.py'...
+[5.706s] Compiling '/home/seam/SubmarineTest/install/ping360_sonar_msgs/local/lib/python3.10/dist-packages/ping360_sonar_msgs/msg/_sonar_echo.py'...
+[5.712s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_generator_py.so
+[5.712s] -- Set runtime path of "/home/seam/SubmarineTest/install/ping360_sonar_msgs/lib/libping360_sonar_msgs__rosidl_generator_py.so" to ""
+[5.712s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_generator_cExport.cmake
+[5.712s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_generator_cExport-noconfig.cmake
+[5.713s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[5.713s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[5.713s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_generator_cppExport.cmake
+[5.714s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[5.714s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[5.714s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_introspection_cExport.cmake
+[5.715s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[5.715s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_cExport.cmake
+[5.715s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[5.716s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[5.716s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[5.716s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_cppExport.cmake
+[5.716s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/ping360_sonar_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[5.717s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_generator_pyExport.cmake
+[5.717s] -- Installing: /home/seam/SubmarineTest/install/ping360_sonar_msgs/share/ping360_sonar_msgs/cmake/export_ping360_sonar_msgs__rosidl_generator_pyExport-noconfig.cmake
+[5.721s] Invoked command in '/home/seam/SubmarineTest/build/ping360_sonar_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/seam/SubmarineTest/build/ping360_sonar_msgs

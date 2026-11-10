@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/seam/SubmarineTest/build/ping360_sonar/ping360_node" "/home/seam/SubmarineTest/build/ping360_sonar/src/libping-cpp.so" "TARGETS" "ping360_node" "ping-cpp" "ARCHIVE_DESTINATION" "lib" "LIBRARY_DESTINATION" "lib" "RUNTIME_DESTINATION" "lib/ping360_sonar")

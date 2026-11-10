@@ -1,5 +1,4 @@
-# Parameters for the JIT submarine stack, keyed by node name (no namespace -
-# except the sonar, see its section).
+# Parameters for the JIT submarine stack, keyed by node name (no namespace).
 #
 # Edit calibration values here as they are measured on the bench, then `git pull`
 # on the Pi - no rebuild is needed for a params-only change.
@@ -92,68 +91,15 @@ system_monitor_node:
 
 led_driver_node:
   ros__parameters:
-    # Single-wire (WS281x-style) addressable panel. BCM13 = PWM channel 1,
-    # header pin 33 - deliberately NOT BCM18, which gpio_estop_node already
-    # owns as the relay feedback input. pwm_channel must match whichever
-    # hardware PWM channel gpio_pin belongs to (0: BCM12/BCM18, 1: BCM13/
-    # BCM19). Unmeasured defaults - verify against the actual wiring.
-    gpio_pin: 13
-    pwm_channel: 1
-    dma_channel: 10
-    led_count: 256
+    # Single-wire (WS281x-style) addressable panel, driven over SPI on BCM10 /
+    # SPI0 MOSI / header pin 19. The pin is fixed in led_driver_node.
+    led_count: 64
     freq_hz: 800000
     brightness: 64
     invert: false
     # Wire colour order. WS2812B is almost always GRB; change if the panel
     # shows the wrong colour for a known pattern.
     strip_type: GRB
-
-# ===========================================================================
-# sensors
-# ===========================================================================
-
-# Upstream ping360_sonar (git submodule). The only node in the launch with a
-# namespace (topics land under jit/sonar/), so this key is the FULLY QUALIFIED
-# node name - a bare "ping360_node:" would not match and every value below
-# would silently fall back to the upstream defaults (UDP, emulated sonar).
-/jit/sonar/ping360_node:
-  ros__parameters:
-    # BlueRobotics BLU/USB serial adapter. Prefer the stable
-    # /dev/serial/by-id/usb-FTDI_... path once it is known on the Pi, so the
-    # sonar cannot swap names with another USB serial device.
-    connection_type: serial
-    device: /dev/ttyUSB0
-    baudrate: 115200
-    # Upstream default is true, which publishes RANDOM emulated data when the
-    # sonar cannot be opened. false = the node exits and respawns instead.
-    fallback_emulated: false
-    frame: sonar
-
-    # --- Transducer ---
-    gain: 0                     # 0 = low, 1 = normal, 2 = high
-    frequency: 740              # kHz [650..850]
-    speed_of_sound: 1500        # m/s [1450..1550]; ~1480 fresh water
-    # Integer metres [1..50]. Longer range = slower sweep. Unmeasured default -
-    # set it from the pool.
-    range_max: 10
-    angle_sector: 360           # degrees; below 360 the head oscillates
-    angle_step: 1               # degrees [1..20]
-    # Per-ping wait for the sonar's reply. The node blocks this long when the
-    # sonar stops answering, before warning "Cannot communicate with sonar".
-    sonar_timeout: 8000         # ms
-
-    # --- Outputs (all relative to jit/sonar/) ---
-    # scan_image: sensor_msgs/Image (image_transport, so /compressed as well)
-    publish_image: true
-    image_size: 300             # pixels, even
-    image_rate: 100             # ms
-    # scan: sensor_msgs/LaserScan, nearest return >= scan_threshold, once per
-    # sweep. Only published while something is subscribed.
-    publish_scan: true
-    scan_threshold: 200         # [1..255]
-    # scan_echo: ping360_sonar_msgs/SonarEcho, raw intensities per angle.
-    # Only published while something is subscribed.
-    publish_echo: true
 
 # ===========================================================================
 # jit_control
@@ -231,21 +177,15 @@ manual_control_node:
 
 local_guided_node:
   ros__parameters:
-    # waypoint_file and waypoint_source are set by the launch file - see
-    # config/waypoints.yaml and the waypoint_source launch argument.
-    #
-    # The sub's local frame. Must match the frame_id MAVROS stamps on
-    # /mavros/local_position/pose; every setpoint is stamped with it, and a
-    # topic mission is only accepted in it.
-    local_frame: local_origin
+    # waypoint_file is set by the launch file - see config/waypoints.yaml.
     # Acceptance mirrors ArduPilot's verify_nav_wp(): touch the ball once, then
     # dwell. Distance is NOT re-checked during the dwell.
     #
     # 0.3 m is tight for a DVL-backed estimate - ArduPilot's own default is
     # 2.0 m and its floor is 0.05 m. If "reached" never fires at the pool, open
     # this up rather than chasing the estimator.
-    radius_m: 0.3
-    dwell_s: 1.0
+    radius_m: 0.15
+    dwell_s: 0.5
     # Vertical acceptance, applied ONLY on a leg that commands a depth change.
     # A level leg ignores depth error exactly as before, so the persistent trim
     # error seen holding entry depth on the surface still cannot block a
@@ -274,24 +214,7 @@ local_guided_node:
     # so hold the last commanded heading instead of spinning.
     yaw_hold_radius_m: 0.5
 
-# ===========================================================================
-# jit_comunication
-# ===========================================================================
-
-# Started only with waypoint_source:=topic.
-waypoint_listener_node:
+global_guided_node:
   ros__parameters:
-    # Frame the other vessel publishes jit/waypoints in, and the sub's local
-    # frame it is transformed into. The other vessel broadcasts
-    # input_frame -> local_frame on /tf_static.
-    input_frame: map
-    local_frame: local_origin
-    # Geofence. A list is rejected WHOLE if it has more than max_waypoints, or
-    # if any waypoint lies more than max_waypoint_distance_m (horizontal) from
-    # the sub's position when the list arrives.
-    max_waypoints: 50
-    max_waypoint_distance_m: 20.0
-    pose_timeout_s: 1.0
-    # A list is refused while local_guided_node reports RUNNING, and also while
-    # its status is older than this - an unknown state may be RUNNING.
-    nav_status_timeout_s: 1.0
+    # Skeleton node. Publishes nav/global/status = IDLE and nothing else.
+    status_rate_hz: 10.0
