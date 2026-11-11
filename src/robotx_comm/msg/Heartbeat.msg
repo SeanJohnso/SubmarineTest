@@ -1,0 +1,15 @@
+builtin_interfaces/Time time
+string id
+uint32 seq
+uint8 state
+LatLng position
+float32 spd_mps
+float32 heading_deg
+float32 roll_deg
+float32 pitch_deg
+float32 altitude_hae_m
+float32 depth_m
+uint8 current_task
+uint8 vehicle_type
+uint8 flight_phase
+string uav_registration

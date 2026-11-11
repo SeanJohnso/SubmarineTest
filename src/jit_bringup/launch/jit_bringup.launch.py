@@ -56,7 +56,8 @@ TOPIC NAMES
 Every topic the stack owns is ``jit/<name>``, so this vehicle can share a DDS
 domain with another without colliding with it. That is a naming convention,
 not access control. MAVROS keeps ``/mavros/*``, and ``/tf``, ``/tf_static`` and
-``/rosout`` stay global.
+``/rosout`` stay global. ``/robotx_comm/heartbeat`` is also global, because
+subscribers on other machines expect that exact name.
 
 WAYPOINT SOURCE
 ---------------
@@ -67,6 +68,14 @@ the sub's local frame and stages it for ``local_guided_node``. Topic missions
 are surface-only: the depth is never taken from the topic. Either way a mission
 only starts on entry to LOCAL_GUIDED.
 
+``waypoint_source:=task`` runs the pipeline survey. It starts
+``waypoint_listener_node`` and ``task_node``. The sub arms and holds position on
+entry to LOCAL_GUIDED, starts moving as soon as a list arrives, then dives,
+traverses, surfaces and holds station until the switch leaves AUTO. In this mode
+the launch sets ``hold_timeout_s`` to 0 so the final hold never times out, and
+records the sonar and navigation topics to ``~/jit_bags/`` unless
+``record_bag:=false``.
+
 Usage:
     ros2 launch jit_bringup jit_bringup.launch.py
     ros2 launch jit_bringup jit_bringup.launch.py enable_control:=false
@@ -75,17 +84,20 @@ Usage:
     ros2 launch jit_bringup jit_bringup.launch.py led_as_root:=false
     ros2 launch jit_bringup jit_bringup.launch.py enable_sonar:=false
     ros2 launch jit_bringup jit_bringup.launch.py waypoint_source:=topic
+    ros2 launch jit_bringup jit_bringup.launch.py waypoint_source:=task
 """
 
 import os
 import shlex
 import subprocess
+import time
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import (
     DeclareLaunchArgument,
     EmitEvent,
+    ExecuteProcess,
     LogInfo,
     OpaqueFunction,
     RegisterEventHandler,
@@ -93,12 +105,25 @@ from launch.actions import (
 from launch.conditions import IfCondition, LaunchConfigurationEquals
 from launch.event_handlers import OnProcessExit
 from launch.events import Shutdown
-from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, PythonExpression
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
 from launch_ros.substitutions import FindPackageShare
 
 RESPAWN_DELAY_S = 2.0
+
+# Recorded for the whole of a waypoint_source:=task run. scan_echo is the raw
+# sonar data, and the driver only publishes it while something subscribes.
+TASK_BAG_TOPICS = (
+    "/jit/sonar/scan_echo",
+    "/jit/sonar/scan",
+    "/mavros/local_position/pose",
+    "/jit/mode",
+    "/jit/nav/local/status",
+    "/jit/nav/local/submerged",
+    "/jit/task/state",
+    "/jit/task/active",
+)
 
 # Carried across sudo to the root-run led_driver_node. sudo resets the
 # environment and always strips LD_LIBRARY_PATH, without which the node cannot
@@ -131,9 +156,16 @@ def generate_launch_description():
     arg_wp_source = DeclareLaunchArgument(
         "waypoint_source",
         default_value="file",
-        choices=["file", "topic"],
-        description="Mission source for local_guided_node: waypoint_file, or jit/waypoints "
-                    "from another vessel via waypoint_listener_node (surface-only).",
+        choices=["file", "topic", "task"],
+        description="Mission source for local_guided_node: waypoint_file, jit/waypoints "
+                    "from another vessel via waypoint_listener_node (surface-only), or "
+                    "task: hold in AUTO, wait for a list, then run the pipeline survey.",
+    )
+    arg_record_bag = DeclareLaunchArgument(
+        "record_bag",
+        default_value="true",
+        description="With waypoint_source:=task, record the sonar and navigation topics "
+                    "to ~/jit_bags/.",
     )
     arg_control = DeclareLaunchArgument(
         "enable_control",
@@ -188,10 +220,20 @@ def generate_launch_description():
         respawn=False,
     )
 
-    monitor_node = node(
-        "jit_safety", "system_monitor_node",
-        respawn=True, respawn_delay=RESPAWN_DELAY_S,
-    )
+    def system_monitor(context):
+        """Start system_monitor_node.
+
+        A task run ends by holding station until the operator takes over, so
+        the timeout that disarms after a finished mission is turned off for it.
+        """
+        source = LaunchConfiguration("waypoint_source").perform(context)
+        extra = {"hold_timeout_s": 0.0} if source == "task" else None
+        return [node(
+            "jit_safety", "system_monitor_node", extra_params=extra,
+            respawn=True, respawn_delay=RESPAWN_DELAY_S,
+        )]
+
+    monitor_node = OpaqueFunction(function=system_monitor)
 
     # --- Indication ---------------------------------------------------------
     def led_driver(context):
@@ -255,12 +297,44 @@ def generate_launch_description():
     )
 
     # --- Inter-vessel ---------------------------------------------------------
-    # Only with waypoint_source:=topic. Holds no safety policy and cannot move
-    # the vehicle: the worst it can do is fail to stage a mission.
+    # Only when a list can come from another vessel. Holds no safety policy and
+    # cannot move the vehicle: the worst it can do is fail to stage a mission.
     listener_node = node(
-        "jit_comunication", "waypoint_listener_node",
+        "jit_task", "waypoint_listener_node",
         respawn=True, respawn_delay=RESPAWN_DELAY_S,
-        condition=LaunchConfigurationEquals("waypoint_source", "topic"),
+        condition=IfCondition(PythonExpression([
+            "'", LaunchConfiguration("waypoint_source"), "' in ('topic', 'task')",
+        ])),
+    )
+
+    # --- Task -----------------------------------------------------------------
+    task_node = node(
+        "jit_task", "task_node",
+        respawn=True, respawn_delay=RESPAWN_DELAY_S,
+        condition=LaunchConfigurationEquals("waypoint_source", "task"),
+    )
+
+    def task_bag(context):
+        """Record a task run. A recorder failure never affects the vehicle."""
+        source = LaunchConfiguration("waypoint_source").perform(context)
+        record = LaunchConfiguration("record_bag").perform(context).lower()
+        if source != "task" or record not in ("true", "1", "yes"):
+            return []
+        # Outside the workspace, so a run never dirties the git checkout.
+        bag_root = os.path.expanduser("~/jit_bags")
+        os.makedirs(bag_root, exist_ok=True)
+        bag_dir = os.path.join(bag_root, "task_" + time.strftime("%Y%m%d_%H%M%S"))
+        return [ExecuteProcess(
+            cmd=["ros2", "bag", "record", "-o", bag_dir, *TASK_BAG_TOPICS],
+            output="screen",
+        )]
+
+    task_bag_action = OpaqueFunction(function=task_bag)
+
+    # Always on. Read-only: it reports status and cannot move the vehicle.
+    heartbeat_node = node(
+        "robotx_comm", "heartbeat_node",
+        respawn=True, respawn_delay=RESPAWN_DELAY_S,
     )
 
     def on_estop_exit(event, context):
@@ -297,6 +371,7 @@ def generate_launch_description():
         arg_params,
         arg_waypoints,
         arg_wp_source,
+        arg_record_bag,
         arg_control,
         arg_selftest,
         arg_led_root,
@@ -312,5 +387,8 @@ def generate_launch_description():
         manual_node,
         local_node,
         listener_node,
+        task_node,
+        heartbeat_node,
         sonar_node,
+        task_bag_action,
     ])

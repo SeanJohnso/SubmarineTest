@@ -23,7 +23,22 @@
 // A topic-sourced mission must never command a dive. The output type,
 // MissionXY, has no z field at all, so there is nothing here that could carry
 // one: every z in the incoming Path is discarded, and local_guided_node holds
-// the depth it captured at mode entry. Dives come only from the waypoint file.
+// the depth it captured at mode entry. A list from another vessel cannot command
+// a depth under any waypoint_source.
+//
+// ---------------------------------------------------------------------------
+// THE FINAL HEADING
+// ---------------------------------------------------------------------------
+// The orientation of the LAST pose is carried on MissionXY.final_yaw, rotated
+// into local_frame by the same frozen transform as the positions. task_node
+// uses it as the direction of the submerged traverse. Every other orientation
+// in the list is ignored. A last pose with a zero-length or non-finite
+// quaternion rejects the whole list, because it holds no direction at all.
+//
+// An orientation the sender never set is NOT caught. ROS message defaults make
+// it the identity quaternion, which is a legal heading of 0 (East in input_frame)
+// and is indistinguishable from a real one. The heading is logged on every
+// accepted list so this can be seen.
 //
 // ---------------------------------------------------------------------------
 // ALL OR NOTHING
@@ -56,9 +71,12 @@
 // ---------------------------------------------------------------------------
 // A new list is refused while local_guided_node reports RUNNING, and accepted
 // in IDLE, COMPLETE or ABORTED. It is refused, not queued: the sender sees the
-// rejection on jit/comms/waypoints/status and re-sends after completion. Even
-// an accepted list starts nothing - local_guided_node applies it at the next
-// entry to LOCAL_GUIDED, which takes the operator's switch cycle.
+// rejection on jit/comms/waypoints/status and re-sends after completion.
+//
+// What an accepted list does next depends on waypoint_source. With "topic" it
+// starts nothing: local_guided_node applies it at the next entry to
+// LOCAL_GUIDED. With "task", task_node starts it as soon as it arrives, provided
+// the switch is already in AUTO.
 
 #include <cmath>
 #include <cstdio>
@@ -72,6 +90,7 @@
 #include "geometry_msgs/msg/pose_stamped.hpp"
 #include "nav_msgs/msg/path.hpp"
 
+#include "tf2/LinearMath/Matrix3x3.h"
 #include "tf2/LinearMath/Quaternion.h"
 #include "tf2/LinearMath/Transform.h"
 #include "tf2/LinearMath/Vector3.h"
@@ -203,6 +222,16 @@ private:
       }
     }
 
+    // NaN or inf in any component carries through to the squared length.
+    const auto & final_o = path->poses.back().pose.orientation;
+    tf2::Quaternion final_q(final_o.x, final_o.y, final_o.z, final_o.w);
+    const double final_q_len2 = final_q.length2();
+    if (!std::isfinite(final_q_len2) || final_q_len2 < 1e-6) {
+      reject("final waypoint has no valid heading");
+      return;
+    }
+    final_q.normalize();
+
     // ---- Transform ----
     geometry_msgs::msg::TransformStamped tf_msg;
     try {
@@ -252,12 +281,17 @@ private:
       mission.waypoints.push_back(w);
     }
 
+    double final_roll, final_pitch, final_yaw;
+    tf2::Matrix3x3(tf.getRotation() * final_q).getRPY(final_roll, final_pitch, final_yaw);
+    mission.final_yaw = final_yaw;
+
     mission_pub_->publish(mission);
     RCLCPP_INFO(
       this->get_logger(),
-      "Waypoint list ACCEPTED: %zu waypoint(s), %s -> %s. Staged on jit/nav/local/mission; "
-      "flown at the next entry to LOCAL_GUIDED.",
-      mission.waypoints.size(), input_frame_.c_str(), local_frame_.c_str());
+      "Waypoint list ACCEPTED: %zu waypoint(s), %s -> %s, final heading %.1f deg ENU. "
+      "Published on jit/nav/local/mission.",
+      mission.waypoints.size(), input_frame_.c_str(), local_frame_.c_str(),
+      final_yaw * 180.0 / M_PI);
     for (size_t i = 0; i < mission.waypoints.size(); ++i) {
       RCLCPP_INFO(
         this->get_logger(), "  wp[%zu]  x=%+.2f  y=%+.2f", i,

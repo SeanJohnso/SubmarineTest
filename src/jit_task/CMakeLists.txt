@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(jit_comunication)
+project(jit_task)
 
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 17)
@@ -23,7 +23,12 @@ add_executable(waypoint_listener_node src/waypoint_listener_node.cpp)
 ament_target_dependencies(waypoint_listener_node
   rclcpp std_msgs geometry_msgs nav_msgs tf2 tf2_ros jit_msgs)
 
-install(TARGETS waypoint_listener_node DESTINATION lib/${PROJECT_NAME})
+add_executable(task_node src/task_node.cpp)
+target_include_directories(task_node PRIVATE include)
+ament_target_dependencies(task_node
+  rclcpp std_msgs geometry_msgs jit_msgs)
+
+install(TARGETS waypoint_listener_node task_node DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

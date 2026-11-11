@@ -18,6 +18,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/EstopStatus.msg"
   "msg/WaypointXY.msg"
   "msg/MissionXY.msg"
+  "msg/TaskWaypoint.msg"
+  "msg/TaskMission.msg"
   DEPENDENCIES builtin_interfaces std_msgs
 )
 

@@ -4,10 +4,11 @@ Packages:
 
 | package | contents |
 |---|---|
-| `jit_msgs` | `Health`, `Mode`, `ModeRequest`, `LedCommand`, `EstopStatus`, `WaypointXY`, `MissionXY` |
+| `jit_msgs` | `Health`, `Mode`, `ModeRequest`, `LedCommand`, `EstopStatus`, `WaypointXY`, `MissionXY`, `TaskWaypoint`, `TaskMission` |
 | `jit_safety` | `crsf_channel_node`, `gpio_estop_node`, `system_monitor_node` |
 | `jit_control` | `vehicle_interface_node`, `manual_control_node`, `local_guided_node` |
-| `jit_comunication` | `waypoint_listener_node` — missions from another vessel |
+| `jit_task` | `waypoint_listener_node` — missions from another vessel; `task_node` — the pipeline survey sequence |
+| `robotx_comm` | `heartbeat_node` and the `Heartbeat` message |
 | `jit_ui` | `led_driver_node` |
 | `jit_bringup` | launch files and config only, no source |
 | `ping360_sonar`, `ping360_sonar_msgs` | upstream Ping360 driver, a **git submodule** at `src/ping360_sonar` |
@@ -215,12 +216,34 @@ Useful arguments:
 | `params_file` | package config | override the parameter file |
 | `waypoint_file` | package config | override the mission file |
 | `enable_sonar` | `true` | `false` leaves out the Ping360 driver |
-| `waypoint_source` | `file` | `topic` takes missions from another vessel on `jit/waypoints` (see below) |
+| `waypoint_source` | `file` | `topic` takes missions from another vessel on `jit/waypoints`; `task` holds in AUTO, waits for a list, then runs the pipeline survey (see below) |
+| `record_bag` | `true` | with `waypoint_source:=task`, records sonar and navigation topics to `~/jit_bags/` |
 
 Every topic the stack owns is `jit/<name>` (`jit/health`, `jit/crsf/link_ok`,
 `jit/cmd/local_guided/setpoint`, …) so the sub can share a DDS domain with
 another vessel. MAVROS keeps `/mavros/*`; `/tf`, `/tf_static` and `/rosout`
 stay global.
+
+### The pipeline survey (`waypoint_source:=task`)
+
+With the switch in AUTO the sub arms and holds position. When a list arrives on
+`jit/waypoints`, `task_node` runs this sequence with no further switch input:
+
+1. Follow the list on the surface.
+2. Settle at the last waypoint, then dive in place to `survey_depth_m`.
+3. Traverse `survey_length_m` along the heading of the list's **last pose**.
+4. Rise in place and hold station until the switch leaves AUTO.
+
+The last pose's orientation sets that heading, as yaw counter-clockwise from
+East. A zero-length or non-finite quaternion rejects the whole list, with
+`waypoint_source:=topic` too. An orientation the sender never set defaults to
+yaw 0 and is accepted as East, so check the heading logged by
+`waypoint_listener_node`. Depth comes only from `task_node`'s parameters in
+`jit_params.yaml`.
+
+`/robotx_comm/heartbeat` reports `current_task` 3 from the moment the list is
+taken until the sub has stabilized on the surface, then 1. It is always 1 with
+the `file` and `topic` sources.
 
 ### Missions from another vessel (`waypoint_source:=topic`)
 

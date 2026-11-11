@@ -14,9 +14,12 @@
   <exec_depend>jit_safety</exec_depend>
   <exec_depend>jit_control</exec_depend>
   <exec_depend>jit_ui</exec_depend>
-  <exec_depend>jit_comunication</exec_depend>
+  <exec_depend>jit_task</exec_depend>
+  <exec_depend>robotx_comm</exec_depend>
   <exec_depend>jit_msgs</exec_depend>
   <exec_depend>ping360_sonar</exec_depend>
+  <exec_depend>ros2bag</exec_depend>
+  <exec_depend>rosbag2_storage_default_plugins</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

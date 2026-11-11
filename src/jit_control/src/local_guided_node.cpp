@@ -145,6 +145,24 @@
 // reports RUNNING anyway). A new list therefore always needs the operator's
 // switch cycle to start - another vessel can stage a mission but cannot start
 // one. Re-entry with no new list re-flies the last one, as the file does.
+//
+// ---------------------------------------------------------------------------
+// WAYPOINT SOURCE: task
+// ---------------------------------------------------------------------------
+// waypoint_source=task hands the sequencing to task_node. This node still flies
+// every list, so acceptance, the submerged flag and the deadman are unchanged.
+// Three things differ, in this source only:
+//
+//   HOLDING  Entering LOCAL_GUIDED captures the current pose and holds it,
+//            which arms the vehicle at the switch. The held heading is the
+//            heading at entry: the usual bearing-to-target is noise when the
+//            target is directly under the vehicle. It must not report RUNNING,
+//            because waypoint_listener_node refuses lists while it does.
+//   START    A list on jit/task/mission starts immediately from HOLDING or
+//            COMPLETE, with no switch cycle. One arriving in any other state is
+//            dropped, and task_node sees that as a failure to start.
+//   DEPTH    A list may carry z, as an offset from the depth captured when that
+//            list starts. Only task_node publishes this topic.
 
 #include <chrono>
 #include <cmath>
@@ -152,6 +170,7 @@
 #include <memory>
 #include <optional>
 #include <string>
+#include <utility>
 #include <vector>
 
 #include "rclcpp/rclcpp.hpp"
@@ -162,12 +181,14 @@
 
 #include "jit_msgs/msg/mission_xy.hpp"
 #include "jit_msgs/msg/mode.hpp"
+#include "jit_msgs/msg/task_mission.hpp"
 
 #include "yaml-cpp/yaml.h"
 
 using namespace std::chrono_literals;
 using Mode = jit_msgs::msg::Mode;
 using MissionXY = jit_msgs::msg::MissionXY;
+using TaskMission = jit_msgs::msg::TaskMission;
 
 namespace
 {
@@ -224,16 +245,23 @@ public:
     pose_stamp_ = mode_stamp_ = t0;
 
     topic_source_ = (waypoint_source_ == "topic");
+    task_source_ = (waypoint_source_ == "task");
     if (topic_source_) {
       RCLCPP_INFO(
         this->get_logger(),
         "waypoint_source=topic: missions come from jit/nav/local/mission, surface-only. "
         "waypoint_file is ignored.");
+    } else if (task_source_) {
+      RCLCPP_INFO(
+        this->get_logger(),
+        "waypoint_source=task: holding position on entry to LOCAL_GUIDED, then flying "
+        "whatever task_node sends on jit/task/mission. waypoint_file is ignored.");
     } else {
       if (waypoint_source_ != "file") {
         RCLCPP_ERROR(
           this->get_logger(),
-          "Unknown waypoint_source '%s' (expected 'file' or 'topic'). Falling back to file.",
+          "Unknown waypoint_source '%s' (expected 'file', 'topic' or 'task'). Falling back "
+          "to file.",
           waypoint_source_.c_str());
       }
       load_waypoints();
@@ -276,6 +304,13 @@ public:
         std::bind(&LocalGuidedNode::mission_cb, this, std::placeholders::_1));
     }
 
+    // Reliable but NOT latched - see TaskMission.msg.
+    if (task_source_) {
+      task_mission_sub_ = this->create_subscription<TaskMission>(
+        "jit/task/mission", 10,
+        std::bind(&LocalGuidedNode::task_mission_cb, this, std::placeholders::_1));
+    }
+
     timer_ = this->create_wall_timer(
       std::chrono::duration_cast<std::chrono::milliseconds>(
         std::chrono::duration<double>(1.0 / setpoint_rate_hz_)),
@@ -286,7 +321,9 @@ public:
       "local_guided_node up. %zu waypoint(s) from '%s'. Acceptance: %.2f m horizontal "
       "(plus %.2f m vertical on a depth-changing leg) then %.2f s dwell. Setpoints at "
       "%.0f Hz.",
-      waypoints_.size(), topic_source_ ? "jit/nav/local/mission" : waypoint_file_.c_str(),
+      waypoints_.size(),
+      task_source_ ? "jit/task/mission" :
+      (topic_source_ ? "jit/nav/local/mission" : waypoint_file_.c_str()),
       radius_m_, depth_radius_m_, dwell_s_, setpoint_rate_hz_);
 
     if (max_submerged_s_ > 0.0) {
@@ -307,12 +344,13 @@ public:
   }
 
 private:
-  enum class State { IDLE, RUNNING, COMPLETE, ABORTED };
+  enum class State { IDLE, HOLDING, RUNNING, COMPLETE, ABORTED };
 
   static const char * state_name(State s)
   {
     switch (s) {
       case State::IDLE: return "IDLE";
+      case State::HOLDING: return "HOLDING";
       case State::RUNNING: return "RUNNING";
       case State::COMPLETE: return "COMPLETE";
       case State::ABORTED: return "ABORTED";
@@ -405,6 +443,72 @@ private:
     }
   }
 
+  // ---- Task mission --------------------------------------------------------
+  //
+  // Stored here and applied in tick(), so a mission only ever starts against
+  // the mode and state of the current tick.
+  void task_mission_cb(const TaskMission::SharedPtr m)
+  {
+    if (m->header.frame_id != local_frame_) {
+      RCLCPP_ERROR(
+        this->get_logger(), "Ignoring task mission in frame '%s' - expected '%s'.",
+        m->header.frame_id.c_str(), local_frame_.c_str());
+      return;
+    }
+    if (m->waypoints.empty()) {
+      RCLCPP_ERROR(this->get_logger(), "Ignoring an empty task mission.");
+      return;
+    }
+    std::vector<Waypoint> list;
+    for (const auto & w : m->waypoints) {
+      Waypoint wp;
+      wp.x = w.x;
+      wp.y = w.y;
+      wp.z = w.z;
+      wp.has_z = w.has_z;
+      list.push_back(wp);
+    }
+    pending_task_mission_ = std::move(list);
+  }
+
+  // Consumes the pending list whatever happens, so one that cannot start now
+  // cannot start later.
+  void apply_pending_task_mission(bool mode_active)
+  {
+    if (!pending_task_mission_) {
+      return;
+    }
+    std::vector<Waypoint> list = std::move(*pending_task_mission_);
+    pending_task_mission_.reset();
+
+    if (!mode_active || (state_ != State::HOLDING && state_ != State::COMPLETE)) {
+      RCLCPP_WARN(
+        this->get_logger(), "Task mission dropped: mode %s, state %s.",
+        mode_active ? "active" : "not active", state_name(state_));
+      return;
+    }
+    if (!have_pose_ || !fresh(pose_stamp_, pose_timeout_s_)) {
+      set_state(State::ABORTED, "no fresh pose to start the task mission against");
+      return;
+    }
+
+    waypoints_ = std::move(list);
+    entry_z_ = pose_.pose.position.z;
+    index_ = 0;
+    reached_flag_ = false;
+    set_state(State::RUNNING, "task mission received");
+
+    RCLCPP_INFO(
+      this->get_logger(), "Task mission start. Reference depth z=%.2f. %zu waypoint(s).",
+      entry_z_, waypoints_.size());
+    for (size_t i = 0; i < waypoints_.size(); ++i) {
+      RCLCPP_INFO(
+        this->get_logger(), "  wp[%zu]  x=%+.2f  y=%+.2f  z=%+.2f%s",
+        i, waypoints_[i].x, waypoints_[i].y, z_offset_for(i),
+        leg_changes_depth(i) ? "  DEPTH LEG - vertical acceptance applies" : "");
+    }
+  }
+
   bool fresh(const rclcpp::Time & stamp, double max_age_s) const
   {
     if (stamp.nanoseconds() == 0) {
@@ -445,6 +549,11 @@ private:
   // ---- Mode transitions ----------------------------------------------------
   void on_mode_entry()
   {
+    if (task_source_) {
+      enter_hold();
+      return;
+    }
+
     // Snapshot: the topic mission in force for this whole run is the one cached
     // at this instant.
     if (topic_source_) {
@@ -477,6 +586,26 @@ private:
       datum_.x, datum_.y, entry_z_, waypoints_.size());
   }
 
+  // Task source only: hold where the switch was thrown until a list arrives.
+  void enter_hold()
+  {
+    if (!have_pose_ || !fresh(pose_stamp_, pose_timeout_s_)) {
+      set_state(
+        State::ABORTED,
+        "no fresh /mavros/local_position/pose - refusing to hold an unknown position");
+      return;
+    }
+    const auto & q = pose_.pose.orientation;
+    hold_position_ = pose_.pose.position;
+    hold_yaw_ = std::atan2(
+      2.0 * (q.w * q.z + q.x * q.y), 1.0 - 2.0 * (q.y * q.y + q.z * q.z));
+    entry_z_ = pose_.pose.position.z;
+    waypoints_.clear();
+    index_ = 0;
+    reached_flag_ = false;
+    set_state(State::HOLDING, "holding position, waiting for a task mission");
+  }
+
   void on_mode_exit()
   {
     if (state_ != State::IDLE) {
@@ -484,6 +613,9 @@ private:
     }
     index_ = 0;
     reached_flag_ = false;
+    if (task_source_) {
+      waypoints_.clear();
+    }
   }
 
   void set_state(State s, const std::string & why)
@@ -506,15 +638,24 @@ private:
   // ---- Target construction -------------------------------------------------
   geometry_msgs::msg::PoseStamped current_target(const rclcpp::Time & now)
   {
-    const Waypoint & wp = waypoints_[index_];
-
     geometry_msgs::msg::PoseStamped sp;
     sp.header.stamp = now;
     sp.header.frame_id = local_frame_;
-    // A file waypoint is an offset from the datum; a topic waypoint is already
-    // absolute in local_frame. Depth is the same rule for both.
-    sp.pose.position.x = topic_source_ ? wp.x : datum_.x + wp.x;
-    sp.pose.position.y = topic_source_ ? wp.y : datum_.y + wp.y;
+
+    if (state_ == State::HOLDING) {
+      sp.pose.position = hold_position_;
+      sp.pose.orientation.z = std::sin(hold_yaw_ * 0.5);
+      sp.pose.orientation.w = std::cos(hold_yaw_ * 0.5);
+      return sp;
+    }
+
+    const Waypoint & wp = waypoints_[index_];
+
+    // A file waypoint is an offset from the datum; topic and task waypoints are
+    // already absolute in local_frame. Depth is the same rule for all of them.
+    const bool absolute_xy = topic_source_ || task_source_;
+    sp.pose.position.x = absolute_xy ? wp.x : datum_.x + wp.x;
+    sp.pose.position.y = absolute_xy ? wp.y : datum_.y + wp.y;
     // Sticky: a leg with no z of its own holds the last commanded depth, not
     // the entry depth. See z_offset_for().
     sp.pose.position.z = entry_z_ + z_offset_for(index_);
@@ -694,12 +835,20 @@ private:
     }
     was_active_ = mode_active;
 
+    // Before update_submerged, so a dive leg asserts the flag on the same tick
+    // it becomes current.
+    if (task_source_) {
+      apply_pending_task_mission(mode_active);
+    }
+
     // Before the early returns, and before the setpoint goes out: this can
     // ABORT on the deadman, and when it does, the checks below must see the
     // new state so no further setpoint is published this tick.
     update_submerged(now);
 
-    if (!mode_active || (state_ != State::RUNNING && state_ != State::COMPLETE)) {
+    const bool commanding = state_ == State::RUNNING || state_ == State::COMPLETE ||
+      state_ == State::HOLDING;
+    if (!mode_active || !commanding) {
       publish_outputs();
       return;
     }
@@ -749,6 +898,7 @@ private:
   // --- Config ---
   std::string waypoint_source_;
   bool topic_source_ {false};
+  bool task_source_ {false};
   std::string waypoint_file_;
   std::string local_frame_;
   double radius_m_ {0.3};
@@ -761,6 +911,7 @@ private:
   double max_submerged_s_ {120.0};
   std::vector<Waypoint> waypoints_;      // the mission being flown
   std::vector<Waypoint> cached_mission_; // topic source: latest, applied at entry
+  std::optional<std::vector<Waypoint>> pending_task_mission_;  // task source: next tick
 
   // --- Inputs ---
   geometry_msgs::msg::PoseStamped pose_;
@@ -773,6 +924,8 @@ private:
   State state_ {State::IDLE};
   bool was_active_ {false};
   geometry_msgs::msg::Point datum_;
+  geometry_msgs::msg::Point hold_position_;
+  double hold_yaw_ {0.0};
   double entry_z_ {0.0};
   size_t index_ {0};
   bool reached_flag_ {false};
@@ -792,6 +945,7 @@ private:
   rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr pose_sub_;
   rclcpp::Subscription<Mode>::SharedPtr mode_sub_;
   rclcpp::Subscription<MissionXY>::SharedPtr mission_sub_;
+  rclcpp::Subscription<TaskMission>::SharedPtr task_mission_sub_;
   rclcpp::TimerBase::SharedPtr timer_;
 };
 

@@ -1,4 +1,5 @@
-# Parameters for the JIT submarine stack, keyed by node name (no namespace).
+# Parameters for the JIT submarine stack, keyed by node name (no namespace -
+# except the sonar, see its section).
 #
 # Edit calibration values here as they are measured on the bench, then `git pull`
 # on the Pi - no rebuild is needed for a params-only change.
@@ -100,6 +101,53 @@ led_driver_node:
     # Wire colour order. WS2812B is almost always GRB; change if the panel
     # shows the wrong colour for a known pattern.
     strip_type: GRB
+
+# ===========================================================================
+# sensors
+# ===========================================================================
+
+# Upstream ping360_sonar (git submodule). The only node in the launch with a
+# namespace (topics land under jit/sonar/), so this key is the FULLY QUALIFIED
+# node name - a bare "ping360_node:" would not match and every value below
+# would silently fall back to the upstream defaults (UDP, emulated sonar).
+/jit/sonar/ping360_node:
+  ros__parameters:
+    # BlueRobotics BLU/USB serial adapter. Prefer the stable
+    # /dev/serial/by-id/usb-FTDI_... path once it is known on the Pi, so the
+    # sonar cannot swap names with another USB serial device.
+    connection_type: serial
+    device: /dev/ttyUSB0
+    baudrate: 115200
+    # Upstream default is true, which publishes RANDOM emulated data when the
+    # sonar cannot be opened. false = the node exits and respawns instead.
+    fallback_emulated: false
+    frame: sonar
+
+    # --- Transducer ---
+    gain: 0                     # 0 = low, 1 = normal, 2 = high
+    frequency: 740              # kHz [650..850]
+    speed_of_sound: 1500        # m/s [1450..1550]; ~1480 fresh water
+    # Integer metres [1..50]. Longer range = slower sweep. Unmeasured default -
+    # set it from the pool.
+    range_max: 10
+    angle_sector: 360           # degrees; below 360 the head oscillates
+    angle_step: 1               # degrees [1..20]
+    # Per-ping wait for the sonar's reply. The node blocks this long when the
+    # sonar stops answering, before warning "Cannot communicate with sonar".
+    sonar_timeout: 8000         # ms
+
+    # --- Outputs (all relative to jit/sonar/) ---
+    # scan_image: sensor_msgs/Image (image_transport, so /compressed as well)
+    publish_image: true
+    image_size: 300             # pixels, even
+    image_rate: 100             # ms
+    # scan: sensor_msgs/LaserScan, nearest return >= scan_threshold, once per
+    # sweep. Only published while something is subscribed.
+    publish_scan: true
+    scan_threshold: 200         # [1..255]
+    # scan_echo: ping360_sonar_msgs/SonarEcho, raw intensities per angle.
+    # Only published while something is subscribed.
+    publish_echo: true
 
 # ===========================================================================
 # jit_control
@@ -218,3 +266,52 @@ global_guided_node:
   ros__parameters:
     # Skeleton node. Publishes nav/global/status = IDLE and nothing else.
     status_rate_hz: 10.0
+
+# ===========================================================================
+# jit_task
+# ===========================================================================
+
+# Started only with waypoint_source:=task.
+task_node:
+  ros__parameters:
+    # --- Survey (PLACEHOLDERS - set these for the real course) ---
+    # Depth below the surface for the traverse, and the traverse length along
+    # the final waypoint's heading. Dive, traverse and rise must all fit inside
+    # local_guided_node's max_submerged_s.
+    survey_depth_m: 2.0
+    survey_length_m: 10.0
+    # Upper limits. Values above these fail the task before it dives.
+    max_survey_depth_m: 5.0
+    max_survey_length_m: 30.0
+    # Hold at the end of the surface path for this long before diving.
+    settle_s: 3.0
+
+    # --- Stabilized check, which sets the heartbeat back to task 1 ---
+    # Surfaced and within stabilize_radius_m of the final point, continuously
+    # for stabilize_hold_s. stabilize_timeout_s reports it finished regardless.
+    stabilize_radius_m: 0.5
+    stabilize_hold_s: 5.0
+    stabilize_timeout_s: 30.0
+
+    # local_guided_node must report RUNNING within this long of being sent a list.
+    start_timeout_s: 3.0
+    mode_timeout_s: 0.5
+    status_timeout_s: 1.0
+    pose_timeout_s: 1.0
+    submerged_timeout_s: 0.5
+    tick_hz: 10.0
+
+# ===========================================================================
+# robotx_comm
+# ===========================================================================
+
+heartbeat_node:
+  ros__parameters:
+    # Keep the quotes: the node declares this as a string, and a bare 4 is an
+    # integer, which fails at startup. Placeholder until the real ID is known.
+    vehicle_id: "4"
+    # ENU: heading is yaw, 0 = East, counter-clockwise, -180 to 180.
+    # NED: heading is a compass bearing, 0 = North, clockwise, 0 to 360.
+    frame: ENU
+    # jit/mode silent for longer than this reports state UNKNOWN.
+    mode_timeout_s: 1.0
