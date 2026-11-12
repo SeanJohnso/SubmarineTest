@@ -257,11 +257,13 @@ The other vessel publishes:
 - `/rviz/waypoints` — `nav_msgs/Path`, `header.frame_id: map`, x/y per pose.
 - `/tf_static` — `map → local_origin`, placing the sub's EKF origin in its map.
 
-`waypoint_listener_node` drops every z, transforms the list into
-`local_origin` once, and stages it on `jit/nav/local/mission`. It reports
-`accepted N` or `rejected: <reason>` on `jit/comms/waypoints/status`. A list is
-rejected whole if it is in the wrong frame, has no transform, holds more than
-`max_waypoints` (50), puts any waypoint more than `max_waypoint_distance_m`
+`waypoint_listener_node` drops every z, trims the list so no two kept
+waypoints are closer than `min_waypoint_spacing_m` (0.5 m; the first and last
+are always kept), transforms it into `local_origin` once, and stages it on
+`jit/nav/local/mission`. It reports `accepted N` (N after trimming) or
+`rejected: <reason>` on `jit/comms/waypoints/status`. A list is rejected whole
+if it is in the wrong frame, has no transform, holds more than `max_waypoints`
+(50) after trimming, puts any waypoint more than `max_waypoint_distance_m`
 (20 m) from the sub, or arrives while a mission is RUNNING.
 
 `local_guided_node` flies the staged list at the next entry to LOCAL_GUIDED

@@ -317,15 +317,21 @@ private:
     }
     std::string seq;
     for (const auto v : report_segments_) {
+      uint8_t value = SegmentStatus::PIPELINE_SEGMENT_UNKNOWN;
+      if (v == SegmentStatus::PIPELINE_SEGMENT_INTACT) {
+        value = SegmentStatus::PIPELINE_SEGMENT_INTACT;
+      } else if (v == SegmentStatus::PIPELINE_SEGMENT_DAMAGED) {
+        value = SegmentStatus::PIPELINE_SEGMENT_DAMAGED;
+      }
+      // PipeLineSegmentStatus declares only constants, so a segment cannot be
+      // pushed as a bare constant: segments holds messages. rosidl gives a
+      // constants-only message one generated uint8 member, and the constant
+      // goes there. A C++ receiver reads it from the same member; Python's
+      // generated class hides it.
       SegmentStatus s;
-      // The message declares only constants, so its one data member is the
-      // field rosidl generates for such messages. A receiver built from the same
-      // definition reads the value from the same field.
-      s.structure_needs_at_least_one_member =
-        (v >= SegmentStatus::PIPELINE_SEGMENT_UNKNOWN &&
-        v <= SegmentStatus::PIPELINE_SEGMENT_DAMAGED) ? static_cast<uint8_t>(v) : 0;
+      s.structure_needs_at_least_one_member = value;
       r.segments.push_back(s);
-      seq += std::to_string(s.structure_needs_at_least_one_member) + " ";
+      seq += std::to_string(value) + " ";
     }
     report_pub_->publish(r);
     RCLCPP_INFO(

@@ -281,6 +281,9 @@ waypoint_listener_node:
     # publishes input_frame -> local_frame on /tf_static.
     input_frame: map
     local_frame: jit/local_origin
+    # Drop waypoints closer than this to the previous kept one. The first and
+    # last are always kept. 0 disables.
+    min_waypoint_spacing_m: 0.5
 
 # Started only with waypoint_source:=task. Whether it dives is the
 # enable_survey launch argument, not a parameter here.

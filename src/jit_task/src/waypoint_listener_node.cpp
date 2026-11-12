@@ -47,6 +47,10 @@
 // that was partly wrong is a different mission from the one the sender meant.
 // A rejected list leaves the previously accepted one in place.
 //
+// Trimming is not partial acceptance: it only drops points closer than
+// min_waypoint_spacing_m to the previous kept one, so the path keeps its shape,
+// start, end and final heading. It runs before the max_waypoints check.
+//
 // ---------------------------------------------------------------------------
 // TRANSFORMED ONCE, THEN FROZEN
 // ---------------------------------------------------------------------------
@@ -117,6 +121,11 @@ public:
     max_waypoints_ = this->declare_parameter<int>("max_waypoints", 50);
     max_waypoint_distance_m_ =
       this->declare_parameter<double>("max_waypoint_distance_m", 20.0);
+    // Waypoints closer than this to the previous kept one are dropped before
+    // the max_waypoints check, so a densely sampled arc is thinned rather than
+    // rejected. 0 disables trimming.
+    min_waypoint_spacing_m_ =
+      this->declare_parameter<double>("min_waypoint_spacing_m", 0.5);
     pose_timeout_s_ = this->declare_parameter<double>("pose_timeout_s", 1.0);
     // local_guided_node publishes its status every tick; silence past this
     // means its state is unknown, and an unknown state may be RUNNING.
@@ -173,6 +182,40 @@ private:
     return (this->now() - stamp).seconds() <= max_age_s;
   }
 
+  // Walks the list in order and keeps a waypoint only when it is at least
+  // min_waypoint_spacing_m from the last one kept. The first is always kept.
+  // The last is always kept too, because it is where the path ends and its
+  // orientation is the final heading; if the waypoint kept just before it is
+  // closer than the spacing, that one is dropped instead (unless it is the
+  // first). A spacing of 0 or less keeps everything.
+  std::vector<size_t> trim(const nav_msgs::msg::Path & path) const
+  {
+    const size_t n = path.poses.size();
+    std::vector<size_t> keep;
+    if (min_waypoint_spacing_m_ <= 0.0 || n <= 2) {
+      for (size_t i = 0; i < n; ++i) {
+        keep.push_back(i);
+      }
+      return keep;
+    }
+    const auto dist = [&path](size_t a, size_t b) {
+        const auto & pa = path.poses[a].pose.position;
+        const auto & pb = path.poses[b].pose.position;
+        return std::hypot(pa.x - pb.x, pa.y - pb.y);
+      };
+    keep.push_back(0);
+    for (size_t i = 1; i + 1 < n; ++i) {
+      if (dist(i, keep.back()) >= min_waypoint_spacing_m_) {
+        keep.push_back(i);
+      }
+    }
+    if (keep.size() > 1 && dist(n - 1, keep.back()) < min_waypoint_spacing_m_) {
+      keep.pop_back();
+    }
+    keep.push_back(n - 1);
+    return keep;
+  }
+
   void reject(const std::string & why)
   {
     RCLCPP_WARN(this->get_logger(), "Waypoint list REJECTED: %s", why.c_str());
@@ -207,19 +250,30 @@ private:
       reject("empty list");
       return;
     }
-    if (static_cast<int>(path->poses.size()) > max_waypoints_) {
-      reject(
-        std::to_string(path->poses.size()) + " waypoints, limit " +
-        std::to_string(max_waypoints_));
-      return;
-    }
-    // A NaN would pass the geofence (NaN > limit is false), so check first.
+    // A NaN would pass the geofence (NaN > limit is false), and would break the
+    // spacing test below, so check first.
     for (size_t i = 0; i < path->poses.size(); ++i) {
       const auto & p = path->poses[i].pose.position;
       if (!std::isfinite(p.x) || !std::isfinite(p.y)) {
         reject("waypoint " + std::to_string(i) + " has a non-finite x or y");
         return;
       }
+    }
+
+    // ---- Trim ----
+    // Indices into path->poses that survive. Distances are taken in
+    // input_frame; the rigid transform below does not change them.
+    const std::vector<size_t> keep = trim(*path);
+    if (keep.size() != path->poses.size()) {
+      RCLCPP_INFO(
+        this->get_logger(), "Trimmed %zu -> %zu waypoint(s) at %.2f m spacing.",
+        path->poses.size(), keep.size(), min_waypoint_spacing_m_);
+    }
+    if (static_cast<int>(keep.size()) > max_waypoints_) {
+      reject(
+        std::to_string(keep.size()) + " waypoints after trimming, limit " +
+        std::to_string(max_waypoints_));
+      return;
     }
 
     // NaN or inf in any component carries through to the squared length.
@@ -260,7 +314,7 @@ private:
     MissionXY mission;
     mission.header.stamp = this->now();
     mission.header.frame_id = local_frame_;
-    for (size_t i = 0; i < path->poses.size(); ++i) {
+    for (const size_t i : keep) {
       const auto & p = path->poses[i].pose.position;
       // z goes in as 0 and the transformed z is thrown away: depth is never
       // taken from this source.
@@ -305,6 +359,7 @@ private:
   std::string local_frame_;
   int max_waypoints_ {50};
   double max_waypoint_distance_m_ {20.0};
+  double min_waypoint_spacing_m_ {0.5};
   double pose_timeout_s_ {1.0};
   double nav_status_timeout_s_ {1.0};
 
