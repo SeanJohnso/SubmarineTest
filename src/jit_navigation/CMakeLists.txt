@@ -17,15 +17,6 @@ find_package(tf2_ros REQUIRED)
 list(APPEND CMAKE_MODULE_PATH "/usr/share/cmake/geographiclib")
 find_package(GeographicLib REQUIRED)
 
-# Add executable
-add_executable(send_waypoints src/send_waypoints.cpp)
-ament_target_dependencies(send_waypoints 
-  rclcpp 
-  geometry_msgs 
-  nav_msgs 
-  tf2
-)
-
 add_executable(jit_datum_node src/jit_datum_node.cpp)
 ament_target_dependencies(jit_datum_node
   rclcpp
