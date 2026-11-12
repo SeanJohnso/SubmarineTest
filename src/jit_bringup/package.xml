@@ -18,6 +18,7 @@
   <exec_depend>robotx_comm</exec_depend>
   <exec_depend>jit_msgs</exec_depend>
   <exec_depend>ping360_sonar</exec_depend>
+  <exec_depend>mavros</exec_depend>
   <exec_depend>ros2bag</exec_depend>
   <exec_depend>rosbag2_storage_default_plugins</exec_depend>
 

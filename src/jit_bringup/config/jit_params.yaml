@@ -225,6 +225,9 @@ manual_control_node:
 
 local_guided_node:
   ros__parameters:
+    # The frame MAVROS stamps on /mavros/local_position/pose, set in
+    # mavros_frames.yaml. Must match waypoint_listener_node's local_frame.
+    local_frame: jit/local_origin
     # waypoint_file is set by the launch file - see config/waypoints.yaml.
     # Acceptance mirrors ArduPilot's verify_nav_wp(): touch the ball once, then
     # dwell. Distance is NOT re-checked during the dwell.
@@ -271,7 +274,16 @@ global_guided_node:
 # jit_task
 # ===========================================================================
 
-# Started only with waypoint_source:=task.
+# Started with waypoint_source:=topic or task.
+waypoint_listener_node:
+  ros__parameters:
+    # The boat's frame, and the sub's frame it is transformed into. The boat
+    # publishes input_frame -> local_frame on /tf_static.
+    input_frame: map
+    local_frame: jit/local_origin
+
+# Started only with waypoint_source:=task. Whether it dives is the
+# enable_survey launch argument, not a parameter here.
 task_node:
   ros__parameters:
     # --- Survey (PLACEHOLDERS - set these for the real course) ---

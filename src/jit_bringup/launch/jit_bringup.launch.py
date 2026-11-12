@@ -70,8 +70,9 @@ only starts on entry to LOCAL_GUIDED.
 
 ``waypoint_source:=task`` runs the pipeline survey. It starts
 ``waypoint_listener_node`` and ``task_node``. The sub arms and holds position on
-entry to LOCAL_GUIDED, starts moving as soon as a list arrives, then dives,
-traverses, surfaces and holds station until the switch leaves AUTO. In this mode
+entry to LOCAL_GUIDED, starts moving as soon as a list arrives, follows it on the
+surface and holds station at the end until the switch leaves AUTO. Only with
+``enable_survey:=true`` does it dive, traverse and surface first. In this mode
 the launch sets ``hold_timeout_s`` to 0 so the final hold never times out, and
 records the sonar and navigation topics to ``~/jit_bags/`` unless
 ``record_bag:=false``.
@@ -83,8 +84,10 @@ Usage:
     ros2 launch jit_bringup jit_bringup.launch.py params_file:=/path/to/my.yaml
     ros2 launch jit_bringup jit_bringup.launch.py led_as_root:=false
     ros2 launch jit_bringup jit_bringup.launch.py enable_sonar:=false
-    ros2 launch jit_bringup jit_bringup.launch.py waypoint_source:=topic
     ros2 launch jit_bringup jit_bringup.launch.py waypoint_source:=task
+    ros2 launch jit_bringup jit_bringup.launch.py waypoint_source:=task enable_survey:=true
+
+MAVROS is started separately, with jit_bringup's mavros.launch.py.
 """
 
 import os
@@ -160,6 +163,12 @@ def generate_launch_description():
         description="Mission source for local_guided_node: waypoint_file, jit/waypoints "
                     "from another vessel via waypoint_listener_node (surface-only), or "
                     "task: hold in AUTO, wait for a list, then run the pipeline survey.",
+    )
+    arg_survey = DeclareLaunchArgument(
+        "enable_survey",
+        default_value="false",
+        description="With waypoint_source:=task, dive, traverse and surface after the "
+                    "surface path. false = follow the path and hold, never dive.",
     )
     arg_record_bag = DeclareLaunchArgument(
         "record_bag",
@@ -310,6 +319,12 @@ def generate_launch_description():
     # --- Task -----------------------------------------------------------------
     task_node = node(
         "jit_task", "task_node",
+        # Typed explicitly: a bare LaunchConfiguration is the string "true".
+        extra_params={
+            "survey_enabled": ParameterValue(
+                LaunchConfiguration("enable_survey"), value_type=bool
+            )
+        },
         respawn=True, respawn_delay=RESPAWN_DELAY_S,
         condition=LaunchConfigurationEquals("waypoint_source", "task"),
     )
@@ -371,6 +386,7 @@ def generate_launch_description():
         arg_params,
         arg_waypoints,
         arg_wp_source,
+        arg_survey,
         arg_record_bag,
         arg_control,
         arg_selftest,

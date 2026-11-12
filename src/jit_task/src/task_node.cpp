@@ -18,6 +18,8 @@
 //   WAIT_FOR_LIST  local_guided holds position. Task inactive.
 //   FOLLOW_PATH    the surface list from the other vessel. Task active from here.
 //   PLAN_SURVEY    the end of the path has been reached. Settle, then generate.
+//                  With survey_enabled false this and SURVEY are skipped, and the
+//                  end of the path goes straight to STABILIZE.
 //   SURVEY         dive, traverse, rise.
 //   STABILIZE      surfaced, waiting to be steady at the final point.
 //   DONE           holding station indefinitely. Task inactive.
@@ -75,6 +77,9 @@ public:
   TaskNode()
   : Node("task_node")
   {
+    // Off by default, so diving always takes a deliberate enable_survey:=true.
+    // Off, the task ends at the end of the surface path: stabilize, then hold.
+    survey_enabled_ = this->declare_parameter<bool>("survey_enabled", false);
     survey_depth_m_ = this->declare_parameter<double>("survey_depth_m", 2.0);
     survey_length_m_ = this->declare_parameter<double>("survey_length_m", 10.0);
     max_survey_depth_m_ = this->declare_parameter<double>("max_survey_depth_m", 5.0);
@@ -145,11 +150,18 @@ public:
         std::chrono::duration<double>(1.0 / tick_hz)),
       std::bind(&TaskNode::tick, this));
 
-    RCLCPP_INFO(
-      this->get_logger(),
-      "task_node up. Survey: dive %.2f m, traverse %.2f m along the final waypoint's heading.",
-      survey_depth_m_, survey_length_m_);
-    if (!survey_config_ok()) {
+    if (!survey_enabled_) {
+      RCLCPP_WARN(
+        this->get_logger(),
+        "task_node up. Survey DISABLED: the task follows the surface path, then holds. "
+        "Launch with enable_survey:=true to dive.");
+    } else {
+      RCLCPP_INFO(
+        this->get_logger(),
+        "task_node up. Survey: dive %.2f m, traverse %.2f m along the final waypoint's "
+        "heading.", survey_depth_m_, survey_length_m_);
+    }
+    if (survey_enabled_ && !survey_config_ok()) {
       RCLCPP_ERROR(
         this->get_logger(),
         "Survey parameters are out of range (depth must be in (0, %.2f], length in (0, %.2f]). "
@@ -333,6 +345,15 @@ private:
         RCLCPP_INFO(
           this->get_logger(), "END OF PATH reached at x=%+.2f y=%+.2f, heading %.1f deg ENU.",
           path_end_x_, path_end_y_, final_yaw_ * 180.0 / M_PI);
+        if (!survey_enabled_) {
+          // Surface-only run: the end of the path is the final point.
+          final_x_ = path_end_x_;
+          final_y_ = path_end_y_;
+          stabilize_started_ = now;
+          stable_since_.reset();
+          set_state(State::STABILIZE, "end of path reached, survey disabled");
+          return;
+        }
         handoff_at_ = now;
         set_state(State::PLAN_SURVEY, "end of path reached");
         return;
@@ -464,6 +485,7 @@ private:
   }
 
   // --- Config ---
+  bool survey_enabled_ {false};
   double survey_depth_m_ {2.0};
   double survey_length_m_ {10.0};
   double max_survey_depth_m_ {5.0};
