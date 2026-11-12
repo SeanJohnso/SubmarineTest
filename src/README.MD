@@ -216,7 +216,7 @@ Useful arguments:
 | `params_file` | package config | override the parameter file |
 | `waypoint_file` | package config | override the mission file |
 | `enable_sonar` | `true` | `false` leaves out the Ping360 driver |
-| `waypoint_source` | `file` | `topic` takes missions from another vessel on `jit/waypoints`; `task` holds in AUTO, waits for a list, then runs the pipeline survey (see below) |
+| `waypoint_source` | `file` | `topic` takes missions from another vessel on `/rviz/waypoints`; `task` holds in AUTO, waits for a list, then runs the pipeline survey (see below) |
 | `record_bag` | `true` | with `waypoint_source:=task`, records sonar and navigation topics to `~/jit_bags/` |
 
 Every topic the stack owns is `jit/<name>` (`jit/health`, `jit/crsf/link_ok`,
@@ -227,7 +227,7 @@ stay global.
 ### The pipeline survey (`waypoint_source:=task`)
 
 With the switch in AUTO the sub arms and holds position. When a list arrives on
-`jit/waypoints`, `task_node` runs this sequence with no further switch input:
+`/rviz/waypoints`, `task_node` runs this sequence with no further switch input:
 
 1. Follow the list on the surface.
 2. Settle at the last waypoint, then dive in place to `survey_depth_m`.
@@ -254,7 +254,7 @@ position as the buoy position.
 
 The other vessel publishes:
 
-- `jit/waypoints` — `nav_msgs/Path`, `header.frame_id: map`, x/y per pose.
+- `/rviz/waypoints` — `nav_msgs/Path`, `header.frame_id: map`, x/y per pose.
 - `/tf_static` — `map → local_origin`, placing the sub's EKF origin in its map.
 
 `waypoint_listener_node` drops every z, transforms the list into

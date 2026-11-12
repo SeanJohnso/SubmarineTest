@@ -48,8 +48,7 @@ ament_export_dependencies(
 )
 
 # Install targets
-install(TARGETS 
-  send_waypoints
+install(TARGETS
   jit_datum_node
   DESTINATION lib/${PROJECT_NAME}
 )

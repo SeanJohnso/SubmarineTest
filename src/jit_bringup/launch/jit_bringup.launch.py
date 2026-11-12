@@ -64,7 +64,7 @@ WAYPOINT SOURCE
 ---------------
 ``waypoint_source:=file`` (default) flies ``waypoint_file`` as always.
 ``waypoint_source:=topic`` also starts ``waypoint_listener_node``, which takes a
-``nav_msgs/Path`` on ``jit/waypoints`` from another vessel, transforms it into
+``nav_msgs/Path`` on ``/rviz/waypoints`` from another vessel, transforms it into
 the sub's local frame and stages it for ``local_guided_node``. Topic missions
 are surface-only: the depth is never taken from the topic. Either way a mission
 only starts on entry to LOCAL_GUIDED.
@@ -161,7 +161,7 @@ def generate_launch_description():
         "waypoint_source",
         default_value="file",
         choices=["file", "topic", "task"],
-        description="Mission source for local_guided_node: waypoint_file, jit/waypoints "
+        description="Mission source for local_guided_node: waypoint_file, /rviz/waypoints "
                     "from another vessel via waypoint_listener_node (surface-only), or "
                     "task: hold in AUTO, wait for a list, then run the pipeline survey.",
     )
@@ -311,6 +311,9 @@ def generate_launch_description():
     # cannot move the vehicle: the worst it can do is fail to stage a mission.
     listener_node = node(
         "jit_task", "waypoint_listener_node",
+        # The boat publishes on /rviz/waypoints. The node's own name for the
+        # topic stays jit/waypoints; this remap is the only place it changes.
+        remappings=[("jit/waypoints", "/rviz/waypoints")],
         respawn=True, respawn_delay=RESPAWN_DELAY_S,
         condition=IfCondition(PythonExpression([
             "'", LaunchConfiguration("waypoint_source"), "' in ('topic', 'task')",
