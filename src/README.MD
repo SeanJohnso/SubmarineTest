@@ -8,7 +8,7 @@ Packages:
 | `jit_safety` | `crsf_channel_node`, `gpio_estop_node`, `system_monitor_node` |
 | `jit_control` | `vehicle_interface_node`, `manual_control_node`, `local_guided_node` |
 | `jit_task` | `waypoint_listener_node` — missions from another vessel; `task_node` — the pipeline survey sequence |
-| `robotx_comm` | `heartbeat_node` and the `Heartbeat` message |
+| `robotx_comm` | messages shared with the boat (`Heartbeat`, `PipeLineSurveyReport`, …). `heartbeat_node` is no longer launched here — the boat publishes the heartbeat |
 | `jit_ui` | `led_driver_node` |
 | `jit_bringup` | launch files and config only, no source |
 | `ping360_sonar`, `ping360_sonar_msgs` | upstream Ping360 driver, a **git submodule** at `src/ping360_sonar` |
@@ -241,9 +241,14 @@ yaw 0 and is accepted as East, so check the heading logged by
 `waypoint_listener_node`. Depth comes only from `task_node`'s parameters in
 `jit_params.yaml`.
 
-`/robotx_comm/heartbeat` reports `current_task` 3 from the moment the list is
-taken until the sub has stabilized on the surface, then 1. It is always 1 with
-the `file` and `topic` sources.
+`jit/task/active` is true from the moment the list is taken until the sub has
+stabilized on the surface. `jit/task/state` (latched) reads `DONE` at the end,
+or `FAILED` if a list did not run to completion.
+
+`report_delay_s` (15 s) after either, `task_node` publishes one
+`robotx_comm/PipeLineSurveyReport` on `/robotx_comm/jit/tx_pipeline`, reliable and
+latched, with `report_segments` (default `1 1 2 1`, a guess) and the sub's GPS
+position as the buoy position.
 
 ### Missions from another vessel (`waypoint_source:=topic`)
 

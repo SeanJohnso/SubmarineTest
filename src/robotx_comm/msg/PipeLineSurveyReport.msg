@@ -1,0 +1,3 @@
+builtin_interfaces/Time time
+LatLng active_buoy_position
+PipeLineSegmentStatus[] segments

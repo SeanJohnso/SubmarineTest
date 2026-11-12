@@ -242,11 +242,11 @@ local_guided_node:
     # error seen holding entry depth on the surface still cannot block a
     # waypoint. Without this, a dive waypoint directly below the datum has a
     # horizontal distance of ~0 and is "reached" before the vehicle descends.
-    depth_radius_m: 0.3
+    depth_radius_m: 0.15
     # GUIDED position targets do not expire, so this rate is for message-loss
     # robustness, not to satisfy a firmware timeout.
     setpoint_rate_hz: 10.0
-    pose_timeout_s: 1.0
+    pose_timeout_s: 1.5
     bus_timeout_s: 0.5
 
     # --- Submerged operation ---
@@ -260,7 +260,7 @@ local_guided_node:
     # this is the primary bound on the whole behaviour. On expiry the flag drops
     # and the mission ABORTs. Set this from the dive you actually intend to fly
     # plus a margin - not generously. 0 disables it; do not dive like that.
-    max_submerged_s: 120.0
+    max_submerged_s: 30.0
     # Inside this distance the bearing to the target is mostly estimator noise,
     # so hold the last commanded heading instead of spinning.
     yaw_hold_radius_m: 0.5
@@ -290,8 +290,8 @@ task_node:
     # Depth below the surface for the traverse, and the traverse length along
     # the final waypoint's heading. Dive, traverse and rise must all fit inside
     # local_guided_node's max_submerged_s.
-    survey_depth_m: 2.0
-    survey_length_m: 10.0
+    survey_depth_m: 0.4
+    survey_length_m: 1.0
     # Upper limits. Values above these fail the task before it dives.
     max_survey_depth_m: 5.0
     max_survey_length_m: 30.0
@@ -312,6 +312,15 @@ task_node:
     pose_timeout_s: 1.0
     submerged_timeout_s: 0.5
     tick_hz: 10.0
+
+    # --- Pipeline survey report ---
+    # Sent once per run on report_topic, report_delay_s after the task ends,
+    # whether it ends DONE or FAILED. One value per segment, in order:
+    # 0 unknown, 1 intact (green), 2 damaged (red). This is a guess - the
+    # segments are not detected.
+    report_delay_s: 15.0
+    report_topic: /robotx_comm/jit/tx_pipeline
+    report_segments: [1, 1, 2, 1]
 
 # ===========================================================================
 # robotx_comm

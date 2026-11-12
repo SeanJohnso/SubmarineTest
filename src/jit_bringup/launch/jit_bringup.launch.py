@@ -56,8 +56,9 @@ TOPIC NAMES
 Every topic the stack owns is ``jit/<name>``, so this vehicle can share a DDS
 domain with another without colliding with it. That is a naming convention,
 not access control. MAVROS keeps ``/mavros/*``, and ``/tf``, ``/tf_static`` and
-``/rosout`` stay global. ``/robotx_comm/heartbeat`` is also global, because
-subscribers on other machines expect that exact name.
+``/rosout`` stay global. ``/robotx_comm/jit/tx_pipeline`` is also global, because
+subscribers on other machines expect that exact name. The heartbeat is published
+by the boat, not by this launch.
 
 WAYPOINT SOURCE
 ---------------
@@ -346,12 +347,6 @@ def generate_launch_description():
 
     task_bag_action = OpaqueFunction(function=task_bag)
 
-    # Always on. Read-only: it reports status and cannot move the vehicle.
-    heartbeat_node = node(
-        "robotx_comm", "heartbeat_node",
-        respawn=True, respawn_delay=RESPAWN_DELAY_S,
-    )
-
     def on_estop_exit(event, context):
         """Abort the launch only on a REAL failure.
 
@@ -404,7 +399,6 @@ def generate_launch_description():
         local_node,
         listener_node,
         task_node,
-        heartbeat_node,
         sonar_node,
         task_bag_action,
     ])

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node pkg="jit_navigation" exec="jit_datum_node" name="jit_datum_node" output="screen">
+        <param from="$(find-pkg-share jit_navigation)/config/jit_datum_odom.yaml"/>
+        <remap from="/junior/fix" to="/gps/fix"/>
+        <remap from="/jit/fix" to="/mavros/global_position/global"/>
+    </node>
+
+</launch>

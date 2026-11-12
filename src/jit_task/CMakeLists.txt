@@ -18,6 +18,8 @@ find_package(nav_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(jit_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(robotx_comm REQUIRED)
 
 add_executable(waypoint_listener_node src/waypoint_listener_node.cpp)
 ament_target_dependencies(waypoint_listener_node
@@ -26,7 +28,7 @@ ament_target_dependencies(waypoint_listener_node
 add_executable(task_node src/task_node.cpp)
 target_include_directories(task_node PRIVATE include)
 ament_target_dependencies(task_node
-  rclcpp std_msgs geometry_msgs jit_msgs)
+  rclcpp std_msgs geometry_msgs sensor_msgs jit_msgs robotx_comm)
 
 install(TARGETS waypoint_listener_node task_node DESTINATION lib/${PROJECT_NAME})
 

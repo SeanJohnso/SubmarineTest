@@ -1,0 +1,5 @@
+/jit_datum_node:
+  ros__parameters:
+    wait_for_datum: false
+    ###### Uncomment if wait_for_datum is true #####
+    # datum: [-33.72369465157378, 150.67462394572112, 0.0]

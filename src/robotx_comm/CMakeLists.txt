@@ -23,6 +23,8 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/LatLng.msg"
   "msg/Heartbeat.msg"
+  "msg/PipeLineSegmentStatus.msg"
+  "msg/PipeLineSurveyReport.msg"
   DEPENDENCIES builtin_interfaces
 )
 

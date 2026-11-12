@@ -57,6 +57,7 @@
 #include "std_msgs/msg/string.hpp"
 
 #include "geometry_msgs/msg/pose_stamped.hpp"
+#include "sensor_msgs/msg/nav_sat_fix.hpp"
 
 #include "jit_msgs/msg/mission_xy.hpp"
 #include "jit_msgs/msg/mode.hpp"
@@ -65,11 +66,17 @@
 
 #include "jit_task/survey_plan.hpp"
 
+#include "robotx_comm/msg/pipe_line_segment_status.hpp"
+#include "robotx_comm/msg/pipe_line_survey_report.hpp"
+
 using Mode = jit_msgs::msg::Mode;
 using MissionXY = jit_msgs::msg::MissionXY;
 using TaskMission = jit_msgs::msg::TaskMission;
 using TaskWaypoint = jit_msgs::msg::TaskWaypoint;
 using PoseStamped = geometry_msgs::msg::PoseStamped;
+using NavSatFix = sensor_msgs::msg::NavSatFix;
+using SegmentStatus = robotx_comm::msg::PipeLineSegmentStatus;
+using SurveyReport = robotx_comm::msg::PipeLineSurveyReport;
 
 class TaskNode : public rclcpp::Node
 {
@@ -94,6 +101,24 @@ public:
     pose_timeout_s_ = this->declare_parameter<double>("pose_timeout_s", 1.0);
     submerged_timeout_s_ = this->declare_parameter<double>("submerged_timeout_s", 0.5);
     const double tick_hz = this->declare_parameter<double>("tick_hz", 10.0);
+
+    // --- Pipeline survey report ---
+    // Sent once per run, report_delay_s after the task ends in DONE or FAILED,
+    // so the radio link has time to come back after surfacing.
+    report_delay_s_ = this->declare_parameter<double>("report_delay_s", 15.0);
+    report_topic_ = this->declare_parameter<std::string>(
+      "report_topic", "/robotx_comm/jit/tx_pipeline");
+    report_segments_ = this->declare_parameter<std::vector<int64_t>>(
+      "report_segments", std::vector<int64_t>{1, 1, 2, 1});
+    for (const auto v : report_segments_) {
+      if (v < SegmentStatus::PIPELINE_SEGMENT_UNKNOWN ||
+        v > SegmentStatus::PIPELINE_SEGMENT_DAMAGED)
+      {
+        RCLCPP_ERROR(
+          this->get_logger(), "report_segments value %ld is not 0, 1 or 2 - it will be sent as 0.",
+          static_cast<long>(v));
+      }
+    }
 
     const auto t0 = rclcpp::Time(0, 0, this->get_clock()->get_clock_type());
     mode_stamp_ = status_stamp_ = pose_stamp_ = submerged_stamp_ = t0;
@@ -135,6 +160,14 @@ public:
         submerged_stamp_ = this->now();
       });
     // SensorDataQoS: MAVROS publishes BEST_EFFORT.
+    // Reliable and latched, sent once: a receiver that reconnects after the
+    // send still gets it. A reliable, latched publisher matches subscribers of
+    // any reliability and durability.
+    report_pub_ = this->create_publisher<SurveyReport>(report_topic_, latched);
+    gps_sub_ = this->create_subscription<NavSatFix>(
+      "/mavros/global_position/global", rclcpp::SensorDataQoS(),
+      [this](const NavSatFix::SharedPtr m) {gps_ = m;});
+
     pose_sub_ = this->create_subscription<PoseStamped>(
       "/mavros/local_position/pose", rclcpp::SensorDataQoS(),
       [this](const PoseStamped::SharedPtr m) {
@@ -246,6 +279,59 @@ private:
     RCLCPP_ERROR(this->get_logger(), "Task FAILED: %s", why.c_str());
     set_state(State::FAILED, why);
     set_active(false);
+    schedule_report();
+  }
+
+  // ---- Pipeline survey report ----------------------------------------------
+  void schedule_report()
+  {
+    if (report_sent_ || report_due_) {
+      return;
+    }
+    report_due_ = this->now() + rclcpp::Duration::from_seconds(report_delay_s_);
+    RCLCPP_INFO(
+      this->get_logger(), "Pipeline report scheduled in %.0f s on %s.", report_delay_s_,
+      report_topic_.c_str());
+  }
+
+  // Runs whatever the mode, so leaving AUTO after the task ends does not stop
+  // the report.
+  void service_report(const rclcpp::Time & now)
+  {
+    if (!report_due_ || now < *report_due_) {
+      return;
+    }
+    report_due_.reset();
+    report_sent_ = true;
+
+    SurveyReport r;
+    r.time = now;
+    // The sub's own position, standing in for the final buoy's: it has just
+    // surfaced next to it, and the sub has no buoy coordinates of its own.
+    if (gps_) {
+      r.active_buoy_position.latitude = gps_->latitude;
+      r.active_buoy_position.longitude = gps_->longitude;
+    } else {
+      RCLCPP_WARN(
+        this->get_logger(), "No /mavros/global_position/global yet - reporting position 0, 0.");
+    }
+    std::string seq;
+    for (const auto v : report_segments_) {
+      SegmentStatus s;
+      // The message declares only constants, so its one data member is the
+      // field rosidl generates for such messages. A receiver built from the same
+      // definition reads the value from the same field.
+      s.structure_needs_at_least_one_member =
+        (v >= SegmentStatus::PIPELINE_SEGMENT_UNKNOWN &&
+        v <= SegmentStatus::PIPELINE_SEGMENT_DAMAGED) ? static_cast<uint8_t>(v) : 0;
+      r.segments.push_back(s);
+      seq += std::to_string(s.structure_needs_at_least_one_member) + " ";
+    }
+    report_pub_->publish(r);
+    RCLCPP_INFO(
+      this->get_logger(), "PIPELINE REPORT sent on %s: segments [ %s], position %.7f, %.7f.",
+      report_topic_.c_str(), seq.c_str(), r.active_buoy_position.latitude,
+      r.active_buoy_position.longitude);
   }
 
   void send_mission(const std::string & frame_id, const std::vector<TaskWaypoint> & waypoints)
@@ -327,6 +413,9 @@ private:
 
     // Active the moment the list is taken, as the heartbeat should report.
     set_active(true);
+    // A new run: it gets its own report.
+    report_due_.reset();
+    report_sent_ = false;
     send_mission(frame_id_, waypoints);
     set_state(
       State::FOLLOW_PATH, "list received, " + std::to_string(waypoints.size()) + " waypoint(s)");
@@ -450,6 +539,7 @@ private:
   {
     set_state(State::DONE, why);
     set_active(false);
+    schedule_report();
   }
 
   // ---- Main loop -----------------------------------------------------------
@@ -468,6 +558,8 @@ private:
       set_active(false);
     }
     was_in_auto_ = in_auto;
+
+    service_report(now);
 
     if (!in_auto) {
       return;
@@ -499,6 +591,9 @@ private:
   double status_timeout_s_ {1.0};
   double pose_timeout_s_ {1.0};
   double submerged_timeout_s_ {0.5};
+  double report_delay_s_ {15.0};
+  std::string report_topic_;
+  std::vector<int64_t> report_segments_;
 
   // --- Inputs ---
   MissionXY::SharedPtr list_;
@@ -510,6 +605,9 @@ private:
   bool submerged_ {false};
   rclcpp::Time submerged_stamp_;
   PoseStamped::SharedPtr pose_;
+  NavSatFix::SharedPtr gps_;
+  std::optional<rclcpp::Time> report_due_;
+  bool report_sent_ {false};
   rclcpp::Time pose_stamp_;
 
   // --- Task state ---
@@ -537,6 +635,8 @@ private:
   rclcpp::Subscription<std_msgs::msg::String>::SharedPtr status_sub_;
   rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr submerged_sub_;
   rclcpp::Subscription<PoseStamped>::SharedPtr pose_sub_;
+  rclcpp::Subscription<NavSatFix>::SharedPtr gps_sub_;
+  rclcpp::Publisher<SurveyReport>::SharedPtr report_pub_;
   rclcpp::TimerBase::SharedPtr timer_;
 };
 
