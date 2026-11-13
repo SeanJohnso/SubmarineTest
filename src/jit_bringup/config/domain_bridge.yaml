@@ -1,0 +1,92 @@
+# domain_bridge config: the sub on a private DDS domain, everything else on the
+# shared one. Started by domain_bridge.launch.py.
+#
+# WHY
+# On the shared domain MAVROS took 3-37 s per plugin to start, because every
+# entity it creates is matched against every robot on the network. On a private
+# domain it starts normally. The bridge carries only the topics listed here
+# across, so the shared domain sees a handful of topics instead of all of
+# MAVROS, and other robots cannot publish into /mavros/* or jit/*.
+#
+# DOMAINS
+# from_domain is the shared domain, to_domain the sub's private one. The launch
+# file overrides both with --from/--to, so the numbers here are only the
+# defaults. A plain entry goes shared -> sub; "reversed: true" goes sub ->
+# shared; "bidirectional: true" goes both ways (the bridge ignores its own
+# publications, so it does not loop).
+#
+# QOS
+# An entry without qos waits for a publisher and copies its reliability and
+# durability, so MAVROS's best-effort streams stay best-effort and the latched
+# jit/task/* topics stay latched.
+#
+# Topics are taken from what the boat's code subscribes to (juniorsim:
+# jit_heartbeat heartbeat_node, robotx_tasks infrastructure_node) and what the
+# sub's waypoint_listener_node needs. Add a topic here if the other side needs
+# one that is not listed.
+
+name: jit_bridge
+from_domain: 56
+to_domain: 77
+
+topics:
+  # ---- shared -> sub ------------------------------------------------------
+
+  # The mission list for waypoint_listener_node.
+  rviz/waypoints:
+    type: nav_msgs/msg/Path
+
+  # All TF from the shared domain. waypoint_listener_node needs
+  # map -> jit/local_origin.
+  tf:
+    type: tf2_msgs/msg/TFMessage
+
+  # Both ways: map -> jit/local_origin is published by jit_datum_node, which may
+  # run on either machine, and the boat's infrastructure_node needs it too.
+  # Depth 100: one bridge publisher re-latches the static transforms of every
+  # publisher on the other side, and a late joiner only gets the last <depth>.
+  tf_static:
+    type: tf2_msgs/msg/TFMessage
+    bidirectional: true
+    qos:
+      reliability: reliable
+      durability: transient_local
+      history: keep_last
+      depth: 100
+
+  # The boat's GPS. jit_datum_node reads it (remapped from /junior/fix) when it
+  # runs on the sub.
+  gps/fix:
+    type: sensor_msgs/msg/NavSatFix
+
+  # ---- sub -> shared ------------------------------------------------------
+
+  # infrastructure_node: task end (DONE / FAILED) and the survey report.
+  jit/task/state:
+    type: std_msgs/msg/String
+    reversed: true
+  robotx_comm/jit/tx_pipeline:
+    type: robotx_comm/msg/PipeLineSurveyReport
+    reversed: true
+
+  # heartbeat_node: current task, vehicle state, position, heading, speed.
+  jit/task/active:
+    type: std_msgs/msg/Bool
+    reversed: true
+  jit/mode:
+    type: jit_msgs/msg/Mode
+    reversed: true
+  jit/health:
+    type: jit_msgs/msg/Health
+    reversed: true
+
+  # heartbeat_node and infrastructure_node (sub pose for the plan request).
+  mavros/local_position/pose:
+    type: geometry_msgs/msg/PoseStamped
+    reversed: true
+  mavros/local_position/velocity_local:
+    type: geometry_msgs/msg/TwistStamped
+    reversed: true
+  mavros/global_position/global:
+    type: sensor_msgs/msg/NavSatFix
+    reversed: true

@@ -51,14 +51,19 @@ never stops the launch.
 
 Set ``enable_sonar:=false`` to leave it out.
 
-TOPIC NAMES
------------
-Every topic the stack owns is ``jit/<name>``, so this vehicle can share a DDS
-domain with another without colliding with it. That is a naming convention,
-not access control. MAVROS keeps ``/mavros/*``, and ``/tf``, ``/tf_static`` and
-``/rosout`` stay global. ``/robotx_comm/jit/tx_pipeline`` is also global, because
-subscribers on other machines expect that exact name. The heartbeat is published
-by the boat, not by this launch.
+TOPIC NAMES AND DDS DOMAINS
+---------------------------
+Every topic the stack owns is ``jit/<name>``. MAVROS keeps ``/mavros/*``, and
+``/tf``, ``/tf_static`` and ``/rosout`` stay global. ``/robotx_comm/jit/tx_pipeline``
+is also global, because subscribers on other machines expect that exact name.
+The heartbeat is published by the boat, not by this launch.
+
+The sub runs on its own DDS domain (``private_domain``, 77), not on the shared
+one (``shared_domain``, 56): on the shared domain MAVROS took minutes to start.
+Start this launch and MAVROS with ``ROS_DOMAIN_ID`` set to ``private_domain``.
+``domain_bridge.launch.py`` is included here and carries only the topics in
+``config/domain_bridge.yaml`` across. Set ``enable_domain_bridge:=false`` to
+leave it out, for example when it is already running on its own.
 
 WAYPOINT SOURCE
 ---------------
@@ -88,7 +93,11 @@ Usage:
     ros2 launch jit_bringup jit_bringup.launch.py waypoint_source:=task
     ros2 launch jit_bringup jit_bringup.launch.py waypoint_source:=task enable_survey:=true
 
-MAVROS is started separately, with jit_bringup's mavros.launch.py.
+MAVROS is started separately, with jit_bringup's mavros.launch.py, from a shell
+with the same ROS_DOMAIN_ID:
+
+    export ROS_DOMAIN_ID=77
+    ros2 launch jit_bringup mavros.launch.py
 """
 
 import os
@@ -102,6 +111,7 @@ from launch.actions import (
     DeclareLaunchArgument,
     EmitEvent,
     ExecuteProcess,
+    IncludeLaunchDescription,
     LogInfo,
     OpaqueFunction,
     RegisterEventHandler,
@@ -109,6 +119,7 @@ from launch.actions import (
 from launch.conditions import IfCondition, LaunchConfigurationEquals
 from launch.event_handlers import OnProcessExit
 from launch.events import Shutdown
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, PythonExpression
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
@@ -196,6 +207,20 @@ def generate_launch_description():
         "enable_sonar",
         default_value="true",
         description="Start the Ping360 sonar driver.",
+    )
+    arg_bridge = DeclareLaunchArgument(
+        "enable_domain_bridge",
+        default_value="true",
+        description="Start domain_bridge.launch.py, which carries the topics in "
+                    "config/domain_bridge.yaml between the sub's domain and the shared one.",
+    )
+    arg_shared_domain = DeclareLaunchArgument(
+        "shared_domain", default_value="56",
+        description="DDS domain of the boat and the other robots.",
+    )
+    arg_private_domain = DeclareLaunchArgument(
+        "private_domain", default_value="77",
+        description="DDS domain of the sub. Must equal ROS_DOMAIN_ID in this shell.",
     )
     params = LaunchConfiguration("params_file")
     waypoints = LaunchConfiguration("waypoint_file")
@@ -350,6 +375,19 @@ def generate_launch_description():
 
     task_bag_action = OpaqueFunction(function=task_bag)
 
+    # --- Domain bridge --------------------------------------------------------
+    # Holds no safety policy: if it dies the boat loses the sub's topics and the
+    # sub stops receiving lists, nothing more.
+    domain_bridge = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            PathJoinSubstitution([pkg_share, "launch", "domain_bridge.launch.py"])),
+        launch_arguments={
+            "shared_domain": LaunchConfiguration("shared_domain"),
+            "private_domain": LaunchConfiguration("private_domain"),
+        }.items(),
+        condition=IfCondition(LaunchConfiguration("enable_domain_bridge")),
+    )
+
     def on_estop_exit(event, context):
         """Abort the launch only on a REAL failure.
 
@@ -390,6 +428,9 @@ def generate_launch_description():
         arg_selftest,
         arg_led_root,
         arg_sonar,
+        arg_bridge,
+        arg_shared_domain,
+        arg_private_domain,
         # First, so the sudo prompt comes before any node output.
         led_node,
         LogInfo(msg="[bringup] starting the JIT stack - health gate does the sequencing"),
@@ -404,4 +445,5 @@ def generate_launch_description():
         task_node,
         sonar_node,
         task_bag_action,
+        domain_bridge,
     ])

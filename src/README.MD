@@ -203,8 +203,14 @@ MAKEFLAGS="-j1" colcon build --symlink-install --executor sequential
 
 ## Run
 
+The sub runs on its own DDS domain, **77**; the boat and the other robots are
+on **56**. Set the domain in every shell on the Pi before MAVROS, the stack or
+any `ros2` command:
+
 ```bash
-ros2 launch jit_bringup jit_bringup.launch.py
+export ROS_DOMAIN_ID=77
+ros2 launch jit_bringup mavros.launch.py      # terminal 1
+ros2 launch jit_bringup jit_bringup.launch.py # terminal 2
 ```
 
 Useful arguments:
@@ -218,11 +224,29 @@ Useful arguments:
 | `enable_sonar` | `true` | `false` leaves out the Ping360 driver |
 | `waypoint_source` | `file` | `topic` takes missions from another vessel on `/rviz/waypoints`; `task` holds in AUTO, waits for a list, then runs the pipeline survey (see below) |
 | `record_bag` | `true` | with `waypoint_source:=task`, records sonar and navigation topics to `~/jit_bags/` |
+| `enable_domain_bridge` | `true` | `false` leaves out the domain bridge (below) |
+| `shared_domain` / `private_domain` | `56` / `77` | the two DDS domains the bridge joins |
 
 Every topic the stack owns is `jit/<name>` (`jit/health`, `jit/crsf/link_ok`,
-`jit/cmd/local_guided/setpoint`, …) so the sub can share a DDS domain with
-another vessel. MAVROS keeps `/mavros/*`; `/tf`, `/tf_static` and `/rosout`
-stay global.
+`jit/cmd/local_guided/setpoint`, …). MAVROS keeps `/mavros/*`; `/tf`,
+`/tf_static` and `/rosout` stay global.
+
+### Domain bridge
+
+On the shared domain MAVROS took minutes to start, because every entity it
+creates is matched against every robot on the network. So the sub stays on
+domain 77, and `domain_bridge` (`sudo apt install ros-humble-domain-bridge`)
+carries only the topics in `jit_bringup/config/domain_bridge.yaml`:
+
+| direction | topics |
+|---|---|
+| shared → sub | `/rviz/waypoints`, `/tf`, `/gps/fix` |
+| both | `/tf_static` |
+| sub → shared | `/jit/task/state`, `/jit/task/active`, `/robotx_comm/jit/tx_pipeline`, `/jit/mode`, `/jit/health`, `/mavros/local_position/pose`, `/mavros/local_position/velocity_local`, `/mavros/global_position/global` |
+
+`jit_bringup.launch.py` starts it. With MAVROS up and the stack down, run it
+alone with `ros2 launch jit_bringup domain_bridge.launch.py`. If the boat needs
+another topic from the sub, add it to the YAML with `reversed: true`.
 
 ### The pipeline survey (`waypoint_source:=task`)
 
