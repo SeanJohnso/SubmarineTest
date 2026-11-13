@@ -1,6 +1,7 @@
-# The sub's network configuration, read by domain_bridge.launch.py: the two
-# DDS domains, the topics bridged between them, and the network addresses DDS
-# may use. That launch starts the bridge, MAVROS and the stack from it.
+# The sub's network configuration: the two DDS domains, the topics bridged
+# between them, and the network addresses DDS may use. Read by domain_bridge
+# itself and, through jit_network.py, by domain_bridge.launch.py,
+# mavros.launch.py and jit_bringup.launch.py.
 #
 # WHY
 # On the shared domain MAVROS took 3-37 s per plugin to start, because every
@@ -10,10 +11,10 @@
 # MAVROS, and other robots cannot publish into /mavros/* or jit/*.
 #
 # DOMAINS
-# from_domain is the shared domain, to_domain the sub's private one. The launch
-# sets ROS_DOMAIN_ID to to_domain for MAVROS and the stack. A plain entry goes
-# shared -> sub; "reversed: true" goes sub ->
-# shared; "bidirectional: true" goes both ways (the bridge ignores its own
+# from_domain is the shared domain, to_domain the sub's private one. Each of the
+# three launches sets ROS_DOMAIN_ID to to_domain for its own processes. A plain
+# entry goes shared -> sub; "reversed: true" goes sub -> shared;
+# "bidirectional: true" goes both ways (the bridge ignores its own
 # publications, so it does not loop).
 #
 # QOS
@@ -30,10 +31,10 @@ name: jit_bridge
 from_domain: 56
 to_domain: 77
 
-# Read by domain_bridge.launch.py, ignored by domain_bridge itself.
+# Read by jit_network.py, ignored by domain_bridge itself.
 network:
   # The only addresses Fast DDS may use for UDP, for the bridge, MAVROS and the
-  # stack, on both domains. The launch writes a Fast DDS profile from this list.
+  # stack, on both domains. jit_network.py writes a Fast DDS profile from it.
   # wlan0 is left out on purpose, so no DDS traffic goes out on the Wi-Fi.
   # Fast DDS 2.6 (Humble) matches addresses, not interface names: if eth0's
   # static address changes, change it here. Same-host traffic uses shared

@@ -204,21 +204,19 @@ MAKEFLAGS="-j1" colcon build --symlink-install --executor sequential
 ## Run
 
 The sub runs on its own DDS domain, **77**; the boat and the other robots are
-on **56**. One launch starts everything, in order: the domain bridge, MAVROS
-2 s later, the stack 6 s after the start. It sets `ROS_DOMAIN_ID=77` for all of
-them and keeps their DDS traffic off `wlan0`:
+on **56**. Start three launches, each in its own terminal, in this order:
 
 ```bash
-ros2 launch jit_bringup domain_bridge.launch.py
-ros2 launch jit_bringup domain_bridge.launch.py waypoint_source:=task
-ros2 launch jit_bringup domain_bridge.launch.py start_stack:=false   # bridge + MAVROS only
+ros2 launch jit_bringup domain_bridge.launch.py   # terminal 1 - the bridge, first
+ros2 launch jit_bringup mavros.launch.py          # terminal 2
+ros2 launch jit_bringup jit_bringup.launch.py     # terminal 3
 ```
 
-Arguments for `jit_bringup.launch.py` and `mavros.launch.py` go on the same
-command line.
-Run only one bridge: two bridges pass `/tf_static` back and forth between each
-other. For `ros2` CLI commands in another shell, `export ROS_DOMAIN_ID=77`
-(already in the Pi's `~/.bashrc`).
+Each one sets `ROS_DOMAIN_ID=77` and the DDS address restriction (below) for
+its own processes from `jit_bringup/config/domain_bridge.yaml`, so no export is
+needed. Run only one bridge: two bridges pass `/tf_static` back and forth
+between each other. For `ros2` CLI commands in another shell,
+`export ROS_DOMAIN_ID=77` (already in the Pi's `~/.bashrc`).
 
 Useful arguments:
 
@@ -250,9 +248,10 @@ carries only the topics in `jit_bringup/config/domain_bridge.yaml`:
 | sub → shared | `/jit/task/state`, `/jit/task/active`, `/robotx_comm/jit/tx_pipeline`, `/jit/mode`, `/jit/health`, `/mavros/local_position/pose`, `/mavros/local_position/velocity_local`, `/mavros/global_position/global` |
 
 `network.allowed_addresses` in the same YAML (`127.0.0.1` and eth0's
-`201.7.90.101`) are the only addresses DDS may use. `domain_bridge.launch.py`
-writes a Fast DDS profile from them and applies it to the bridge, MAVROS and
-the stack, so nothing on domain 56 or 77 goes out on `wlan0`. Fast DDS on
+`201.7.90.101`) are the only addresses DDS may use. Each of the three launches
+writes a Fast DDS profile from them and applies it to its own processes
+(`jit_bringup/launch/jit_network.py`), so nothing on domain 56 or 77 goes out
+on `wlan0`. Fast DDS on
 Humble matches addresses, not interface names: if eth0's address changes,
 change it in the YAML. A `ros2` CLI command run from another shell still uses
 the default transports. If the boat needs another topic from the sub, add it

@@ -10,16 +10,26 @@ in one TF tree, and the boat publishes ``map`` -> ``jit/local_origin``.
 The stock files are read from the installed MAVROS, so nothing here depends on
 its version.
 
+Second of the sub's three launches, after domain_bridge.launch.py. It sets
+ROS_DOMAIN_ID and the DDS address restriction from config/domain_bridge.yaml
+(jit_network.py), so MAVROS is on the sub's private domain and off wlan0.
+
 Usage:
     ros2 launch jit_bringup mavros.launch.py
     ros2 launch jit_bringup mavros.launch.py fcu_url:=udp://:14550@<blueos-ip>:14560
 """
+
+import os
+import sys
 
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
+
+sys.path.insert(0, os.path.dirname(__file__))
+from jit_network import network_setup  # noqa: E402
 
 
 def generate_launch_description():
@@ -51,4 +61,4 @@ def generate_launch_description():
         ],
     )
 
-    return LaunchDescription(args + [mavros])
+    return LaunchDescription(args + [network_setup("mavros"), mavros])

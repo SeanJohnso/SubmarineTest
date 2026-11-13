@@ -51,10 +51,9 @@ is also global, because subscribers on other machines expect that exact name.
 The heartbeat is published by the boat, not by this launch.
 
 The sub runs on its own DDS domain, 77, not on the shared one, 56: on the
-shared domain MAVROS took minutes to start. Start this launch and MAVROS with
-``ROS_DOMAIN_ID=77``.
-``domain_bridge.launch.py`` starts the bridge, MAVROS and this launch, in that
-order (see the usage below).
+shared domain MAVROS took minutes to start. This launch, like the other two,
+sets ROS_DOMAIN_ID and a Fast DDS address restriction (no wlan0) from
+config/domain_bridge.yaml before starting anything - see jit_network.py.
 
 WAYPOINT SOURCE
 ---------------
@@ -83,17 +82,15 @@ Usage:
     ros2 launch jit_bringup jit_bringup.launch.py waypoint_source:=task
     ros2 launch jit_bringup jit_bringup.launch.py waypoint_source:=task enable_survey:=true
 
-On the vehicle, start this launch through domain_bridge.launch.py, which
-starts the bridge, then MAVROS, then this file, sets ROS_DOMAIN_ID and keeps
-DDS off wlan0. Arguments for this file go on that command line:
+This is the third of the sub's three launches, each in its own terminal:
 
-    ros2 launch jit_bringup domain_bridge.launch.py waypoint_source:=task
-
-Started on its own, this file uses the shell's ROS_DOMAIN_ID and the default
-DDS transports, which also use wlan0.
+    ros2 launch jit_bringup domain_bridge.launch.py   # 1
+    ros2 launch jit_bringup mavros.launch.py          # 2
+    ros2 launch jit_bringup jit_bringup.launch.py     # 3
 """
 
 import os
+import sys
 import time
 
 from launch import LaunchDescription
@@ -112,6 +109,9 @@ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, Pyth
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
 from launch_ros.substitutions import FindPackageShare
+
+sys.path.insert(0, os.path.dirname(__file__))
+from jit_network import network_setup  # noqa: E402
 
 RESPAWN_DELAY_S = 2.0
 
@@ -331,6 +331,8 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
+        # First, so every process below gets the domain and the DDS profile.
+        network_setup("bringup"),
         arg_params,
         arg_waypoints,
         arg_wp_source,
