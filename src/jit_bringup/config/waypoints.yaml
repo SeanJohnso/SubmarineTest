@@ -59,8 +59,11 @@ waypoints:
   # Surface test: one waypoint, two metres East, holding the entry depth.
   # No z anywhere, so nav/local/submerged is never asserted and the RC failsafe
   # behaves exactly as it always has.
-  - {x: 2.0, y: 0.0}
-
+  - {x: 3.0, y: 3.0, z: 0.0}
+  - {x: 3.0, y: 3.0, z: -1.0}
+  - {x: 5.0, y: 3.0, z: -1.0}
+  - {x: 5.0, y: 3.0, z: 0.0}
+  - {x: 0.0, y: 0.0, z: 0.0}
   # --- First submerged test: straight down and back up ---------------------
   # Uncomment this block AND comment out the surface waypoint above. Check
   # max_submerged_s in jit_params.yaml first - this run should need well under
