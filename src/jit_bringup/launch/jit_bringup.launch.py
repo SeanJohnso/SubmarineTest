@@ -25,20 +25,12 @@ fault behind a wall of restarts.
 Set ``boot_selftest:=false`` for bench work where the relay or the feedback LDO
 is not connected.
 
-THE LED DRIVER RUNS AS ROOT
----------------------------
-rpi_ws281x needs root for the panel's PWM/DMA hardware (/dev/vcio, /dev/mem).
-Before any node starts, the launch runs ``sudo -v`` - this is the password
-prompt - and then starts ``led_driver_node`` alone under ``sudo -n``. sudo
-wipes the environment, LD_LIBRARY_PATH included, so the variables the node
-needs are handed across explicitly through ``env``. The node is also pinned to
-a UDP-only Fast DDS profile (jit_ui/config/udp_only.xml): shared memory cannot
-carry data between a root process and user processes, so without it the node
-discovers led/command but never receives a sample. If sudo fails (wrong
-password, no terminal) the LED node is skipped and the rest of the stack runs
-normally: the panel is indication only and holds no safety policy.
-
-Set ``led_as_root:=false`` to start it as the current user instead.
+THE LED DRIVER
+--------------
+``led_driver_node`` drives the panel through SPI0 (/dev/spidev0.0) and runs as
+the login user like every other node: no sudo. The user must be in the group
+that owns /dev/spidev0.0 and /dev/gpiomem (dialout on the Pi). The panel is
+indication only and holds no safety policy.
 
 THE SONAR
 ---------
@@ -58,12 +50,11 @@ Every topic the stack owns is ``jit/<name>``. MAVROS keeps ``/mavros/*``, and
 is also global, because subscribers on other machines expect that exact name.
 The heartbeat is published by the boat, not by this launch.
 
-The sub runs on its own DDS domain (``private_domain``, 77), not on the shared
-one (``shared_domain``, 56): on the shared domain MAVROS took minutes to start.
-Start this launch and MAVROS with ``ROS_DOMAIN_ID`` set to ``private_domain``.
-``domain_bridge.launch.py`` is included here and carries only the topics in
-``config/domain_bridge.yaml`` across. Set ``enable_domain_bridge:=false`` to
-leave it out, for example when it is already running on its own.
+The sub runs on its own DDS domain, 77, not on the shared one, 56: on the
+shared domain MAVROS took minutes to start. Start this launch and MAVROS with
+``ROS_DOMAIN_ID=77``.
+``domain_bridge.launch.py`` starts the bridge, MAVROS and this launch, in that
+order (see the usage below).
 
 WAYPOINT SOURCE
 ---------------
@@ -88,30 +79,28 @@ Usage:
     ros2 launch jit_bringup jit_bringup.launch.py enable_control:=false
     ros2 launch jit_bringup jit_bringup.launch.py boot_selftest:=false
     ros2 launch jit_bringup jit_bringup.launch.py params_file:=/path/to/my.yaml
-    ros2 launch jit_bringup jit_bringup.launch.py led_as_root:=false
     ros2 launch jit_bringup jit_bringup.launch.py enable_sonar:=false
     ros2 launch jit_bringup jit_bringup.launch.py waypoint_source:=task
     ros2 launch jit_bringup jit_bringup.launch.py waypoint_source:=task enable_survey:=true
 
-MAVROS is started separately, with jit_bringup's mavros.launch.py, from a shell
-with the same ROS_DOMAIN_ID:
+On the vehicle, start this launch through domain_bridge.launch.py, which
+starts the bridge, then MAVROS, then this file, sets ROS_DOMAIN_ID and keeps
+DDS off wlan0. Arguments for this file go on that command line:
 
-    export ROS_DOMAIN_ID=77
-    ros2 launch jit_bringup mavros.launch.py
+    ros2 launch jit_bringup domain_bridge.launch.py waypoint_source:=task
+
+Started on its own, this file uses the shell's ROS_DOMAIN_ID and the default
+DDS transports, which also use wlan0.
 """
 
 import os
-import shlex
-import subprocess
 import time
 
-from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import (
     DeclareLaunchArgument,
     EmitEvent,
     ExecuteProcess,
-    IncludeLaunchDescription,
     LogInfo,
     OpaqueFunction,
     RegisterEventHandler,
@@ -119,7 +108,6 @@ from launch.actions import (
 from launch.conditions import IfCondition, LaunchConfigurationEquals
 from launch.event_handlers import OnProcessExit
 from launch.events import Shutdown
-from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, PythonExpression
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
@@ -138,20 +126,6 @@ TASK_BAG_TOPICS = (
     "/jit/nav/local/submerged",
     "/jit/task/state",
     "/jit/task/active",
-)
-
-# Carried across sudo to the root-run led_driver_node. sudo resets the
-# environment and always strips LD_LIBRARY_PATH, without which the node cannot
-# find the ROS libraries; the DDS variables keep it on the same ROS graph.
-ROOT_ENV_KEEP = (
-    "LD_LIBRARY_PATH",
-    "AMENT_PREFIX_PATH",
-    "ROS_DOMAIN_ID",
-    "ROS_LOCALHOST_ONLY",
-    "RMW_IMPLEMENTATION",
-    "FASTRTPS_DEFAULT_PROFILES_FILE",
-    "CYCLONEDDS_URI",
-    "ROS_LOG_DIR",
 )
 
 
@@ -198,29 +172,10 @@ def generate_launch_description():
         default_value="true",
         description="Run the welded-relay check at startup. Only disable on the bench.",
     )
-    arg_led_root = DeclareLaunchArgument(
-        "led_as_root",
-        default_value="true",
-        description="Start led_driver_node through sudo (asks for the password once).",
-    )
     arg_sonar = DeclareLaunchArgument(
         "enable_sonar",
         default_value="true",
         description="Start the Ping360 sonar driver.",
-    )
-    arg_bridge = DeclareLaunchArgument(
-        "enable_domain_bridge",
-        default_value="true",
-        description="Start domain_bridge.launch.py, which carries the topics in "
-                    "config/domain_bridge.yaml between the sub's domain and the shared one.",
-    )
-    arg_shared_domain = DeclareLaunchArgument(
-        "shared_domain", default_value="56",
-        description="DDS domain of the boat and the other robots.",
-    )
-    arg_private_domain = DeclareLaunchArgument(
-        "private_domain", default_value="77",
-        description="DDS domain of the sub. Must equal ROS_DOMAIN_ID in this shell.",
     )
     params = LaunchConfiguration("params_file")
     waypoints = LaunchConfiguration("waypoint_file")
@@ -271,39 +226,9 @@ def generate_launch_description():
     monitor_node = OpaqueFunction(function=system_monitor)
 
     # --- Indication ---------------------------------------------------------
-    def led_driver(context):
-        """Start led_driver_node, through sudo unless led_as_root is false.
-
-        Runs as an OpaqueFunction placed ahead of every node, so the password
-        prompt appears on a quiet terminal before anything else has started.
-        """
-        kw = dict(respawn=True, respawn_delay=RESPAWN_DELAY_S)
-        as_root = LaunchConfiguration("led_as_root").perform(context).lower()
-        if as_root not in ("true", "1", "yes"):
-            return [node("jit_ui", "led_driver_node", **kw)]
-
-        print(
-            "[bringup] led_driver_node needs root for the LED panel "
-            "(rpi_ws281x PWM/DMA) - sudo may ask for your password.",
-            flush=True,
-        )
-        if subprocess.run(["sudo", "-v"]).returncode != 0:
-            return [LogInfo(
-                msg="[bringup] sudo failed - led_driver_node NOT started, the panel "
-                    "stays dark. The rest of the stack is unaffected."
-            )]
-
-        # -n: never prompt. The credentials cached by sudo -v above cover the
-        # first start and respawns inside sudo's timeout; outside it, sudo
-        # fails loudly instead of hanging on a prompt buried in node output.
-        forwarded = ["{}={}".format(k, os.environ[k]) for k in ROOT_ENV_KEEP if k in os.environ]
-        # Last on the env line, so it wins over any profile forwarded above.
-        udp_profile = os.path.join(get_package_share_directory("jit_ui"), "config", "udp_only.xml")
-        forwarded.append("FASTRTPS_DEFAULT_PROFILES_FILE={}".format(udp_profile))
-        prefix = " ".join(shlex.quote(a) for a in ["sudo", "-n", "/usr/bin/env", *forwarded])
-        return [node("jit_ui", "led_driver_node", prefix=prefix, **kw)]
-
-    led_node = OpaqueFunction(function=led_driver)
+    led_node = node(
+        "jit_ui", "led_driver_node", respawn=True, respawn_delay=RESPAWN_DELAY_S,
+    )
 
     # --- Sensors ------------------------------------------------------------
     # Namespaced, so its jit_params.yaml key is /jit/sonar/ping360_node.
@@ -375,19 +300,6 @@ def generate_launch_description():
 
     task_bag_action = OpaqueFunction(function=task_bag)
 
-    # --- Domain bridge --------------------------------------------------------
-    # Holds no safety policy: if it dies the boat loses the sub's topics and the
-    # sub stops receiving lists, nothing more.
-    domain_bridge = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            PathJoinSubstitution([pkg_share, "launch", "domain_bridge.launch.py"])),
-        launch_arguments={
-            "shared_domain": LaunchConfiguration("shared_domain"),
-            "private_domain": LaunchConfiguration("private_domain"),
-        }.items(),
-        condition=IfCondition(LaunchConfiguration("enable_domain_bridge")),
-    )
-
     def on_estop_exit(event, context):
         """Abort the launch only on a REAL failure.
 
@@ -426,15 +338,10 @@ def generate_launch_description():
         arg_record_bag,
         arg_control,
         arg_selftest,
-        arg_led_root,
         arg_sonar,
-        arg_bridge,
-        arg_shared_domain,
-        arg_private_domain,
-        # First, so the sudo prompt comes before any node output.
-        led_node,
         LogInfo(msg="[bringup] starting the JIT stack - health gate does the sequencing"),
         abort_on_estop_failure,
+        led_node,
         crsf_node,
         gpio_node,
         monitor_node,
@@ -445,5 +352,4 @@ def generate_launch_description():
         task_node,
         sonar_node,
         task_bag_action,
-        domain_bridge,
     ])

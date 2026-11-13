@@ -1,5 +1,6 @@
-# domain_bridge config: the sub on a private DDS domain, everything else on the
-# shared one. Started by domain_bridge.launch.py.
+# The sub's network configuration, read by domain_bridge.launch.py: the two
+# DDS domains, the topics bridged between them, and the network addresses DDS
+# may use. That launch starts the bridge, MAVROS and the stack from it.
 #
 # WHY
 # On the shared domain MAVROS took 3-37 s per plugin to start, because every
@@ -10,8 +11,8 @@
 #
 # DOMAINS
 # from_domain is the shared domain, to_domain the sub's private one. The launch
-# file overrides both with --from/--to, so the numbers here are only the
-# defaults. A plain entry goes shared -> sub; "reversed: true" goes sub ->
+# sets ROS_DOMAIN_ID to to_domain for MAVROS and the stack. A plain entry goes
+# shared -> sub; "reversed: true" goes sub ->
 # shared; "bidirectional: true" goes both ways (the bridge ignores its own
 # publications, so it does not loop).
 #
@@ -29,6 +30,18 @@ name: jit_bridge
 from_domain: 56
 to_domain: 77
 
+# Read by domain_bridge.launch.py, ignored by domain_bridge itself.
+network:
+  # The only addresses Fast DDS may use for UDP, for the bridge, MAVROS and the
+  # stack, on both domains. The launch writes a Fast DDS profile from this list.
+  # wlan0 is left out on purpose, so no DDS traffic goes out on the Wi-Fi.
+  # Fast DDS 2.6 (Humble) matches addresses, not interface names: if eth0's
+  # static address changes, change it here. Same-host traffic uses shared
+  # memory; loopback stays allowed for anything on this Pi that falls back to UDP.
+  allowed_addresses:
+    - 127.0.0.1      # loopback
+    - 201.7.90.101   # eth0: BlueOS and the boat
+
 topics:
   # ---- shared -> sub ------------------------------------------------------
 
@@ -41,8 +54,9 @@ topics:
   tf:
     type: tf2_msgs/msg/TFMessage
 
-  # Both ways: map -> jit/local_origin is published by jit_datum_node, which may
-  # run on either machine, and the boat's infrastructure_node needs it too.
+  # Both ways. In: the boat's static frames. Out: map -> jit/local_origin from
+  # jit_datum_node on the sub, which the boat's infrastructure_node needs to put
+  # the sub's pose into its map.
   # Depth 100: one bridge publisher re-latches the static transforms of every
   # publisher on the other side, and a late joiner only gets the last <depth>.
   tf_static:
@@ -54,8 +68,8 @@ topics:
       history: keep_last
       depth: 100
 
-  # The boat's GPS. jit_datum_node reads it (remapped from /junior/fix) when it
-  # runs on the sub.
+  # The boat's GPS. jit_datum_node on the sub reads it (remapped from
+  # /junior/fix) to anchor map -> jit/local_origin.
   gps/fix:
     type: sensor_msgs/msg/NavSatFix
 

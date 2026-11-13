@@ -96,8 +96,8 @@ dpkg -L libgpiod-dev | grep libgpiod
 
 ### rpi_ws281x — LED indicator panel
 
-Used only by `jit_ui/led_driver_node`. Drives the addressable panel over one
-GPIO pin via PWM + DMA.
+Used only by `jit_ui/led_driver_node`. Drives the addressable panel over SPI0
+(`/dev/spidev0.0`, data on BCM10).
 
 <https://github.com/jgarff/rpi_ws281x>
 
@@ -117,9 +117,9 @@ Check:
 ldconfig -p | grep ws2811
 ```
 
-Needs root (or the right capabilities) to access the PWM/DMA hardware, and
-only one process may hold a given DMA channel at a time — do not run
-`led_driver_node` alongside another process that also drives the panel.
+In SPI mode it needs no root: the node runs as the login user, who must be in
+`dialout`, the group that owns `/dev/spidev0.0` and `/dev/gpiomem` on the Pi.
+Nothing else may use SPI0, and only one process may drive the panel.
 
 ### yaml-cpp — mission file parsing
 
@@ -204,14 +204,21 @@ MAKEFLAGS="-j1" colcon build --symlink-install --executor sequential
 ## Run
 
 The sub runs on its own DDS domain, **77**; the boat and the other robots are
-on **56**. Set the domain in every shell on the Pi before MAVROS, the stack or
-any `ros2` command:
+on **56**. One launch starts everything, in order: the domain bridge, MAVROS
+2 s later, the stack 6 s after the start. It sets `ROS_DOMAIN_ID=77` for all of
+them and keeps their DDS traffic off `wlan0`:
 
 ```bash
-export ROS_DOMAIN_ID=77
-ros2 launch jit_bringup mavros.launch.py      # terminal 1
-ros2 launch jit_bringup jit_bringup.launch.py # terminal 2
+ros2 launch jit_bringup domain_bridge.launch.py
+ros2 launch jit_bringup domain_bridge.launch.py waypoint_source:=task
+ros2 launch jit_bringup domain_bridge.launch.py start_stack:=false   # bridge + MAVROS only
 ```
+
+Arguments for `jit_bringup.launch.py` and `mavros.launch.py` go on the same
+command line.
+Run only one bridge: two bridges pass `/tf_static` back and forth between each
+other. For `ros2` CLI commands in another shell, `export ROS_DOMAIN_ID=77`
+(already in the Pi's `~/.bashrc`).
 
 Useful arguments:
 
@@ -224,8 +231,6 @@ Useful arguments:
 | `enable_sonar` | `true` | `false` leaves out the Ping360 driver |
 | `waypoint_source` | `file` | `topic` takes missions from another vessel on `/rviz/waypoints`; `task` holds in AUTO, waits for a list, then runs the pipeline survey (see below) |
 | `record_bag` | `true` | with `waypoint_source:=task`, records sonar and navigation topics to `~/jit_bags/` |
-| `enable_domain_bridge` | `true` | `false` leaves out the domain bridge (below) |
-| `shared_domain` / `private_domain` | `56` / `77` | the two DDS domains the bridge joins |
 
 Every topic the stack owns is `jit/<name>` (`jit/health`, `jit/crsf/link_ok`,
 `jit/cmd/local_guided/setpoint`, …). MAVROS keeps `/mavros/*`; `/tf`,
@@ -244,9 +249,14 @@ carries only the topics in `jit_bringup/config/domain_bridge.yaml`:
 | both | `/tf_static` |
 | sub → shared | `/jit/task/state`, `/jit/task/active`, `/robotx_comm/jit/tx_pipeline`, `/jit/mode`, `/jit/health`, `/mavros/local_position/pose`, `/mavros/local_position/velocity_local`, `/mavros/global_position/global` |
 
-`jit_bringup.launch.py` starts it. With MAVROS up and the stack down, run it
-alone with `ros2 launch jit_bringup domain_bridge.launch.py`. If the boat needs
-another topic from the sub, add it to the YAML with `reversed: true`.
+`network.allowed_addresses` in the same YAML (`127.0.0.1` and eth0's
+`201.7.90.101`) are the only addresses DDS may use. `domain_bridge.launch.py`
+writes a Fast DDS profile from them and applies it to the bridge, MAVROS and
+the stack, so nothing on domain 56 or 77 goes out on `wlan0`. Fast DDS on
+Humble matches addresses, not interface names: if eth0's address changes,
+change it in the YAML. A `ros2` CLI command run from another shell still uses
+the default transports. If the boat needs another topic from the sub, add it
+to the YAML with `reversed: true`.
 
 ### The pipeline survey (`waypoint_source:=task`)
 
@@ -279,7 +289,13 @@ position as the buoy position.
 The other vessel publishes:
 
 - `/rviz/waypoints` — `nav_msgs/Path`, `header.frame_id: map`, x/y per pose.
-- `/tf_static` — `map → local_origin`, placing the sub's EKF origin in its map.
+- `/gps/fix` — its GPS, which anchors its `map` frame.
+
+`jit_datum_node` (package `jit_navigation`, started on the sub with
+`ros2 launch jit_navigation jit_datum_launch.xml`, with `ROS_DOMAIN_ID=77`)
+reads the boat's `/gps/fix` and the sub's `/mavros/global_position/global` and
+publishes `map → jit/local_origin` on `/tf_static`, placing the sub's EKF origin
+in the boat's map. The bridge carries that transform to the boat too.
 
 `waypoint_listener_node` drops every z, trims the list so no two kept
 waypoints are closer than `min_waypoint_spacing_m` (0.5 m; the first and last
@@ -317,5 +333,5 @@ MAVLink layer and then silently ignored.
 | relay coil drive | BCM23 / header 16 | output | HIGH = coil energized = motor rail live |
 | relay feedback | BCM18 / header 12 | input | 3.3 V LDO on the switched rail. HIGH = rail live |
 | CRSF receiver | `/dev/ttyAMA0` | RX only | one-way: the Pi's UART TX is not wired to the Rx |
-| LED panel data | BCM13 / header 33 | output | PWM channel 1. Single-wire addressable panel (rpi_ws281x) |
+| LED panel data | BCM10 / header 19 | output | SPI0 MOSI. Single-wire addressable panel (rpi_ws281x, SPI mode) |
 | Ping360 sonar | USB, `/dev/ttyUSB0` | serial | BLU/USB adapter, 115200 baud. Set in `jit_params.yaml` |
