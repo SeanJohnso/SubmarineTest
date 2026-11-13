@@ -257,6 +257,31 @@ change it in the YAML. A `ros2` CLI command run from another shell still uses
 the default transports. If the boat needs another topic from the sub, add it
 to the YAML with `reversed: true`.
 
+### Open problems (2026-11-13)
+
+- **The bridge overloads the Pi's CPU.** Once the three launches were working,
+  the bridge processing the MAVROS topics overloaded the CPU. Not yet diagnosed.
+  MAVROS alone already uses most of a core, and the `evaluate_health()` stalls
+  and `MAVROS_LOST` flapping in `system_monitor_node` predate the bridge.
+  Candidates, none tried yet:
+  - Lower the rate of the bridged MAVROS streams: throttle on domain 77 and
+    bridge the throttled topic, or lower ArduSub's stream rates.
+  - Stop bridging `/tf` into the sub. The datum runs on the sub, so the sub
+    needs no inbound TF.
+  - Trim the MAVROS plugin list. **Done, not yet measured on the Pi:**
+    `config/mavros_params.yaml` loads 8 plugins instead of the stock set.
+  - Make sure only one bridge runs.
+- **NaN datum.** `jit_datum_node` accepts the boat's `/gps/fix` even when it has
+  no fix (NaN latitude and longitude), and anchors only once. It then latches
+  `map → jit/local_origin = (nan, nan, nan)`, and every list is rejected.
+  Restart the datum node once the boat has a fix.
+- **The boat being on eth0 is unverified.** If the boat is on Wi-Fi only, the
+  address restriction cuts it off.
+- **Another host on eth0 is on domain 77.** It publishes `/jit/*` and
+  `/mavros/local_position/pose` topics. It is unidentified.
+- **The datum node isn't in the three launches.** Start it from a shell with
+  `ROS_DOMAIN_ID=77`.
+
 ### The pipeline survey (`waypoint_source:=task`)
 
 With the switch in AUTO the sub arms and holds position. When a list arrives on

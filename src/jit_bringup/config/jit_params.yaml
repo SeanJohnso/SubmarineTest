@@ -226,7 +226,7 @@ manual_control_node:
 local_guided_node:
   ros__parameters:
     # The frame MAVROS stamps on /mavros/local_position/pose, set in
-    # mavros_frames.yaml. Must match waypoint_listener_node's local_frame.
+    # mavros_params.yaml. Must match waypoint_listener_node's local_frame.
     local_frame: jit/local_origin
     # waypoint_file is set by the launch file - see config/waypoints.yaml.
     # Acceptance mirrors ArduPilot's verify_nav_wp(): touch the ball once, then

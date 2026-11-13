@@ -1,0 +1,45 @@
+# The sub's MAVROS parameters, the only jit file mavros.launch.py loads.
+# It is loaded AFTER the stock apm_config.yaml from the installed MAVROS, so
+# anything set here wins. It replaces the stock apm_pluginlists.yaml.
+
+# ---- Plugins ----------------------------------------------------------------
+# To cut CPU use on the Pi, only the plugins the stack uses are loaded. MAVROS
+# blocks a plugin that matches plugin_denylist unless it also matches
+# plugin_allowlist, so "*" plus the list below loads exactly these.
+#
+# To use a MAVROS topic that is not listed, add its plugin here.
+/**:
+  ros__parameters:
+    plugin_denylist:
+      - "*"
+    plugin_allowlist:
+      # /mavros/state and /mavros/set_mode (vehicle_interface_node,
+      # system_monitor_node), plus the heartbeat to the FCU.
+      - sys_status
+      # FCU time sync for message stamps. Not read by any node; kept so stamps
+      # behave as they did with the full plugin set.
+      - sys_time
+      # /mavros/cmd/arming (vehicle_interface_node).
+      - command
+      # Attitude. local_position takes the pose orientation from it, and
+      # local_guided_node reads that orientation for its hold yaw.
+      - imu
+      # /mavros/local_position/pose and velocity_local (local_guided_node,
+      # task_node, waypoint_listener_node, the bag, the bridge to the boat).
+      - local_position
+      # /mavros/global_position/global (task_node, jit_datum_node, the bridge).
+      - global_position
+      # /mavros/setpoint_position/local (vehicle_interface_node, GUIDED).
+      - setpoint_position
+      # /mavros/manual_control/send (vehicle_interface_node, MANUAL).
+      - manual_control
+
+# ---- Frames -----------------------------------------------------------------
+# MAVROS stamps /mavros/local_position/pose with "map" by default. The boat's
+# frame is also "map", and one TF tree cannot hold two frames with the same
+# name, so the sub's frame is renamed. It must match local_frame for
+# waypoint_listener_node and local_guided_node in jit_params.yaml.
+/**/local_position:
+  ros__parameters:
+    frame_id: "jit/local_origin"
+    tf.frame_id: "jit/local_origin"

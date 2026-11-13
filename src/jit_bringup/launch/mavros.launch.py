@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 """MAVROS for the JIT submarine.
 
-The same node and settings as the stock ``mavros apm.launch``, plus
-``config/mavros_frames.yaml`` loaded last so that it wins. That file renames the
-local position frame from MAVROS's default ``map`` to ``jit/local_origin``,
-because the boat's frame is also called ``map``. Two frames cannot share a name
-in one TF tree, and the boat publishes ``map`` -> ``jit/local_origin``.
+The same node as the stock ``mavros apm.launch``, with the stock
+``apm_config.yaml`` read from the installed MAVROS and then
+``config/mavros_params.yaml`` loaded last so that it wins. That one file holds
+all of the sub's MAVROS settings:
 
-The stock files are read from the installed MAVROS, so nothing here depends on
-its version.
+- The plugin list. Only the plugins the stack uses are loaded, to cut CPU use
+  on the Pi. It replaces the stock ``apm_pluginlists.yaml``, which is not loaded.
+- The local position frame, renamed from MAVROS's default ``map`` to
+  ``jit/local_origin``, because the boat's frame is also called ``map``. Two
+  frames cannot share a name in one TF tree, and the boat publishes
+  ``map`` -> ``jit/local_origin``.
 
 Second of the sub's three launches, after domain_bridge.launch.py. It sets
 ROS_DOMAIN_ID and the DDS address restriction from config/domain_bridge.yaml
@@ -54,10 +57,9 @@ def generate_launch_description():
                 "tgt_component": LaunchConfiguration("tgt_component"),
                 "fcu_protocol": LaunchConfiguration("fcu_protocol"),
             },
-            PathJoinSubstitution([mavros_share, "launch", "apm_pluginlists.yaml"]),
             PathJoinSubstitution([mavros_share, "launch", "apm_config.yaml"]),
             PathJoinSubstitution(
-                [FindPackageShare("jit_bringup"), "config", "mavros_frames.yaml"]),
+                [FindPackageShare("jit_bringup"), "config", "mavros_params.yaml"]),
         ],
     )
 
