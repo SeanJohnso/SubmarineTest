@@ -10,7 +10,27 @@
 #
 #   x  metres East of the datum   (local ENU frame, NOT the vehicle's heading)
 #   y  metres North of the datum
-#   z  OPTIONAL. Metres Up from the depth at mode entry - negative is deeper.
+#   z    OPTIONAL. Metres Up from the depth at mode entry - negative is deeper.
+#   yaw  OPTIONAL, except on the FINAL waypoint of a task run (see below).
+#        DEGREES, ENU convention: 0 = East, 90 = North, counter-clockwise
+#        positive. Absolute in the local frame, NOT relative to the sub's
+#        heading at entry.
+#
+# YAW IS NEVER A GOAL FOR THE SUB. No waypoint's yaw is ever sent to the
+# vehicle; it always points along track toward the next target. A plain
+# waypoint_source:=file run ignores yaw entirely. Its only use is in a task run
+# (waypoint_source:=task task_list:=file), where the FINAL waypoint's yaw is
+# the heading the survey traverses along - the same role the boat's final
+# heading plays. yaw on any other waypoint is ignored there too.
+#
+# ONE FILE, TWO JOBS. A plain file run may dive. A task run may not: any
+# waypoint with a non-zero z rejects the whole file, because the task does its
+# own dive in the survey. Edit this file to match the run you are launching.
+#
+#   Task surface list example:
+#     - {x: 2.0, y: 3.0, z: 0.0, yaw: 0.0}
+#     - {x: 3.0, y: 2.0, z: 0.0}
+#     - {x: 5.0, y: 2.0, z: 0.0, yaw: 90.0}   # survey runs North from here
 #
 # z IS STICKY. Omitting z holds the depth commanded by the PREVIOUS waypoint,
 # not the entry depth. So a dive waypoint followed by translation waypoints

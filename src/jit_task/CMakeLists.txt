@@ -20,6 +20,7 @@ find_package(tf2_ros REQUIRED)
 find_package(jit_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(robotx_comm REQUIRED)
+find_package(yaml-cpp REQUIRED)
 
 add_executable(waypoint_listener_node src/waypoint_listener_node.cpp)
 ament_target_dependencies(waypoint_listener_node
@@ -29,6 +30,13 @@ add_executable(task_node src/task_node.cpp)
 target_include_directories(task_node PRIVATE include)
 ament_target_dependencies(task_node
   rclcpp std_msgs geometry_msgs sensor_msgs jit_msgs robotx_comm)
+# Same pattern as jit_control's local_guided_node.
+if(TARGET yaml-cpp::yaml-cpp)
+  target_link_libraries(task_node yaml-cpp::yaml-cpp)
+else()
+  target_include_directories(task_node PRIVATE ${YAML_CPP_INCLUDE_DIR})
+  target_link_libraries(task_node ${YAML_CPP_LIBRARIES})
+endif()
 
 install(TARGETS waypoint_listener_node task_node DESTINATION lib/${PROJECT_NAME})
 

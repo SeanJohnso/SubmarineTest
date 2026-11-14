@@ -114,6 +114,22 @@
 // because an ascent leg commands a shallow depth while the vehicle is still
 // deep, and dropping the flag there would cut the motor rail halfway up.
 //
+// RISING AND THE SURFACE GRACE. Measured depth alone let the flag drop about
+// submerge_threshold_m below the surface, before ELRS had reconnected and the
+// CRSF node had seen RECOVER_HOLD_S of good link. Suppression then ended with
+// the link still down, the permit dropped and the relay opened at the end of
+// the ascent. So two more terms hold the flag:
+//
+//   rising         while RUNNING on a leg that commands a rise from a
+//                  submerged previous leg (see rise_from_depth).
+//   surface grace  for surface_grace_s after such a leg ends, by advancing or
+//                  by completing the mission on it.
+//
+// Holding the flag at the surface costs nothing once the link is back:
+// crsf_channel_node ends suppression on its own when the link is up and its FSM
+// is OK, and system_monitor_node's suppression only matters while the link is
+// down. The deadman clock keeps running through both terms.
+//
 // ---------------------------------------------------------------------------
 // RE-ENTRY
 // ---------------------------------------------------------------------------
@@ -240,6 +256,11 @@ public:
     // setpoints, re-arms the RC failsafe and lets the vehicle float up.
     // 0 disables the deadman - do not do that on a real dive.
     max_submerged_s_ = this->declare_parameter<double>("max_submerged_s", 120.0);
+
+    // How long the flag stays asserted after a rise from depth ends, so the RC
+    // link can reconnect and the CRSF node's recovery debounce can finish before
+    // the failsafe re-arms. See the header. Counts toward max_submerged_s.
+    surface_grace_s_ = this->declare_parameter<double>("surface_grace_s", 7.0);
 
     const auto t0 = rclcpp::Time(0, 0, this->get_clock()->get_clock_type());
     pose_stamp_ = mode_stamp_ = t0;
@@ -396,6 +417,10 @@ private:
           wp.z = item["z"].as<double>();
           wp.has_z = true;
         }
+        // `yaw` is deliberately not read. It exists only so task_node can take
+        // the survey heading from the final waypoint; no waypoint's yaw is ever
+        // a goal for the vehicle. The setpoint heading stays the bearing to the
+        // target.
         waypoints_.push_back(wp);
       }
 
@@ -495,6 +520,7 @@ private:
     waypoints_ = std::move(list);
     entry_z_ = pose_.pose.position.z;
     index_ = 0;
+    surface_grace_until_.reset();
     reached_flag_ = false;
     set_state(State::RUNNING, "task mission received");
 
@@ -546,6 +572,19 @@ private:
     return std::fabs(z_offset_for(idx) - prev) > kDepthLegEpsilon;
   }
 
+  // True when this leg is a submerged-to-shallower transition: the previous
+  // leg was commanded below submerge_threshold_m and this one commands a
+  // shallower depth. Compares commanded depths only, so it is a property of the
+  // list, like z_offset_for().
+  bool rise_from_depth(size_t idx) const
+  {
+    if (idx == 0 || idx >= waypoints_.size()) {
+      return false;
+    }
+    const double prev = z_offset_for(idx - 1);
+    return prev < -submerge_threshold_m_ && z_offset_for(idx) > prev + kDepthLegEpsilon;
+  }
+
   // ---- Mode transitions ----------------------------------------------------
   void on_mode_entry()
   {
@@ -576,6 +615,7 @@ private:
     datum_ = pose_.pose.position;
     entry_z_ = pose_.pose.position.z;
     index_ = 0;
+    surface_grace_until_.reset();
     reached_flag_ = false;
     set_state(State::RUNNING, "datum captured");
 
@@ -602,6 +642,7 @@ private:
     entry_z_ = pose_.pose.position.z;
     waypoints_.clear();
     index_ = 0;
+    surface_grace_until_.reset();
     reached_flag_ = false;
     set_state(State::HOLDING, "holding position, waiting for a task mission");
   }
@@ -612,6 +653,7 @@ private:
       set_state(State::IDLE, "left LOCAL_GUIDED");
     }
     index_ = 0;
+    surface_grace_until_.reset();
     reached_flag_ = false;
     if (task_source_) {
       waypoints_.clear();
@@ -742,6 +784,15 @@ private:
   void advance()
   {
     reached_flag_ = false;
+    // Leaving a rise from depth, whether to another leg or to COMPLETE: the
+    // vehicle is at the surface but the RC link may not be back yet.
+    if (rise_from_depth(index_)) {
+      surface_grace_until_ = this->now() + rclcpp::Duration::from_seconds(surface_grace_s_);
+      RCLCPP_INFO(
+        this->get_logger(),
+        "Rise from depth complete - holding nav/local/submerged for a %.1f s surface grace "
+        "while the RC link reconnects.", surface_grace_s_);
+    }
     if (index_ + 1 < waypoints_.size()) {
       ++index_;
       RCLCPP_INFO(this->get_logger(), "Advancing to waypoint %zu.", index_);
@@ -781,8 +832,25 @@ private:
       const bool meas_deep = fresh(pose_stamp_, pose_timeout_s_) &&
         (pose_.pose.position.z - entry_z_) < -submerge_threshold_m_;
 
-      want = cmd_deep || meas_deep;
-      why = cmd_deep ? (meas_deep ? "commanded and measured" : "commanded") : "measured";
+      // Rising: the current leg climbs from a submerged previous leg. Holds the
+      // flag for the whole ascent, including the last submerge_threshold_m
+      // where meas_deep has already let go. RUNNING only - in COMPLETE the
+      // index stays on the final leg, and the surface grace covers that.
+      const bool rising = state_ == State::RUNNING && rise_from_depth(index_);
+
+      // Surface grace: a bounded hold after a rise from depth has ended.
+      const bool grace = surface_grace_until_ && now < *surface_grace_until_;
+
+      want = cmd_deep || meas_deep || rising || grace;
+      if (cmd_deep) {
+        why = meas_deep ? "commanded and measured" : "commanded";
+      } else if (meas_deep) {
+        why = "measured";
+      } else if (rising) {
+        why = "rising from depth";
+      } else {
+        why = "surface grace";
+      }
     }
 
     if (want) {
@@ -909,6 +977,7 @@ private:
   double depth_radius_m_ {0.3};
   double submerge_threshold_m_ {0.2};
   double max_submerged_s_ {120.0};
+  double surface_grace_s_ {7.0};
   std::vector<Waypoint> waypoints_;      // the mission being flown
   std::vector<Waypoint> cached_mission_; // topic source: latest, applied at entry
   std::optional<std::vector<Waypoint>> pending_task_mission_;  // task source: next tick
@@ -937,6 +1006,9 @@ private:
   // cleared when it drops. Not a duration counter - one continuous stretch.
   bool submerged_ {false};
   std::optional<rclcpp::Time> submerged_since_;
+  // End of the surface grace after a rise from depth. Cleared at every start
+  // and exit of a run, so it never carries into the next one.
+  std::optional<rclcpp::Time> surface_grace_until_;
 
   // --- ROS interfaces ---
   rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr setpoint_pub_;

@@ -47,7 +47,7 @@ topics:
   # ---- shared -> sub ------------------------------------------------------
 
   # The mission list for waypoint_listener_node.
-  rviz/waypoints:
+  jit/waypoints:
     type: nav_msgs/msg/Path
 
   # All TF from the shared domain. waypoint_listener_node needs

@@ -59,7 +59,7 @@ WAYPOINT SOURCE
 ---------------
 ``waypoint_source:=file`` (default) flies ``waypoint_file`` as always.
 ``waypoint_source:=topic`` also starts ``waypoint_listener_node``, which takes a
-``nav_msgs/Path`` on ``/rviz/waypoints`` from another vessel, transforms it into
+``nav_msgs/Path`` on ``/jit/waypoints`` from another vessel, transforms it into
 the sub's local frame and stages it for ``local_guided_node``. Topic missions
 are surface-only: the depth is never taken from the topic. Either way a mission
 only starts on entry to LOCAL_GUIDED.
@@ -73,6 +73,14 @@ the launch sets ``hold_timeout_s`` to 0 so the final hold never times out, and
 records the sonar and navigation topics to ``~/jit_bags/`` unless
 ``record_bag:=false``.
 
+``task_list`` picks where a task run's surface list comes from. ``topic``
+(default) is the boat, as above. ``file`` reads ``waypoint_file`` - the same
+file a plain file run uses, no path needed - and does not start the listener.
+That file must be surface-only (any non-zero z rejects it) and its final
+waypoint must carry ``yaw``, the survey heading. The run starts 5 s after the
+sub holds in AUTO, and from there it is a real task to the boat: same active
+flag, same survey, same report.
+
 Usage:
     ros2 launch jit_bringup jit_bringup.launch.py
     ros2 launch jit_bringup jit_bringup.launch.py enable_control:=false
@@ -81,6 +89,7 @@ Usage:
     ros2 launch jit_bringup jit_bringup.launch.py enable_sonar:=false
     ros2 launch jit_bringup jit_bringup.launch.py waypoint_source:=task
     ros2 launch jit_bringup jit_bringup.launch.py waypoint_source:=task enable_survey:=true
+    ros2 launch jit_bringup jit_bringup.launch.py waypoint_source:=task task_list:=file enable_survey:=true
 
 This is the third of the sub's three launches, each in its own terminal:
 
@@ -146,9 +155,17 @@ def generate_launch_description():
         "waypoint_source",
         default_value="file",
         choices=["file", "topic", "task"],
-        description="Mission source for local_guided_node: waypoint_file, /rviz/waypoints "
+        description="Mission source for local_guided_node: waypoint_file, /jit/waypoints "
                     "from another vessel via waypoint_listener_node (surface-only), or "
                     "task: hold in AUTO, wait for a list, then run the pipeline survey.",
+    )
+    arg_task_list = DeclareLaunchArgument(
+        "task_list",
+        default_value="topic",
+        choices=["topic", "file"],
+        description="With waypoint_source:=task, where the surface list comes from: "
+                    "/jit/waypoints from the boat, or waypoint_file (surface-only, final "
+                    "waypoint carries the survey yaw). The survey and report are the same.",
     )
     arg_survey = DeclareLaunchArgument(
         "enable_survey",
@@ -261,12 +278,13 @@ def generate_launch_description():
     # cannot move the vehicle: the worst it can do is fail to stage a mission.
     listener_node = node(
         "jit_task", "waypoint_listener_node",
-        # The boat publishes on /rviz/waypoints. The node's own name for the
-        # topic stays jit/waypoints; this remap is the only place it changes.
-        remappings=[("jit/waypoints", "/rviz/waypoints")],
         respawn=True, respawn_delay=RESPAWN_DELAY_S,
+        # Not for a task run whose surface list comes from the file: a list from
+        # the boat must not be able to reach that run.
         condition=IfCondition(PythonExpression([
-            "'", LaunchConfiguration("waypoint_source"), "' in ('topic', 'task')",
+            "'", LaunchConfiguration("waypoint_source"), "' == 'topic' or ('",
+            LaunchConfiguration("waypoint_source"), "' == 'task' and '",
+            LaunchConfiguration("task_list"), "' == 'topic')",
         ])),
     )
 
@@ -277,7 +295,10 @@ def generate_launch_description():
         extra_params={
             "survey_enabled": ParameterValue(
                 LaunchConfiguration("enable_survey"), value_type=bool
-            )
+            ),
+            "list_source": LaunchConfiguration("task_list"),
+            # The same file a plain waypoint_source:=file run flies.
+            "waypoint_file": waypoints,
         },
         respawn=True, respawn_delay=RESPAWN_DELAY_S,
         condition=LaunchConfigurationEquals("waypoint_source", "task"),
@@ -336,6 +357,7 @@ def generate_launch_description():
         arg_params,
         arg_waypoints,
         arg_wp_source,
+        arg_task_list,
         arg_survey,
         arg_record_bag,
         arg_control,

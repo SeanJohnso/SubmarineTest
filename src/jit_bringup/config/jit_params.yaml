@@ -37,7 +37,7 @@ crsf_channel_node:
     # loss, whatever the topic says. Intentionally longer than
     # local_guided_node's max_submerged_s so the requester normally gives up
     # first and this only fires if that node is wrong or hung. Do not set 0.
-    max_link_loss_suppress_s: 150.0
+    max_link_loss_suppress_s: 210.0
 
 gpio_estop_node:
   ros__parameters:
@@ -260,7 +260,14 @@ local_guided_node:
     # this is the primary bound on the whole behaviour. On expiry the flag drops
     # and the mission ABORTs. Set this from the dive you actually intend to fly
     # plus a margin - not generously. 0 disables it; do not dive like that.
-    max_submerged_s: 30.0
+    max_submerged_s: 180.0
+    # After a rise from depth ends, keep the flag asserted this long so the RC
+    # link can reconnect before the failsafe re-arms. Without it the flag
+    # dropped ~submerge_threshold_m below the surface and the relay opened at
+    # the end of the ascent. Free once the link is back - the CRSF node ends
+    # suppression by itself. COUNTS TOWARD max_submerged_s: the whole dive plus
+    # this grace must fit under the deadman.
+    surface_grace_s: 14.0
     # Inside this distance the bearing to the target is mostly estimator noise,
     # so hold the last commanded heading instead of spinning.
     yaw_hold_radius_m: 0.5
@@ -293,13 +300,24 @@ task_node:
     # Depth below the surface for the traverse, and the traverse length along
     # the final waypoint's heading. Dive, traverse and rise must all fit inside
     # local_guided_node's max_submerged_s.
-    survey_depth_m: 0.4
-    survey_length_m: 1.0
+    survey_depth_m: 1.0
+    survey_length_m: 7.0
     # Upper limits. Values above these fail the task before it dives.
     max_survey_depth_m: 5.0
     max_survey_length_m: 30.0
     # Hold at the end of the surface path for this long before diving.
-    settle_s: 3.0
+    predive_settle_s: 8.0
+
+    # --- Surface list source ---
+    # list_source and waypoint_file are set by the launch file (task_list).
+    # With the file source, how long local_guided_node must be HOLDING before
+    # the file list is sent.
+    start_settle_s: 30.0
+    # Must match local_guided_node's local_frame. A file list is sent in it.
+    local_frame: jit/local_origin
+    # The GPS fix stored at the end of the surface path as the buoy position
+    # in the report must be no older than this.
+    gps_timeout_s: 2.0
 
     # --- Stabilized check, which sets the heartbeat back to task 1 ---
     # Surfaced and within stabilize_radius_m of the final point, continuously
@@ -309,19 +327,23 @@ task_node:
     stabilize_timeout_s: 30.0
 
     # local_guided_node must report RUNNING within this long of being sent a list.
-    start_timeout_s: 3.0
-    mode_timeout_s: 0.5
-    status_timeout_s: 1.0
-    pose_timeout_s: 1.0
-    submerged_timeout_s: 0.5
+    start_timeout_s: 10.0
+    mode_timeout_s: 1.5
+    status_timeout_s: 2.0
+    pose_timeout_s: 2.0
+    submerged_timeout_s: 2.5
     tick_hz: 10.0
+    # jit/task/active is republished at this rate in every state and mode, and
+    # at once on every change.
+    active_rate_hz: 1.0
 
     # --- Pipeline survey report ---
     # Sent once per run on report_topic, report_delay_s after the task ends,
-    # whether it ends DONE or FAILED. One value per segment, in order:
-    # 0 unknown, 1 intact (green), 2 damaged (red). This is a guess - the
-    # segments are not detected.
-    report_delay_s: 15.0
+    # whether it ends DONE or FAILED. Reliable and transient local (latched),
+    # so a boat that connects after the send still receives it.
+    # One value per segment, in order: 0 unknown, 1 intact (green),
+    # 2 damaged (red). This is a guess - the segments are not detected.
+    report_delay_s: 2.0
     report_topic: /robotx_comm/jit/tx_pipeline
     report_segments: [1, 1, 2, 1]
 
